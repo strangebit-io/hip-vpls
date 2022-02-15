@@ -1,6 +1,6 @@
 # About
 
-Virtual Private LAN Services are common place in modern networking comunity. 
+Virtual Private LAN Services are common place in modern networking. 
 This repository contains implementation of VPLS based on Host Identity Protocol.
 
 # Introduction
