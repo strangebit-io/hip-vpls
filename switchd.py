@@ -40,6 +40,8 @@ from math import ceil, floor
 import sys
 # Exit handler
 import atexit
+# Timing 
+from time import sleep
 
 from numpy import byte
 # Import HIP library
@@ -87,46 +89,55 @@ ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 # Open raw ethernet socket and bind it to the interface
 ETH_P_ALL = 3
 ether_socket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL));
-s.bind((config["swtich"]["interface"], 0))
+ether_socket.bind((hip_config["swtich"]["interface"], 0))
 
 # Initialize FIB
-fib = FIB(config["swtich"]["mesh"])
+fib = FIB(hip_config["swtich"]["mesh"])
 
 # Register exit handler
 atexit.register(hiplib.exit_handler, hip_socket);
 
 def hip_loop():
     while True:
-        packet = bytearray(hip_socket.recv(3000))
-        hiplib.process_hip_packet(hip_socket, packet);
+        packet = bytearray(hip_socket.recv(1524))
+        packets = hiplib.process_hip_packet(packet);
+        for (packet, dest) in packets:
+            hip_socket.sendto(packet, dest)
 
 def ip_sec_loop():
     while True:
-        packet = bytearray(ip_sec_socket.recv(3000));
-        frame = hiplib.process_ip_sec_packet(packet)
+        packet = bytearray(ip_sec_socket.recv(1524));
+        (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
         ether_socket.send(frame);
+        fib.set_next_hop(frame.get_source(), src, dst);
 
 def ether_loop():
     while True:
-        buf = bytearray(ether_socket.recv(3000));
+        buf = bytearray(ether_socket.recv(1524));
         frame = Ethernet.EthernetFrame(buf);
         dst_mac = frame.get_destination();
-        src_mac = frame.get_source();
-        mesh = fib.get_next_hop(src_mac, dst_mac);
-        for hits in mesh:
-            hiplib.process_l2_frame(frame, hist[0], hits[1], hip_socket, ip_sec_socket);
+        mesh = fib.get_next_hop(dst_mac);
+        for (ihit, rhit) in mesh:
+            packets = hiplib.process_l2_frame(frame, ihit, rhit);
+            for (hip, packet, dest) in packets:
+                if not hip:
+                    ip_sec_socket.sendto(packet, dest)
+                else:
+                    hip_socket.sendto(packet, dest)
 
 hip_th_loop = threading.Thread(target = hip_loop, args = (), daemon = True);
 ip_sec_th_loop = threading.Thread(target = ip_sec_loop, args = (), daemon = True);
-tun_if_th_loop = threading.Thread(target = tun_if_loop, args = (), daemon = True);
+ether_if_th_loop = threading.Thread(target = ether_loop, args = (), daemon = True);
 
 logging.info("Starting the CuteHIP");
 
 hip_th_loop.start();
 ip_sec_th_loop.start();
-tun_if_th_loop.start();
-
+ether_if_th_loop.start();
 
 def run_swtich():
-	sleep(10);
+    packets = hiplib.maintenance();
+    for (packet, dest) in packets:
+        hip_socket.sendto(packet, dest)
+    sleep(10);
 

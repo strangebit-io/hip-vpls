@@ -36,7 +36,8 @@ class EthernetFrame():
     def __init__(self, buffer = None):
         self.buffer = buffer;
     def get_type(self):
-        return self.buffer[ETH_TYPE_OFFSET:ETH_TYPE_OFFSET + ETH_TYPE_LENGTH];
+        buf = self.buffer[ETH_TYPE_OFFSET:ETH_TYPE_OFFSET + ETH_TYPE_LENGTH];
+        return ((buf[1] << 8) & 0xFF00 | buf[0] & 0xFF)
     def set_type(self, type):
         pass
     def get_destination(self):

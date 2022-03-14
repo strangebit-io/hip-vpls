@@ -22,17 +22,18 @@ class FIB():
         for mesh_pair in pairs:
             parts = mesh_pair.split(" ")
             self.fib_broadcast.append((parts[0], parts[1]));
-    def get_next_hop(self, smac, dmac):
+    def get_next_hop(self, dmac):
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
             and dmac[0] == 0xFF and dmac[0] == 0xFF and dmac[0] == 0xFF:
             return self.fib_broadcast;
         # Multicast address
-        #if dmac[5] == 0x01 and dmac[4] == 0x00 and dmac[3] == 0x5E:
+        if dmac[5] == 0x01 and dmac[4] == 0x00 and dmac[3] == 0x5E:
         #    macs = []
         #    for mac in self.fib_unicast:
         #        if 
         #    retrun macs
+            return self.fib_broadcast;
         # Unicast
         for mac in self.fib_unicast.keys():
             if mac == dmac:

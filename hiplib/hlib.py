@@ -126,8 +126,8 @@ class HIPLib():
                 raise Exception("Invalid hash algorithm. Must be 0x2")
             self.pubkey = ECDSAPublicKey.load_pem(self.config["security"]["public_key"]);
             self.privkey = ECDSAPrivateKey.load_pem(self.config["security"]["private_key"]);
-            logging.debug(pubkey.get_key_info());
-            self.hi = ECDSAHostID(self.pubkey.get_curve_id(), pubkey.get_x(), self.pubkey.get_y());
+            logging.debug(self.pubkey.get_key_info());
+            self.hi = ECDSAHostID(self.pubkey.get_curve_id(), self.pubkey.get_x(), self.pubkey.get_y());
             self.ipv6_address = HIT.get_hex_formated(self.hi.to_byte_array(), HIT.SHA384_OGA);
             logging.debug(list(self.hi.to_byte_array()));
             own_hit = HIT.get(self.hi.to_byte_array(), HIT.SHA384_OGA);
@@ -143,7 +143,7 @@ class HIPLib():
             self.ipv6_address = HIT.get_hex_formated(self.hi.to_byte_array(), HIT.SHA1_OGA);
             self.own_hit = HIT.get(self.hi.to_byte_array(), HIT.SHA1_OGA);
         else:
-	        raise Exception("Unsupported Host ID algorithm")
+            raise Exception("Unsupported Host ID algorithm")
         #logging.debug("Configuring TUN interface");
         # Configure TUN interface
         #logging.info("Configuring TUN device");
@@ -152,7 +152,8 @@ class HIPLib():
         # Configure routes
         #self.routing.Routing.add_hip_default_route();
         # Storage
-        logging.debug("Configuring state machine and storage");
+
+        #logging.debug("Configuring state machine and storage");
         self.hip_state_machine = HIPState.StateMachine();
         self.keymat_storage    = HIPState.Storage();
         self.dh_storage        = HIPState.Storage();
@@ -160,6 +161,7 @@ class HIPLib():
         self.pubkey_storage    = HIPState.Storage();
         self.state_variables   = HIPState.Storage();
         self.key_info_storage  = HIPState.Storage();
+        self.esp_transform_storage = HIPState.Storage();
 
         if self.config["general"]["rekey_after_packets"] > ((2<<32)-1):
             self.config["general"]["rekey_after_packets"] = (2<<32)-1;
@@ -172,6 +174,7 @@ class HIPLib():
         logging.info("Starting the HIP loop");
 
         try:
+            response = [];
             # IP reassmebly is done automatically so we can read large enough packets
             #buf = bytearray(hip_socket.recv(4*MTU));
             ipv4_packet = IPv4.IPv4Packet(packet);
@@ -211,10 +214,10 @@ class HIPLib():
                 return;
 
             # Check wether the destination address is our own HIT
-            if not Utils.hits_equal(rhit, own_hit) and not Utils.hits_equal(rhit, [0] * 16):
+            if not Utils.hits_equal(rhit, self.own_hit) and not Utils.hits_equal(rhit, [0] * 16):
                 logging.critical("Not our HIT");
                 logging.critical(Utils.ipv6_bytes_to_hex_formatted(rhit));
-                logging.critical(Utils.ipv6_bytes_to_hex_formatted(own_hit));
+                logging.critical(Utils.ipv6_bytes_to_hex_formatted(self.own_hit));
                 return;
 
             # https://tools.ietf.org/html/rfc7401#section-5
@@ -328,10 +331,10 @@ class HIPLib():
 
                 # HIP host ID parameter
                 hi_param = HIP.HostIdParameter();
-                hi_param.set_host_id(hi);
+                hi_param.set_host_id(self.hi);
                 # It is important to set domain ID after host ID was set
-                logging.debug(di);
-                hi_param.set_domain_id(di);
+                logging.debug(self.di);
+                hi_param.set_domain_id(self.di);
 
                 # HIP HIT suit list parameter
                 hit_suit_param = HIP.HITSuitListParameter();
@@ -414,10 +417,11 @@ class HIPLib():
                 ipv4_packet.set_payload(hip_r1_packet.get_buffer());
                 # Send the packet
                 dst_str = Utils.ipv4_bytes_to_string(dst);
-                logging.debug("Sending R1 packet to %s %f" % (dst_str, (time.time() - st)));
-                hip_socket.sendto(
-                    bytearray(ipv4_packet.get_buffer()), 
-                    (dst_str.strip(), 0));
+                #logging.debug("Sending R1 packet to %s %f" % (dst_str, (time.time() - st)));
+                #hip_socket.sendto(
+                #    bytearray(ipv4_packet.get_buffer()), 
+                #    (dst_str.strip(), 0));
+                response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 # Stay in current state
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
                 logging.info("R1 packet");
@@ -505,7 +509,7 @@ class HIPLib():
                         responders_hit = HIT.get(responder_hi.to_byte_array(), oga);
                         logging.debug(list(responders_hit))
                         logging.debug(list(ihit))
-                        logging.debug(list(own_hit))
+                        logging.debug(list(self.own_hit))
                         if not Utils.hits_equal(ihit, responders_hit):
                             logging.critical("Invalid HIT");
                             raise Exception("Invalid HIT");
@@ -542,11 +546,11 @@ class HIPLib():
                         signature_param = parameter;
                     if isinstance(parameter, HIP.EchoRequestSignedParameter):
                         logging.debug("Echo request signed parameter");
-                        echo_signed = EchoResponseSignedParameter();
+                        echo_signed = HIP.EchoResponseSignedParameter();
                         echo_signed.add_opaque_data(parameter.get_opaque_data());
                     if isinstance(parameter, HIP.EchoRequestUnsignedParameter):
                         logging.debug("Echo request unsigned parameter");
-                        echo_unsigned_param = EchoResponseUnsignedParameter();
+                        echo_unsigned_param = HIP.EchoResponseUnsignedParameter();
                         echo_unsigned_param.add_opaque_data(parameter.get_opaque_data());
                         echo_unsigned.append(echo_unsigned_param);
                     if isinstance(parameter, HIP.CipherParameter):
@@ -714,6 +718,13 @@ class HIPLib():
                     raise Exception("Unsupported ESP transform suit");
 
                 if Utils.is_hit_smaller(rhit, ihit):
+                    self.esp_transform_storage.save(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(ihit), [selected_esp_transform]);
+                else:
+                    self.esp_transform_storage.save(Utils.ipv6_bytes_to_hex_formatted(ihit), 
+						Utils.ipv6_bytes_to_hex_formatted(rhit), [selected_esp_transform]);
+
+                if Utils.is_hit_smaller(rhit, ihit):
                     self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                         Utils.ipv6_bytes_to_hex_formatted(ihit), selected_cipher);
                 else:
@@ -769,8 +780,8 @@ class HIPLib():
                 # https://tools.ietf.org/html/rfc7402#section-7
 
                 hi_param = HIP.HostIdParameter();
-                hi_param.set_host_id(hi);
-                hi_param.set_domain_id(di);
+                hi_param.set_host_id(self.hi);
+                hi_param.set_domain_id(self.di);
 
                 transport_param = HIP.TransportListParameter();
                 transport_param.add_transport_formats(self.config["security"]["supported_transports"]);
@@ -833,12 +844,12 @@ class HIPLib():
                 hip_i2_packet.set_length(int(packet_length / 8));
                 buf = hip_i2_packet.get_buffer() + buf;
                 #signature_alg = RSASHA256Signature(privkey.get_key_info());
-                if isinstance(privkey, RSAPrivateKey):
-                    signature_alg = RSASHA256Signature(privkey.get_key_info());
-                elif isinstance(privkey, ECDSAPrivateKey):
-                    signature_alg = ECDSASHA384Signature(privkey.get_key_info());
-                elif isinstance(privkey, ECDSALowPrivateKey):
-                    signature_alg = ECDSASHA1Signature(privkey.get_key_info());
+                if isinstance(self.privkey, RSAPrivateKey):
+                    signature_alg = RSASHA256Signature(self.privkey.get_key_info());
+                elif isinstance(self.privkey, ECDSAPrivateKey):
+                    signature_alg = ECDSASHA384Signature(self.privkey.get_key_info());
+                elif isinstance(self.privkey, ECDSALowPrivateKey):
+                    signature_alg = ECDSASHA1Signature(self.privkey.get_key_info());
 
                 signature = signature_alg.sign(bytearray(buf));
 
@@ -915,9 +926,10 @@ class HIPLib():
                 logging.debug(list(ipv4_packet.get_buffer()));
 
                 logging.debug("Sending I2 packet to %s %d" % (dst_str, len(ipv4_packet.get_buffer())));
-                hip_socket.sendto(
-                    bytearray(ipv4_packet.get_buffer()), 
-                    (dst_str.strip(), 0));
+                #hip_socket.sendto(
+                #    bytearray(ipv4_packet.get_buffer()), 
+                #    (dst_str.strip(), 0));
+                response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
@@ -1068,6 +1080,7 @@ class HIPLib():
                         logging.debug("Dropping I2 packet...");
                         return;
 
+                r_hash = HIT.get_responders_hash_algorithm(rhit);
                 jrandom = solution_param.get_solution(r_hash.LENGTH);
                 irandom = solution_param.get_random(r_hash.LENGTH);
                 if not PuzzleSolver.verify_puzzle(
@@ -1075,7 +1088,7 @@ class HIPLib():
                     jrandom, 
                     hip_packet.get_senders_hit(), 
                     hip_packet.get_receivers_hit(), 
-                    puzzle_param.get_k_value(), r_hash):
+                    solution_param.get_k_value(), r_hash):
                     logging.debug("Puzzle was not solved....");
                     return;
                 logging.debug("Puzzle was solved");
@@ -1317,12 +1330,12 @@ class HIPLib():
                 hip_r2_packet.set_length(int(packet_length / 8));
                 buf = hip_r2_packet.get_buffer() + buf;
                 #signature_alg = RSASHA256Signature(privkey.get_key_info());
-                if isinstance(privkey, RSAPrivateKey):
-                    signature_alg = RSASHA256Signature(privkey.get_key_info());
-                elif isinstance(privkey, ECDSAPrivateKey):
-                    signature_alg = ECDSASHA384Signature(privkey.get_key_info());
-                elif isinstance(privkey, ECDSALowPrivateKey):
-                    signature_alg = ECDSASHA1Signature(privkey.get_key_info());
+                if isinstance(self.privkey, RSAPrivateKey):
+                    signature_alg = RSASHA256Signature(self.privkey.get_key_info());
+                elif isinstance(self.privkey, ECDSAPrivateKey):
+                    signature_alg = ECDSASHA384Signature(self.privkey.get_key_info());
+                elif isinstance(self.privkey, ECDSALowPrivateKey):
+                    signature_alg = ECDSASHA1Signature(self.privkey.get_key_info());
 
                 signature = signature_alg.sign(bytearray(buf));
 
@@ -1375,9 +1388,10 @@ class HIPLib():
                     or hip_state.is_closed()):
                     hip_state.r2_sent();
                     logging.debug("Sending R2 packet to %s %f" % (dst_str, time.time() - st));
-                    hip_socket.sendto(
-                        bytearray(ipv4_packet.get_buffer()), 
-                        (dst_str.strip(), 0));
+                    #hip_socket.sendto(
+                    #    bytearray(ipv4_packet.get_buffer()), 
+                    #    (dst_str.strip(), 0));
+                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
 
                 logging.debug("Setting SA records...");
 
@@ -1404,13 +1418,13 @@ class HIPLib():
                 #sa_record = SA.SecurityAssociationRecord(selected_cipher, hmac_alg, aes_key, hmac_key, rhit, ihit);
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
                 sa_record.set_spi(initiators_spi);
-                ip_sec_sa.add_record(dst_str, src_str, sa_record);
+                self.ip_sec_sa.add_record(dst_str, src_str, sa_record);
                 
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
                         Utils.ipv6_bytes_to_hex_formatted(ihit));
                 else:
-                    sv = state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
                         Utils.ipv6_bytes_to_hex_formatted(rhit));
                 
                 sv.ec_complete_timeout = time.time() + self.config["general"]["EC"];
@@ -1433,10 +1447,10 @@ class HIPLib():
                 hmac_alg  = HIT.get_responders_oga_id(ihit);
 
                 if Utils.is_hit_smaller(rhit, ihit):
-                    cipher_alg = cipher_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                    cipher_alg = self.cipher_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                         Utils.ipv6_bytes_to_hex_formatted(ihit));
                 else:
-                    cipher_alg = cipher_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
+                    cipher_alg = self.cipher_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                         Utils.ipv6_bytes_to_hex_formatted(rhit));
 
                 if Utils.is_hit_smaller(rhit, ihit):
@@ -1449,7 +1463,7 @@ class HIPLib():
                 #keymat = keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                 #	Utils.ipv6_bytes_to_hex_formatted(rhit));
 
-                (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, selected_cipher, rhit, ihit);
+                (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, rhit, ihit);
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
                 parameters       = hip_packet.get_parameters();
                 
@@ -1541,6 +1555,14 @@ class HIPLib():
 
                 logging.debug("Setting SA records... %s - %s" % (src_str, dst_str));
 
+                if Utils.is_hit_smaller(rhit, ihit):
+                    selected_esp_transform = self.esp_transform_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(ihit))[0];
+                else:
+                    selected_esp_transform = self.esp_transform_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
+                        Utils.ipv6_bytes_to_hex_formatted(rhit))[0];
+
+                selected_esp_transform = self.esp_transform_storage.get()
                 (cipher, hmac) = ESPTransformFactory.get(selected_esp_transform);
 
                 logging.debug(hmac.ALG_ID);
@@ -1553,7 +1575,7 @@ class HIPLib():
                     ihit, rhit);
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, dst, src);
                 sa_record.set_spi(responders_spi);
-                ip_sec_sa.add_record(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                self.ip_sec_sa.add_record(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit), sa_record);
 
                 (cipher_key, hmac_key) = Utils.get_keys_esp(
@@ -1741,11 +1763,11 @@ class HIPLib():
                 hip_update_packet.add_parameter(mac_param);
 
                 if isinstance(self.privkey, RSAPrivateKey):
-                    signature_alg = RSASHA256Signature(privkey.get_key_info());
+                    signature_alg = RSASHA256Signature(self.privkey.get_key_info());
                 elif isinstance(self.privkey, ECDSAPrivateKey):
-                    signature_alg = ECDSASHA384Signature(privkey.get_key_info());
+                    signature_alg = ECDSASHA384Signature(self.privkey.get_key_info());
                 elif isinstance(self.privkey, ECDSALowPrivateKey):
-                    signature_alg = ECDSASHA1Signature(privkey.get_key_info());
+                    signature_alg = ECDSASHA1Signature(self.privkey.get_key_info());
 
                 signature = signature_alg.sign(bytearray(hip_update_packet.get_buffer()));
 
@@ -1783,9 +1805,11 @@ class HIPLib():
                 src_str = Utils.ipv4_bytes_to_string(src);
                 
                 logging.debug("Sending UPDATE ACK packet %s" % (dst_str));
-                hip_socket.sendto(
-                    bytearray(ipv4_packet.get_buffer()), 
-                    (dst_str.strip(), 0));
+                #hip_socket.sendto(
+                #    bytearray(ipv4_packet.get_buffer()), 
+                #    (dst_str.strip(), 0));
+
+                response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
 
                 if hip_state.is_r2_sent():
                     hip_state.established();
@@ -1984,9 +2008,10 @@ class HIPLib():
                 src_str = Utils.ipv4_bytes_to_string(src);
                 
                 logging.debug("Sending CLOSE ACK packet %s" % (dst_str));
-                hip_socket.sendto(
-                    bytearray(ipv4_packet.get_buffer()), 
-                    (dst_str.strip(), 0));
+                #hip_socket.sendto(
+                #    bytearray(ipv4_packet.get_buffer()), 
+                #    (dst_str.strip(), 0));
+                response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 if hip_state.is_r2_sent() or hip_state.is_established() or hip_state.is_i2_sent() or hip_state.is_closing():
                     hip_state.closed();
                     if Utils.is_hit_smaller(rhit, ihit):
@@ -2004,11 +2029,13 @@ class HIPLib():
                 if hip_state.is_closing() or hip_state.is_closed():
                     logging.debug("Moving to unassociated state...");
                     hip_state.unassociated();
+            return response;
         except Exception as e:
             # We need more inteligent handling of exceptions here
             logging.critical("Exception occured. Dropping packet HIPv2.")
             logging.critical(e);
             traceback.print_exc()
+        return []
 
     def process_ip_sec_packet(self, packet):
         """
@@ -2083,8 +2110,8 @@ class HIPLib():
             #logging.debug("Decrypted padded data");
             #logging.debug(decrypted_data);
 
-            unpadded_data  = IPSec.IPSecUtils.unpad(cipher.BLOCK_SIZE, decrypted_data);
-            next_header    = IPSec.IPSecUtils.get_next_header(decrypted_data);
+            frame  = IPSec.IPSecUtils.unpad(cipher.BLOCK_SIZE, decrypted_data);
+            #next_header    = IPSec.IPSecUtils.get_next_header(decrypted_data);
             
             # Send IPv6 packet to destination
             #ipv6_packet = IPv6.IPv6Packet();
@@ -2107,15 +2134,16 @@ class HIPLib():
             hip_state.established();
             #logging.debug("Sending IPv6 packet to %s" % (Utils.ipv6_bytes_to_hex_formatted(ihit)));
             #hip_tun.write(bytearray(ipv6_packet.get_buffer()));
-            return unpadded_data;
+            return (frame, rhit, ihit);
 
         except Exception as e:
             logging.critical("Exception occured. Dropping IPSec packet.");
             logging.critical(e);
             traceback.print_exc();
 
-    def process_l2_frame(self, frame, shit, rhit, hip_socket, ip_sec_socket):
+    def process_l2_frame(self, frame, ihit, rhit):
         try:
+            response = [];
             #buf = hip_tun.read(MTU);
             #logging.info("Got packet on TUN interface %s bytes" % (len(buf)));
             #packet = IPv6.IPv6Packet(buf);
@@ -2142,12 +2170,12 @@ class HIPLib():
                 logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));
 
                 # Resolve the HIT code can be improved
-                if not hit_resolver.resolve(Utils.ipv6_bytes_to_hex_formatted(rhit)):
+                if not self.hit_resolver.resolve(Utils.ipv6_bytes_to_hex_formatted(rhit)):
                     logging.critical("Cannot resolve HIT to IPv4 address");
-                    return;
+                    return [];
 
                 # Convert bytes to string representation of IPv6 address
-                dst_str = hit_resolver.resolve(
+                dst_str = self.hit_resolver.resolve(
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
                 dst = Math.int_to_bytes(
                     Utils.ipv4_to_int(dst_str));
@@ -2189,8 +2217,8 @@ class HIPLib():
 
                 # Send HIP I1 packet to destination
                 logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
-                hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0));
-
+                #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0));
+                response.append((False, bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 # Transition to an I1-Sent state
                 hip_state.i1_sent();
 
@@ -2219,7 +2247,7 @@ class HIPLib():
                 # IPv6 fields
                 rhit_str    = Utils.ipv6_bytes_to_hex_formatted(rhit);
                 ihit_str    = Utils.ipv6_bytes_to_hex_formatted(ihit);
-                next_header = packet.get_next_header();
+                #next_header = packet.get_next_header();
                 data        = list(frame.get_buffer());
 
                 if Utils.is_hit_smaller(rhit, ihit):
@@ -2251,7 +2279,7 @@ class HIPLib():
                 logging.debug("IV");
                 logging.debug(iv);
 
-                padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, next_header);
+                padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 0x0);
                 logging.debug("Length of the padded data %d" % (len(padded_data)));
 
                 encrypted_data = cipher.encrypt(cipher_key, bytearray(iv), bytearray(padded_data));
@@ -2286,17 +2314,21 @@ class HIPLib():
 
                 logging.debug("Sending IPSEC packet to %s %d bytes" % (Utils.ipv4_bytes_to_string(dst), len(ipv4_packet.get_buffer())));
 
-                ip_sec_socket.sendto(
-                    bytearray(ipv4_packet.get_buffer()), 
-                    (Utils.ipv4_bytes_to_string(dst), 0));
+                #ip_sec_socket.sendto(
+                #    bytearray(ipv4_packet.get_buffer()), 
+                #    (Utils.ipv4_bytes_to_string(dst), 0));
+                response.append((True, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
             else:
                 logging.debug("Unknown state reached....");
+            return response;
         except Exception as e:
             logging.critical("Exception occured while processing packet from TUN interface. Dropping the packet.");
             logging.critical(e);
             traceback.print_exc()
+        return [];
 
-    def exit_handler(self, hip_socket):
+    def exit_handler(self):
+        response = []
         for key in self.state_variables.keys():
             logging.debug("Sending close packet....");
             sv = self.state_variables.get_by_key(key);
@@ -2404,12 +2436,15 @@ class HIPLib():
             src_str = Utils.ipv4_bytes_to_string(sv.src);
                     
             logging.debug("Sending CLOSE PACKET packet %s" % (dst_str));
-            hip_socket.sendto(
-                bytearray(ipv4_packet.get_buffer()), 
-                (dst_str, 0));
+            response.append((bytearray(ipv4_packet.get_buffer()), (dst_str, 0)))
+            #hip_socket.sendto(
+            #    bytearray(ipv4_packet.get_buffer()), 
+            #    (dst_str, 0));
+        return response;
 
-    def maintenance(self, hip_socket):
-        for key in state_variables.keys():
+    def maintenance(self):
+        response = []
+        for key in self.state_variables.keys():
             sv = self.state_variables.get_by_key(key);
             if Utils.is_hit_smaller(sv.rhit, sv.ihit):
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
@@ -2517,16 +2552,12 @@ class HIPLib():
                     src_str = Utils.ipv4_bytes_to_string(sv.src);
                             
                     logging.debug("Sending CLOSE PACKET packet %s" % (dst_str));
-                    hip_socket.sendto(
-                        bytearray(ipv4_packet.get_buffer()), 
-                        (dst_str, 0));
-
+                    #hip_socket.sendto(
+                    #    bytearray(ipv4_packet.get_buffer()), 
+                    #    (dst_str, 0));
+                    response.append((bytearray(ipv4_packet.get_buffer())), (dst_str, 0))
                     hip_state.closing();
-
                     sv.closing_timeout = time.time() + self.config["general"]["UAL"] + self.config["general"]["MSL"];
-
-                    return;
-
                 if time.time() >= sv.update_timeout:
                     sv.update_timeout = time.time() + self.config["general"]["update_timeout_s"];
                     if Utils.is_hit_smaller(sv.rhit, sv.ihit):
@@ -2623,9 +2654,10 @@ class HIPLib():
                     src_str = Utils.ipv4_bytes_to_string(sv.src);
                     
                     logging.debug("Sending UPDATE PACKET packet %s" % (dst_str));
-                    hip_socket.sendto(
-                        bytearray(ipv4_packet.get_buffer()), 
-                        (dst_str, 0));
+                    #hip_socket.sendto(
+                    #    bytearray(ipv4_packet.get_buffer()), 
+                    #    (dst_str, 0));
+                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str, 0)))
             elif hip_state.is_i1_sent():
                 if time.time() >= sv.i1_timeout:
                     sv.i1_timeout = time.time() + self.config["general"]["i1_timeout_s"];
@@ -2664,8 +2696,8 @@ class HIPLib():
 
                     # Send HIP I1 packet to destination
                     logging.debug("Sending I1 packet to %s" % (dst_str));
-                    hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0))
-
+                    #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0))
+                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                     sv.i1_retries += 1;
                     if sv.i1_retries > self.config["general"]["i1_retries"]:
                         hip_state.failed();
@@ -2675,7 +2707,8 @@ class HIPLib():
                     dst_str = Utils.ipv4_bytes_to_string(sv.dst);
                     # Send HIP I2 packet to destination
                     logging.debug("Sending I2 packet to %s" % (dst_str));
-                    hip_socket.sendto(bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0))
+                    #hip_socket.sendto(bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0))
+                    response.append((bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0)))
                     sv.i2_retries += 1;
                     if sv.i2_retries > self.config["general"]["i2_retries"]:
                         hip_state.failed();
@@ -2777,9 +2810,10 @@ class HIPLib():
                     src_str = Utils.ipv4_bytes_to_string(sv.src);
                             
                     logging.debug("Sending CLOSE PACKET packet %s" % (dst_str));
-                    hip_socket.sendto(
-                        bytearray(ipv4_packet.get_buffer()), 
-                        (dst_str.strip(), 0));
+                    #hip_socket.sendto(
+                    #    bytearray(ipv4_packet.get_buffer()), 
+                    #    (dst_str.strip(), 0));
+                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 else:
                     logging.debug("Transitioning to UNASSOCIATED state....")
                     hip_state.unassociated();
@@ -2791,5 +2825,6 @@ class HIPLib():
                 if sv.failed_timeout <= time.time():
                     logging.debug("Transitioning to UNASSOCIATED state...");
                     hip_state.unassociated();
+        return response
 
 
