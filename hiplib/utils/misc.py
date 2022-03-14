@@ -190,8 +190,8 @@ class Math():
 		# a = 1, b = 0
 		return a;
 
-import crypto
-from crypto.factory import HMACFactory, SymmetricCiphersFactory
+import hiplib.crypto
+from hiplib.crypto.factory import HMACFactory, SymmetricCiphersFactory
 
 class Utils():
 	"""

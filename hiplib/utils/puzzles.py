@@ -16,9 +16,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from os import urandom
 
-from crypto import digest
+from hiplib.crypto import digest
 from math import floor, pow
-from packets import HIP
+from hiplib.packets import HIP
 
 BITS_IN_BYTE = 8;
 

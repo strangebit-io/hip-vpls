@@ -24,15 +24,15 @@ sys.path.append(os.getcwd())
 import logging 
 
 # Crypto libraries
-import crypto
+import hiplib.crypto
 
-from crypto.ecdh import ECDHSECP160R1, ECDHNIST521, ECDHNIST384, ECDHNIST256
-from crypto.dh import DH5, DH15
-from crypto.symmetric import AES128CBCCipher, AES256CBCCipher, NullCipher
-from crypto.digest import SHA256HMAC, SHA384HMAC, SHA1HMAC
+from hiplib.crypto.ecdh import ECDHSECP160R1, ECDHNIST521, ECDHNIST384, ECDHNIST256
+from hiplib.crypto.dh import DH5, DH15
+from hiplib.crypto.symmetric import AES128CBCCipher, AES256CBCCipher, NullCipher
+from hiplib.crypto.digest import SHA256HMAC, SHA384HMAC, SHA1HMAC
 
-import packets
-from packets import IPSec
+import hiplib.packets
+from hiplib.packets import IPSec
 
 class DHFactory():
 	@staticmethod

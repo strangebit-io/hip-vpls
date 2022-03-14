@@ -21,13 +21,13 @@ import sys
 import os
 sys.path.append(os.getcwd())
 
-import utils
+import hiplib.utils
 #from utils.misc import misc.Math, misc.ECPoint
-from utils import misc
+from hiplib.utils import misc
 from binascii import unhexlify
 from os import urandom
-import crypto
-from crypto.dh import DH
+import hiplib.crypto
+from hiplib.crypto.dh import DH
 
 #https://tools.ietf.org/html/rfc4753#section-3.1
 

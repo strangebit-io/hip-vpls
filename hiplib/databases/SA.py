@@ -23,11 +23,11 @@ sys.path.append(os.getcwd())
 import logging
 
 # Crypto stuff
-import crypto
-from crypto import factory
+import hiplib.crypto
+from hiplib.crypto import factory
 
-import utils
-from utils import misc;
+import hiplib.utils
+from hiplib.utils import misc;
 
 class SecurityAssociationRecord():
 	def __init__(self, aes_alg, hmac_alg, aes_key, hmac_key, src, dst):

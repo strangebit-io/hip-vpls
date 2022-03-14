@@ -19,7 +19,7 @@ import sys
 import os
 sys.path.append("../");
 
-from network.pytun import TunTunnel
+from hiplib.network.pytun import TunTunnel
 from time import sleep
 
 PSEUDO_HEADER_SIZE = 0x4;

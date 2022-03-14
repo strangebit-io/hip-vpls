@@ -1,11 +1,15 @@
 config = {
+	"swtich": {
+		"l2interface": "eth0",
+		"mesh": "hiplib/config/mesh"
+	},
 	"network": {
 		"tun_name": "hip0",                                    # Interface name
 		"mtu": 1400                                            # MTU
 	},
 	"security": {
-		"public_key": "./config/public.pem",                   # ECDSA/RSA public key
-		"private_key": "./config/private.pem",                 # ECDSA/RSA private key
+		"public_key": "hiplib/config/public.pem",                   # ECDSA/RSA public key
+		"private_key": "hiplib/config/private.pem",                 # ECDSA/RSA private key
 		"sig_alg": 0x5,                                        # RSA 5, ECDSA 7, ECDSA LOW 9, DSA 3
 		"hash_alg": 0x1,                                       # SHA-256 0x1, SHA-384 0x2, SHA-1 0x3
 		# If signature algorithm is ECDSA,
@@ -24,7 +28,7 @@ config = {
 		"supported_esp_transform_suits": [0x9, 0x8, 0x7]       # NULL with HMAC-SHA-256 (0x7), AES-128-CBC with HMAC-SHA-256 (0x8), AES-256-CBC with HMAC-SHA-256 (0x9)
 	},
 	"resolver": {
-		"hosts_file": "./config/hosts",
+		"hosts_file": "hiplib/config/hosts",
 		"domain_identifier": {                                 # Domain identifier type and value
 			"type": 0x2,                                       # FQDN 0x1, NAI 0x2
 			"value": "dmitriy.kuptsov@strangebit.com"          # NAI value
@@ -44,7 +48,7 @@ config = {
 		"rekey_after_packets": 100                             # When to rekey the association
 	},
 	"firewall": {
-		"rules_file": "./config/rules"
+		"rules_file": "hiplib/config/rules"
 	}
 }
 

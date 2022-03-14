@@ -22,10 +22,10 @@ sys.path.append(os.getcwd());
 
 import logging
 
-import crypto
+import hiplib.crypto
 from binascii import unhexlify
 from binascii import hexlify
-from crypto import digest
+from hiplib.crypto import digest
 
 
 HIP_HIT_CONTEX_ID     = bytearray(unhexlify('F0EFF02FBFF43D0FE7930C3C6E6174EA'))
