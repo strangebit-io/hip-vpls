@@ -1,69 +1,93 @@
 #!/usr/bin/python
 
+"""
+linuxrouter.py: Example network with Linux IP router
+This example converts a Node into a router using IP forwarding
+already built into Linux.
+The example topology creates a router and three IP subnets:
+    - 192.168.1.0/24 (r0-eth1, IP: 192.168.1.1)
+    - 172.16.0.0/12 (r0-eth2, IP: 172.16.0.1)
+    - 10.0.0.0/8 (r0-eth3, IP: 10.0.0.1)
+Each subnet consists of a single host connected to
+a single switch:
+    r0-eth1 - s1-eth1 - h1-eth0 (IP: 192.168.1.100)
+    r0-eth2 - s2-eth1 - h2-eth0 (IP: 172.16.0.100)
+    r0-eth3 - s3-eth1 - h3-eth0 (IP: 10.0.0.100)
+The example relies on default routing entries that are
+automatically created for each router interface, as well
+as 'defaultRoute' parameters for the host interfaces.
+Additional routes may be added to the router or hosts by
+executing 'ip route' or 'route' commands on the router or hosts.
+"""
+
+
+from mininet.topo import Topo
 from mininet.net import Mininet
-from mininet.node import Controller, RemoteController, OVSController
-from mininet.node import CPULimitedHost, Host, Node
-from mininet.node import OVSKernelSwitch, UserSwitch
-from mininet.node import IVSSwitch
-from mininet.cli import CLI
+from mininet.node import Node,Controller, OVSKernelSwitch, RemoteController
 from mininet.log import setLogLevel, info
-from mininet.link import TCLink, Intf, Link
-from mininet.util import makeNumeric, custom
-from subprocess import call
+from mininet.cli import CLI
 
-def myNetwork():
-    link = custom(TCLink, bw=10)
-    net = Mininet( topo=None,
-                   build=False,
-                   ipBase='10.0.0.0/8')
 
-    info( '*** Adding controller\n' )
-    info( '*** Add switches\n')
+class LinuxRouter( Node ):
+    "A Node with IP forwarding enabled."
 
-    s5 = net.addSwitch('s5', cls=OVSKernelSwitch, failMode='standalone')
-    s2 = net.addSwitch('s2', cls=OVSKernelSwitch, failMode='standalone')
-    s7 = net.addSwitch('s7', cls=OVSKernelSwitch, failMode='standalone')
-    s4 = net.addSwitch('s4', cls=OVSKernelSwitch, failMode='standalone')
+    def config( self, **params ):
+        super( LinuxRouter, self).config( **params )
+        # Enable forwarding on the router
+        self.cmd( 'sysctl net.ipv4.ip_forward=1' )
 
-    r8 = net.addHost('r8', cls=Node, ip='0.0.0.0')
-    r8.cmd('sysctl -w net.ipv4.ip_forward=1')
-    r9 = net.addHost('r9', cls=Node, ip='0.0.0.0')
-    r9.cmd('sysctl -w net.ipv4.ip_forward=1')
-    r10 = net.addHost('r10', cls=Node, ip='0.0.0.0')
-    r10.cmd('sysctl -w net.ipv4.ip_forward=1')
+    def terminate( self ):
+        self.cmd( 'sysctl net.ipv4.ip_forward=0' )
+        super( LinuxRouter, self ).terminate()
 
-    info( '*** Add hosts\n')
-    h1 = net.addHost('h1', cls=Host, ip='192.168.2.1', defaultRoute=None)
-    h2 = net.addHost('h2', cls=Host, ip='192.168.3.1', defaultRoute=None)
 
-    info( '*** Add links\n')
-    net.addLink(s2, r9)
-    net.addLink(s4, r10)
-    net.addLink(r9, s5)
-    net.addLink(s7, r8)
-    net.addLink(r8, h2)
-    net.addLink(s5, h2)
-    net.addLink(s2, h1)
-    net.addLink(s4, h1)
-    net.addLink(r10, s7)
+class NetworkTopo( Topo ):
+    "A LinuxRouter connecting three IP subnets"
 
-    info( '*** Starting network\n')
-    net.build()
-    info( '*** Starting controllers\n')
-    for controller in net.controllers:
-        controller.start()
+    def build( self, **_opts ):
+    #    net = Mininet(controller=RemoteController, switch=OVSKernelSwitch)
 
-    info( '*** Starting switches\n')
-    net.get('s5').start([])
-    net.get('s2').start([])
-    net.get('s7').start([])
-    net.get('s4').start([])
+     #   c1 = net.addController('c1', controller=RemoteController, ip="10.128.0.4")
+         #     c2 = net.addController('c2', controller=RemoteController, ip="127.0.0.1", port=6633)
+        defaultIP = '192.168.1.1/24'  # IP address for r0-eth1
+        router = self.addNode( 'r0', cls=LinuxRouter, ip=defaultIP )
 
-    info( '*** Post configure switches and hosts\n')
+        s1, s2, s3 = [ self.addSwitch( s ) for s in ( 's1', 's2', 's3' ) ]
 
-    CLI(net)
+        self.addLink( s1, router, intfName2='r0-eth1',
+                      params2={ 'ip' : defaultIP } )  # for clarity
+        self.addLink( s2, router, intfName2='r0-eth2',
+                      params2={ 'ip' : '172.16.0.1/12' } )
+        self.addLink( s3, router, intfName2='r0-eth3',
+                      params2={ 'ip' : '10.0.0.1/8' } )
+
+        h1 = self.addHost( 'h1', ip='192.168.1.100/24',
+                           defaultRoute='via 192.168.1.1' )
+        h2 = self.addHost( 'h2', ip='172.16.0.100/12',
+                           defaultRoute='via 172.16.0.1' )
+        h3 = self.addHost( 'h3', ip='10.0.0.100/8',
+                           defaultRoute='via 10.0.0.1' )
+
+        for h, s in [ (h1, s1), (h2, s2), (h3, s3) ]:
+            self.addLink( h, s )
+
+
+def run():
+    "Test linux router"
+    topo = NetworkTopo()
+    #c = RemoteController('c', '10.128.0.4')
+    #net.addController(c)
+    #net = Mininet( topo=topo )  # controller is used by s1-s3
+    net = Mininet(topo=topo,controller=RemoteController, switch=OVSKernelSwitch)
+
+    c1 = net.addController('c1', controller=RemoteController, ip="10.128.0.4")
+    #net.addController(c)
+    net.start()
+    info( '*** Routing Table on Router:\n' )
+    info( net[ 'r0' ].cmd( 'route' ) )
+    CLI( net )
     net.stop()
 
 if __name__ == '__main__':
     setLogLevel( 'info' )
-    myNetwork()
+    run()
