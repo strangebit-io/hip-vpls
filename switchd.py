@@ -69,8 +69,8 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("hipls.log"),
-        logging.StreamHandler(sys.stdout)
+        logging.FileHandler("hipls.log")#,
+#        logging.StreamHandler(sys.stdout)
     ]
 );
 
@@ -108,27 +108,30 @@ def hip_loop():
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
         except Exception as e:
-           logging.debug("Exception occured while processing HIP packet")
-           logging.debug(e)
+            logging.debug("Exception occured while processing HIP packet")
+            logging.debug(e)
 
 def ip_sec_loop():
     while True:
-        packet = bytearray(ip_sec_socket.recv(1524));
-        (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
-        ether_socket.send(frame);
-        fib.set_next_hop(frame.get_source(), src, dst);
+        try:
+            packet = bytearray(ip_sec_socket.recv(1524));
+            (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
+            ether_socket.send(frame);
+            fib.set_next_hop(frame.get_source(), src, dst);
+        except Exception as e:
+            logging.critical(e)
 
 def ether_loop():
     while True:
-	try:
-	    buf = bytearray(ether_socket.recv(1524));
-       	    logging.debug("Got data on Ethernet link...")
+        try:
+            buf = bytearray(ether_socket.recv(1524));
+            logging.debug("Got data on Ethernet link...")
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
             logging.debug(dst_mac);
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
-                packets = hiplib.process_l2_frame(frame, ihit, rhit);
+                packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
                 for (hip, packet, dest) in packets:
                     if not hip:
                         ip_sec_socket.sendto(packet, dest)

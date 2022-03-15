@@ -1,7 +1,8 @@
 config = {
 	"swtich": {
 		"l2interface": "r2-eth0",
-		"mesh": "hiplib/config/mesh"
+		"mesh": "hiplib/config/mesh",
+                "source_ip": "192.168.3.2"
 	},
 	"network": {
 		"tun_name": "hip0",                                    # Interface name
