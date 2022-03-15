@@ -166,13 +166,7 @@ class HIPLib():
         if self.config["general"]["rekey_after_packets"] > ((2<<32)-1):
             self.config["general"]["rekey_after_packets"] = (2<<32)-1;
 
-    def process_hip_packet(self, packet, hip_socket):
-        """
-        This loop is responsible for reading HIP packets
-        from the raw socket
-        """
-        logging.info("Starting the HIP loop");
-
+    def process_hip_packet(self, packet):
         try:
             response = [];
             # IP reassmebly is done automatically so we can read large enough packets
@@ -184,11 +178,11 @@ class HIPLib():
 
             if ipv4_packet.get_protocol() != HIP.HIP_PROTOCOL:
                 logging.debug("Invalid protocol type");
-                return;
+                return [];
 
             if len(ipv4_packet.get_payload()) % 8:
                 logging.debug("Invalid length of the payload. Must be multiple of 8 bytes");
-                return;
+                return [];
 
             hip_packet = HIP.HIPPacket(ipv4_packet.get_payload());
 
@@ -211,14 +205,14 @@ class HIPLib():
 
             if hip_packet.get_version() != HIP.HIP_VERSION:
                 logging.critical("Only HIP version 2 is supported");
-                return;
+                return [];
 
             # Check wether the destination address is our own HIT
             if not Utils.hits_equal(rhit, self.own_hit) and not Utils.hits_equal(rhit, [0] * 16):
                 logging.critical("Not our HIT");
                 logging.critical(Utils.ipv6_bytes_to_hex_formatted(rhit));
                 logging.critical(Utils.ipv6_bytes_to_hex_formatted(self.own_hit));
-                return;
+                return [];
 
             # https://tools.ietf.org/html/rfc7401#section-5
             original_checksum = hip_packet.get_checksum();
@@ -233,18 +227,18 @@ class HIPLib():
             
             if original_checksum != checksum:
                 logging.critical("Invalid checksum");
-                return;
+                return [];
 
             if hip_packet.get_packet_type() == HIP.HIP_I1_PACKET:
                 logging.info("I1 packet");
 
                 if not self.firewall.allow(Utils.ipv6_bytes_to_hex_formatted(ihit), Utils.ipv6_bytes_to_hex_formatted(rhit)):
                     logging.critical("Blocked by firewall...")
-                    return;
+                    return [];
 
                 if hip_state.is_i1_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I1-SENT state");
-                    return;
+                    return [];
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
@@ -290,7 +284,7 @@ class HIPLib():
                 if not dh_groups_param_initiator:
                     # Drop HIP BEX?
                     logging.debug("No DH groups parameter found. Dropping I1 packet");
-                    return;
+                    return [];
                 offered_dh_groups = dh_groups_param_initiator.get_groups();
                 supported_dh_groups = self.config["security"]["supported_DH_groups"];
                 selected_dh_group = None;
@@ -562,35 +556,35 @@ class HIPLib():
 
                 if not puzzle_param:
                     logging.critical("Missing puzzle parameter");
-                    return;
+                    return [];
                 if not dh_param:
                     logging.critical("Missing DH parameter");
-                    return;
+                    return [];
                 if not cipher_param:
                     logging.critical("Missing cipher parameter");
-                    return;
+                    return [];
                 if not esp_tranform_param:
                     logging.critical("Missing ESP transform parameter");
-                    return;
+                    return [];
                 if not hi_param:
                     logging.critical("Missing HI parameter");
-                    return;
+                    return [];
                 if not hit_suit_param:
                     logging.critical("Missing HIT suit parameter");
-                    return;
+                    return [];
                 if not dh_groups_param:
                     logging.critical("Missing DH groups parameter");
-                    return;
+                    return [];
                 if not transport_param:
                     logging.critical("Missing transport parameter");
-                    return;
+                    return [];
                 if not signature_param:
                     logging.critical("Missing signature parameter");
-                    return;
+                    return [];
                 if not dh_param.get_group_id() in dh_groups_param.get_groups():
                     logging.critical("Manipulation of DH group");
                     # Change the state to unassociated... drop the BEX
-                    return;
+                    return [];
                 
                 start_time = time.time();
                 jrandom = PuzzleSolver.solve_puzzle(irandom, hip_packet.get_receivers_hit(), hip_packet.get_senders_hit(), puzzle_param.get_k_value(), r_hash)
@@ -601,7 +595,7 @@ class HIPLib():
                     logging.critical("Maximum time to solve the puzzle exceeded. Dropping the packet...");
                     # Abandon the BEX
                     hip_state.unassociated();
-                    return;
+                    return [];
 
                 buf = [];
 
@@ -1044,28 +1038,28 @@ class HIPLib():
                         echo_signed = parameter;
                 if not solution_param:
                     logging.critical("Missing solution parameter");
-                    return;
+                    return [];
                 if not dh_param:
                     logging.critical("Missing DH parameter");
-                    return;
+                    return [];
                 if not cipher_param:
                     logging.critical("Missing cipher parameter");
-                    return;
+                    return [];
                 if not esp_info_param:
                     logging.critical("Missing ESP info parameter");
-                    return;
+                    return [];
                 if not hi_param:
                     logging.critical("Missing HI parameter");
-                    return;
+                    return [];
                 if not transport_param:
                     logging.critical("Missing transport parameter");
-                    return;
+                    return [];
                 if not signature_param:
                     logging.critical("Missing signature parameter");
-                    return;
+                    return [];
                 if not mac_param:
                     logging.critical("Missing MAC parameter");
-                    return;
+                    return [];
                 
                 oga = HIT.get_responders_oga_id(rhit);
 
@@ -1073,12 +1067,12 @@ class HIPLib():
                     logging.critical("Unsupported HIT suit");
                     logging.critical("OGA %d"  % (oga));
                     logging.critical(self.config["security"]["supported_hit_suits"]);
-                    return;
+                    return [];
 
                 if hip_state.is_i2_sent():
                     if Utils.is_hit_smaller(rhit, ihit):
                         logging.debug("Dropping I2 packet...");
-                        return;
+                        return [];
 
                 r_hash = HIT.get_responders_hash_algorithm(rhit);
                 jrandom = solution_param.get_solution(r_hash.LENGTH);
@@ -1090,7 +1084,7 @@ class HIPLib():
                     hip_packet.get_receivers_hit(), 
                     solution_param.get_k_value(), r_hash):
                     logging.debug("Puzzle was not solved....");
-                    return;
+                    return [];
                 logging.debug("Puzzle was solved");
 
 
@@ -1240,7 +1234,7 @@ class HIPLib():
 
                 if list(hmac.digest(bytearray(buf))) != list(mac_param.get_hmac()):
                     logging.critical("Invalid HMAC. Dropping the packet");
-                    return;
+                    return [];
 
                 # Compute signature here
                 hip_i2_packet = HIP.I2Packet();
@@ -1438,7 +1432,7 @@ class HIPLib():
                     or hip_state.is_closing()
                     or hip_state.is_closed()):
                     logging.debug("Dropping the packet");
-                    return;
+                    return [];
 
                 st = time.time();
 
@@ -1488,15 +1482,15 @@ class HIPLib():
                 
                 if not esp_info_param:
                     logging.critical("Missing ESP info parameter");
-                    return;
+                    return [];
 
                 if not hmac_param:
                     logging.critical("Missing HMAC parameter");
-                    return;
+                    return [];
 
                 if not signature_param:
                     logging.critical("Missing signature parameter");
-                    return;
+                    return [];
 
                 hip_r2_packet = HIP.R2Packet();
                 hip_r2_packet.set_senders_hit(ihit);
@@ -1509,7 +1503,7 @@ class HIPLib():
 
                 if list(hmac.digest(bytearray(hip_r2_packet.get_buffer()))) != list(hmac_param.get_hmac()):
                     logging.critical("Invalid HMAC. Dropping the packet");
-                    return;
+                    return [];
                 else:
                     logging.debug("HMAC is ok. return with signature");
 
@@ -1607,7 +1601,7 @@ class HIPLib():
                     or hip_state.is_closing()
                     or hip_state.is_closed()):
                     logging.debug("Dropping the packet");
-                    return;
+                    return [];
                 # Process the packet
                 parameters       = hip_packet.get_parameters();
 
@@ -1675,11 +1669,11 @@ class HIPLib():
 
                 if not mac_param:
                     logging.debug("Missing MAC parameter");
-                    return;
+                    return [];
 
                 if not signature_param:
                     logging.debug("Missing signature parameter");
-                    return;
+                    return [];
                 
                 hip_update_packet = HIP.UpdatePacket();
                 hip_update_packet.set_senders_hit(ihit);
@@ -1703,7 +1697,7 @@ class HIPLib():
 
                 if list(hmac.digest(bytearray(buf))) != list(mac_param.get_hmac()):
                     logging.critical("Invalid HMAC. Dropping the packet");
-                    return;
+                    return [];
 
                 responders_public_key = self.pubkey_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                             Utils.ipv6_bytes_to_hex_formatted(rhit));
@@ -1736,13 +1730,13 @@ class HIPLib():
 
                 if not signature_alg.verify(signature_param.get_signature(), bytearray(buf)):
                     logging.critical("Invalid signature. Dropping the packet");
-                    return;
+                    return [];
                 else:
                     logging.debug("Signature is correct");
 
                 if ack_param:
                     logging.debug("This is a response to a UPDATE. Skipping pong...");
-                    return;
+                    return [];
 
                 (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, rhit, ihit);
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
@@ -1817,7 +1811,7 @@ class HIPLib():
                 logging.info("NOTIFY packet");
                 if hip_state.is_i1_sent() or hip_state.is_i2_sent() or hip_state.is_unassociated():
                     logging.debug("Dropping the packet...")
-                    return;
+                    return [];
                 # process the packet...
             elif hip_packet.get_packet_type() == HIP.HIP_CLOSE_PACKET:
                 logging.info("CLOSE packet");
@@ -1846,7 +1840,7 @@ class HIPLib():
 
                 if not sv:
                     logging.debug("Not state exists. Skipping the packet...")
-                    return;
+                    return [];
 
                 if sv.is_responder:
                     hmac_alg  = HIT.get_responders_oga_id(rhit);
@@ -1882,11 +1876,11 @@ class HIPLib():
 
                 if not mac_param:
                     logging.debug("Missing MAC parameter");
-                    return;
+                    return [];
 
                 if not signature_param:
                     logging.debug("Missing signature parameter");
-                    return;
+                    return [];
                 
                 hip_close_packet = HIP.ClosePacket();
                 logging.debug("Sender's HIT %s" % (Utils.ipv6_bytes_to_hex_formatted(ihit)));
@@ -1912,7 +1906,7 @@ class HIPLib():
 
                 if list(hmac.digest(bytearray(buf))) != list(mac_param.get_hmac()):
                     logging.critical("Invalid HMAC. Dropping the packet");
-                    return;
+                    return [];
                 logging.debug("HMAC OK");
 
                 responders_public_key = self.pubkey_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
@@ -1943,7 +1937,7 @@ class HIPLib():
 
                 if not signature_alg.verify(signature_param.get_signature(), bytearray(buf)):
                     logging.critical("Invalid signature. Dropping the packet");
-                    return;
+                    return [];
                 else:
                     logging.debug("Signature is correct");
 
@@ -2025,7 +2019,7 @@ class HIPLib():
                 logging.info("CLOSE ACK packet");
                 if hip_state.is_r2_sent() or hip_state.is_established() or hip_state.is_i1_sent() or hip_state.is_i2_sent() or hip_state.is_unassociated():
                     logging.debug("Dropping packet");
-                    return;
+                    return [];
                 if hip_state.is_closing() or hip_state.is_closed():
                     logging.debug("Moving to unassociated state...");
                     hip_state.unassociated();
@@ -2089,7 +2083,7 @@ class HIPLib():
                 
             if bytearray(icv) != hmac_alg.digest(bytearray(list(ip_sec_packet.get_byte_buffer())[:-hmac_alg.LENGTH])):
                 logging.critical("Invalid ICV in IPSec packet");
-                return None;
+                return  [];
 
             padded_data = list(ip_sec_packet.get_payload())[:-hmac_alg.LENGTH];
             #logging.debug("Encrypted padded data");
@@ -2130,7 +2124,7 @@ class HIPLib():
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
             if not hip_state:
-                return;
+                return [];
             hip_state.established();
             #logging.debug("Sending IPv6 packet to %s" % (Utils.ipv6_bytes_to_hex_formatted(ihit)));
             #hip_tun.write(bytearray(ipv6_packet.get_buffer()));
@@ -2340,7 +2334,7 @@ class HIPLib():
                     Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
 
             if hip_state.is_unassociated():
-                return;
+                return [];
 
             if Utils.is_hit_smaller(sv.rhit, sv.ihit):
                 keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
