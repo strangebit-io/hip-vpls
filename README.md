@@ -19,3 +19,19 @@ in our work. But that might change of course.
 
 # Usage
 
+At the moment the setup is simple. We have two routers and two hosts.
+
+To run the topology simple execute in the current directory:
+
+```
+$ sudo python3 hipls-mn.py
+```
+
+Base exchange should complete its execution in a few seconds. 
+
+Once BEX is done, you should be able to ping h2 from h2 as follows:
+
+```
+mininet> h1 ping h2
+```
+

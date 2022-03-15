@@ -1,8 +1,1251 @@
-2022-03-15 07:11:42,294 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
-2022-03-15 07:11:42,294 [INFO] Importing hosts file
-2022-03-15 07:11:42,294 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+2022-03-15 09:22:12,835 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 09:22:12,835 [INFO] Importing hosts file
+2022-03-15 09:22:12,835 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
 
-2022-03-15 07:11:42,294 [INFO] Loading public key and constructing HIT
-2022-03-15 07:11:42,307 [DEBUG] Own HIT
-2022-03-15 07:11:42,307 [DEBUG] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
-2022-03-15 07:11:42,307 [INFO] Initializing IPSec socket
+2022-03-15 09:22:12,835 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 09:22:12,835 [INFO] Loading public key and constructing HIT
+2022-03-15 09:22:12,848 [DEBUG] Own HIT
+2022-03-15 09:22:12,848 [DEBUG] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
+2022-03-15 09:22:12,848 [INFO] Initializing IPSec socket
+2022-03-15 09:22:12,866 [INFO] Starting the CuteHIP
+2022-03-15 09:22:12,866 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:22:12,995 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:22:13,278 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,279 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:13,279 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,279 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,280 [DEBUG] Unassociate state reached
+2022-03-15 09:22:13,280 [DEBUG] Starting HIP BEX 1647336133.280164
+2022-03-15 09:22:13,280 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 09:22:13,280 [DEBUG] 192.168.3.1
+
+2022-03-15 09:22:13,281 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000346
+2022-03-15 09:22:13,346 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,346 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:13,347 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,347 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,347 [DEBUG] Unknown state reached....
+2022-03-15 09:22:13,376 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,377 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:13,377 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,377 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,378 [DEBUG] Unknown state reached....
+2022-03-15 09:22:13,438 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,439 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:13,439 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,439 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,439 [DEBUG] Unknown state reached....
+2022-03-15 09:22:13,566 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,567 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:13,567 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,567 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,567 [DEBUG] Unknown state reached....
+2022-03-15 09:22:13,824 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,824 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:13,825 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,825 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,825 [DEBUG] Unknown state reached....
+2022-03-15 09:22:13,825 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,826 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:13,826 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,826 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,827 [DEBUG] Unknown state reached....
+2022-03-15 09:22:13,954 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:13,955 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:13,955 [DEBUG] Searching for the next hop
+2022-03-15 09:22:13,955 [DEBUG] Processing L2 frame
+2022-03-15 09:22:13,955 [DEBUG] Unknown state reached....
+2022-03-15 09:22:14,367 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:14,368 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:14,368 [DEBUG] Searching for the next hop
+2022-03-15 09:22:14,369 [DEBUG] Processing L2 frame
+2022-03-15 09:22:14,369 [DEBUG] Unknown state reached....
+2022-03-15 09:22:14,369 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:14,369 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:14,370 [DEBUG] Searching for the next hop
+2022-03-15 09:22:14,370 [DEBUG] Processing L2 frame
+2022-03-15 09:22:14,370 [DEBUG] Unknown state reached....
+2022-03-15 09:22:14,399 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:14,399 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:14,400 [DEBUG] Searching for the next hop
+2022-03-15 09:22:14,400 [DEBUG] Processing L2 frame
+2022-03-15 09:22:14,400 [DEBUG] Unknown state reached....
+2022-03-15 09:22:14,400 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:14,400 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:14,400 [DEBUG] Searching for the next hop
+2022-03-15 09:22:14,401 [DEBUG] Processing L2 frame
+2022-03-15 09:22:14,401 [DEBUG] Unknown state reached....
+2022-03-15 09:22:14,589 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:14,590 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:14,590 [DEBUG] Searching for the next hop
+2022-03-15 09:22:14,590 [DEBUG] Processing L2 frame
+2022-03-15 09:22:14,591 [DEBUG] Unknown state reached....
+2022-03-15 09:22:15,396 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:15,396 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:15,396 [DEBUG] Searching for the next hop
+2022-03-15 09:22:15,396 [DEBUG] Processing L2 frame
+2022-03-15 09:22:15,396 [DEBUG] Unknown state reached....
+2022-03-15 09:22:17,501 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:17,502 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:17,502 [DEBUG] Searching for the next hop
+2022-03-15 09:22:17,502 [DEBUG] Processing L2 frame
+2022-03-15 09:22:17,503 [DEBUG] Unknown state reached....
+2022-03-15 09:22:18,273 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:18,274 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:18,274 [DEBUG] Searching for the next hop
+2022-03-15 09:22:18,274 [DEBUG] Processing L2 frame
+2022-03-15 09:22:18,274 [DEBUG] Unknown state reached....
+2022-03-15 09:22:18,782 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:18,783 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:18,783 [DEBUG] Searching for the next hop
+2022-03-15 09:22:18,783 [DEBUG] Processing L2 frame
+2022-03-15 09:22:18,783 [DEBUG] Unknown state reached....
+2022-03-15 09:22:22,878 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:22:25,182 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:25,183 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:25,183 [DEBUG] Searching for the next hop
+2022-03-15 09:22:25,183 [DEBUG] Processing L2 frame
+2022-03-15 09:22:25,184 [DEBUG] Unknown state reached....
+2022-03-15 09:22:25,956 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:25,957 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:25,957 [DEBUG] Searching for the next hop
+2022-03-15 09:22:25,957 [DEBUG] Processing L2 frame
+2022-03-15 09:22:25,958 [DEBUG] Unknown state reached....
+2022-03-15 09:22:26,974 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:26,975 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:26,975 [DEBUG] Searching for the next hop
+2022-03-15 09:22:26,975 [DEBUG] Processing L2 frame
+2022-03-15 09:22:26,975 [DEBUG] Unknown state reached....
+2022-03-15 09:22:32,889 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:22:40,030 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:40,031 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:22:40,031 [DEBUG] Searching for the next hop
+2022-03-15 09:22:40,031 [DEBUG] Processing L2 frame
+2022-03-15 09:22:40,031 [DEBUG] Unknown state reached....
+2022-03-15 09:22:41,058 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:41,059 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:22:41,059 [DEBUG] Searching for the next hop
+2022-03-15 09:22:41,059 [DEBUG] Processing L2 frame
+2022-03-15 09:22:41,059 [DEBUG] Unknown state reached....
+2022-03-15 09:22:42,902 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:22:42,903 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:22:44,142 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:22:44,146 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:22:44,146 [DEBUG] Searching for the next hop
+2022-03-15 09:22:44,146 [DEBUG] Processing L2 frame
+2022-03-15 09:22:44,146 [DEBUG] Unknown state reached....
+2022-03-15 09:22:52,914 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:23:02,928 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:23:02,928 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:23:08,703 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:23:08,703 [DEBUG] bytearray(b'\xfa\xb8\xe4\x86\xd4\xb0')
+2022-03-15 09:23:08,706 [DEBUG] Searching for the next hop
+2022-03-15 09:23:08,706 [DEBUG] Processing L2 frame
+2022-03-15 09:23:08,706 [DEBUG] Unknown state reached....
+2022-03-15 09:23:12,803 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:23:12,807 [DEBUG] bytearray(b'\xb2\xdbS`\x93\xc6')
+2022-03-15 09:23:12,807 [DEBUG] Searching for the next hop
+2022-03-15 09:23:12,807 [DEBUG] Processing L2 frame
+2022-03-15 09:23:12,808 [DEBUG] Unknown state reached....
+2022-03-15 09:23:12,940 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:23:16,895 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:23:16,896 [DEBUG] bytearray(b'\xca\x0bA\x1e\x1f5')
+2022-03-15 09:23:16,896 [DEBUG] Searching for the next hop
+2022-03-15 09:23:16,896 [DEBUG] Processing L2 frame
+2022-03-15 09:23:16,896 [DEBUG] Unknown state reached....
+2022-03-15 09:23:22,953 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:23:22,955 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:23:32,970 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:23:42,987 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:23:53,002 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:28:11,147 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 09:28:11,147 [INFO] Importing hosts file
+2022-03-15 09:28:11,147 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 09:28:11,147 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 09:28:11,147 [INFO] Loading public key and constructing HIT
+2022-03-15 09:28:11,160 [DEBUG] Own HIT
+2022-03-15 09:28:11,160 [DEBUG] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
+2022-03-15 09:28:11,160 [INFO] Initializing IPSec socket
+2022-03-15 09:28:11,178 [INFO] Starting the CuteHIP
+2022-03-15 09:28:11,178 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:28:11,231 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:28:11,713 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:11,714 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:11,714 [DEBUG] Searching for the next hop
+2022-03-15 09:28:11,714 [DEBUG] Processing L2 frame
+2022-03-15 09:28:11,715 [DEBUG] Unassociate state reached
+2022-03-15 09:28:11,715 [DEBUG] Starting HIP BEX 1647336491.715483
+2022-03-15 09:28:11,715 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 09:28:11,716 [DEBUG] 192.168.3.1
+
+2022-03-15 09:28:11,717 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000395
+2022-03-15 09:28:11,742 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:11,743 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:11,743 [DEBUG] Searching for the next hop
+2022-03-15 09:28:11,743 [DEBUG] Processing L2 frame
+2022-03-15 09:28:11,743 [DEBUG] Unknown state reached....
+2022-03-15 09:28:11,938 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:11,938 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:11,939 [DEBUG] Searching for the next hop
+2022-03-15 09:28:11,939 [DEBUG] Processing L2 frame
+2022-03-15 09:28:11,939 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,031 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,032 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:12,033 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,033 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,034 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,034 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,034 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:12,034 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,035 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,035 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,161 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,161 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:12,161 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,162 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,162 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,162 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,162 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:12,163 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,163 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,163 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,247 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,248 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:12,248 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,250 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,250 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,737 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,738 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:12,738 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,738 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,738 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,770 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,771 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:12,771 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,772 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,772 [DEBUG] Unknown state reached....
+2022-03-15 09:28:12,772 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:12,772 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:12,772 [DEBUG] Searching for the next hop
+2022-03-15 09:28:12,772 [DEBUG] Processing L2 frame
+2022-03-15 09:28:12,773 [DEBUG] Unknown state reached....
+2022-03-15 09:28:13,122 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:13,123 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:13,123 [DEBUG] Searching for the next hop
+2022-03-15 09:28:13,125 [DEBUG] Processing L2 frame
+2022-03-15 09:28:13,125 [DEBUG] Unknown state reached....
+2022-03-15 09:28:15,904 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:15,904 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:15,904 [DEBUG] Searching for the next hop
+2022-03-15 09:28:15,905 [DEBUG] Processing L2 frame
+2022-03-15 09:28:15,905 [DEBUG] Unknown state reached....
+2022-03-15 09:28:16,158 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:16,159 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:16,159 [DEBUG] Searching for the next hop
+2022-03-15 09:28:16,159 [DEBUG] Processing L2 frame
+2022-03-15 09:28:16,160 [DEBUG] Unknown state reached....
+2022-03-15 09:28:16,927 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:16,927 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:16,927 [DEBUG] Searching for the next hop
+2022-03-15 09:28:16,927 [DEBUG] Processing L2 frame
+2022-03-15 09:28:16,928 [DEBUG] Unknown state reached....
+2022-03-15 09:28:21,190 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:28:23,588 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:23,589 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:23,590 [DEBUG] Searching for the next hop
+2022-03-15 09:28:23,590 [DEBUG] Processing L2 frame
+2022-03-15 09:28:23,591 [DEBUG] Unknown state reached....
+2022-03-15 09:28:24,096 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:24,097 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:24,098 [DEBUG] Searching for the next hop
+2022-03-15 09:28:24,098 [DEBUG] Processing L2 frame
+2022-03-15 09:28:24,099 [DEBUG] Unknown state reached....
+2022-03-15 09:28:24,863 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:24,863 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:24,863 [DEBUG] Searching for the next hop
+2022-03-15 09:28:24,864 [DEBUG] Processing L2 frame
+2022-03-15 09:28:24,864 [DEBUG] Unknown state reached....
+2022-03-15 09:28:31,202 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:28:39,200 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:39,202 [DEBUG] bytearray(b"\x1a7\xe2h3\'")
+2022-03-15 09:28:39,202 [DEBUG] Searching for the next hop
+2022-03-15 09:28:39,202 [DEBUG] Processing L2 frame
+2022-03-15 09:28:39,203 [DEBUG] Unknown state reached....
+2022-03-15 09:28:39,205 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:39,206 [DEBUG] bytearray(b'\x92O9\x1d\xacW')
+2022-03-15 09:28:39,206 [DEBUG] Searching for the next hop
+2022-03-15 09:28:39,208 [DEBUG] Processing L2 frame
+2022-03-15 09:28:39,208 [DEBUG] Unknown state reached....
+2022-03-15 09:28:40,221 [DEBUG] Got data on Ethernet link...
+2022-03-15 09:28:40,222 [DEBUG] bytearray(b'\x12\x89\xb6\x00<\x03')
+2022-03-15 09:28:40,222 [DEBUG] Searching for the next hop
+2022-03-15 09:28:40,222 [DEBUG] Processing L2 frame
+2022-03-15 09:28:40,223 [DEBUG] Unknown state reached....
+2022-03-15 09:28:41,214 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:28:41,214 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:28:51,228 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:38:30,642 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 09:38:30,642 [INFO] Importing hosts file
+2022-03-15 09:38:30,642 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 09:38:30,643 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 09:38:30,643 [INFO] Loading public key and constructing HIT
+2022-03-15 09:38:30,657 [DEBUG] Own HIT
+2022-03-15 09:38:30,657 [DEBUG] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
+2022-03-15 09:38:30,658 [INFO] Initializing IPSec socket
+2022-03-15 09:38:30,686 [INFO] Starting the CuteHIP
+2022-03-15 09:38:30,686 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:38:30,883 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:38:30,883 [DEBUG] Processed HIP packet
+2022-03-15 09:38:30,910 [DEBUG] Searching for the next hop
+2022-03-15 09:38:30,911 [DEBUG] Processing L2 frame
+2022-03-15 09:38:30,911 [DEBUG] Unassociate state reached
+2022-03-15 09:38:30,911 [DEBUG] Starting HIP BEX 1647337110.911589
+2022-03-15 09:38:30,911 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 09:38:30,912 [DEBUG] 192.168.3.1
+
+2022-03-15 09:38:30,912 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000167
+2022-03-15 09:38:31,294 [DEBUG] Searching for the next hop
+2022-03-15 09:38:31,294 [DEBUG] Processing L2 frame
+2022-03-15 09:38:31,294 [DEBUG] Unknown state reached....
+2022-03-15 09:38:31,550 [DEBUG] Searching for the next hop
+2022-03-15 09:38:31,551 [DEBUG] Processing L2 frame
+2022-03-15 09:38:31,551 [DEBUG] Unknown state reached....
+2022-03-15 09:38:31,551 [DEBUG] Searching for the next hop
+2022-03-15 09:38:31,551 [DEBUG] Processing L2 frame
+2022-03-15 09:38:31,551 [DEBUG] Unknown state reached....
+2022-03-15 09:38:31,936 [DEBUG] Searching for the next hop
+2022-03-15 09:38:31,937 [DEBUG] Processing L2 frame
+2022-03-15 09:38:31,938 [DEBUG] Unknown state reached....
+2022-03-15 09:38:32,317 [DEBUG] Searching for the next hop
+2022-03-15 09:38:32,318 [DEBUG] Processing L2 frame
+2022-03-15 09:38:32,318 [DEBUG] Unknown state reached....
+2022-03-15 09:38:32,318 [DEBUG] Searching for the next hop
+2022-03-15 09:38:32,319 [DEBUG] Processing L2 frame
+2022-03-15 09:38:32,319 [DEBUG] Unknown state reached....
+2022-03-15 09:38:33,215 [DEBUG] Searching for the next hop
+2022-03-15 09:38:33,216 [DEBUG] Processing L2 frame
+2022-03-15 09:38:33,216 [DEBUG] Unknown state reached....
+2022-03-15 09:38:35,681 [DEBUG] Searching for the next hop
+2022-03-15 09:38:35,681 [DEBUG] Processing L2 frame
+2022-03-15 09:38:35,682 [DEBUG] Unknown state reached....
+2022-03-15 09:38:36,450 [DEBUG] Searching for the next hop
+2022-03-15 09:38:36,451 [DEBUG] Processing L2 frame
+2022-03-15 09:38:36,455 [DEBUG] Unknown state reached....
+2022-03-15 09:38:40,698 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:38:43,615 [DEBUG] Searching for the next hop
+2022-03-15 09:38:43,615 [DEBUG] Processing L2 frame
+2022-03-15 09:38:43,616 [DEBUG] Unknown state reached....
+2022-03-15 09:38:44,645 [DEBUG] Searching for the next hop
+2022-03-15 09:38:44,645 [DEBUG] Processing L2 frame
+2022-03-15 09:38:44,645 [DEBUG] Unknown state reached....
+2022-03-15 09:38:50,714 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:38:58,719 [DEBUG] Searching for the next hop
+2022-03-15 09:38:58,720 [DEBUG] Processing L2 frame
+2022-03-15 09:38:58,720 [DEBUG] Unknown state reached....
+2022-03-15 09:38:58,721 [DEBUG] Searching for the next hop
+2022-03-15 09:38:58,722 [DEBUG] Processing L2 frame
+2022-03-15 09:38:58,722 [DEBUG] Unknown state reached....
+2022-03-15 09:39:00,730 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:39:00,730 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:39:00,730 [DEBUG] Processed HIP packet
+2022-03-15 09:39:00,731 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:39:03,073 [DEBUG] Searching for the next hop
+2022-03-15 09:39:03,073 [DEBUG] Processing L2 frame
+2022-03-15 09:39:03,074 [DEBUG] Unknown state reached....
+2022-03-15 09:39:10,742 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:39:20,756 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:39:20,756 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:39:20,760 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:39:20,761 [DEBUG] Processed HIP packet
+2022-03-15 09:39:27,656 [DEBUG] Searching for the next hop
+2022-03-15 09:39:27,656 [DEBUG] Processing L2 frame
+2022-03-15 09:39:27,656 [DEBUG] Unknown state reached....
+2022-03-15 09:39:29,700 [DEBUG] Searching for the next hop
+2022-03-15 09:39:29,700 [DEBUG] Processing L2 frame
+2022-03-15 09:39:29,701 [DEBUG] Unknown state reached....
+2022-03-15 09:39:30,773 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:39:35,838 [DEBUG] Searching for the next hop
+2022-03-15 09:39:35,839 [DEBUG] Processing L2 frame
+2022-03-15 09:39:35,839 [DEBUG] Unknown state reached....
+2022-03-15 09:39:40,786 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:39:40,787 [DEBUG] Processed HIP packet
+2022-03-15 09:39:40,789 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:39:40,790 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:39:50,802 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:40:00,817 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:40:10,833 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:40:20,849 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:40:27,044 [DEBUG] Searching for the next hop
+2022-03-15 09:40:27,045 [DEBUG] Processing L2 frame
+2022-03-15 09:40:27,046 [DEBUG] Unknown state reached....
+2022-03-15 09:40:30,862 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:40:33,184 [DEBUG] Searching for the next hop
+2022-03-15 09:40:33,184 [DEBUG] Processing L2 frame
+2022-03-15 09:40:33,185 [DEBUG] Unknown state reached....
+2022-03-15 09:40:40,874 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:40:43,422 [DEBUG] Searching for the next hop
+2022-03-15 09:40:43,422 [DEBUG] Processing L2 frame
+2022-03-15 09:40:43,423 [DEBUG] Unknown state reached....
+2022-03-15 09:40:50,888 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:41:00,899 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:41:10,912 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:41:20,928 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:41:30,940 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:41:40,952 [DEBUG] Transitioning to UNASSOCIATED state...
+2022-03-15 09:41:40,953 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:41:50,964 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:42:00,975 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:42:10,992 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:42:21,007 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:42:25,829 [DEBUG] Searching for the next hop
+2022-03-15 09:42:25,830 [DEBUG] Processing L2 frame
+2022-03-15 09:42:25,830 [DEBUG] Unassociate state reached
+2022-03-15 09:42:25,830 [DEBUG] Starting HIP BEX 1647337345.830862
+2022-03-15 09:42:25,831 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 09:42:25,832 [DEBUG] 192.168.3.1
+
+2022-03-15 09:42:25,834 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.001461
+2022-03-15 09:42:31,027 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:42:41,041 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:42:46,307 [DEBUG] Searching for the next hop
+2022-03-15 09:42:46,308 [DEBUG] Processing L2 frame
+2022-03-15 09:42:46,311 [DEBUG] Unknown state reached....
+2022-03-15 09:42:48,362 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:42:48,363 [DEBUG] Processed HIP packet
+2022-03-15 09:42:51,053 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:42:51,054 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:43:01,065 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:43:02,688 [DEBUG] Searching for the next hop
+2022-03-15 09:43:02,688 [DEBUG] Processing L2 frame
+2022-03-15 09:43:02,689 [DEBUG] Unknown state reached....
+2022-03-15 09:50:22,324 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 09:50:22,324 [INFO] Importing hosts file
+2022-03-15 09:50:22,324 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 09:50:22,324 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 09:50:22,324 [INFO] Loading public key and constructing HIT
+2022-03-15 09:50:22,338 [DEBUG] Own HIT
+2022-03-15 09:50:22,338 [DEBUG] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
+2022-03-15 09:50:22,338 [INFO] Initializing IPSec socket
+2022-03-15 09:50:22,354 [INFO] Starting the CuteHIP
+2022-03-15 09:50:22,354 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:50:22,559 [DEBUG] Got HIP packet on the interface
+2022-03-15 09:50:22,658 [DEBUG] Searching for the next hop
+2022-03-15 09:50:22,659 [DEBUG] Processing L2 frame
+2022-03-15 09:50:22,659 [DEBUG] Unassociate state reached
+2022-03-15 09:50:22,659 [DEBUG] Starting HIP BEX 1647337822.659772
+2022-03-15 09:50:22,659 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 09:50:22,660 [DEBUG] 192.168.3.1
+
+2022-03-15 09:50:22,660 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000215
+2022-03-15 09:50:22,814 [DEBUG] Searching for the next hop
+2022-03-15 09:50:22,814 [DEBUG] Processing L2 frame
+2022-03-15 09:50:22,815 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,069 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,070 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,070 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,361 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,361 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,362 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,362 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,362 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,362 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,494 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,495 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,495 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,680 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,680 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,681 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,681 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,682 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,682 [DEBUG] Unknown state reached....
+2022-03-15 09:50:23,734 [DEBUG] Searching for the next hop
+2022-03-15 09:50:23,735 [DEBUG] Processing L2 frame
+2022-03-15 09:50:23,735 [DEBUG] Unknown state reached....
+2022-03-15 09:50:24,095 [DEBUG] Searching for the next hop
+2022-03-15 09:50:24,096 [DEBUG] Processing L2 frame
+2022-03-15 09:50:24,096 [DEBUG] Unknown state reached....
+2022-03-15 09:50:24,097 [DEBUG] Searching for the next hop
+2022-03-15 09:50:24,097 [DEBUG] Processing L2 frame
+2022-03-15 09:50:24,097 [DEBUG] Unknown state reached....
+2022-03-15 09:50:24,134 [DEBUG] Searching for the next hop
+2022-03-15 09:50:24,134 [DEBUG] Processing L2 frame
+2022-03-15 09:50:24,135 [DEBUG] Unknown state reached....
+2022-03-15 09:50:27,360 [DEBUG] Searching for the next hop
+2022-03-15 09:50:27,362 [DEBUG] Processing L2 frame
+2022-03-15 09:50:27,362 [DEBUG] Unknown state reached....
+2022-03-15 09:50:27,614 [DEBUG] Searching for the next hop
+2022-03-15 09:50:27,614 [DEBUG] Processing L2 frame
+2022-03-15 09:50:27,614 [DEBUG] Unknown state reached....
+2022-03-15 09:50:28,127 [DEBUG] Searching for the next hop
+2022-03-15 09:50:28,127 [DEBUG] Processing L2 frame
+2022-03-15 09:50:28,128 [DEBUG] Unknown state reached....
+2022-03-15 09:50:32,366 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:50:35,041 [DEBUG] Searching for the next hop
+2022-03-15 09:50:35,042 [DEBUG] Processing L2 frame
+2022-03-15 09:50:35,042 [DEBUG] Unknown state reached....
+2022-03-15 09:50:35,807 [DEBUG] Searching for the next hop
+2022-03-15 09:50:35,808 [DEBUG] Processing L2 frame
+2022-03-15 09:50:35,808 [DEBUG] Unknown state reached....
+2022-03-15 09:50:36,318 [DEBUG] Searching for the next hop
+2022-03-15 09:50:36,319 [DEBUG] Processing L2 frame
+2022-03-15 09:50:36,319 [DEBUG] Unknown state reached....
+2022-03-15 09:50:42,378 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:50:50,656 [DEBUG] Searching for the next hop
+2022-03-15 09:50:50,657 [DEBUG] Processing L2 frame
+2022-03-15 09:50:50,658 [DEBUG] Unknown state reached....
+2022-03-15 09:50:51,423 [DEBUG] Searching for the next hop
+2022-03-15 09:50:51,424 [DEBUG] Processing L2 frame
+2022-03-15 09:50:51,424 [DEBUG] Unknown state reached....
+2022-03-15 09:50:52,395 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:50:52,395 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:50:53,726 [DEBUG] Searching for the next hop
+2022-03-15 09:50:53,726 [DEBUG] Processing L2 frame
+2022-03-15 09:50:53,727 [DEBUG] Unknown state reached....
+2022-03-15 09:51:02,408 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:51:12,425 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:51:12,430 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:51:22,405 [DEBUG] Searching for the next hop
+2022-03-15 09:51:22,406 [DEBUG] Processing L2 frame
+2022-03-15 09:51:22,406 [DEBUG] Unknown state reached....
+2022-03-15 09:51:22,446 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:51:24,447 [DEBUG] Searching for the next hop
+2022-03-15 09:51:24,449 [DEBUG] Processing L2 frame
+2022-03-15 09:51:24,449 [DEBUG] Unknown state reached....
+2022-03-15 09:51:26,496 [DEBUG] Searching for the next hop
+2022-03-15 09:51:26,496 [DEBUG] Processing L2 frame
+2022-03-15 09:51:26,498 [DEBUG] Unknown state reached....
+2022-03-15 09:51:32,462 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:51:32,463 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:51:42,479 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:51:52,497 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:52:02,510 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:52:12,523 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:52:22,535 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:52:25,892 [DEBUG] Searching for the next hop
+2022-03-15 09:52:25,892 [DEBUG] Processing L2 frame
+2022-03-15 09:52:25,892 [DEBUG] Unknown state reached....
+2022-03-15 09:52:29,985 [DEBUG] Searching for the next hop
+2022-03-15 09:52:29,985 [DEBUG] Processing L2 frame
+2022-03-15 09:52:29,986 [DEBUG] Unknown state reached....
+2022-03-15 09:52:32,547 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:52:36,130 [DEBUG] Searching for the next hop
+2022-03-15 09:52:36,131 [DEBUG] Processing L2 frame
+2022-03-15 09:52:36,131 [DEBUG] Unknown state reached....
+2022-03-15 09:52:42,558 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:52:52,574 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:53:02,587 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:53:12,601 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:53:22,612 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:53:32,627 [DEBUG] Transitioning to UNASSOCIATED state...
+2022-03-15 09:53:32,628 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:53:42,642 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:53:52,659 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:54:02,671 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:54:12,686 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:54:22,700 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:54:30,834 [DEBUG] Searching for the next hop
+2022-03-15 09:54:30,834 [DEBUG] Processing L2 frame
+2022-03-15 09:54:30,834 [DEBUG] Unassociate state reached
+2022-03-15 09:54:30,835 [DEBUG] Starting HIP BEX 1647338070.835062
+2022-03-15 09:54:30,835 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 09:54:30,835 [DEBUG] 192.168.3.1
+
+2022-03-15 09:54:30,836 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.001139
+2022-03-15 09:54:32,716 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:54:39,006 [DEBUG] Searching for the next hop
+2022-03-15 09:54:39,007 [DEBUG] Processing L2 frame
+2022-03-15 09:54:39,008 [DEBUG] Unknown state reached....
+2022-03-15 09:54:42,728 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:54:52,740 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:54:52,740 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:55:02,756 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:55:03,582 [DEBUG] Searching for the next hop
+2022-03-15 09:55:03,582 [DEBUG] Processing L2 frame
+2022-03-15 09:55:03,582 [DEBUG] Unknown state reached....
+2022-03-15 09:55:12,772 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:55:12,772 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:55:22,784 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:55:32,807 [DEBUG] Sending I1 packet to 192.168.3.1
+2022-03-15 09:55:32,808 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:55:42,821 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:55:52,836 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:56:02,851 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:56:12,864 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:56:22,880 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:56:32,896 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:56:42,908 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:56:52,923 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:57:02,937 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:57:12,950 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:57:22,963 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:57:32,979 [DEBUG] Transitioning to UNASSOCIATED state...
+2022-03-15 09:57:32,980 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:57:42,992 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:57:53,006 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:58:03,025 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:58:13,038 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:58:23,049 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:58:33,060 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:59:43,124 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 09:59:43,124 [INFO] Importing hosts file
+2022-03-15 09:59:43,124 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 09:59:43,124 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 09:59:43,124 [INFO] Loading public key and constructing HIT
+2022-03-15 09:59:43,137 [INFO] Initializing IPSec socket
+2022-03-15 09:59:43,153 [INFO] Starting the CuteHIP
+2022-03-15 09:59:43,153 [DEBUG] ...Periodic cleaning task...
+2022-03-15 09:59:43,230 [DEBUG] Searching for the next hop
+2022-03-15 09:59:53,164 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:00:03,170 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:00:13,182 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:00:23,198 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:00:33,213 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:00:43,228 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:00:53,242 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:01:03,255 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:01:13,267 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:01:23,282 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:06:50,188 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 10:06:50,188 [INFO] Importing hosts file
+2022-03-15 10:06:50,188 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 10:06:50,188 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 10:06:50,188 [INFO] Loading public key and constructing HIT
+2022-03-15 10:06:50,201 [INFO] Initializing IPSec socket
+2022-03-15 10:06:50,222 [INFO] Starting the CuteHIP
+2022-03-15 10:06:50,222 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:06:50,528 [DEBUG] Searching for the next hop
+2022-03-15 10:16:17,057 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 10:16:17,057 [INFO] Importing hosts file
+2022-03-15 10:16:17,057 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 10:16:17,057 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 10:16:17,057 [INFO] Loading public key and constructing HIT
+2022-03-15 10:16:17,071 [INFO] Initializing IPSec socket
+2022-03-15 10:16:30,518 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 10:16:30,518 [INFO] Importing hosts file
+2022-03-15 10:16:30,518 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 10:16:30,518 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 10:16:30,518 [INFO] Loading public key and constructing HIT
+2022-03-15 10:16:30,531 [INFO] Initializing IPSec socket
+2022-03-15 10:16:30,549 [INFO] Starting the CuteHIP
+2022-03-15 10:16:30,549 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:16:30,549 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:16:30,566 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:30,567 [DEBUG] bytearray(b'J\xa7\x1d\x9a~+')
+2022-03-15 10:16:30,567 [DEBUG] Searching for the next hop
+2022-03-15 10:16:30,567 [DEBUG] Processing L2 frame
+2022-03-15 10:16:30,567 [DEBUG] Unassociate state reached
+2022-03-15 10:16:30,567 [DEBUG] Starting HIP BEX 1647339390.567227
+2022-03-15 10:16:30,567 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 10:16:30,567 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000064
+2022-03-15 10:16:30,582 [INFO] R1 packet
+2022-03-15 10:16:30,582 [DEBUG] <hiplib.crypto.digest.SHA256Digest object at 0xffffa8e45f70>
+2022-03-15 10:16:30,582 [DEBUG] Puzzle parameter
+2022-03-15 10:16:30,582 [DEBUG] DH parameter
+2022-03-15 10:16:30,582 [DEBUG] Ciphers
+2022-03-15 10:16:30,583 [DEBUG] ESP transform
+2022-03-15 10:16:30,583 [DEBUG] DI type: 2 
+2022-03-15 10:16:30,583 [DEBUG] DI value: bytearray(b'dmitriy.kuptsov@strangebit.com') 
+2022-03-15 10:16:30,583 [DEBUG] Host ID
+2022-03-15 10:16:30,583 [DEBUG] Responder's OGA ID 1
+2022-03-15 10:16:30,583 [DEBUG] [0, 0, 3, 1, 0, 1, 194, 178, 70, 190, 108, 34, 190, 31, 113, 147, 87, 16, 175, 226, 44, 48, 204, 245, 246, 135, 178, 187, 38, 222, 80, 206, 35, 189, 76, 242, 232, 46, 38, 184, 45, 5, 227, 86, 186, 83, 14, 10, 197, 16, 240, 192, 121, 198, 166, 236, 154, 60, 7, 20, 194, 115, 38, 187, 167, 248, 83, 31, 51, 218, 172, 187, 209, 118, 168, 226, 171, 205, 72, 60, 71, 31, 128, 247, 59, 247, 123, 22, 193, 30, 213, 190, 74, 207, 118, 13, 50, 6, 10, 170, 193, 8, 205, 159, 52, 225, 239, 198, 254, 96, 140, 53, 7, 150, 188, 44, 55, 112, 74, 35, 105, 104, 49, 220, 128, 217, 195, 188, 221, 123, 67, 199, 191, 189]
+2022-03-15 10:16:30,583 [DEBUG] [32, 1, 32, 1, 111, 74, 90, 129, 8, 82, 243, 69, 232, 143, 220, 253]
+2022-03-15 10:16:30,583 [DEBUG] [32, 1, 32, 1, 111, 74, 90, 129, 8, 82, 243, 69, 232, 143, 220, 253]
+2022-03-15 10:16:30,583 [DEBUG] [32, 1, 32, 1, 190, 180, 216, 190, 174, 71, 244, 220, 147, 227, 198, 172]
+2022-03-15 10:16:30,584 [DEBUG] HIT suit list
+2022-03-15 10:16:30,584 [DEBUG] DH groups parameter
+2022-03-15 10:16:30,584 [DEBUG] Transport parameter
+2022-03-15 10:16:30,584 [DEBUG] [4095]
+2022-03-15 10:16:30,584 [DEBUG] Signature parameter
+2022-03-15 10:16:30,718 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:30,719 [DEBUG] bytearray(b"\x1e\'QH\x9f\xa6")
+2022-03-15 10:16:30,719 [DEBUG] Searching for the next hop
+2022-03-15 10:16:30,719 [DEBUG] Processing L2 frame
+2022-03-15 10:16:30,719 [DEBUG] Unknown state reached....
+2022-03-15 10:16:30,887 [DEBUG] Puzzle was solved and verified....
+2022-03-15 10:16:30,888 [DEBUG] DH public key value: 7018099419046187092854294237367649215962420328772444799884570582407181655918118722390387113161281494536330457758725127676576630813365355931843720159830876 
+2022-03-15 10:16:30,911 [DEBUG] Secret key 56178737607055455838678973336195409241237689298673947650832560234541356424574
+2022-03-15 10:16:30,912 [DEBUG] Processing R1 packet 0.329419
+2022-03-15 10:16:30,912 [DEBUG] [0, 0, 3, 1, 0, 1, 222, 173, 141, 230, 170, 189, 175, 182, 226, 38, 232, 24, 191, 177, 230, 147, 75, 91, 158, 10, 196, 83, 171, 200, 216, 51, 10, 47, 183, 164, 237, 73, 167, 178, 40, 85, 237, 192, 248, 192, 151, 60, 30, 66, 53, 172, 171, 41, 224, 220, 230, 55, 22, 60, 205, 149, 234, 52, 240, 115, 132, 79, 39, 30, 73, 140, 150, 205, 200, 212, 232, 105, 218, 145, 219, 47, 53, 204, 221, 91, 238, 137, 24, 194, 230, 80, 44, 141, 82, 254, 143, 146, 211, 185, 23, 153, 90, 195, 115, 250, 122, 111, 114, 185, 45, 93, 124, 71, 69, 143, 163, 97, 151, 45, 5, 82, 24, 200, 34, 210, 212, 180, 224, 122, 147, 206, 130, 239]
+2022-03-15 10:16:30,913 [DEBUG] [69, 0, 0, 0, 0, 0, 0, 0, 128, 139, 0, 0, 192, 168, 3, 2, 192, 168, 3, 1, 59, 71, 3, 33, 141, 33, 0, 0, 32, 1, 32, 1, 190, 180, 216, 190, 174, 71, 244, 220, 147, 227, 198, 172, 32, 1, 32, 1, 111, 74, 90, 129, 8, 82, 243, 69, 232, 143, 220, 253, 0, 65, 0, 12, 0, 0, 0, 128, 0, 0, 0, 0, 218, 149, 20, 199, 1, 65, 0, 68, 16, 0, 177, 247, 128, 100, 134, 140, 235, 146, 171, 214, 136, 123, 27, 155, 112, 158, 158, 176, 208, 128, 190, 201, 200, 78, 2, 235, 246, 208, 109, 87, 150, 136, 181, 82, 107, 90, 153, 57, 38, 71, 164, 13, 207, 197, 162, 46, 72, 120, 101, 93, 179, 12, 192, 82, 212, 140, 204, 154, 42, 232, 69, 114, 199, 89, 52, 182, 2, 1, 0, 67, 7, 0, 64, 182, 56, 233, 118, 21, 55, 92, 81, 34, 30, 172, 44, 1, 102, 144, 214, 26, 86, 243, 55, 78, 200, 227, 174, 142, 164, 126, 217, 156, 83, 167, 157, 25, 131, 163, 162, 144, 221, 164, 100, 33, 165, 14, 51, 196, 54, 194, 45, 21, 110, 202, 198, 247, 184, 227, 141, 254, 84, 227, 150, 94, 101, 88, 23, 0, 2, 67, 0, 2, 0, 4, 0, 0, 15, 255, 0, 4, 0, 0, 0, 9, 2, 193, 0, 170, 0, 134, 32, 30, 0, 5, 0, 0, 3, 1, 0, 1, 222, 173, 141, 230, 170, 189, 175, 182, 226, 38, 232, 24, 191, 177, 230, 147, 75, 91, 158, 10, 196, 83, 171, 200, 216, 51, 10, 47, 183, 164, 237, 73, 167, 178, 40, 85, 237, 192, 248, 192, 151, 60, 30, 66, 53, 172, 171, 41, 224, 220, 230, 55, 22, 60, 205, 149, 234, 52, 240, 115, 132, 79, 39, 30, 73, 140, 150, 205, 200, 212, 232, 105, 218, 145, 219, 47, 53, 204, 221, 91, 238, 137, 24, 194, 230, 80, 44, 141, 82, 254, 143, 146, 211, 185, 23, 153, 90, 195, 115, 250, 122, 111, 114, 185, 45, 93, 124, 71, 69, 143, 163, 97, 151, 45, 5, 82, 24, 200, 34, 210, 212, 180, 224, 122, 147, 206, 130, 239, 100, 109, 105, 116, 114, 105, 121, 46, 107, 117, 112, 116, 115, 111, 118, 64, 115, 116, 114, 97, 110, 103, 101, 98, 105, 116, 46, 99, 111, 109, 0, 0, 8, 1, 0, 2, 15, 255, 0, 0, 240, 65, 0, 32, 119, 181, 201, 154, 116, 232, 148, 57, 186, 132, 116, 70, 72, 34, 4, 29, 47, 160, 21, 159, 132, 179, 31, 138, 195, 191, 58, 167, 188, 60, 181, 56, 0, 0, 0, 0, 241, 1, 0, 130, 0, 5, 55, 213, 187, 22, 16, 9, 215, 74, 194, 251, 174, 182, 104, 55, 207, 209, 113, 62, 128, 198, 45, 10, 92, 205, 164, 47, 62, 192, 83, 234, 27, 142, 165, 51, 141, 245, 183, 29, 234, 30, 48, 118, 152, 208, 247, 248, 93, 52, 125, 59, 37, 179, 64, 245, 47, 92, 23, 5, 2, 217, 33, 208, 87, 152, 167, 60, 99, 160, 68, 245, 189, 193, 72, 144, 98, 202, 55, 36, 218, 156, 99, 77, 102, 111, 50, 175, 120, 101, 73, 26, 59, 11, 240, 16, 123, 89, 45, 53, 51, 135, 44, 79, 187, 108, 191, 5, 94, 146, 184, 205, 26, 140, 3, 206, 137, 112, 241, 239, 153, 110, 147, 245, 14, 147, 56, 110, 223, 55, 0, 0]
+2022-03-15 10:16:30,913 [DEBUG] Sending I2 packet to 192.168.3.1 596
+2022-03-15 10:16:30,914 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:16:30,914 [INFO] I1 packet
+2022-03-15 10:16:30,927 [DEBUG] DH public key: 5492739623758373924091854195316625123687107840774362682672835029259366852741160471143419622121341317116354360181715396487471554786452892135161744289203569 
+2022-03-15 10:16:30,927 [DEBUG] DH public key value: 5492739623758373924091854195316625123687107840774362682672835029259366852741160471143419622121341317116354360181715396487471554786452892135161744289203569 
+2022-03-15 10:16:30,927 [DEBUG] DH public key value: 5492739623758373924091854195316625123687107840774362682672835029259366852741160471143419622121341317116354360181715396487471554786452892135161744289203569 
+2022-03-15 10:16:30,927 [DEBUG] [0, 0, 3, 1, 0, 1, 222, 173, 141, 230, 170, 189, 175, 182, 226, 38, 232, 24, 191, 177, 230, 147, 75, 91, 158, 10, 196, 83, 171, 200, 216, 51, 10, 47, 183, 164, 237, 73, 167, 178, 40, 85, 237, 192, 248, 192, 151, 60, 30, 66, 53, 172, 171, 41, 224, 220, 230, 55, 22, 60, 205, 149, 234, 52, 240, 115, 132, 79, 39, 30, 73, 140, 150, 205, 200, 212, 232, 105, 218, 145, 219, 47, 53, 204, 221, 91, 238, 137, 24, 194, 230, 80, 44, 141, 82, 254, 143, 146, 211, 185, 23, 153, 90, 195, 115, 250, 122, 111, 114, 185, 45, 93, 124, 71, 69, 143, 163, 97, 151, 45, 5, 82, 24, 200, 34, 210, 212, 180, 224, 122, 147, 206, 130, 239]
+2022-03-15 10:16:30,927 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2022-03-15 10:16:30,928 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:16:30,932 [INFO] R2 packet
+2022-03-15 10:16:30,932 [DEBUG] ESP info parameter
+2022-03-15 10:16:30,932 [DEBUG] MAC2 parameter
+2022-03-15 10:16:30,932 [DEBUG] Signature2 parameter
+2022-03-15 10:16:30,932 [DEBUG] HMAC is ok. return with signature
+2022-03-15 10:16:30,933 [DEBUG] Signature is correct
+2022-03-15 10:16:30,933 [DEBUG] Processing R2 packet 0.001306
+2022-03-15 10:16:30,933 [DEBUG] Ending HIP BEX 1647339390.933398
+2022-03-15 10:16:30,933 [DEBUG] Setting SA records... 192.168.3.1 - 192.168.3.2
+2022-03-15 10:16:30,933 [CRITICAL] Exception occured. Dropping packet HIPv2.
+2022-03-15 10:16:30,933 [CRITICAL] get() missing 2 required positional arguments: 'ihit' and 'rhit'
+2022-03-15 10:16:30,934 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:16:31,037 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,038 [DEBUG] bytearray(b"\x1e\'QH\x9f\xa6")
+2022-03-15 10:16:31,038 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,038 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,038 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,203 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,203 [DEBUG] bytearray(b'J\xa7\x1d\x9a~+')
+2022-03-15 10:16:31,204 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,204 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,204 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,519 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,520 [DEBUG] bytearray(b'\x06\xad.\x0f\x98\x1b')
+2022-03-15 10:16:31,520 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,520 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,521 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,522 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,522 [DEBUG] bytearray(b'\x06\xad.\x0f\x98\x1b')
+2022-03-15 10:16:31,537 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,538 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,538 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,554 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,555 [DEBUG] bytearray(b'\x06\xad.\x0f\x98\x1b')
+2022-03-15 10:16:31,555 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,555 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,555 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,584 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,586 [DEBUG] bytearray(b'J\xa7\x1d\x9a~+')
+2022-03-15 10:16:31,586 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,586 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,587 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,587 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,587 [DEBUG] bytearray(b'J\xa7\x1d\x9a~+')
+2022-03-15 10:16:31,587 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,588 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,588 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,746 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,747 [DEBUG] bytearray(b"\x1e\'QH\x9f\xa6")
+2022-03-15 10:16:31,747 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,747 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,748 [DEBUG] Unknown state reached....
+2022-03-15 10:16:31,748 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:31,748 [DEBUG] bytearray(b"\x1e\'QH\x9f\xa6")
+2022-03-15 10:16:31,748 [DEBUG] Searching for the next hop
+2022-03-15 10:16:31,748 [DEBUG] Processing L2 frame
+2022-03-15 10:16:31,748 [DEBUG] Unknown state reached....
+2022-03-15 10:16:32,035 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:32,035 [DEBUG] bytearray(b'J\xa7\x1d\x9a~+')
+2022-03-15 10:16:32,036 [DEBUG] Searching for the next hop
+2022-03-15 10:16:32,036 [DEBUG] Processing L2 frame
+2022-03-15 10:16:32,036 [DEBUG] Unknown state reached....
+2022-03-15 10:16:32,734 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:32,735 [DEBUG] bytearray(b"\x1e\'QH\x9f\xa6")
+2022-03-15 10:16:32,735 [DEBUG] Searching for the next hop
+2022-03-15 10:16:32,735 [DEBUG] Processing L2 frame
+2022-03-15 10:16:32,736 [DEBUG] Unknown state reached....
+2022-03-15 10:16:35,367 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:35,368 [DEBUG] bytearray(b'J\xa7\x1d\x9a~+')
+2022-03-15 10:16:35,368 [DEBUG] Searching for the next hop
+2022-03-15 10:16:35,368 [DEBUG] Processing L2 frame
+2022-03-15 10:16:35,368 [DEBUG] Unknown state reached....
+2022-03-15 10:16:35,614 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:35,615 [DEBUG] bytearray(b'\x06\xad.\x0f\x98\x1b')
+2022-03-15 10:16:35,615 [DEBUG] Searching for the next hop
+2022-03-15 10:16:35,616 [DEBUG] Processing L2 frame
+2022-03-15 10:16:35,616 [DEBUG] Unknown state reached....
+2022-03-15 10:16:36,127 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:16:36,128 [DEBUG] bytearray(b"\x1e\'QH\x9f\xa6")
+2022-03-15 10:16:36,128 [DEBUG] Searching for the next hop
+2022-03-15 10:16:36,129 [DEBUG] Processing L2 frame
+2022-03-15 10:16:36,130 [DEBUG] Unknown state reached....
+2022-03-15 10:16:40,565 [DEBUG] Sending I2 packet to 192.168.3.1
+2022-03-15 10:16:40,681 [DEBUG] Sending close packet....
+2022-03-15 10:16:40,681 [DEBUG] Responder's HIT 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
+2022-03-15 10:16:40,681 [DEBUG] Initiator's HIT 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd
+2022-03-15 10:16:40,681 [DEBUG] Responder's HMAC algorithm 1 
+2022-03-15 10:16:40,682 [DEBUG] Sending CLOSE PACKET packet 192.168.3.1
+2022-03-15 10:19:22,797 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 10:19:22,797 [INFO] Importing hosts file
+2022-03-15 10:19:22,798 [INFO] 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 192.168.3.1
+
+2022-03-15 10:19:22,798 [INFO] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 192.168.3.2
+
+2022-03-15 10:19:22,798 [INFO] Loading public key and constructing HIT
+2022-03-15 10:19:22,810 [INFO] Initializing IPSec socket
+2022-03-15 10:19:22,826 [INFO] Starting the CuteHIP
+2022-03-15 10:19:22,826 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:19:22,827 [DEBUG] ...Periodic cleaning task...
+2022-03-15 10:19:22,977 [INFO] I1 packet
+2022-03-15 10:19:23,000 [DEBUG] DH public key: 8216690775418205560037035512050963063178105406164459800487783949559323376088273672592130744794777553991137141996055861291898004406740035125235771277355870 
+2022-03-15 10:19:23,001 [DEBUG] DH public key value: 8216690775418205560037035512050963063178105406164459800487783949559323376088273672592130744794777553991137141996055861291898004406740035125235771277355870 
+2022-03-15 10:19:23,001 [DEBUG] DH public key value: 8216690775418205560037035512050963063178105406164459800487783949559323376088273672592130744794777553991137141996055861291898004406740035125235771277355870 
+2022-03-15 10:19:23,001 [DEBUG] [0, 0, 3, 1, 0, 1, 222, 173, 141, 230, 170, 189, 175, 182, 226, 38, 232, 24, 191, 177, 230, 147, 75, 91, 158, 10, 196, 83, 171, 200, 216, 51, 10, 47, 183, 164, 237, 73, 167, 178, 40, 85, 237, 192, 248, 192, 151, 60, 30, 66, 53, 172, 171, 41, 224, 220, 230, 55, 22, 60, 205, 149, 234, 52, 240, 115, 132, 79, 39, 30, 73, 140, 150, 205, 200, 212, 232, 105, 218, 145, 219, 47, 53, 204, 221, 91, 238, 137, 24, 194, 230, 80, 44, 141, 82, 254, 143, 146, 211, 185, 23, 153, 90, 195, 115, 250, 122, 111, 114, 185, 45, 93, 124, 71, 69, 143, 163, 97, 151, 45, 5, 82, 24, 200, 34, 210, 212, 180, 224, 122, 147, 206, 130, 239]
+2022-03-15 10:19:23,002 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2022-03-15 10:19:23,003 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:19:23,070 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,070 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:19:23,070 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,070 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,070 [DEBUG] Unassociate state reached
+2022-03-15 10:19:23,071 [DEBUG] Starting HIP BEX 1647339563.071015
+2022-03-15 10:19:23,071 [INFO] Resolving 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd to IPv4 address
+2022-03-15 10:19:23,071 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000057
+2022-03-15 10:19:23,102 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,103 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:19:23,103 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,103 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,103 [DEBUG] Unknown state reached....
+2022-03-15 10:19:23,103 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,103 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:19:23,103 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,103 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,104 [DEBUG] Unknown state reached....
+2022-03-15 10:19:23,197 [INFO] I2 packet
+2022-03-15 10:19:23,197 [DEBUG] ESP info parameter
+2022-03-15 10:19:23,198 [DEBUG] Puzzle solution parameter
+2022-03-15 10:19:23,198 [DEBUG] DH parameter
+2022-03-15 10:19:23,198 [DEBUG] Ciphers parameter
+2022-03-15 10:19:23,198 [DEBUG] ESP transform parameter
+2022-03-15 10:19:23,198 [DEBUG] Host ID
+2022-03-15 10:19:23,198 [DEBUG] OGA ID 1 
+2022-03-15 10:19:23,198 [DEBUG] [32, 1, 32, 1, 190, 180, 216, 190, 174, 71, 244, 220, 147, 227, 198, 172]
+2022-03-15 10:19:23,198 [DEBUG] [32, 1, 32, 1, 111, 74, 90, 129, 8, 82, 243, 69, 232, 143, 220, 253]
+2022-03-15 10:19:23,198 [DEBUG] [32, 1, 32, 1, 111, 74, 90, 129, 8, 82, 243, 69, 232, 143, 220, 253]
+2022-03-15 10:19:23,199 [DEBUG] Transport parameter
+2022-03-15 10:19:23,199 [DEBUG] MAC parameter
+2022-03-15 10:19:23,199 [DEBUG] Signature parameter
+2022-03-15 10:19:23,199 [DEBUG] Puzzle was solved
+2022-03-15 10:19:23,212 [DEBUG] Secret key 68694146202074904222234097825551983675377312071310051256229271468163227044785
+2022-03-15 10:19:23,213 [DEBUG] Signature is correct
+2022-03-15 10:19:23,213 [DEBUG] Processing I2 packet 0.015743
+2022-03-15 10:19:23,214 [DEBUG] Current system state is 1
+2022-03-15 10:19:23,214 [DEBUG] Sending R2 packet to 192.168.3.1 0.000899
+2022-03-15 10:19:23,214 [DEBUG] Setting SA records...
+2022-03-15 10:19:23,214 [DEBUG] Transform 9 
+2022-03-15 10:19:23,214 [DEBUG] Adding record for 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac - 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd
+2022-03-15 10:19:23,214 [DEBUG] Adding record for 192.168.3.1 - 192.168.3.2
+2022-03-15 10:19:23,214 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:19:23,215 [INFO] R1 packet
+2022-03-15 10:19:23,215 [DEBUG] Dropping packet...
+2022-03-15 10:19:23,215 [DEBUG] Exception occured while processing HIP packet
+2022-03-15 10:19:23,215 [DEBUG] 'NoneType' object is not iterable
+2022-03-15 10:19:23,215 [DEBUG] Got HIP packet on the interface
+2022-03-15 10:19:23,363 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,363 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:19:23,363 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,363 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,363 [DEBUG] Unknown state reached....
+2022-03-15 10:19:23,459 [DEBUG] Processing IPSec packet
+2022-03-15 10:19:23,587 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,587 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:19:23,587 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,587 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,588 [DEBUG] HMAC key
+2022-03-15 10:19:23,588 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:19:23,588 [DEBUG] Cipher key
+2022-03-15 10:19:23,588 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:19:23,588 [DEBUG] IV
+2022-03-15 10:19:23,589 [DEBUG] [131, 18, 185, 127, 162, 216, 254, 158, 208, 144, 128, 40, 198, 13, 88, 7]
+2022-03-15 10:19:23,589 [DEBUG] Length of the padded data 96
+2022-03-15 10:19:23,590 [DEBUG] Padded data
+2022-03-15 10:19:23,590 [DEBUG] [131, 18, 185, 127, 162, 216, 254, 158, 208, 144, 128, 40, 198, 13, 88, 7, 57, 5, 75, 132, 185, 99, 226, 11, 107, 53, 170, 155, 143, 134, 86, 182, 234, 92, 205, 166, 47, 222, 34, 230, 134, 167, 48, 71, 100, 15, 80, 14, 120, 206, 51, 193, 129, 129, 69, 75, 223, 75, 92, 129, 244, 101, 99, 85, 134, 206, 225, 241, 28, 222, 103, 226, 172, 153, 156, 98, 128, 107, 193, 192, 88, 231, 235, 242, 145, 157, 201, 38, 93, 214, 243, 51, 146, 121, 130, 176, 81, 118, 247, 18, 177, 204, 88, 22, 161, 226, 116, 136, 247, 197, 157, 176]
+2022-03-15 10:19:23,590 [DEBUG] [57, 5, 75, 132, 185, 99, 226, 11, 107, 53, 170, 155, 143, 134, 86, 182, 234, 92, 205, 166, 47, 222, 34, 230, 134, 167, 48, 71, 100, 15, 80, 14, 120, 206, 51, 193, 129, 129, 69, 75, 223, 75, 92, 129, 244, 101, 99, 85, 134, 206, 225, 241, 28, 222, 103, 226, 172, 153, 156, 98, 128, 107, 193, 192, 88, 231, 235, 242, 145, 157, 201, 38, 93, 214, 243, 51, 146, 121, 130, 176, 81, 118, 247, 18, 177, 204, 88, 22, 161, 226, 116, 136, 247, 197, 157, 176]
+2022-03-15 10:19:23,591 [DEBUG] Encrypted padded data
+2022-03-15 10:19:23,591 [DEBUG] [51, 51, 0, 0, 0, 22, 70, 176, 15, 254, 145, 18, 134, 221, 96, 0, 0, 0, 0, 36, 0, 1, 254, 128, 0, 0, 0, 0, 0, 0, 68, 176, 15, 255, 254, 254, 145, 18, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 58, 0, 5, 2, 0, 0, 1, 0, 143, 0, 250, 55, 0, 0, 0, 1, 4, 0, 0, 0, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 255, 254, 145, 18, 1, 2, 3, 4, 4, 0]
+2022-03-15 10:19:23,591 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:19:23,591 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 1, 131, 18, 185, 127, 162, 216, 254, 158, 208, 144, 128, 40, 198, 13, 88, 7, 57, 5, 75, 132, 185, 99, 226, 11, 107, 53, 170, 155, 143, 134, 86, 182, 234, 92, 205, 166, 47, 222, 34, 230, 134, 167, 48, 71, 100, 15, 80, 14, 120, 206, 51, 193, 129, 129, 69, 75, 223, 75, 92, 129, 244, 101, 99, 85, 134, 206, 225, 241, 28, 222, 103, 226, 172, 153, 156, 98, 128, 107, 193, 192, 88, 231, 235, 242, 145, 157, 201, 38, 93, 214, 243, 51, 146, 121, 130, 176, 81, 118, 247, 18, 177, 204, 88, 22, 161, 226, 116, 136, 247, 197, 157, 176]
+2022-03-15 10:19:23,592 [DEBUG] Sending IPSEC packet to 192.168.3.1 172 bytes
+2022-03-15 10:19:23,592 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,593 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:19:23,594 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,594 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,594 [DEBUG] HMAC key
+2022-03-15 10:19:23,594 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:19:23,594 [DEBUG] Cipher key
+2022-03-15 10:19:23,594 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:19:23,594 [DEBUG] IV
+2022-03-15 10:19:23,594 [DEBUG] [195, 145, 37, 115, 86, 235, 25, 111, 197, 246, 7, 107, 5, 13, 228, 39]
+2022-03-15 10:19:23,595 [DEBUG] Length of the padded data 80
+2022-03-15 10:19:23,595 [DEBUG] Padded data
+2022-03-15 10:19:23,595 [DEBUG] [195, 145, 37, 115, 86, 235, 25, 111, 197, 246, 7, 107, 5, 13, 228, 39, 103, 152, 182, 177, 114, 121, 194, 126, 137, 108, 174, 202, 197, 211, 109, 227, 97, 209, 60, 157, 98, 18, 32, 112, 95, 70, 243, 245, 243, 168, 233, 244, 73, 147, 64, 33, 140, 36, 127, 222, 114, 247, 218, 164, 245, 64, 218, 255, 95, 175, 103, 132, 10, 109, 20, 138, 48, 223, 250, 218, 186, 62, 14, 36, 126, 94, 224, 253, 38, 171, 83, 175, 1, 192, 159, 158, 36, 162, 189, 149]
+2022-03-15 10:19:23,595 [DEBUG] [103, 152, 182, 177, 114, 121, 194, 126, 137, 108, 174, 202, 197, 211, 109, 227, 97, 209, 60, 157, 98, 18, 32, 112, 95, 70, 243, 245, 243, 168, 233, 244, 73, 147, 64, 33, 140, 36, 127, 222, 114, 247, 218, 164, 245, 64, 218, 255, 95, 175, 103, 132, 10, 109, 20, 138, 48, 223, 250, 218, 186, 62, 14, 36, 126, 94, 224, 253, 38, 171, 83, 175, 1, 192, 159, 158, 36, 162, 189, 149]
+2022-03-15 10:19:23,595 [DEBUG] Encrypted padded data
+2022-03-15 10:19:23,595 [DEBUG] [51, 51, 0, 0, 0, 2, 70, 176, 15, 254, 145, 18, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 68, 176, 15, 255, 254, 254, 145, 18, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 175, 172, 0, 0, 0, 0, 1, 1, 70, 176, 15, 254, 145, 18, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:19:23,595 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:19:23,596 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 2, 195, 145, 37, 115, 86, 235, 25, 111, 197, 246, 7, 107, 5, 13, 228, 39, 103, 152, 182, 177, 114, 121, 194, 126, 137, 108, 174, 202, 197, 211, 109, 227, 97, 209, 60, 157, 98, 18, 32, 112, 95, 70, 243, 245, 243, 168, 233, 244, 73, 147, 64, 33, 140, 36, 127, 222, 114, 247, 218, 164, 245, 64, 218, 255, 95, 175, 103, 132, 10, 109, 20, 138, 48, 223, 250, 218, 186, 62, 14, 36, 126, 94, 224, 253, 38, 171, 83, 175, 1, 192, 159, 158, 36, 162, 189, 149]
+2022-03-15 10:19:23,596 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:19:23,613 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,614 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:19:23,614 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,614 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,614 [DEBUG] HMAC key
+2022-03-15 10:19:23,615 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:19:23,615 [DEBUG] Cipher key
+2022-03-15 10:19:23,615 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:19:23,615 [DEBUG] IV
+2022-03-15 10:19:23,615 [DEBUG] [31, 69, 90, 27, 31, 137, 25, 194, 106, 120, 26, 122, 163, 180, 41, 92]
+2022-03-15 10:19:23,615 [DEBUG] Length of the padded data 96
+2022-03-15 10:19:23,615 [DEBUG] Padded data
+2022-03-15 10:19:23,616 [DEBUG] [31, 69, 90, 27, 31, 137, 25, 194, 106, 120, 26, 122, 163, 180, 41, 92, 131, 153, 146, 67, 240, 10, 189, 166, 193, 229, 3, 200, 253, 100, 147, 172, 98, 91, 37, 131, 220, 233, 88, 70, 90, 81, 42, 245, 182, 224, 57, 22, 22, 31, 68, 141, 123, 167, 160, 102, 156, 49, 48, 242, 94, 20, 134, 114, 135, 88, 175, 56, 56, 108, 50, 124, 4, 150, 110, 70, 251, 89, 102, 175, 85, 234, 28, 169, 1, 156, 117, 168, 221, 66, 77, 77, 189, 51, 194, 48, 248, 52, 134, 108, 76, 171, 204, 155, 91, 252, 139, 140, 50, 53, 217, 133]
+2022-03-15 10:19:23,616 [DEBUG] [131, 153, 146, 67, 240, 10, 189, 166, 193, 229, 3, 200, 253, 100, 147, 172, 98, 91, 37, 131, 220, 233, 88, 70, 90, 81, 42, 245, 182, 224, 57, 22, 22, 31, 68, 141, 123, 167, 160, 102, 156, 49, 48, 242, 94, 20, 134, 114, 135, 88, 175, 56, 56, 108, 50, 124, 4, 150, 110, 70, 251, 89, 102, 175, 85, 234, 28, 169, 1, 156, 117, 168, 221, 66, 77, 77, 189, 51, 194, 48, 248, 52, 134, 108, 76, 171, 204, 155, 91, 252, 139, 140, 50, 53, 217, 133]
+2022-03-15 10:19:23,616 [DEBUG] Encrypted padded data
+2022-03-15 10:19:23,616 [DEBUG] [51, 51, 0, 0, 0, 22, 58, 12, 54, 145, 18, 15, 134, 221, 96, 0, 0, 0, 0, 36, 0, 1, 254, 128, 0, 0, 0, 0, 0, 0, 56, 12, 54, 255, 254, 145, 18, 15, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 58, 0, 5, 2, 0, 0, 1, 0, 143, 0, 222, 188, 0, 0, 0, 1, 4, 0, 0, 0, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 255, 145, 18, 15, 1, 2, 3, 4, 4, 0]
+2022-03-15 10:19:23,617 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:19:23,617 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 3, 31, 69, 90, 27, 31, 137, 25, 194, 106, 120, 26, 122, 163, 180, 41, 92, 131, 153, 146, 67, 240, 10, 189, 166, 193, 229, 3, 200, 253, 100, 147, 172, 98, 91, 37, 131, 220, 233, 88, 70, 90, 81, 42, 245, 182, 224, 57, 22, 22, 31, 68, 141, 123, 167, 160, 102, 156, 49, 48, 242, 94, 20, 134, 114, 135, 88, 175, 56, 56, 108, 50, 124, 4, 150, 110, 70, 251, 89, 102, 175, 85, 234, 28, 169, 1, 156, 117, 168, 221, 66, 77, 77, 189, 51, 194, 48, 248, 52, 134, 108, 76, 171, 204, 155, 91, 252, 139, 140, 50, 53, 217, 133]
+2022-03-15 10:19:23,617 [DEBUG] Sending IPSEC packet to 192.168.3.1 172 bytes
+2022-03-15 10:19:23,618 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:23,618 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:19:23,618 [DEBUG] Searching for the next hop
+2022-03-15 10:19:23,618 [DEBUG] Processing L2 frame
+2022-03-15 10:19:23,618 [DEBUG] HMAC key
+2022-03-15 10:19:23,618 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:19:23,618 [DEBUG] Cipher key
+2022-03-15 10:19:23,619 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:19:23,619 [DEBUG] IV
+2022-03-15 10:19:23,619 [DEBUG] [109, 217, 92, 116, 91, 61, 174, 188, 240, 104, 125, 77, 191, 180, 219, 214]
+2022-03-15 10:19:23,619 [DEBUG] Length of the padded data 80
+2022-03-15 10:19:23,620 [DEBUG] Padded data
+2022-03-15 10:19:23,620 [DEBUG] [109, 217, 92, 116, 91, 61, 174, 188, 240, 104, 125, 77, 191, 180, 219, 214, 250, 194, 184, 191, 145, 14, 85, 186, 77, 131, 166, 11, 94, 159, 177, 170, 244, 186, 45, 17, 158, 71, 196, 88, 189, 52, 31, 252, 153, 44, 183, 200, 134, 167, 66, 47, 148, 118, 160, 137, 54, 195, 93, 224, 77, 240, 42, 249, 113, 34, 84, 1, 219, 240, 121, 64, 66, 225, 54, 110, 90, 222, 213, 209, 35, 108, 62, 130, 69, 190, 34, 214, 113, 127, 255, 18, 46, 237, 234, 27]
+2022-03-15 10:19:23,620 [DEBUG] [250, 194, 184, 191, 145, 14, 85, 186, 77, 131, 166, 11, 94, 159, 177, 170, 244, 186, 45, 17, 158, 71, 196, 88, 189, 52, 31, 252, 153, 44, 183, 200, 134, 167, 66, 47, 148, 118, 160, 137, 54, 195, 93, 224, 77, 240, 42, 249, 113, 34, 84, 1, 219, 240, 121, 64, 66, 225, 54, 110, 90, 222, 213, 209, 35, 108, 62, 130, 69, 190, 34, 214, 113, 127, 255, 18, 46, 237, 234, 27]
+2022-03-15 10:19:23,620 [DEBUG] Encrypted padded data
+2022-03-15 10:19:23,620 [DEBUG] [51, 51, 0, 0, 0, 2, 58, 12, 54, 145, 18, 15, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 56, 12, 54, 255, 254, 145, 18, 15, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 121, 213, 0, 0, 0, 0, 1, 1, 58, 12, 54, 145, 18, 15, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:19:23,621 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:19:23,621 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 4, 109, 217, 92, 116, 91, 61, 174, 188, 240, 104, 125, 77, 191, 180, 219, 214, 250, 194, 184, 191, 145, 14, 85, 186, 77, 131, 166, 11, 94, 159, 177, 170, 244, 186, 45, 17, 158, 71, 196, 88, 189, 52, 31, 252, 153, 44, 183, 200, 134, 167, 66, 47, 148, 118, 160, 137, 54, 195, 93, 224, 77, 240, 42, 249, 113, 34, 84, 1, 219, 240, 121, 64, 66, 225, 54, 110, 90, 222, 213, 209, 35, 108, 62, 130, 69, 190, 34, 214, 113, 127, 255, 18, 46, 237, 234, 27]
+2022-03-15 10:19:23,621 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:19:24,063 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:19:24,064 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:19:24,064 [DEBUG] Searching for the next hop
+2022-03-15 10:19:24,064 [DEBUG] Processing L2 frame
+2022-03-15 10:19:24,064 [DEBUG] HMAC key
+2022-03-15 10:19:24,065 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:19:24,065 [DEBUG] Cipher key
+2022-03-15 10:19:24,066 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:19:24,066 [DEBUG] IV
+2022-03-15 10:19:24,066 [DEBUG] [208, 190, 12, 167, 156, 54, 201, 78, 88, 223, 6, 28, 218, 155, 122, 118]
+2022-03-15 10:19:24,067 [DEBUG] Length of the padded data 96
+2022-03-15 10:19:24,067 [DEBUG] Padded data
+2022-03-15 10:19:24,067 [DEBUG] [208, 190, 12, 167, 156, 54, 201, 78, 88, 223, 6, 28, 218, 155, 122, 118, 13, 173, 192, 47, 175, 149, 99, 64, 138, 85, 128, 46, 58, 94, 171, 230, 151, 4, 25, 233, 117, 178, 159, 20, 163, 91, 100, 232, 41, 17, 26, 28, 2, 109, 214, 94, 204, 225, 97, 62, 103, 56, 254, 142, 189, 194, 139, 235, 45, 172, 132, 78, 128, 153, 19, 129, 137, 154, 162, 4, 143, 70, 24, 88, 175, 119, 95, 14, 35, 84, 31, 45, 49, 50, 171, 24, 82, 127, 254, 109, 23, 145, 53, 147, 56, 136, 92, 130, 183, 37, 112, 110, 209, 127, 77, 148]
+2022-03-15 10:19:32,839 [DEBUG] Reponder's HIT 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 
+2022-03-15 10:24:22,587 [DEBUG] [13, 173, 192, 47, 175, 149, 99, 64, 138, 85, 128, 46, 58, 94, 171, 230, 151, 4, 25, 233, 117, 178, 159, 20, 163, 91, 100, 232, 41, 17, 26, 28, 2, 109, 214, 94, 204, 225, 97, 62, 103, 56, 254, 142, 189, 194, 139, 235, 45, 172, 132, 78, 128, 153, 19, 129, 137, 154, 162, 4, 143, 70, 24, 88, 175, 119, 95, 14, 35, 84, 31, 45, 49, 50, 171, 24, 82, 127, 254, 109, 23, 145, 53, 147, 56, 136, 92, 130, 183, 37, 112, 110, 209, 127, 77, 148]
+2022-03-15 10:24:22,589 [DEBUG] Initiator's HIT 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 
+2022-03-15 10:24:22,589 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,590 [DEBUG] [51, 51, 0, 0, 0, 22, 70, 176, 15, 254, 145, 18, 134, 221, 96, 0, 0, 0, 0, 36, 0, 1, 254, 128, 0, 0, 0, 0, 0, 0, 68, 176, 15, 255, 254, 254, 145, 18, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 58, 0, 5, 2, 0, 0, 1, 0, 143, 0, 250, 55, 0, 0, 0, 1, 4, 0, 0, 0, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 255, 254, 145, 18, 1, 2, 3, 4, 4, 0]
+2022-03-15 10:24:22,590 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,590 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 5, 208, 190, 12, 167, 156, 54, 201, 78, 88, 223, 6, 28, 218, 155, 122, 118, 13, 173, 192, 47, 175, 149, 99, 64, 138, 85, 128, 46, 58, 94, 171, 230, 151, 4, 25, 233, 117, 178, 159, 20, 163, 91, 100, 232, 41, 17, 26, 28, 2, 109, 214, 94, 204, 225, 97, 62, 103, 56, 254, 142, 189, 194, 139, 235, 45, 172, 132, 78, 128, 153, 19, 129, 137, 154, 162, 4, 143, 70, 24, 88, 175, 119, 95, 14, 35, 84, 31, 45, 49, 50, 171, 24, 82, 127, 254, 109, 23, 145, 53, 147, 56, 136, 92, 130, 183, 37, 112, 110, 209, 127, 77, 148]
+2022-03-15 10:24:22,591 [DEBUG] Sending IPSEC packet to 192.168.3.1 172 bytes
+2022-03-15 10:24:22,591 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,591 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,591 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,591 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:24:22,591 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,589 [DEBUG] Using Responders's HMAC algorithm 1
+2022-03-15 10:24:22,593 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,594 [DEBUG] HMAC key
+2022-03-15 10:24:22,594 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,594 [DEBUG] Cipher key
+2022-03-15 10:24:22,594 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,594 [DEBUG] IV
+2022-03-15 10:24:22,595 [DEBUG] [106, 192, 163, 55, 90, 43, 83, 168, 250, 188, 242, 150, 37, 148, 77, 125]
+2022-03-15 10:24:22,595 [DEBUG] Length of the padded data 96
+2022-03-15 10:24:22,596 [DEBUG] Padded data
+2022-03-15 10:24:22,601 [DEBUG] [106, 192, 163, 55, 90, 43, 83, 168, 250, 188, 242, 150, 37, 148, 77, 125, 129, 30, 227, 90, 156, 244, 145, 45, 56, 186, 36, 181, 240, 41, 26, 255, 179, 140, 167, 134, 215, 162, 195, 30, 166, 18, 110, 69, 248, 41, 63, 149, 153, 8, 93, 188, 195, 136, 173, 10, 50, 106, 58, 70, 45, 68, 46, 42, 3, 170, 212, 142, 94, 65, 228, 142, 183, 62, 242, 178, 232, 56, 124, 86, 122, 129, 30, 161, 98, 217, 111, 113, 76, 152, 10, 126, 94, 163, 253, 137, 24, 168, 109, 97, 251, 88, 226, 134, 135, 138, 128, 88, 234, 18, 31, 36]
+2022-03-15 10:24:22,601 [DEBUG] Source HIT 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac 
+2022-03-15 10:24:22,602 [DEBUG] [129, 30, 227, 90, 156, 244, 145, 45, 56, 186, 36, 181, 240, 41, 26, 255, 179, 140, 167, 134, 215, 162, 195, 30, 166, 18, 110, 69, 248, 41, 63, 149, 153, 8, 93, 188, 195, 136, 173, 10, 50, 106, 58, 70, 45, 68, 46, 42, 3, 170, 212, 142, 94, 65, 228, 142, 183, 62, 242, 178, 232, 56, 124, 86, 122, 129, 30, 161, 98, 217, 111, 113, 76, 152, 10, 126, 94, 163, 253, 137, 24, 168, 109, 97, 251, 88, 226, 134, 135, 138, 128, 88, 234, 18, 31, 36]
+2022-03-15 10:24:22,602 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,602 [DEBUG] [51, 51, 0, 0, 0, 22, 22, 124, 243, 246, 183, 94, 134, 221, 96, 0, 0, 0, 0, 36, 0, 1, 254, 128, 0, 0, 0, 0, 0, 0, 20, 124, 243, 255, 254, 246, 183, 94, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 58, 0, 5, 2, 0, 0, 1, 0, 143, 0, 249, 226, 0, 0, 0, 1, 4, 0, 0, 0, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 255, 246, 183, 94, 1, 2, 3, 4, 4, 0]
+2022-03-15 10:24:22,602 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,602 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 6, 106, 192, 163, 55, 90, 43, 83, 168, 250, 188, 242, 150, 37, 148, 77, 125, 129, 30, 227, 90, 156, 244, 145, 45, 56, 186, 36, 181, 240, 41, 26, 255, 179, 140, 167, 134, 215, 162, 195, 30, 166, 18, 110, 69, 248, 41, 63, 149, 153, 8, 93, 188, 195, 136, 173, 10, 50, 106, 58, 70, 45, 68, 46, 42, 3, 170, 212, 142, 94, 65, 228, 142, 183, 62, 242, 178, 232, 56, 124, 86, 122, 129, 30, 161, 98, 217, 111, 113, 76, 152, 10, 126, 94, 163, 253, 137, 24, 168, 109, 97, 251, 88, 226, 134, 135, 138, 128, 88, 234, 18, 31, 36]
+2022-03-15 10:24:22,602 [DEBUG] Sending IPSEC packet to 192.168.3.1 172 bytes
+2022-03-15 10:24:22,603 [DEBUG] Destination HIT 2001:2001:6f4a:5a81:0852:f345:e88f:dcfd 
+2022-03-15 10:24:22,604 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,606 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,606 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,606 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:24:22,606 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,607 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,607 [DEBUG] HMAC key
+2022-03-15 10:24:22,607 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,607 [DEBUG] Cipher key
+2022-03-15 10:24:22,607 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,607 [DEBUG] IV
+2022-03-15 10:24:22,607 [DEBUG] [235, 140, 92, 163, 180, 61, 102, 148, 145, 106, 174, 102, 188, 42, 36, 107]
+2022-03-15 10:24:22,608 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,608 [DEBUG] Sending UPDATE PACKET packet 192.168.3.1
+2022-03-15 10:24:22,608 [DEBUG] Padded data
+2022-03-15 10:24:22,610 [DEBUG] [235, 140, 92, 163, 180, 61, 102, 148, 145, 106, 174, 102, 188, 42, 36, 107, 25, 171, 117, 45, 126, 78, 129, 236, 185, 28, 200, 75, 190, 9, 78, 93, 236, 184, 85, 194, 206, 152, 110, 135, 97, 74, 2, 186, 89, 30, 64, 200, 185, 128, 177, 72, 83, 21, 252, 1, 21, 184, 66, 47, 229, 229, 54, 34, 27, 145, 167, 189, 192, 196, 136, 158, 9, 151, 130, 49, 135, 241, 241, 36, 210, 39, 180, 77, 138, 83, 235, 45, 28, 166, 63, 199, 97, 171, 165, 209]
+2022-03-15 10:24:22,610 [DEBUG] [25, 171, 117, 45, 126, 78, 129, 236, 185, 28, 200, 75, 190, 9, 78, 93, 236, 184, 85, 194, 206, 152, 110, 135, 97, 74, 2, 186, 89, 30, 64, 200, 185, 128, 177, 72, 83, 21, 252, 1, 21, 184, 66, 47, 229, 229, 54, 34, 27, 145, 167, 189, 192, 196, 136, 158, 9, 151, 130, 49, 135, 241, 241, 36, 210, 39, 180, 77, 138, 83, 235, 45, 28, 166, 63, 199, 97, 171, 165, 209]
+2022-03-15 10:24:22,610 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,610 [DEBUG] [51, 51, 0, 0, 0, 2, 22, 124, 243, 246, 183, 94, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 20, 124, 243, 255, 254, 246, 183, 94, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 251, 138, 0, 0, 0, 0, 1, 1, 22, 124, 243, 246, 183, 94, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,610 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,610 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 7, 235, 140, 92, 163, 180, 61, 102, 148, 145, 106, 174, 102, 188, 42, 36, 107, 25, 171, 117, 45, 126, 78, 129, 236, 185, 28, 200, 75, 190, 9, 78, 93, 236, 184, 85, 194, 206, 152, 110, 135, 97, 74, 2, 186, 89, 30, 64, 200, 185, 128, 177, 72, 83, 21, 252, 1, 21, 184, 66, 47, 229, 229, 54, 34, 27, 145, 167, 189, 192, 196, 136, 158, 9, 151, 130, 49, 135, 241, 241, 36, 210, 39, 180, 77, 138, 83, 235, 45, 28, 166, 63, 199, 97, 171, 165, 209]
+2022-03-15 10:24:22,610 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,610 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,610 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,610 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,610 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:24:22,610 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,610 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,610 [DEBUG] HMAC key
+2022-03-15 10:24:22,610 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,610 [DEBUG] Cipher key
+2022-03-15 10:24:22,610 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,610 [DEBUG] IV
+2022-03-15 10:24:22,610 [DEBUG] [32, 12, 104, 239, 83, 57, 96, 114, 89, 237, 144, 123, 2, 118, 210, 121]
+2022-03-15 10:24:22,610 [DEBUG] Length of the padded data 96
+2022-03-15 10:24:22,610 [DEBUG] Padded data
+2022-03-15 10:24:22,610 [DEBUG] [32, 12, 104, 239, 83, 57, 96, 114, 89, 237, 144, 123, 2, 118, 210, 121, 140, 17, 70, 145, 174, 108, 59, 105, 142, 214, 111, 33, 192, 110, 154, 85, 35, 202, 39, 96, 126, 112, 141, 211, 77, 224, 145, 154, 209, 113, 141, 147, 30, 76, 229, 10, 141, 190, 47, 83, 133, 135, 193, 176, 88, 93, 138, 107, 138, 37, 51, 233, 189, 87, 19, 47, 123, 143, 116, 154, 235, 123, 145, 206, 141, 86, 115, 246, 14, 123, 90, 26, 0, 85, 14, 171, 210, 104, 197, 165, 24, 159, 160, 194, 62, 138, 215, 124, 97, 194, 185, 86, 52, 61, 15, 92]
+2022-03-15 10:24:22,610 [DEBUG] [140, 17, 70, 145, 174, 108, 59, 105, 142, 214, 111, 33, 192, 110, 154, 85, 35, 202, 39, 96, 126, 112, 141, 211, 77, 224, 145, 154, 209, 113, 141, 147, 30, 76, 229, 10, 141, 190, 47, 83, 133, 135, 193, 176, 88, 93, 138, 107, 138, 37, 51, 233, 189, 87, 19, 47, 123, 143, 116, 154, 235, 123, 145, 206, 141, 86, 115, 246, 14, 123, 90, 26, 0, 85, 14, 171, 210, 104, 197, 165, 24, 159, 160, 194, 62, 138, 215, 124, 97, 194, 185, 86, 52, 61, 15, 92]
+2022-03-15 10:24:22,610 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,610 [DEBUG] [51, 51, 0, 0, 0, 22, 58, 12, 54, 145, 18, 15, 134, 221, 96, 0, 0, 0, 0, 36, 0, 1, 254, 128, 0, 0, 0, 0, 0, 0, 56, 12, 54, 255, 254, 145, 18, 15, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 58, 0, 5, 2, 0, 0, 1, 0, 143, 0, 222, 188, 0, 0, 0, 1, 4, 0, 0, 0, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 255, 145, 18, 15, 1, 2, 3, 4, 4, 0]
+2022-03-15 10:24:22,610 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,610 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 8, 32, 12, 104, 239, 83, 57, 96, 114, 89, 237, 144, 123, 2, 118, 210, 121, 140, 17, 70, 145, 174, 108, 59, 105, 142, 214, 111, 33, 192, 110, 154, 85, 35, 202, 39, 96, 126, 112, 141, 211, 77, 224, 145, 154, 209, 113, 141, 147, 30, 76, 229, 10, 141, 190, 47, 83, 133, 135, 193, 176, 88, 93, 138, 107, 138, 37, 51, 233, 189, 87, 19, 47, 123, 143, 116, 154, 235, 123, 145, 206, 141, 86, 115, 246, 14, 123, 90, 26, 0, 85, 14, 171, 210, 104, 197, 165, 24, 159, 160, 194, 62, 138, 215, 124, 97, 194, 185, 86, 52, 61, 15, 92]
+2022-03-15 10:24:22,611 [DEBUG] Sending IPSEC packet to 192.168.3.1 172 bytes
+2022-03-15 10:24:22,611 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,611 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,611 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,611 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:24:22,611 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,611 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,611 [DEBUG] HMAC key
+2022-03-15 10:24:22,611 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,611 [DEBUG] Cipher key
+2022-03-15 10:24:22,611 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,611 [DEBUG] IV
+2022-03-15 10:24:22,611 [DEBUG] [0, 195, 89, 152, 128, 246, 197, 145, 53, 94, 146, 137, 42, 78, 113, 49]
+2022-03-15 10:24:22,611 [DEBUG] Length of the padded data 96
+2022-03-15 10:24:22,611 [DEBUG] Padded data
+2022-03-15 10:24:22,611 [DEBUG] [0, 195, 89, 152, 128, 246, 197, 145, 53, 94, 146, 137, 42, 78, 113, 49, 168, 44, 114, 60, 140, 196, 67, 100, 67, 223, 163, 46, 62, 161, 6, 192, 197, 114, 131, 84, 239, 221, 60, 75, 153, 181, 75, 137, 239, 191, 20, 218, 181, 221, 174, 168, 184, 66, 64, 75, 18, 237, 146, 21, 150, 124, 14, 94, 142, 148, 201, 112, 71, 227, 229, 162, 66, 238, 209, 83, 232, 97, 26, 244, 239, 246, 125, 201, 100, 38, 37, 187, 34, 236, 100, 210, 33, 189, 1, 53, 15, 140, 8, 202, 192, 131, 77, 126, 17, 152, 53, 82, 143, 229, 246, 142]
+2022-03-15 10:24:22,611 [DEBUG] [168, 44, 114, 60, 140, 196, 67, 100, 67, 223, 163, 46, 62, 161, 6, 192, 197, 114, 131, 84, 239, 221, 60, 75, 153, 181, 75, 137, 239, 191, 20, 218, 181, 221, 174, 168, 184, 66, 64, 75, 18, 237, 146, 21, 150, 124, 14, 94, 142, 148, 201, 112, 71, 227, 229, 162, 66, 238, 209, 83, 232, 97, 26, 244, 239, 246, 125, 201, 100, 38, 37, 187, 34, 236, 100, 210, 33, 189, 1, 53, 15, 140, 8, 202, 192, 131, 77, 126, 17, 152, 53, 82, 143, 229, 246, 142]
+2022-03-15 10:24:22,611 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,611 [DEBUG] [51, 51, 0, 0, 0, 22, 22, 124, 243, 246, 183, 94, 134, 221, 96, 0, 0, 0, 0, 36, 0, 1, 254, 128, 0, 0, 0, 0, 0, 0, 20, 124, 243, 255, 254, 246, 183, 94, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 58, 0, 5, 2, 0, 0, 1, 0, 143, 0, 249, 226, 0, 0, 0, 1, 4, 0, 0, 0, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 255, 246, 183, 94, 1, 2, 3, 4, 4, 0]
+2022-03-15 10:24:22,611 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,611 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 9, 0, 195, 89, 152, 128, 246, 197, 145, 53, 94, 146, 137, 42, 78, 113, 49, 168, 44, 114, 60, 140, 196, 67, 100, 67, 223, 163, 46, 62, 161, 6, 192, 197, 114, 131, 84, 239, 221, 60, 75, 153, 181, 75, 137, 239, 191, 20, 218, 181, 221, 174, 168, 184, 66, 64, 75, 18, 237, 146, 21, 150, 124, 14, 94, 142, 148, 201, 112, 71, 227, 229, 162, 66, 238, 209, 83, 232, 97, 26, 244, 239, 246, 125, 201, 100, 38, 37, 187, 34, 236, 100, 210, 33, 189, 1, 53, 15, 140, 8, 202, 192, 131, 77, 126, 17, 152, 53, 82, 143, 229, 246, 142]
+2022-03-15 10:24:22,611 [DEBUG] Sending IPSEC packet to 192.168.3.1 172 bytes
+2022-03-15 10:24:22,611 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,611 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,611 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,611 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:24:22,611 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,611 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,611 [DEBUG] HMAC key
+2022-03-15 10:24:22,611 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,611 [DEBUG] Cipher key
+2022-03-15 10:24:22,611 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,611 [DEBUG] IV
+2022-03-15 10:24:22,611 [DEBUG] [106, 254, 240, 200, 3, 250, 203, 158, 186, 222, 26, 131, 37, 183, 75, 114]
+2022-03-15 10:24:22,611 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,611 [DEBUG] Padded data
+2022-03-15 10:24:22,611 [DEBUG] [106, 254, 240, 200, 3, 250, 203, 158, 186, 222, 26, 131, 37, 183, 75, 114, 122, 13, 53, 45, 36, 236, 230, 80, 187, 228, 234, 153, 92, 171, 55, 231, 162, 96, 109, 212, 63, 2, 70, 79, 114, 72, 163, 53, 29, 141, 57, 117, 185, 237, 209, 91, 139, 224, 47, 54, 112, 87, 215, 135, 85, 102, 238, 151, 168, 57, 128, 37, 10, 126, 36, 179, 124, 104, 34, 157, 179, 104, 76, 212, 243, 224, 137, 152, 75, 253, 190, 120, 187, 27, 228, 255, 170, 119, 193, 104]
+2022-03-15 10:24:22,612 [DEBUG] [122, 13, 53, 45, 36, 236, 230, 80, 187, 228, 234, 153, 92, 171, 55, 231, 162, 96, 109, 212, 63, 2, 70, 79, 114, 72, 163, 53, 29, 141, 57, 117, 185, 237, 209, 91, 139, 224, 47, 54, 112, 87, 215, 135, 85, 102, 238, 151, 168, 57, 128, 37, 10, 126, 36, 179, 124, 104, 34, 157, 179, 104, 76, 212, 243, 224, 137, 152, 75, 253, 190, 120, 187, 27, 228, 255, 170, 119, 193, 104]
+2022-03-15 10:24:22,612 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,612 [DEBUG] [51, 51, 0, 0, 0, 2, 70, 176, 15, 254, 145, 18, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 68, 176, 15, 255, 254, 254, 145, 18, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 175, 172, 0, 0, 0, 0, 1, 1, 70, 176, 15, 254, 145, 18, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,613 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,625 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 10, 106, 254, 240, 200, 3, 250, 203, 158, 186, 222, 26, 131, 37, 183, 75, 114, 122, 13, 53, 45, 36, 236, 230, 80, 187, 228, 234, 153, 92, 171, 55, 231, 162, 96, 109, 212, 63, 2, 70, 79, 114, 72, 163, 53, 29, 141, 57, 117, 185, 237, 209, 91, 139, 224, 47, 54, 112, 87, 215, 135, 85, 102, 238, 151, 168, 57, 128, 37, 10, 126, 36, 179, 124, 104, 34, 157, 179, 104, 76, 212, 243, 224, 137, 152, 75, 253, 190, 120, 187, 27, 228, 255, 170, 119, 193, 104]
+2022-03-15 10:24:22,626 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,626 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,626 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,626 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,626 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:24:22,626 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,626 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,626 [DEBUG] HMAC key
+2022-03-15 10:24:22,626 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,626 [DEBUG] Cipher key
+2022-03-15 10:24:22,626 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,626 [DEBUG] IV
+2022-03-15 10:24:22,626 [DEBUG] [22, 156, 193, 124, 202, 152, 208, 181, 194, 66, 189, 252, 163, 253, 214, 118]
+2022-03-15 10:24:22,626 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,626 [DEBUG] Padded data
+2022-03-15 10:24:22,626 [DEBUG] [22, 156, 193, 124, 202, 152, 208, 181, 194, 66, 189, 252, 163, 253, 214, 118, 74, 25, 164, 128, 203, 56, 205, 85, 4, 23, 94, 203, 252, 6, 41, 105, 232, 234, 216, 116, 195, 195, 251, 232, 113, 43, 58, 198, 124, 239, 64, 113, 15, 15, 51, 194, 252, 94, 63, 38, 20, 13, 143, 254, 11, 195, 1, 142, 128, 250, 81, 148, 98, 224, 70, 129, 6, 175, 231, 234, 134, 8, 46, 11, 139, 224, 148, 97, 198, 218, 176, 98, 197, 51, 25, 117, 197, 196, 202, 13]
+2022-03-15 10:24:22,626 [DEBUG] [74, 25, 164, 128, 203, 56, 205, 85, 4, 23, 94, 203, 252, 6, 41, 105, 232, 234, 216, 116, 195, 195, 251, 232, 113, 43, 58, 198, 124, 239, 64, 113, 15, 15, 51, 194, 252, 94, 63, 38, 20, 13, 143, 254, 11, 195, 1, 142, 128, 250, 81, 148, 98, 224, 70, 129, 6, 175, 231, 234, 134, 8, 46, 11, 139, 224, 148, 97, 198, 218, 176, 98, 197, 51, 25, 117, 197, 196, 202, 13]
+2022-03-15 10:24:22,626 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,626 [DEBUG] [51, 51, 0, 0, 0, 2, 58, 12, 54, 145, 18, 15, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 56, 12, 54, 255, 254, 145, 18, 15, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 121, 213, 0, 0, 0, 0, 1, 1, 58, 12, 54, 145, 18, 15, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,626 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,639 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 11, 22, 156, 193, 124, 202, 152, 208, 181, 194, 66, 189, 252, 163, 253, 214, 118, 74, 25, 164, 128, 203, 56, 205, 85, 4, 23, 94, 203, 252, 6, 41, 105, 232, 234, 216, 116, 195, 195, 251, 232, 113, 43, 58, 198, 124, 239, 64, 113, 15, 15, 51, 194, 252, 94, 63, 38, 20, 13, 143, 254, 11, 195, 1, 142, 128, 250, 81, 148, 98, 224, 70, 129, 6, 175, 231, 234, 134, 8, 46, 11, 139, 224, 148, 97, 198, 218, 176, 98, 197, 51, 25, 117, 197, 196, 202, 13]
+2022-03-15 10:24:22,641 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,641 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,641 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,641 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,641 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:24:22,643 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,645 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,645 [DEBUG] HMAC key
+2022-03-15 10:24:22,646 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,646 [DEBUG] Cipher key
+2022-03-15 10:24:22,646 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,646 [DEBUG] IV
+2022-03-15 10:24:22,646 [DEBUG] [123, 145, 113, 3, 23, 153, 67, 80, 209, 231, 111, 221, 47, 156, 70, 28]
+2022-03-15 10:24:22,646 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,646 [DEBUG] Padded data
+2022-03-15 10:24:22,646 [DEBUG] [123, 145, 113, 3, 23, 153, 67, 80, 209, 231, 111, 221, 47, 156, 70, 28, 241, 229, 62, 251, 179, 235, 129, 236, 21, 190, 240, 44, 145, 33, 75, 123, 199, 178, 190, 39, 199, 94, 50, 108, 119, 83, 172, 57, 125, 147, 247, 139, 193, 182, 84, 52, 203, 52, 136, 168, 236, 49, 83, 138, 63, 153, 183, 190, 230, 153, 39, 128, 219, 170, 183, 106, 0, 22, 160, 211, 25, 183, 161, 233, 102, 97, 44, 215, 116, 242, 127, 13, 248, 4, 213, 54, 201, 36, 58, 163]
+2022-03-15 10:24:22,646 [DEBUG] [241, 229, 62, 251, 179, 235, 129, 236, 21, 190, 240, 44, 145, 33, 75, 123, 199, 178, 190, 39, 199, 94, 50, 108, 119, 83, 172, 57, 125, 147, 247, 139, 193, 182, 84, 52, 203, 52, 136, 168, 236, 49, 83, 138, 63, 153, 183, 190, 230, 153, 39, 128, 219, 170, 183, 106, 0, 22, 160, 211, 25, 183, 161, 233, 102, 97, 44, 215, 116, 242, 127, 13, 248, 4, 213, 54, 201, 36, 58, 163]
+2022-03-15 10:24:22,646 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,646 [DEBUG] [51, 51, 0, 0, 0, 2, 22, 124, 243, 246, 183, 94, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 20, 124, 243, 255, 254, 246, 183, 94, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 251, 138, 0, 0, 0, 0, 1, 1, 22, 124, 243, 246, 183, 94, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,696 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,696 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 12, 123, 145, 113, 3, 23, 153, 67, 80, 209, 231, 111, 221, 47, 156, 70, 28, 241, 229, 62, 251, 179, 235, 129, 236, 21, 190, 240, 44, 145, 33, 75, 123, 199, 178, 190, 39, 199, 94, 50, 108, 119, 83, 172, 57, 125, 147, 247, 139, 193, 182, 84, 52, 203, 52, 136, 168, 236, 49, 83, 138, 63, 153, 183, 190, 230, 153, 39, 128, 219, 170, 183, 106, 0, 22, 160, 211, 25, 183, 161, 233, 102, 97, 44, 215, 116, 242, 127, 13, 248, 4, 213, 54, 201, 36, 58, 163]
+2022-03-15 10:24:22,697 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,697 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,697 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,697 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,697 [DEBUG] [Errno 100] Network is down
+2022-03-15 10:24:22,697 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,697 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:24:22,697 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,697 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,697 [DEBUG] HMAC key
+2022-03-15 10:24:22,697 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,697 [DEBUG] Cipher key
+2022-03-15 10:24:22,697 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,697 [DEBUG] IV
+2022-03-15 10:24:22,697 [DEBUG] [114, 69, 88, 136, 172, 156, 217, 119, 151, 121, 19, 67, 195, 49, 161, 196]
+2022-03-15 10:24:22,697 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,698 [DEBUG] Padded data
+2022-03-15 10:24:22,698 [DEBUG] [114, 69, 88, 136, 172, 156, 217, 119, 151, 121, 19, 67, 195, 49, 161, 196, 192, 84, 124, 147, 14, 103, 13, 2, 92, 167, 230, 128, 115, 127, 150, 47, 30, 207, 197, 148, 79, 100, 121, 38, 86, 13, 137, 4, 8, 123, 103, 185, 144, 49, 179, 170, 84, 148, 234, 102, 202, 137, 191, 82, 175, 205, 169, 35, 51, 99, 246, 58, 78, 216, 62, 11, 154, 63, 31, 104, 54, 168, 47, 151, 118, 28, 212, 36, 210, 80, 133, 121, 170, 210, 114, 218, 255, 85, 8, 22]
+2022-03-15 10:24:22,698 [DEBUG] [192, 84, 124, 147, 14, 103, 13, 2, 92, 167, 230, 128, 115, 127, 150, 47, 30, 207, 197, 148, 79, 100, 121, 38, 86, 13, 137, 4, 8, 123, 103, 185, 144, 49, 179, 170, 84, 148, 234, 102, 202, 137, 191, 82, 175, 205, 169, 35, 51, 99, 246, 58, 78, 216, 62, 11, 154, 63, 31, 104, 54, 168, 47, 151, 118, 28, 212, 36, 210, 80, 133, 121, 170, 210, 114, 218, 255, 85, 8, 22]
+2022-03-15 10:24:22,698 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,698 [DEBUG] [51, 51, 0, 0, 0, 2, 58, 12, 54, 145, 18, 15, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 56, 12, 54, 255, 254, 145, 18, 15, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 121, 213, 0, 0, 0, 0, 1, 1, 58, 12, 54, 145, 18, 15, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,699 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,699 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 13, 114, 69, 88, 136, 172, 156, 217, 119, 151, 121, 19, 67, 195, 49, 161, 196, 192, 84, 124, 147, 14, 103, 13, 2, 92, 167, 230, 128, 115, 127, 150, 47, 30, 207, 197, 148, 79, 100, 121, 38, 86, 13, 137, 4, 8, 123, 103, 185, 144, 49, 179, 170, 84, 148, 234, 102, 202, 137, 191, 82, 175, 205, 169, 35, 51, 99, 246, 58, 78, 216, 62, 11, 154, 63, 31, 104, 54, 168, 47, 151, 118, 28, 212, 36, 210, 80, 133, 121, 170, 210, 114, 218, 255, 85, 8, 22]
+2022-03-15 10:24:22,699 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,699 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,700 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,700 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,700 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:24:22,700 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,700 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,700 [DEBUG] HMAC key
+2022-03-15 10:24:22,701 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,701 [DEBUG] Cipher key
+2022-03-15 10:24:22,701 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,701 [DEBUG] IV
+2022-03-15 10:24:22,701 [DEBUG] [233, 122, 245, 107, 67, 44, 235, 133, 100, 107, 49, 5, 121, 180, 28, 60]
+2022-03-15 10:24:22,702 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,702 [DEBUG] Padded data
+2022-03-15 10:24:22,702 [DEBUG] [233, 122, 245, 107, 67, 44, 235, 133, 100, 107, 49, 5, 121, 180, 28, 60, 186, 34, 205, 74, 119, 245, 64, 2, 210, 112, 147, 183, 199, 113, 42, 172, 97, 125, 48, 253, 32, 29, 198, 162, 10, 50, 199, 226, 244, 85, 221, 176, 62, 189, 30, 89, 205, 168, 201, 14, 208, 53, 146, 8, 78, 104, 37, 235, 49, 234, 211, 201, 9, 255, 126, 154, 132, 117, 202, 20, 41, 25, 203, 176, 222, 219, 203, 40, 102, 35, 147, 1, 120, 129, 45, 145, 89, 152, 230, 126]
+2022-03-15 10:24:22,703 [DEBUG] [186, 34, 205, 74, 119, 245, 64, 2, 210, 112, 147, 183, 199, 113, 42, 172, 97, 125, 48, 253, 32, 29, 198, 162, 10, 50, 199, 226, 244, 85, 221, 176, 62, 189, 30, 89, 205, 168, 201, 14, 208, 53, 146, 8, 78, 104, 37, 235, 49, 234, 211, 201, 9, 255, 126, 154, 132, 117, 202, 20, 41, 25, 203, 176, 222, 219, 203, 40, 102, 35, 147, 1, 120, 129, 45, 145, 89, 152, 230, 126]
+2022-03-15 10:24:22,703 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,703 [DEBUG] [51, 51, 0, 0, 0, 2, 70, 176, 15, 254, 145, 18, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 68, 176, 15, 255, 254, 254, 145, 18, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 175, 172, 0, 0, 0, 0, 1, 1, 70, 176, 15, 254, 145, 18, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,703 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,703 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 14, 233, 122, 245, 107, 67, 44, 235, 133, 100, 107, 49, 5, 121, 180, 28, 60, 186, 34, 205, 74, 119, 245, 64, 2, 210, 112, 147, 183, 199, 113, 42, 172, 97, 125, 48, 253, 32, 29, 198, 162, 10, 50, 199, 226, 244, 85, 221, 176, 62, 189, 30, 89, 205, 168, 201, 14, 208, 53, 146, 8, 78, 104, 37, 235, 49, 234, 211, 201, 9, 255, 126, 154, 132, 117, 202, 20, 41, 25, 203, 176, 222, 219, 203, 40, 102, 35, 147, 1, 120, 129, 45, 145, 89, 152, 230, 126]
+2022-03-15 10:24:22,703 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,704 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,704 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,704 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,704 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:24:22,704 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,704 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,705 [DEBUG] HMAC key
+2022-03-15 10:24:22,705 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,706 [DEBUG] Cipher key
+2022-03-15 10:24:22,706 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,708 [DEBUG] IV
+2022-03-15 10:24:22,708 [DEBUG] [232, 55, 88, 7, 83, 124, 2, 159, 226, 20, 179, 129, 81, 214, 234, 122]
+2022-03-15 10:24:22,709 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,709 [DEBUG] Padded data
+2022-03-15 10:24:22,709 [DEBUG] [232, 55, 88, 7, 83, 124, 2, 159, 226, 20, 179, 129, 81, 214, 234, 122, 62, 224, 219, 11, 164, 42, 13, 12, 159, 70, 103, 198, 133, 8, 67, 153, 205, 156, 29, 82, 69, 113, 113, 130, 40, 49, 247, 253, 236, 15, 116, 53, 22, 169, 235, 54, 250, 108, 131, 1, 96, 28, 84, 198, 50, 203, 197, 109, 161, 92, 223, 130, 60, 14, 101, 71, 139, 33, 192, 200, 79, 197, 117, 189, 246, 81, 242, 80, 55, 106, 115, 137, 82, 246, 61, 203, 121, 235, 151, 93]
+2022-03-15 10:24:22,710 [DEBUG] [62, 224, 219, 11, 164, 42, 13, 12, 159, 70, 103, 198, 133, 8, 67, 153, 205, 156, 29, 82, 69, 113, 113, 130, 40, 49, 247, 253, 236, 15, 116, 53, 22, 169, 235, 54, 250, 108, 131, 1, 96, 28, 84, 198, 50, 203, 197, 109, 161, 92, 223, 130, 60, 14, 101, 71, 139, 33, 192, 200, 79, 197, 117, 189, 246, 81, 242, 80, 55, 106, 115, 137, 82, 246, 61, 203, 121, 235, 151, 93]
+2022-03-15 10:24:22,710 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,710 [DEBUG] [51, 51, 0, 0, 0, 2, 22, 124, 243, 246, 183, 94, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 20, 124, 243, 255, 254, 246, 183, 94, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 251, 138, 0, 0, 0, 0, 1, 1, 22, 124, 243, 246, 183, 94, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,710 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,710 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 15, 232, 55, 88, 7, 83, 124, 2, 159, 226, 20, 179, 129, 81, 214, 234, 122, 62, 224, 219, 11, 164, 42, 13, 12, 159, 70, 103, 198, 133, 8, 67, 153, 205, 156, 29, 82, 69, 113, 113, 130, 40, 49, 247, 253, 236, 15, 116, 53, 22, 169, 235, 54, 250, 108, 131, 1, 96, 28, 84, 198, 50, 203, 197, 109, 161, 92, 223, 130, 60, 14, 101, 71, 139, 33, 192, 200, 79, 197, 117, 189, 246, 81, 242, 80, 55, 106, 115, 137, 82, 246, 61, 203, 121, 235, 151, 93]
+2022-03-15 10:24:22,710 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,712 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,713 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,713 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,713 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:24:22,713 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,713 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,713 [DEBUG] HMAC key
+2022-03-15 10:24:22,714 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,714 [DEBUG] Cipher key
+2022-03-15 10:24:22,714 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,714 [DEBUG] IV
+2022-03-15 10:24:22,714 [DEBUG] [25, 28, 193, 143, 83, 178, 176, 42, 22, 147, 180, 197, 11, 252, 166, 86]
+2022-03-15 10:24:22,714 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,714 [DEBUG] Padded data
+2022-03-15 10:24:22,714 [DEBUG] [25, 28, 193, 143, 83, 178, 176, 42, 22, 147, 180, 197, 11, 252, 166, 86, 128, 89, 102, 112, 251, 235, 238, 114, 46, 81, 111, 139, 116, 136, 26, 110, 244, 145, 15, 48, 49, 105, 143, 211, 45, 231, 128, 153, 189, 225, 202, 97, 215, 215, 30, 104, 216, 166, 19, 171, 67, 55, 87, 84, 226, 57, 68, 231, 71, 70, 229, 71, 87, 112, 4, 197, 148, 203, 81, 35, 6, 34, 60, 96, 233, 75, 220, 137, 122, 110, 246, 90, 197, 236, 7, 245, 64, 114, 85, 126]
+2022-03-15 10:24:22,714 [DEBUG] [128, 89, 102, 112, 251, 235, 238, 114, 46, 81, 111, 139, 116, 136, 26, 110, 244, 145, 15, 48, 49, 105, 143, 211, 45, 231, 128, 153, 189, 225, 202, 97, 215, 215, 30, 104, 216, 166, 19, 171, 67, 55, 87, 84, 226, 57, 68, 231, 71, 70, 229, 71, 87, 112, 4, 197, 148, 203, 81, 35, 6, 34, 60, 96, 233, 75, 220, 137, 122, 110, 246, 90, 197, 236, 7, 245, 64, 114, 85, 126]
+2022-03-15 10:24:22,714 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,714 [DEBUG] [51, 51, 0, 0, 0, 2, 58, 12, 54, 145, 18, 15, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 56, 12, 54, 255, 254, 145, 18, 15, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 121, 213, 0, 0, 0, 0, 1, 1, 58, 12, 54, 145, 18, 15, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,715 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,715 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 16, 25, 28, 193, 143, 83, 178, 176, 42, 22, 147, 180, 197, 11, 252, 166, 86, 128, 89, 102, 112, 251, 235, 238, 114, 46, 81, 111, 139, 116, 136, 26, 110, 244, 145, 15, 48, 49, 105, 143, 211, 45, 231, 128, 153, 189, 225, 202, 97, 215, 215, 30, 104, 216, 166, 19, 171, 67, 55, 87, 84, 226, 57, 68, 231, 71, 70, 229, 71, 87, 112, 4, 197, 148, 203, 81, 35, 6, 34, 60, 96, 233, 75, 220, 137, 122, 110, 246, 90, 197, 236, 7, 245, 64, 114, 85, 126]
+2022-03-15 10:24:22,715 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,716 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,716 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,716 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,716 [DEBUG] bytearray(b'F\xb0\x0f\xfe\x91\x12')
+2022-03-15 10:24:22,716 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,716 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,716 [DEBUG] HMAC key
+2022-03-15 10:24:22,716 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,717 [DEBUG] Cipher key
+2022-03-15 10:24:22,717 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,717 [DEBUG] IV
+2022-03-15 10:24:22,717 [DEBUG] [185, 114, 50, 24, 124, 192, 40, 229, 245, 157, 89, 76, 112, 178, 77, 133]
+2022-03-15 10:24:22,717 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,717 [DEBUG] Padded data
+2022-03-15 10:24:22,717 [DEBUG] [185, 114, 50, 24, 124, 192, 40, 229, 245, 157, 89, 76, 112, 178, 77, 133, 80, 82, 188, 65, 184, 162, 16, 139, 148, 116, 70, 244, 108, 37, 42, 64, 52, 9, 100, 102, 151, 97, 7, 66, 30, 141, 198, 194, 70, 69, 5, 89, 114, 70, 105, 212, 247, 121, 179, 204, 233, 234, 68, 79, 5, 146, 232, 36, 168, 81, 163, 75, 118, 183, 50, 24, 123, 245, 49, 32, 229, 133, 175, 0, 55, 214, 158, 126, 110, 246, 247, 248, 67, 192, 218, 121, 206, 186, 4, 208]
+2022-03-15 10:24:22,717 [DEBUG] [80, 82, 188, 65, 184, 162, 16, 139, 148, 116, 70, 244, 108, 37, 42, 64, 52, 9, 100, 102, 151, 97, 7, 66, 30, 141, 198, 194, 70, 69, 5, 89, 114, 70, 105, 212, 247, 121, 179, 204, 233, 234, 68, 79, 5, 146, 232, 36, 168, 81, 163, 75, 118, 183, 50, 24, 123, 245, 49, 32, 229, 133, 175, 0, 55, 214, 158, 126, 110, 246, 247, 248, 67, 192, 218, 121, 206, 186, 4, 208]
+2022-03-15 10:24:22,717 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,721 [DEBUG] [51, 51, 0, 0, 0, 2, 70, 176, 15, 254, 145, 18, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 68, 176, 15, 255, 254, 254, 145, 18, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 175, 172, 0, 0, 0, 0, 1, 1, 70, 176, 15, 254, 145, 18, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,721 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,721 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 17, 185, 114, 50, 24, 124, 192, 40, 229, 245, 157, 89, 76, 112, 178, 77, 133, 80, 82, 188, 65, 184, 162, 16, 139, 148, 116, 70, 244, 108, 37, 42, 64, 52, 9, 100, 102, 151, 97, 7, 66, 30, 141, 198, 194, 70, 69, 5, 89, 114, 70, 105, 212, 247, 121, 179, 204, 233, 234, 68, 79, 5, 146, 232, 36, 168, 81, 163, 75, 118, 183, 50, 24, 123, 245, 49, 32, 229, 133, 175, 0, 55, 214, 158, 126, 110, 246, 247, 248, 67, 192, 218, 121, 206, 186, 4, 208]
+2022-03-15 10:24:22,721 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,721 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,721 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,721 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,722 [DEBUG] bytearray(b'\x16|\xf3\xf6\xb7^')
+2022-03-15 10:24:22,722 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,722 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,722 [DEBUG] HMAC key
+2022-03-15 10:24:22,726 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,736 [DEBUG] Cipher key
+2022-03-15 10:24:22,737 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,737 [DEBUG] IV
+2022-03-15 10:24:22,738 [DEBUG] [87, 92, 96, 156, 100, 195, 65, 69, 100, 245, 157, 193, 184, 237, 73, 179]
+2022-03-15 10:24:22,738 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,739 [DEBUG] Padded data
+2022-03-15 10:24:22,739 [DEBUG] [87, 92, 96, 156, 100, 195, 65, 69, 100, 245, 157, 193, 184, 237, 73, 179, 127, 209, 229, 35, 206, 134, 121, 206, 108, 129, 69, 192, 44, 209, 235, 192, 195, 245, 179, 180, 156, 165, 234, 6, 137, 177, 203, 66, 0, 117, 26, 35, 101, 57, 60, 147, 179, 51, 207, 139, 100, 150, 133, 173, 87, 247, 91, 28, 153, 133, 109, 255, 20, 147, 152, 244, 71, 96, 46, 190, 191, 241, 160, 112, 119, 243, 65, 182, 237, 184, 31, 129, 251, 215, 138, 230, 227, 185, 15, 213]
+2022-03-15 10:24:22,739 [DEBUG] [127, 209, 229, 35, 206, 134, 121, 206, 108, 129, 69, 192, 44, 209, 235, 192, 195, 245, 179, 180, 156, 165, 234, 6, 137, 177, 203, 66, 0, 117, 26, 35, 101, 57, 60, 147, 179, 51, 207, 139, 100, 150, 133, 173, 87, 247, 91, 28, 153, 133, 109, 255, 20, 147, 152, 244, 71, 96, 46, 190, 191, 241, 160, 112, 119, 243, 65, 182, 237, 184, 31, 129, 251, 215, 138, 230, 227, 185, 15, 213]
+2022-03-15 10:24:22,739 [DEBUG] Encrypted padded data
+2022-03-15 10:24:22,739 [DEBUG] [51, 51, 0, 0, 0, 2, 22, 124, 243, 246, 183, 94, 134, 221, 96, 0, 0, 0, 0, 16, 58, 255, 254, 128, 0, 0, 0, 0, 0, 0, 20, 124, 243, 255, 254, 246, 183, 94, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 133, 0, 251, 138, 0, 0, 0, 0, 1, 1, 22, 124, 243, 246, 183, 94, 1, 2, 3, 4, 5, 6, 7, 8, 8, 0]
+2022-03-15 10:24:22,739 [DEBUG] Calculating ICV over IPSec packet
+2022-03-15 10:24:22,741 [DEBUG] [249, 184, 145, 125, 0, 0, 0, 18, 87, 92, 96, 156, 100, 195, 65, 69, 100, 245, 157, 193, 184, 237, 73, 179, 127, 209, 229, 35, 206, 134, 121, 206, 108, 129, 69, 192, 44, 209, 235, 192, 195, 245, 179, 180, 156, 165, 234, 6, 137, 177, 203, 66, 0, 117, 26, 35, 101, 57, 60, 147, 179, 51, 207, 139, 100, 150, 133, 173, 87, 247, 91, 28, 153, 133, 109, 255, 20, 147, 152, 244, 71, 96, 46, 190, 191, 241, 160, 112, 119, 243, 65, 182, 237, 184, 31, 129, 251, 215, 138, 230, 227, 185, 15, 213]
+2022-03-15 10:24:22,744 [DEBUG] Sending IPSEC packet to 192.168.3.1 156 bytes
+2022-03-15 10:24:22,747 [DEBUG] Exception occured while processing L2 frame
+2022-03-15 10:24:22,747 [DEBUG] [Errno 101] Network is unreachable
+2022-03-15 10:24:22,747 [DEBUG] Got data on Ethernet link...
+2022-03-15 10:24:22,747 [DEBUG] bytearray(b':\x0c6\x91\x12\x0f')
+2022-03-15 10:24:22,747 [DEBUG] Searching for the next hop
+2022-03-15 10:24:22,747 [DEBUG] Processing L2 frame
+2022-03-15 10:24:22,747 [DEBUG] HMAC key
+2022-03-15 10:24:22,750 [DEBUG] bytearray(b'b\x1d\xf7<[\x00\x85v=\xf6-\x13H2\xe4\xc2,\xd5\xf68\xb8\xe2\x1b\x18\xa4\x8b\xb2d\xe1\x12\xc5\x1e')
+2022-03-15 10:24:22,889 [DEBUG] Cipher key
+2022-03-15 10:24:22,890 [DEBUG] bytearray(b"\xd2\xf7d\x90%\xfb\xf8Q\x15\xe7$\xccg\xab\xac\xc3\t\xbd\x88\x88S\'\xf4\xfd_\xa5\xc2(\xf5\x17\x87\xac")
+2022-03-15 10:24:22,890 [DEBUG] IV
+2022-03-15 10:24:22,890 [DEBUG] [75, 212, 68, 231, 42, 37, 153, 104, 28, 203, 56, 132, 7, 223, 170, 243]
+2022-03-15 10:24:22,890 [DEBUG] Length of the padded data 80
+2022-03-15 10:24:22,890 [DEBUG] Padded data

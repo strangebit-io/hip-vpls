@@ -58,4 +58,15 @@ class Routing():
 			if re.match("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}", addresses[k][0]["addr"]):
 				return addresses[k][0]["addr"]
 		return None;
+	@staticmethod
+	def get_default_IPv4_address_iface(iface):
+		"""
+		Gets default IPv4 address
+		"""
+		#interface = Routing.get_IPv4_default_route_interface();
+		addresses = netifaces.ifaddresses(iface);
+		for k in list(addresses.keys()):
+			if re.match("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}", addresses[k][0]["addr"]):
+				return addresses[k][0]["addr"]
+		return None;
 
