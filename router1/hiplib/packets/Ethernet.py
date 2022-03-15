@@ -41,11 +41,11 @@ class EthernetFrame():
     def set_type(self, type):
         pass
     def get_destination(self):
-        return self.buffer[ETH_SOURCE_MAC_ADDRESS_OFFSET:ETH_SOURCE_MAC_ADDRESS_OFFSET + ETH_SOURCE_MAC_ADDRESS_LENGTH]; 
+        return self.buffer[0:ETH_DEST_MAC_ADDRESS_LENGTH];
     def set_destination(self, macAddress):
         pass
     def get_source(self):
-        return self.buffer[0:ETH_DEST_MAC_ADDRESS_LENGTH];
+        return self.buffer[ETH_SOURCE_MAC_ADDRESS_OFFSET:ETH_SOURCE_MAC_ADDRESS_OFFSET + ETH_SOURCE_MAC_ADDRESS_LENGTH]; 
     def set_source(self, macAddress):
         pass
     def get_payload(self):

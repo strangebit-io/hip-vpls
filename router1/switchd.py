@@ -119,6 +119,9 @@ def ip_sec_loop():
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
             ether_socket.send(frame);
             frame = Ethernet.EthernetFrame(frame);
+            logging.debug("++++++++++++++++++++++++++++++++")
+            logging.debug(hexlify(frame.get_source()));
+            logging.debug("++++++++++++++++++++++++++++++++")
             fib.set_next_hop(frame.get_source(), src, dst);
         except Exception as e:
             logging.critical(e)
@@ -133,6 +136,9 @@ def ether_loop():
             src_mac = frame.get_source();
             logging.debug(hexlify(dst_mac));
             logging.debug(hexlify(src_mac));
+            logging.debug("--------------------------------")
+            logging.debug(hexlify(dst_mac));
+            logging.debug("--------------------------------")
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
