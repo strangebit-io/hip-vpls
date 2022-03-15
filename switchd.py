@@ -94,8 +94,10 @@ ether_socket.bind((hip_config.config["swtich"]["l2interface"], 0))
 # Initialize FIB
 fib = FIB(hip_config.config["swtich"]["mesh"])
 
-# Register exit handler
-# atexit.register(hiplib.exit_handler, hip_socket);
+def close():
+    packets = hiplib.exit_handler()
+    for (packet, dest) in packets:
+        hip_socket.sendto(packet, dest)
 
 def hip_loop():
     while True:
@@ -124,6 +126,9 @@ def ether_loop():
                     ip_sec_socket.sendto(packet, dest)
                 else:
                     hip_socket.sendto(packet, dest)
+
+# Register exit handler
+atexit.register(close);
 
 hip_th_loop = threading.Thread(target = hip_loop, args = (), daemon = True);
 ip_sec_th_loop = threading.Thread(target = ip_sec_loop, args = (), daemon = True);
