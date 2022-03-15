@@ -1556,7 +1556,7 @@ class HIPLib():
                     selected_esp_transform = self.esp_transform_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                         Utils.ipv6_bytes_to_hex_formatted(rhit))[0];
 
-                selected_esp_transform = self.esp_transform_storage.get()
+                #selected_esp_transform = self.esp_transform_storage.get()
                 (cipher, hmac) = ESPTransformFactory.get(selected_esp_transform);
 
                 logging.debug(hmac.ALG_ID);
@@ -2548,7 +2548,7 @@ class HIPLib():
                     #hip_socket.sendto(
                     #    bytearray(ipv4_packet.get_buffer()), 
                     #    (dst_str, 0));
-                    response.append((bytearray(ipv4_packet.get_buffer())), (dst_str, 0))
+                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str, 0)))
                     hip_state.closing();
                     sv.closing_timeout = time.time() + self.config["general"]["UAL"] + self.config["general"]["MSL"];
                 if time.time() >= sv.update_timeout:
