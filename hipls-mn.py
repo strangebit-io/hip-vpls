@@ -52,6 +52,10 @@ def run():
     info( net[ 'r1' ].cmd( 'route' ) )
     info( '*** Routing Table on Router:\n' )
     info( net[ 'r2' ].cmd( 'route' ) )
+    info( '*** Running HIPLS on router 1 ***')
+    info( net[ 'r1' ].cmd( 'python3 router1/switchd.py' ) )
+    info( '*** Running HIPLS on router 1 ***')
+    info( net[ 'r2' ].cmd( 'python3 router2/switchd.py' ) )
     CLI( net )
     net.stop()
 
