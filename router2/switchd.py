@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = "Dmitriy Kuptsov"
-__copyright__ = "Copyright 2020, stangebit"
+__copyright__ = "Copyright 2022, stangebit"
 __license__ = "GPL"
 __version__ = "0.0.1b"
 __maintainer__ = "Dmitriy Kuptsov"
@@ -118,6 +118,7 @@ def ip_sec_loop():
             packet = bytearray(ip_sec_socket.recv(1524));
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
             ether_socket.send(frame);
+            frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
         except Exception as e:
             logging.critical(e)
