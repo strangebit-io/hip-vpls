@@ -144,6 +144,8 @@ class HIPLib():
             self.own_hit = HIT.get(self.hi.to_byte_array(), HIT.SHA1_OGA);
         else:
             raise Exception("Unsupported Host ID algorithm")
+        logging.debug("Own HIT")
+        logging.debug(self.ipv6_address)
         #logging.debug("Configuring TUN interface");
         # Configure TUN interface
         #logging.info("Configuring TUN device");
