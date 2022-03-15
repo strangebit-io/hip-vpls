@@ -101,10 +101,15 @@ def onclose():
 
 def hip_loop():
     while True:
-        packet = bytearray(hip_socket.recv(1524))
-        packets = hiplib.process_hip_packet(packet);
-        for (packet, dest) in packets:
-            hip_socket.sendto(packet, dest)
+        try:
+            logging.debug("Got HIP packet on the interface")
+            packet = bytearray(hip_socket.recv(1524))
+            packets = hiplib.process_hip_packet(packet);
+            for (packet, dest) in packets:
+                hip_socket.sendto(packet, dest)
+        except Exception as e:
+           logging.debug("Exception occured while processing HIP packet")
+           logging.debug(e)
 
 def ip_sec_loop():
     while True:
@@ -115,19 +120,23 @@ def ip_sec_loop():
 
 def ether_loop():
     while True:
-        buf = bytearray(ether_socket.recv(1524));
-        logging.debug("Got data on Ethernet link...")
-        frame = Ethernet.EthernetFrame(buf);
-        dst_mac = frame.get_destination();
-        logging.debug(dst_mac);
-        mesh = fib.get_next_hop(dst_mac);
-        for (ihit, rhit) in mesh:
-            packets = hiplib.process_l2_frame(frame, ihit, rhit);
-            for (hip, packet, dest) in packets:
-                if not hip:
-                    ip_sec_socket.sendto(packet, dest)
-                else:
-                    hip_socket.sendto(packet, dest)
+        try:
+            buf = bytearray(ether_socket.recv(1524));
+       	    logging.debug("Got data on Ethernet link...")
+            frame = Ethernet.EthernetFrame(buf);
+            dst_mac = frame.get_destination();
+            logging.debug(dst_mac);
+            mesh = fib.get_next_hop(dst_mac);
+            for (ihit, rhit) in mesh:
+                packets = hiplib.process_l2_frame(frame, ihit, rhit, "192.168.3.2");
+                for (hip, packet, dest) in packets:
+                    if not hip:
+                        ip_sec_socket.sendto(packet, dest)
+                    else:
+                        hip_socket.sendto(packet, dest)
+        except Exception as e:
+           logging.debug("Exception occured while processing L2 frame")
+           logging.debug(e)
 
 
 # Register exit handler

@@ -21,7 +21,6 @@ class LinuxRouter( Node ):
 
 
 class NetworkTopo( Topo ):
-
     def build( self, **_opts ):
         router1 = self.addNode( 'r1', cls=LinuxRouter )
         router2 = self.addNode( 'r2', cls=LinuxRouter )
@@ -52,10 +51,10 @@ def run():
     info( net[ 'r1' ].cmd( 'route' ) )
     info( '*** Routing Table on Router:\n' )
     info( net[ 'r2' ].cmd( 'route' ) )
-    info( '*** Running HIPLS on router 1 ***')
-    info( net[ 'r1' ].cmd( 'python3 router1/switchd.py' ) )
-    info( '*** Running HIPLS on router 1 ***')
-    info( net[ 'r2' ].cmd( 'python3 router2/switchd.py' ) )
+    info( '*** Running HIPLS on router 1 *** \n')
+    info( net[ 'r1' ].cmd( 'cd router1 && python3 switchd.py &' ) )
+    info( '*** Running HIPLS on router 2 *** \n')
+    info( net[ 'r2' ].cmd( 'cd router2 && python3 switchd.py &' ) )
     CLI( net )
     net.stop()
 
