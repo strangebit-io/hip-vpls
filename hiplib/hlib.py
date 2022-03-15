@@ -2135,7 +2135,7 @@ class HIPLib():
             logging.critical(e);
             traceback.print_exc();
 
-    def process_l2_frame(self, frame, ihit, rhit):
+    def process_l2_frame(self, frame, ihit, rhit, src_str):
         try:
             response = [];
             #buf = hip_tun.read(MTU);
@@ -2175,8 +2175,7 @@ class HIPLib():
                 dst = Math.int_to_bytes(
                     Utils.ipv4_to_int(dst_str));
                 src = Math.int_to_bytes(
-                    Utils.ipv4_to_int(
-                        routing.Routing.get_default_IPv4_address()));
+                    Utils.ipv4_to_int(src_str));
 
                 st = time.time();
                 # Construct the DH groups parameter
