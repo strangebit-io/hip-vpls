@@ -40,7 +40,7 @@ class NetworkTopo( Topo ):
                            defaultRoute='via 192.168.2.1' )
         for h, s in [ (h1, s1), (h2, s2) ]:
             self.addLink( h, s )
-
+from time import sleep
 def run():
     topo = NetworkTopo()
     net = Mininet(topo=topo, switch=OVSKernelSwitch)
