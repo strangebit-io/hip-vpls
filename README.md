@@ -36,7 +36,7 @@ $ sudo python3 hipls-mn.py
 
 Base exchange should complete its execution in a few seconds. 
 
-Once BEX is done, you should be able to ping h2 from h2 as follows:
+Once BEX is done, you should be able to ping h2 from h1 as follows:
 
 ```
 mininet> h1 ping h2
