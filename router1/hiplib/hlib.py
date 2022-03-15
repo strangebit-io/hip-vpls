@@ -2253,7 +2253,10 @@ class HIPLib():
                 sv.data_timeout = time.time() + self.config["general"]["UAL"];
 
                 # Get SA record and construct the ESP payload
-                sa_record  = self.ip_sec_sa.get_record(ihit_str, rhit_str);
+                try:
+                    sa_record  = self.ip_sec_sa.get_record(ihit_str, rhit_str);
+                except:
+                    sa_record  = self.ip_sec_sa.get_record(rhit_str, ihit_str);
                 seq        = sa_record.get_sequence();
                 spi        = sa_record.get_spi();
                 hmac_alg   = sa_record.get_hmac_alg();
