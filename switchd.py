@@ -66,7 +66,7 @@ from switchfabric import FIB
 
 # Configure logging to console and file
 logging.basicConfig(
-    level=logging.CRITICAL,
+    level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
         logging.FileHandler("hipls.log"),
@@ -89,13 +89,13 @@ ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 # Open raw ethernet socket and bind it to the interface
 ETH_P_ALL = 3
 ether_socket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL));
-ether_socket.bind((hip_config["swtich"]["interface"], 0))
+ether_socket.bind((hip_config.config["swtich"]["l2interface"], 0))
 
 # Initialize FIB
-fib = FIB(hip_config["swtich"]["mesh"])
+fib = FIB(hip_config.config["swtich"]["mesh"])
 
 # Register exit handler
-atexit.register(hiplib.exit_handler, hip_socket);
+# atexit.register(hiplib.exit_handler, hip_socket);
 
 def hip_loop():
     while True:
