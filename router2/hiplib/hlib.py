@@ -2027,7 +2027,7 @@ class HIPLib():
         except Exception as e:
             # We need more inteligent handling of exceptions here
             logging.critical("Exception occured. Dropping packet HIPv2.")
-            logging.critical(e);
+            logging.critical(e, exc_info=True);
             traceback.print_exc()
         return []
 
@@ -2316,7 +2316,7 @@ class HIPLib():
             return response;
         except Exception as e:
             logging.critical("Exception occured while processing packet from TUN interface. Dropping the packet.");
-            logging.critical(e);
+            logging.critical(e, exc_info=True);
             traceback.print_exc()
         return [];
 
@@ -2548,7 +2548,7 @@ class HIPLib():
                     #hip_socket.sendto(
                     #    bytearray(ipv4_packet.get_buffer()), 
                     #    (dst_str, 0));
-                    response.append((bytearray(ipv4_packet.get_buffer())), (dst_str, 0))
+                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str, 0)))
                     hip_state.closing();
                     sv.closing_timeout = time.time() + self.config["general"]["UAL"] + self.config["general"]["MSL"];
                 if time.time() >= sv.update_timeout:
