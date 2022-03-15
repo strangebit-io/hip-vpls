@@ -1,0 +1,8 @@
+2022-03-15 07:11:42,294 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 07:11:42,294 [INFO] Importing hosts file
+2022-03-15 07:11:42,294 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 07:11:42,294 [INFO] Loading public key and constructing HIT
+2022-03-15 07:11:42,307 [DEBUG] Own HIT
+2022-03-15 07:11:42,307 [DEBUG] 2001:2001:beb4:d8be:ae47:f4dc:93e3:c6ac
+2022-03-15 07:11:42,307 [INFO] Initializing IPSec socket
