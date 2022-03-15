@@ -122,7 +122,7 @@ def ether_loop():
         logging.debug(dst_mac);
         mesh = fib.get_next_hop(dst_mac);
         for (ihit, rhit) in mesh:
-            packets = hiplib.process_l2_frame(frame, ihit, rhit);
+            packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
             for (hip, packet, dest) in packets:
                 if not hip:
                     ip_sec_socket.sendto(packet, dest)
