@@ -1,3 +1,14 @@
+# Install python
+
+sudo apt-get update
+sudo apt-get install python3
+sudo apt-get install python-pip3
+
+# Install libraries
+sudo pip3 install pycryptodome
+sudo pip3 install interfaces
+sudo pip3 install numpy
+
 # Removing unused folder
 sudo rm -rf mininet
 
