@@ -11,8 +11,9 @@ cd ..
 # Installing the mininet globally
 sudo PYTHON=python3 mininet/util/install.sh -a
 
-# Testing the mininet installation
-sudo mn --switch ovsbr --test pingall
+# Running the VPLS emulated environment
+cd hip-vpls
+sudo python3 hipls-mn.py
 
 
 
