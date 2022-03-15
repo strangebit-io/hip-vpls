@@ -37,7 +37,7 @@ class NetworkTopo( Topo ):
         h1 = self.addHost( 'h1', ip='192.168.1.100/24',
                            defaultRoute='via 192.168.1.1' )
         h2 = self.addHost( 'h2', ip='192.168.1.101/24',
-                           defaultRoute='via 192.168.1.2' )
+                           defaultRoute='via 192.168.1.1' )
         for h, s in [ (h1, s1), (h2, s2) ]:
             self.addLink( h, s )
 
