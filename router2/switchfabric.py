@@ -45,6 +45,7 @@ class FIB():
         # Unicast
         for mac in self.fib_unicast.keys():
             if mac == dmac:
+                logging.debug("----------Found a match in the database-----------")
                 return [self.fib_unicast[mac]]
         return self.fib_broadcast;
             
