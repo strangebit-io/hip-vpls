@@ -1,6 +1,6 @@
 config = {
 	"swtich": {
-		"l2interface": "eth0",
+		"l2interface": "r1-eth0",
 		"mesh": "hiplib/config/mesh"
 	},
 	"network": {

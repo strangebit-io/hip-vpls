@@ -116,8 +116,10 @@ def ip_sec_loop():
 def ether_loop():
     while True:
         buf = bytearray(ether_socket.recv(1524));
+        logging.debug("Got data on Ethernet link...")
         frame = Ethernet.EthernetFrame(buf);
         dst_mac = frame.get_destination();
+        logging.debug(dst_mac);
         mesh = fib.get_next_hop(dst_mac);
         for (ihit, rhit) in mesh:
             packets = hiplib.process_l2_frame(frame, ihit, rhit);
@@ -126,6 +128,7 @@ def ether_loop():
                     ip_sec_socket.sendto(packet, dest)
                 else:
                     hip_socket.sendto(packet, dest)
+
 
 # Register exit handler
 atexit.register(close);
@@ -144,5 +147,6 @@ def run_swtich():
     packets = hiplib.maintenance();
     for (packet, dest) in packets:
         hip_socket.sendto(packet, dest)
+    logging.debug("...Periodic cleaning task...")
     sleep(10);
 
