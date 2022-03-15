@@ -43,6 +43,9 @@ import atexit
 # Timing 
 from time import sleep
 
+# Hex
+from binascii import hexlify
+
 from numpy import byte
 # Import HIP library
 from hiplib import hlib
@@ -126,7 +129,9 @@ def ether_loop():
             logging.debug("Got data on Ethernet link...")
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
-            logging.debug(dst_mac);
+            src_mac = frame.get_source();
+            logging.debug(hexlify(dst_mac));
+            logging.debug(hexlify(src_mac));
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
