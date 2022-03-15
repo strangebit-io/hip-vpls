@@ -122,6 +122,8 @@ def ip_sec_loop():
             logging.debug("++++++++++++++++++++++++++++++++")
             logging.debug("Source MAC address");
             logging.debug(hexlify(frame.get_source()));
+            logging.debug("Destination MAC address");
+            logging.debug(hexlify(frame.get_destination()));
             logging.debug("++++++++++++++++++++++++++++++++")
             fib.set_next_hop(frame.get_source(), src, dst);
         except Exception as e:
