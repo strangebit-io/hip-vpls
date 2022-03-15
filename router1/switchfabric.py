@@ -32,6 +32,7 @@ class FIB():
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
             and dmac[0] == 0xFF and dmac[0] == 0xFF and dmac[0] == 0xFF:
+            logging.debug("Broadcast frame....")
             return self.fib_broadcast;
         logging.debug("Searching for the next hop")
         # Multicast address

@@ -122,6 +122,7 @@ def ip_sec_loop():
             ether_socket.send(frame);
             frame = Ethernet.EthernetFrame(frame);
             logging.debug("++++++++++++++++++++++++++++++++")
+            logging.debug("Source MAC address");
             logging.debug(hexlify(frame.get_source()));
             logging.debug("++++++++++++++++++++++++++++++++")
             fib.set_next_hop(frame.get_source(), src, dst);
@@ -139,6 +140,7 @@ def ether_loop():
             logging.debug(hexlify(dst_mac));
             logging.debug(hexlify(src_mac));
             logging.debug("--------------------------------")
+            logging.debug("Destination MAC address");
             logging.debug(hexlify(dst_mac));
             logging.debug("--------------------------------")
             mesh = fib.get_next_hop(dst_mac);
