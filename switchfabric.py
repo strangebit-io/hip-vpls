@@ -13,6 +13,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
+
 class FIB():
     def __init__(self, file):
         self.fib_broadcast = [];
@@ -21,12 +23,17 @@ class FIB():
         pairs = fd.readlines();
         for mesh_pair in pairs:
             parts = mesh_pair.split(" ")
-            self.fib_broadcast.append((parts[0], parts[1]));
+            ihit = parts[0].replace(":", "")
+            rhit = parts[1].replace(":", "")
+            ihit = bytes.fromhex(ihit)
+            rhit = bytes.fromhex(rhit)
+            self.fib_broadcast.append((ihit, rhit));
     def get_next_hop(self, dmac):
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
             and dmac[0] == 0xFF and dmac[0] == 0xFF and dmac[0] == 0xFF:
             return self.fib_broadcast;
+        logging.debug("Searching for the next hop")
         # Multicast address
         if dmac[5] == 0x01 and dmac[4] == 0x00 and dmac[3] == 0x5E:
         #    macs = []

@@ -2158,6 +2158,7 @@ class HIPLib():
             #logging.info("Next header %s " % (packet.get_next_header()));
             #logging.info("Hop limit %s" % (packet.get_hop_limit()));
             # Get the state
+            logging.debug("Processing L2 frame")
             if Utils.is_hit_smaller(rhit, ihit):
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
@@ -2275,7 +2276,6 @@ class HIPLib():
                 logging.debug(hmac_key);
                 logging.debug("Cipher key");
                 logging.debug(cipher_key);
-            
                 logging.debug("IV");
                 logging.debug(iv);
 

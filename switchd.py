@@ -94,7 +94,7 @@ ether_socket.bind((hip_config.config["swtich"]["l2interface"], 0))
 # Initialize FIB
 fib = FIB(hip_config.config["swtich"]["mesh"])
 
-def close():
+def onclose():
     packets = hiplib.exit_handler()
     for (packet, dest) in packets:
         hip_socket.sendto(packet, dest)
@@ -131,7 +131,7 @@ def ether_loop():
 
 
 # Register exit handler
-atexit.register(close);
+atexit.register(onclose);
 
 hip_th_loop = threading.Thread(target = hip_loop, args = (), daemon = True);
 ip_sec_th_loop = threading.Thread(target = ip_sec_loop, args = (), daemon = True);
@@ -144,9 +144,11 @@ ip_sec_th_loop.start();
 ether_if_th_loop.start();
 
 def run_swtich():
-    packets = hiplib.maintenance();
-    for (packet, dest) in packets:
-        hip_socket.sendto(packet, dest)
-    logging.debug("...Periodic cleaning task...")
-    sleep(10);
+    while True:
+        packets = hiplib.maintenance();
+        for (packet, dest) in packets:
+            hip_socket.sendto(packet, dest)
+        logging.debug("...Periodic cleaning task...")
+        sleep(10);
 
+run_swtich()

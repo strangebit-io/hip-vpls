@@ -1,0 +1,400 @@
+2022-03-15 05:54:24,721 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 05:54:24,721 [INFO] Importing hosts file
+2022-03-15 05:54:24,721 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 05:54:24,721 [INFO] Loading public key and constructing HIT
+2022-03-15 05:54:24,733 [INFO] Initializing IPSec socket
+2022-03-15 05:54:24,752 [INFO] Starting the CuteHIP
+2022-03-15 06:01:46,402 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:01:46,402 [INFO] Importing hosts file
+2022-03-15 06:01:46,402 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:01:46,402 [INFO] Loading public key and constructing HIT
+2022-03-15 06:01:46,416 [INFO] Initializing IPSec socket
+2022-03-15 06:02:44,675 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:02:44,676 [INFO] Importing hosts file
+2022-03-15 06:02:44,676 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:02:44,676 [INFO] Loading public key and constructing HIT
+2022-03-15 06:02:44,688 [INFO] Initializing IPSec socket
+2022-03-15 06:02:44,715 [INFO] Starting the CuteHIP
+2022-03-15 06:02:44,716 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:02:44,716 [DEBUG] bytearray(b'2\x98\xeb#\x8c<')
+2022-03-15 06:03:47,180 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:03:47,180 [INFO] Importing hosts file
+2022-03-15 06:03:47,180 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:03:47,180 [INFO] Loading public key and constructing HIT
+2022-03-15 06:03:47,192 [INFO] Initializing IPSec socket
+2022-03-15 06:03:47,212 [INFO] Starting the CuteHIP
+2022-03-15 06:03:47,212 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:03:47,212 [DEBUG] bytearray(b'2\x98\xeb#\x8c<')
+2022-03-15 06:03:47,212 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:03:47,213 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:05:40,143 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:05:40,143 [INFO] Importing hosts file
+2022-03-15 06:05:40,143 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:05:40,143 [INFO] Loading public key and constructing HIT
+2022-03-15 06:05:40,156 [INFO] Initializing IPSec socket
+2022-03-15 06:05:40,172 [INFO] Starting the CuteHIP
+2022-03-15 06:05:40,172 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:07:50,184 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:07:50,185 [INFO] Importing hosts file
+2022-03-15 06:07:50,185 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:07:50,185 [INFO] Loading public key and constructing HIT
+2022-03-15 06:07:50,197 [INFO] Initializing IPSec socket
+2022-03-15 06:07:50,211 [INFO] Starting the CuteHIP
+2022-03-15 06:08:33,109 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:08:33,110 [INFO] Importing hosts file
+2022-03-15 06:08:33,110 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:08:33,110 [INFO] Loading public key and constructing HIT
+2022-03-15 06:08:33,122 [INFO] Initializing IPSec socket
+2022-03-15 06:08:33,140 [INFO] Starting the CuteHIP
+2022-03-15 06:09:18,235 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:09:18,235 [INFO] Importing hosts file
+2022-03-15 06:09:18,235 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:09:18,235 [INFO] Loading public key and constructing HIT
+2022-03-15 06:09:18,248 [INFO] Initializing IPSec socket
+2022-03-15 06:09:18,268 [INFO] Starting the CuteHIP
+2022-03-15 06:09:18,335 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:09:18,335 [DEBUG] bytearray(b'*iGw\x1eP')
+2022-03-15 06:09:18,335 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:09:18,336 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:09:18,337 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:09:18,337 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:14:48,882 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:14:48,882 [INFO] Importing hosts file
+2022-03-15 06:14:48,882 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:14:48,882 [INFO] Loading public key and constructing HIT
+2022-03-15 06:14:48,895 [INFO] Initializing IPSec socket
+2022-03-15 06:14:48,924 [INFO] Starting the CuteHIP
+2022-03-15 06:16:43,605 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:16:43,605 [INFO] Importing hosts file
+2022-03-15 06:16:43,605 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:16:43,605 [INFO] Loading public key and constructing HIT
+2022-03-15 06:16:43,617 [INFO] Initializing IPSec socket
+2022-03-15 06:16:43,644 [INFO] Starting the CuteHIP
+2022-03-15 06:17:12,058 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:17:12,058 [INFO] Importing hosts file
+2022-03-15 06:17:12,058 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:17:12,059 [INFO] Loading public key and constructing HIT
+2022-03-15 06:17:12,072 [INFO] Initializing IPSec socket
+2022-03-15 06:17:12,096 [INFO] Starting the CuteHIP
+2022-03-15 06:19:12,181 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:19:12,182 [INFO] Importing hosts file
+2022-03-15 06:19:12,182 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:19:12,182 [INFO] Loading public key and constructing HIT
+2022-03-15 06:19:12,194 [INFO] Initializing IPSec socket
+2022-03-15 06:19:12,212 [INFO] Starting the CuteHIP
+2022-03-15 06:19:12,212 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:19:12,580 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:19:12,581 [DEBUG] bytearray(b'Fv\xee\xa8E\xd1')
+2022-03-15 06:19:22,227 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:19:58,056 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:19:58,057 [INFO] Importing hosts file
+2022-03-15 06:19:58,057 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:19:58,057 [INFO] Loading public key and constructing HIT
+2022-03-15 06:19:58,069 [INFO] Initializing IPSec socket
+2022-03-15 06:19:58,084 [INFO] Starting the CuteHIP
+2022-03-15 06:19:58,084 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:19:58,244 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:19:58,244 [DEBUG] bytearray(b'\xdeW\xea\xda0p')
+2022-03-15 06:19:58,244 [DEBUG] Searching for the next hop
+2022-03-15 06:19:58,244 [DEBUG] Processing L2 frame
+2022-03-15 06:19:58,245 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:19:58,245 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:19:58,249 [DEBUG] Processing L2 frame
+2022-03-15 06:19:58,249 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:19:58,250 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:01,443 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:01,448 [DEBUG] bytearray(b'\xdeW\xea\xda0p')
+2022-03-15 06:20:01,451 [DEBUG] Searching for the next hop
+2022-03-15 06:20:01,451 [DEBUG] Processing L2 frame
+2022-03-15 06:20:01,452 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:01,452 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:01,452 [DEBUG] Processing L2 frame
+2022-03-15 06:20:01,452 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:01,452 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:01,699 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:01,699 [DEBUG] bytearray(b'&\x8c\xd9)\xde\xc0')
+2022-03-15 06:20:01,699 [DEBUG] Searching for the next hop
+2022-03-15 06:20:01,699 [DEBUG] Processing L2 frame
+2022-03-15 06:20:01,699 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:01,700 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:01,700 [DEBUG] Processing L2 frame
+2022-03-15 06:20:01,700 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:01,700 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:08,099 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:20:09,123 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:09,123 [DEBUG] bytearray(b'&\x8c\xd9)\xde\xc0')
+2022-03-15 06:20:09,124 [DEBUG] Searching for the next hop
+2022-03-15 06:20:09,124 [DEBUG] Processing L2 frame
+2022-03-15 06:20:09,124 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:09,124 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:09,125 [DEBUG] Processing L2 frame
+2022-03-15 06:20:09,125 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:09,125 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:09,378 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:09,379 [DEBUG] bytearray(b'\xdeW\xea\xda0p')
+2022-03-15 06:20:09,380 [DEBUG] Searching for the next hop
+2022-03-15 06:20:09,380 [DEBUG] Processing L2 frame
+2022-03-15 06:20:09,380 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:09,380 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:09,381 [DEBUG] Processing L2 frame
+2022-03-15 06:20:09,381 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:09,381 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:18,112 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:20:22,690 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:22,691 [DEBUG] bytearray(b'r\xda\xfe\x94\xf9\xc4')
+2022-03-15 06:20:22,691 [DEBUG] Searching for the next hop
+2022-03-15 06:20:22,691 [DEBUG] Processing L2 frame
+2022-03-15 06:20:22,692 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:22,692 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:22,692 [DEBUG] Processing L2 frame
+2022-03-15 06:20:22,693 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:22,693 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:23,461 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:23,462 [DEBUG] bytearray(b'&\x8c\xd9)\xde\xc0')
+2022-03-15 06:20:23,463 [DEBUG] Searching for the next hop
+2022-03-15 06:20:23,463 [DEBUG] Processing L2 frame
+2022-03-15 06:20:23,463 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:23,463 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:23,464 [DEBUG] Processing L2 frame
+2022-03-15 06:20:23,464 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:23,464 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:24,992 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:24,992 [DEBUG] bytearray(b'\xdeW\xea\xda0p')
+2022-03-15 06:20:24,993 [DEBUG] Searching for the next hop
+2022-03-15 06:20:24,993 [DEBUG] Processing L2 frame
+2022-03-15 06:20:24,993 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:24,993 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:24,994 [DEBUG] Processing L2 frame
+2022-03-15 06:20:24,994 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:24,994 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:28,124 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:20:38,140 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:20:48,155 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:20:53,152 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:53,153 [DEBUG] bytearray(b'&\x8c\xd9)\xde\xc0')
+2022-03-15 06:20:53,153 [DEBUG] Searching for the next hop
+2022-03-15 06:20:53,153 [DEBUG] Processing L2 frame
+2022-03-15 06:20:53,153 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:53,153 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:53,154 [DEBUG] Processing L2 frame
+2022-03-15 06:20:53,154 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:53,154 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:53,156 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:53,156 [DEBUG] bytearray(b'r\xda\xfe\x94\xf9\xc4')
+2022-03-15 06:20:53,156 [DEBUG] Searching for the next hop
+2022-03-15 06:20:53,156 [DEBUG] Processing L2 frame
+2022-03-15 06:20:53,156 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:53,157 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:53,157 [DEBUG] Processing L2 frame
+2022-03-15 06:20:53,158 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:53,158 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:57,252 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:20:57,253 [DEBUG] bytearray(b'\xdeW\xea\xda0p')
+2022-03-15 06:20:57,253 [DEBUG] Searching for the next hop
+2022-03-15 06:20:57,253 [DEBUG] Processing L2 frame
+2022-03-15 06:20:57,254 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:57,254 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:57,255 [DEBUG] Processing L2 frame
+2022-03-15 06:20:57,263 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:20:57,263 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:20:58,171 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:08,185 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:18,197 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:28,211 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:38,224 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:48,236 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:48,449 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:21:48,450 [DEBUG] bytearray(b'&\x8c\xd9)\xde\xc0')
+2022-03-15 06:21:48,452 [DEBUG] Searching for the next hop
+2022-03-15 06:21:48,455 [DEBUG] Processing L2 frame
+2022-03-15 06:21:48,456 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:21:48,456 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:21:48,458 [DEBUG] Processing L2 frame
+2022-03-15 06:21:48,459 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:21:48,460 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:21:52,549 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:21:52,550 [DEBUG] bytearray(b'r\xda\xfe\x94\xf9\xc4')
+2022-03-15 06:21:52,550 [DEBUG] Searching for the next hop
+2022-03-15 06:21:52,550 [DEBUG] Processing L2 frame
+2022-03-15 06:21:52,550 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:21:52,550 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:21:52,550 [DEBUG] Processing L2 frame
+2022-03-15 06:21:52,550 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:21:52,550 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:21:58,248 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:21:58,692 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:21:58,693 [DEBUG] bytearray(b'\xdeW\xea\xda0p')
+2022-03-15 06:21:58,693 [DEBUG] Searching for the next hop
+2022-03-15 06:21:58,693 [DEBUG] Processing L2 frame
+2022-03-15 06:21:58,693 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:21:58,694 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:21:58,694 [DEBUG] Processing L2 frame
+2022-03-15 06:21:58,694 [CRITICAL] Exception occured while processing packet from TUN interface. Dropping the packet.
+2022-03-15 06:21:58,694 [CRITICAL] unsupported operand type(s) for <<: 'str' and 'int'
+2022-03-15 06:22:08,259 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:22:18,271 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:22:28,285 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:22:38,297 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:22:48,312 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:22:58,327 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:23:08,339 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:27:22,041 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2022-03-15 06:27:22,041 [INFO] Importing hosts file
+2022-03-15 06:27:22,041 [INFO] 2001:2002:8144:7565:f501:74df:396a:dc5c 192.168.0.101
+
+2022-03-15 06:27:22,041 [INFO] Loading public key and constructing HIT
+2022-03-15 06:27:22,054 [INFO] Initializing IPSec socket
+2022-03-15 06:27:22,072 [INFO] Starting the CuteHIP
+2022-03-15 06:27:22,072 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:27:24,320 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:24,321 [DEBUG] bytearray(b'\xea\xa7\x9c\xe8\xa6\xab')
+2022-03-15 06:27:24,325 [DEBUG] Searching for the next hop
+2022-03-15 06:27:24,325 [DEBUG] Processing L2 frame
+2022-03-15 06:27:24,325 [DEBUG] Unassociate state reached
+2022-03-15 06:27:24,325 [DEBUG] Starting HIP BEX 1647325644.325810
+2022-03-15 06:27:24,326 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:24,326 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:24,326 [DEBUG] Processing L2 frame
+2022-03-15 06:27:24,326 [DEBUG] Unassociate state reached
+2022-03-15 06:27:24,326 [DEBUG] Starting HIP BEX 1647325644.326903
+2022-03-15 06:27:24,327 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:24,328 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:25,091 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:25,091 [DEBUG] bytearray(b'\xba\x02O\xac\x82\xfc')
+2022-03-15 06:27:25,091 [DEBUG] Searching for the next hop
+2022-03-15 06:27:25,092 [DEBUG] Processing L2 frame
+2022-03-15 06:27:25,092 [DEBUG] Unassociate state reached
+2022-03-15 06:27:25,092 [DEBUG] Starting HIP BEX 1647325645.092471
+2022-03-15 06:27:25,092 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:25,092 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:25,092 [DEBUG] Processing L2 frame
+2022-03-15 06:27:25,093 [DEBUG] Unassociate state reached
+2022-03-15 06:27:25,093 [DEBUG] Starting HIP BEX 1647325645.093367
+2022-03-15 06:27:25,093 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:25,093 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:32,001 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:32,002 [DEBUG] bytearray(b'\xea\xa7\x9c\xe8\xa6\xab')
+2022-03-15 06:27:32,002 [DEBUG] Searching for the next hop
+2022-03-15 06:27:32,002 [DEBUG] Processing L2 frame
+2022-03-15 06:27:32,002 [DEBUG] Unassociate state reached
+2022-03-15 06:27:32,002 [DEBUG] Starting HIP BEX 1647325652.002897
+2022-03-15 06:27:32,003 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:32,003 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:32,003 [DEBUG] Processing L2 frame
+2022-03-15 06:27:32,003 [DEBUG] Unassociate state reached
+2022-03-15 06:27:32,003 [DEBUG] Starting HIP BEX 1647325652.003923
+2022-03-15 06:27:32,004 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:32,005 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:32,083 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:27:34,048 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:34,048 [DEBUG] bytearray(b'\xba\x02O\xac\x82\xfc')
+2022-03-15 06:27:34,048 [DEBUG] Searching for the next hop
+2022-03-15 06:27:34,048 [DEBUG] Processing L2 frame
+2022-03-15 06:27:34,049 [DEBUG] Unassociate state reached
+2022-03-15 06:27:34,049 [DEBUG] Starting HIP BEX 1647325654.049182
+2022-03-15 06:27:34,049 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:34,049 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:34,049 [DEBUG] Processing L2 frame
+2022-03-15 06:27:34,049 [DEBUG] Unassociate state reached
+2022-03-15 06:27:34,049 [DEBUG] Starting HIP BEX 1647325654.049673
+2022-03-15 06:27:34,049 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:34,049 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:42,101 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:27:47,109 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:47,114 [DEBUG] bytearray(b'\xea\xa7\x9c\xe8\xa6\xab')
+2022-03-15 06:27:47,114 [DEBUG] Searching for the next hop
+2022-03-15 06:27:47,115 [DEBUG] Processing L2 frame
+2022-03-15 06:27:47,116 [DEBUG] Unassociate state reached
+2022-03-15 06:27:47,117 [DEBUG] Starting HIP BEX 1647325667.116904
+2022-03-15 06:27:47,117 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:47,117 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:47,117 [DEBUG] Processing L2 frame
+2022-03-15 06:27:47,118 [DEBUG] Unassociate state reached
+2022-03-15 06:27:47,118 [DEBUG] Starting HIP BEX 1647325667.118301
+2022-03-15 06:27:47,119 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:47,119 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:48,391 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:48,392 [DEBUG] bytearray(b'\xc24\xf7\xb0\x9d\xea')
+2022-03-15 06:27:48,392 [DEBUG] Searching for the next hop
+2022-03-15 06:27:48,392 [DEBUG] Processing L2 frame
+2022-03-15 06:27:48,392 [DEBUG] Unassociate state reached
+2022-03-15 06:27:48,395 [DEBUG] Starting HIP BEX 1647325668.395621
+2022-03-15 06:27:48,395 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:48,395 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:48,396 [DEBUG] Processing L2 frame
+2022-03-15 06:27:48,396 [DEBUG] Unassociate state reached
+2022-03-15 06:27:48,400 [DEBUG] Starting HIP BEX 1647325668.400601
+2022-03-15 06:27:48,401 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:48,402 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:52,120 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:27:52,992 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:27:52,992 [DEBUG] bytearray(b'\xba\x02O\xac\x82\xfc')
+2022-03-15 06:27:52,993 [DEBUG] Searching for the next hop
+2022-03-15 06:27:52,993 [DEBUG] Processing L2 frame
+2022-03-15 06:27:52,993 [DEBUG] Unassociate state reached
+2022-03-15 06:27:52,993 [DEBUG] Starting HIP BEX 1647325672.993478
+2022-03-15 06:27:52,993 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:27:52,993 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:27:52,993 [DEBUG] Processing L2 frame
+2022-03-15 06:27:52,993 [DEBUG] Unassociate state reached
+2022-03-15 06:27:52,993 [DEBUG] Starting HIP BEX 1647325672.993866
+2022-03-15 06:27:52,993 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:27:52,994 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:02,134 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:28:12,149 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:28:19,623 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:28:19,627 [DEBUG] bytearray(b'\xea\xa7\x9c\xe8\xa6\xab')
+2022-03-15 06:28:19,627 [DEBUG] Searching for the next hop
+2022-03-15 06:28:19,628 [DEBUG] Processing L2 frame
+2022-03-15 06:28:19,629 [DEBUG] Unassociate state reached
+2022-03-15 06:28:19,630 [DEBUG] Starting HIP BEX 1647325699.629887
+2022-03-15 06:28:19,630 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:28:19,630 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:19,630 [DEBUG] Processing L2 frame
+2022-03-15 06:28:19,631 [DEBUG] Unassociate state reached
+2022-03-15 06:28:19,631 [DEBUG] Starting HIP BEX 1647325699.631447
+2022-03-15 06:28:19,631 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:28:19,631 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:19,632 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:28:19,632 [DEBUG] bytearray(b'\xc24\xf7\xb0\x9d\xea')
+2022-03-15 06:28:19,632 [DEBUG] Searching for the next hop
+2022-03-15 06:28:19,632 [DEBUG] Processing L2 frame
+2022-03-15 06:28:19,633 [DEBUG] Unassociate state reached
+2022-03-15 06:28:19,633 [DEBUG] Starting HIP BEX 1647325699.633102
+2022-03-15 06:28:19,633 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:28:19,633 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:19,633 [DEBUG] Processing L2 frame
+2022-03-15 06:28:19,633 [DEBUG] Unassociate state reached
+2022-03-15 06:28:19,633 [DEBUG] Starting HIP BEX 1647325699.633631
+2022-03-15 06:28:19,633 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:28:19,633 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:22,161 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:28:29,859 [DEBUG] Got data on Ethernet link...
+2022-03-15 06:28:29,860 [DEBUG] bytearray(b'\xba\x02O\xac\x82\xfc')
+2022-03-15 06:28:29,860 [DEBUG] Searching for the next hop
+2022-03-15 06:28:29,860 [DEBUG] Processing L2 frame
+2022-03-15 06:28:29,860 [DEBUG] Unassociate state reached
+2022-03-15 06:28:29,860 [DEBUG] Starting HIP BEX 1647325709.860955
+2022-03-15 06:28:29,861 [INFO] Resolving 2001:2001:ff20:a4fa:125b:d4de:f675:6879 to IPv4 address
+2022-03-15 06:28:29,861 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:29,861 [DEBUG] Processing L2 frame
+2022-03-15 06:28:29,861 [DEBUG] Unassociate state reached
+2022-03-15 06:28:29,862 [DEBUG] Starting HIP BEX 1647325709.862276
+2022-03-15 06:28:29,862 [INFO] Resolving 2001:2001:4e6b:a75f:3822:f7da:1b79:3183 to IPv4 address
+2022-03-15 06:28:29,863 [CRITICAL] Cannot resolve HIT to IPv4 address
+2022-03-15 06:28:32,174 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:28:42,189 [DEBUG] ...Periodic cleaning task...
+2022-03-15 06:28:52,206 [DEBUG] ...Periodic cleaning task...
