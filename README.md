@@ -19,9 +19,16 @@ in our work. But that might change of course.
 
 # Usage
 
-At the moment the setup is simple. We have two routers and two hosts.
+At the moment the setup is simple. We have four routers, which form the HIP VPLS and five switches
+connecting hosts and routers. There are also four hosts that are agnostic about the topology used.
 
-First deploy the topology:
+First clone the repository:
+```
+$ cd ~
+$ git clone https://github.com/strangebit-io/hip-vpls.git
+```
+
+After this step is done you can deploy the topology:
 
 ```
 $ cd hip-vpls
@@ -31,12 +38,14 @@ The script should install Mininet and start the topology if it does not
 run  the following command to start the topology:
 
 ```
+$ cd ~
+$ cd hip-vpls
 $ sudo python3 hipls-mn.py
 ```
 
 Base exchange should complete its execution in a few seconds. 
 
-Once BEX is done, you should be able to ping h2 from h1 as follows:
+Once BEX is done, you should be able to ping h2 from h1 as follows (from the mininet):
 
 ```
 mininet> h1 ping h2
