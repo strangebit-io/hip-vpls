@@ -105,12 +105,14 @@ def onclose():
 def hip_loop():
     while True:
         try:
+            logging.debug("Got HIP packet on the interface")
             packet = bytearray(hip_socket.recv(1524))
             packets = hiplib.process_hip_packet(packet);
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
         except Exception as e:
-            logging.critical(e)
+            logging.debug("Exception occured while processing HIP packet")
+            logging.debug(e)
 
 def ip_sec_loop():
     while True:
@@ -140,7 +142,8 @@ def ether_loop():
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:
-            logging.critical(e)
+           logging.debug("Exception occured while processing L2 frame")
+           logging.debug(e)
 
 
 # Register exit handler
