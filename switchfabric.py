@@ -43,13 +43,18 @@ class FIB():
         #    retrun macs
             return self.fib_broadcast;
         # Unicast
-        for mac in self.fib_unicast.keys():
-            # This can be improved and should have complexity O(1)
-            if mac == dmac:
-                logging.debug("----------Found a match in the database-----------")
-                return [self.fib_unicast[mac]]
-        return self.fib_broadcast;
+        #for mac in self.fib_unicast.keys():
+        #    if mac == dmac:
+        #        logging.debug("----------Found a match in the database-----------")
+        #        return [self.fib_unicast[mac]]
+        if not self.fib_unicast.get(dmac, None):
+            return self.fib_broadcast;
+        return self.fib_unicast.get(dmac);
             
     def set_next_hop(self, dmac, shit, rhit):
+        if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
+            and dmac[0] == 0xFF and dmac[0] == 0xFF and dmac[0] == 0xFF:
+            return;
+        
         self.fib_unicast[dmac] = (shit, rhit);
 
