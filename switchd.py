@@ -149,6 +149,7 @@ def ether_loop():
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
                 for (hip, packet, dest) in packets:
+                    logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
                         ip_sec_socket.sendto(packet, dest)
                     else:
