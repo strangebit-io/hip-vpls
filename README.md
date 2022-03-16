@@ -21,7 +21,14 @@ in our work. But that might change of course.
 
 At the moment the setup is simple. We have two routers and two hosts.
 
-To run the topology simple execute in the current directory:
+First deploy the topology:
+
+```
+$ cd hip-vpls
+$ sudo bash deploy.sh
+```
+The script should install Mininet and start the topology if it does not
+run  the following command to start the topology:
 
 ```
 $ sudo python3 hipls-mn.py
@@ -29,9 +36,15 @@ $ sudo python3 hipls-mn.py
 
 Base exchange should complete its execution in a few seconds. 
 
-Once BEX is done, you should be able to ping h2 from h2 as follows:
+Once BEX is done, you should be able to ping h2 from h1 as follows:
 
 ```
 mininet> h1 ping h2
+```
+
+You can view the progress of the BEX and other interaction in the logs:
+
+```
+$ tail -f router1/hipls.log
 ```
 
