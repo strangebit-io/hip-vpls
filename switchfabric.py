@@ -14,6 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
+from binascii import hexlify
 
 class FIB():
     def __init__(self, file):
@@ -37,24 +38,19 @@ class FIB():
         logging.debug("Searching for the next hop")
         # Multicast address
         if dmac[5] == 0x01 and dmac[4] == 0x00 and dmac[3] == 0x5E:
-        #    macs = []
-        #    for mac in self.fib_unicast:
-        #        if 
-        #    retrun macs
             return self.fib_broadcast;
         # Unicast
-        #for mac in self.fib_unicast.keys():
-        #    if mac == dmac:
-        #        logging.debug("----------Found a match in the database-----------")
-        #        return [self.fib_unicast[mac]]
+        dmac = hexlify(dmac).decode("ascii")
+        logging.debug("Looking up by the destination MAC address")
         if not self.fib_unicast.get(dmac, None):
             return self.fib_broadcast;
-        return self.fib_unicast.get(dmac);
+        logging.debug("Message found in the FIB database")
+        return [self.fib_unicast.get(dmac)];
             
     def set_next_hop(self, dmac, shit, rhit):
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
             and dmac[0] == 0xFF and dmac[0] == 0xFF and dmac[0] == 0xFF:
             return;
-        
+        dmac = hexlify(dmac).decode("ascii");
         self.fib_unicast[dmac] = (shit, rhit);
 
