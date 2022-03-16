@@ -29,9 +29,6 @@ ETH_TYPE_LENGTH                   = 0x2;
 
 ETH_PAYLOAD_OFFSET                = 0xE;
 
-ETH_CHECKSUM_OFFEST               = 0x0;
-ETH_CHECKSUM_LENGTH               = 0x4;
-
 class EthernetFrame():
     def __init__(self, buffer = None):
         self.buffer = buffer;
@@ -51,10 +48,6 @@ class EthernetFrame():
     def get_payload(self):
         pass
     def set_payload(self, payload):
-        pass
-    def get_checksum(self):
-        return self.buffer[ETH_TYPE_OFFSET:-ETH_CHECKSUM_LENGTH];
-    def set_checksum(self, checksum):
         pass
     def get_buffer(self):
         return self.buffer;
