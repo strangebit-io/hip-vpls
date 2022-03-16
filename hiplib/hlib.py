@@ -2315,7 +2315,7 @@ class HIPLib():
                 #    (Utils.ipv4_bytes_to_string(dst), 0));
                 response.append((True, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
             else:
-                logging.debug("Unknown state reached....");
+                logging.debug("Unknown state reached.... % " % (hip_state));
             return response;
         except Exception as e:
             logging.critical("Exception occured while processing packet from TUN interface. Dropping the packet.");
