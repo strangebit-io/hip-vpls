@@ -2,7 +2,7 @@
 
 from mininet.topo import Topo
 from mininet.net import Mininet
-from mininet.node import Node,Controller, OVSKernelSwitch, RemoteController
+from mininet.node import Node, OVSController, OVSKernelSwitch
 from mininet.log import setLogLevel, info
 from mininet.cli import CLI
 
@@ -60,7 +60,7 @@ class NetworkTopo( Topo ):
 from time import sleep
 def run():
     topo = NetworkTopo()
-    net = Mininet(topo=topo, switch=OVSKernelSwitch)
+    net = Mininet(topo=topo, switch=OVSKernelSwitch, controller = OVSController)
     net.start()
     info( net[ 'r1' ].cmd( 'ifconfig r1-eth1 192.168.3.1 netmask 255.255.255.248' ) )
     info( net[ 'r2' ].cmd( 'ifconfig r2-eth1 192.168.3.2 netmask 255.255.255.248' ) )

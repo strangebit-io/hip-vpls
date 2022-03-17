@@ -46,7 +46,6 @@ from time import sleep
 # Hex
 from binascii import hexlify
 
-from numpy import byte
 # Import HIP library
 from hiplib import hlib
 
