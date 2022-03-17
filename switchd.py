@@ -166,8 +166,12 @@ def ether_loop():
                                 ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
                                 offset += fragment_len;
                             else:
-                                ipv4_packet.set_payload(buf);
+                                if num_of_fragments > 1:
+                                    ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
+                                else:
+                                    ipv4_packet.set_payload(buf);
                             logging.debug("Sending IPv4 fragment of size %s" % (len(ipv4_packet.get_buffer())))
+                            logging.debug(ipv4_packet);
                             ip_sec_socket.sendto(bytearray(ipv4_packet.get_buffer()), dest)
                     else:
                         hip_socket.sendto(packet, dest)

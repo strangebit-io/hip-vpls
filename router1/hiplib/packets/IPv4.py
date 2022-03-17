@@ -103,3 +103,5 @@ class IPv4Packet():
 		return self.buffer[offset:];
 	def get_buffer(self):
 		return self.buffer;
+	def __str__(self):
+		return "Framgment offset %s Flags %s" % (self.get_fragment_offset(), self.get_flags()) 
