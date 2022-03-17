@@ -2315,7 +2315,7 @@ class HIPLib():
                 #    (Utils.ipv4_bytes_to_string(dst), 0));
                 response.append((True, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
             else:
-                logging.debug("Unknown state reached.... % " % (hip_state));
+                logging.debug("Unknown state reached.... %s " % (hip_state));
             return response;
         except Exception as e:
             logging.critical("Exception occured while processing packet from TUN interface. Dropping the packet.");
@@ -2814,10 +2814,12 @@ class HIPLib():
                     logging.debug("Transitioning to UNASSOCIATED state....")
                     hip_state.unassociated();
             elif hip_state.is_closed():
+                logging.debug("Association was closed by host...");
                 if sv.closed_timeout <= time.time():
                     logging.debug("Transitioning to UNASSOCIATED state....")
                     hip_state.unassociated();
             elif hip_state.is_failed():
+                logging.debug("Association in failed state...")
                 if sv.failed_timeout <= time.time():
                     logging.debug("Transitioning to UNASSOCIATED state...");
                     hip_state.unassociated();
