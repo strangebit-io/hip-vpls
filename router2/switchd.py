@@ -139,7 +139,8 @@ def ether_loop():
                 for (hip, packet, dest) in packets:
                     logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
-                        buf = IPv4.IPv4Packet(packet).get_payload()
+                        packet = IPv4.IPv4Packet(packet)
+                        buf = packet.get_payload()
                         total_length = len(buf);
                         fragment_len = 100;
                         num_of_fragments = int(ceil(total_length / fragment_len))
