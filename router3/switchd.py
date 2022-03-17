@@ -90,8 +90,10 @@ hip_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 logging.info("Initializing IPSec socket");
 ip_sec_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, IPSec.IPSEC_PROTOCOL);
 ip_sec_socket.bind(("0.0.0.0", IPSec.IPSEC_PROTOCOL));
+#ip_sec_socket.bind((hip_config.config["swtich"]["source_ip"], IPSec.IPSEC_PROTOCOL))
+
 # We will need to perform manual fragmentation
-ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
+#ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 # Open raw ethernet socket and bind it to the interface
 ETH_P_ALL = 3
 ether_socket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL));
@@ -142,6 +144,22 @@ def ether_loop():
                 for (hip, packet, dest) in packets:
                     #logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
+                        """
+                        #+------------------------------------------------------------------+
+                        #|IP Header fields modified on sending when IP_HDRINCL is specified |
+                        #+------------------------------------------------------------------+
+                        #|  Sending fragments with IP_HDRINCL is not supported currently.   |
+                        #+--------------------------+---------------------------------------+
+                        #|IP Checksum               |Always filled in.                      |
+                        #+--------------------------+---------------------------------------+
+                        #|Source Address            |Filled in when zero.                   |
+                        #+--------------------------+---------------------------------------+
+                        #|Packet Id                 |Filled in when passed as 0.            |
+                        #+--------------------------+---------------------------------------+
+                        #|Total Length              |Always filled in.                      |
+                        #+--------------------------+---------------------------------------+
+                        #Fragmentation does not work on RAW sockets
+
                         packet = IPv4.IPv4Packet(packet)
                         buf = copy.deepcopy(packet.get_payload())
                         total_length = len(buf);
@@ -173,6 +191,8 @@ def ether_loop():
                             logging.debug("Sending IPv4 fragment of size %s" % (len(ipv4_packet.get_buffer())))
                             logging.debug(ipv4_packet);
                             ip_sec_socket.sendto(bytearray(ipv4_packet.get_buffer()), dest)
+                            """
+                        ip_sec_socket.sendto(packet, dest)
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:
