@@ -162,7 +162,7 @@ def ether_loop():
                             ipv4_packet.set_fragment_offset(offset);
                             if num_of_fragments > 1 and num_of_fragments - 1 != i:
                                 # Set flag more fragments to follow
-                                ipv4_packet.set_flags(0x1)
+                                ipv4_packet.set_flags(0x4)
                                 ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
                                 offset += fragment_len;
                             else:
