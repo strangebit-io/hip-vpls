@@ -124,6 +124,8 @@ def ip_sec_loop():
         try:
             packet = bytearray(ip_sec_socket.recv(1524));
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
+            if not frame:
+                continue;
             ether_socket.send(frame);
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
@@ -142,7 +144,7 @@ def ether_loop():
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
                 for (hip, packet, dest) in packets:
-                    #logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
+                    logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
                         """
                         #+------------------------------------------------------------------+
