@@ -67,6 +67,9 @@ from hiplib.config import config as hip_config
 # Import switch FIB
 from switchfabric import FIB
 
+# Copy routines
+import copy
+
 # Configure logging to console and file
 logging.basicConfig(
     level=logging.DEBUG,
@@ -137,9 +140,10 @@ def ether_loop():
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
                 for (hip, packet, dest) in packets:
-                    logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
+                    #logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
-                        buf = packet.get_payload()
+                        packet = IPv4.IPv4Packet(packet)
+                        buf = copy.deepcopy(packet.get_payload())
                         total_length = len(buf);
                         fragment_len = 100;
                         num_of_fragments = int(ceil(total_length / fragment_len))
@@ -163,7 +167,8 @@ def ether_loop():
                                 offset += fragment_len;
                             else:
                                 ipv4_packet.set_payload(buf);
-                            ip_sec_socket.sendto(packet, dest)
+                            logging.debug("Sending IPv4 fragment of size %s" % (len(ipv4_packet.get_buffer())))
+                            ip_sec_socket.sendto(bytearray(ipv4_packet.get_buffer()), dest)
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:

@@ -2212,7 +2212,7 @@ class HIPLib():
                 # Send HIP I1 packet to destination
                 logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
                 #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0));
-                response.append((False, bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+                response.append((True, bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 # Transition to an I1-Sent state
                 hip_state.i1_sent();
 
@@ -2313,7 +2313,7 @@ class HIPLib():
                 #ip_sec_socket.sendto(
                 #    bytearray(ipv4_packet.get_buffer()), 
                 #    (Utils.ipv4_bytes_to_string(dst), 0));
-                response.append((True, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
+                response.append((False, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
             else:
                 logging.debug("Unknown state reached.... %s " % (hip_state));
             return response;
