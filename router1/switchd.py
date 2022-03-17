@@ -167,7 +167,7 @@ def ether_loop():
                                 offset += fragment_len;
                             else:
                                 ipv4_packet.set_payload(buf);
-                            ip_sec_socket.sendto(ipv4_packet.get_buffer(), dest)
+                            ip_sec_socket.sendto(bytearray(ipv4_packet.get_buffer()), dest)
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:
