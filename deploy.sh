@@ -14,6 +14,7 @@ cd ..
 # Removing unused folder
 sudo rm -rf mininet
 
+sudo apt-get install openvswitch-switch
 sudo apt-get install openvswitch-testcontroller
 sudo ln /usr/bin/ovs-testcontroller /usr/bin/controller 
 
