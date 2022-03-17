@@ -2080,10 +2080,14 @@ class HIPLib():
 
             #logging.debug("Calculating ICV over IPSec packet");
             #logging.debug(list(ip_sec_packet.get_byte_buffer())[:-hmac_alg.LENGTH]);
-                
+
+            logging.debug("---------------------ICV--------------------")
+            logging.debug(bytearray(icv))
+            logging.debug("--------------------------------------------")
+
             if bytearray(icv) != hmac_alg.digest(bytearray(list(ip_sec_packet.get_byte_buffer())[:-hmac_alg.LENGTH])):
                 logging.critical("Invalid ICV in IPSec packet");
-                return  [];
+                return  (None, None, None);
 
             padded_data = list(ip_sec_packet.get_payload())[:-hmac_alg.LENGTH];
             #logging.debug("Encrypted padded data");
@@ -2124,7 +2128,7 @@ class HIPLib():
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
             if not hip_state:
-                return [];
+                return (None, None, None);
             hip_state.established();
             #logging.debug("Sending IPv6 packet to %s" % (Utils.ipv6_bytes_to_hex_formatted(ihit)));
             #hip_tun.write(bytearray(ipv6_packet.get_buffer()));
@@ -2296,6 +2300,10 @@ class HIPLib():
                 logging.debug(list(ip_sec_packet.get_byte_buffer()));
 
                 icv = hmac_alg.digest(bytearray(ip_sec_packet.get_byte_buffer()));
+                logging.debug("---------------------ICV--------------------")
+                logging.debug(bytearray(icv))
+                logging.debug("--------------------------------------------")
+                
                 ip_sec_packet.add_payload(list(icv));
 
                 # Send ESP packet to destination
