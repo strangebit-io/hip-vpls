@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Copyright (C) 2019 strangebit
+# Copyright (C) 2022 strangebit
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -105,12 +105,14 @@ def onclose():
 def hip_loop():
     while True:
         try:
+            logging.debug("Got HIP packet on the interface")
             packet = bytearray(hip_socket.recv(1524))
             packets = hiplib.process_hip_packet(packet);
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
         except Exception as e:
-            logging.critical(e)
+            logging.debug("Exception occured while processing HIP packet")
+            logging.debug(e)
 
 def ip_sec_loop():
     while True:
@@ -119,12 +121,6 @@ def ip_sec_loop():
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
             ether_socket.send(frame);
             frame = Ethernet.EthernetFrame(frame);
-            logging.debug("++++++++++++++++++++++++++++++++")
-            logging.debug("Source MAC address");
-            logging.debug(hexlify(frame.get_source()));
-            logging.debug("Destination MAC address");
-            logging.debug(hexlify(frame.get_destination()));
-            logging.debug("++++++++++++++++++++++++++++++++")
             fib.set_next_hop(frame.get_source(), src, dst);
         except Exception as e:
             logging.critical(e)
@@ -137,22 +133,42 @@ def ether_loop():
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
             src_mac = frame.get_source();
-            logging.debug(hexlify(dst_mac));
-            logging.debug(hexlify(src_mac));
-            logging.debug("--------------------------------")
-            logging.debug("Destination MAC address");
-            logging.debug(hexlify(dst_mac));
-            logging.debug("--------------------------------")
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
                 for (hip, packet, dest) in packets:
+                    logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
-                        ip_sec_socket.sendto(packet, dest)
+                        buf = packet.get_payload()
+                        total_length = len(buf);
+                        fragment_len = 100;
+                        num_of_fragments = int(ceil(total_length / fragment_len))
+                        offset = 0;
+                        for i in range(0, num_of_fragments):
+                            # Create IPv4 packet
+                            ipv4_packet = IPv4.IPv4Packet();
+                            ipv4_packet.set_version(IPv4.IPV4_VERSION);
+                            ipv4_packet.set_destination_address(packet.get_destination_address());
+                            ipv4_packet.set_source_address(packet.get_source_address());
+                            ipv4_packet.set_ttl(IPv4.IPV4_DEFAULT_TTL);
+                            ipv4_packet.set_protocol(HIP.HIP_PROTOCOL);
+                            ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
+                        
+                            # Fragment the packet
+                            ipv4_packet.set_fragment_offset(offset);
+                            if num_of_fragments > 1 and num_of_fragments - 1 != i:
+                                # Set flag more fragments to follow
+                                ipv4_packet.set_flags(0x1)
+                                ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
+                                offset += fragment_len;
+                            else:
+                                ipv4_packet.set_payload(buf);
+                            ip_sec_socket.sendto(packet, dest)
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:
-            logging.critical(e)
+           logging.debug("Exception occured while processing L2 frame")
+           logging.debug(e)
 
 
 # Register exit handler
@@ -174,6 +190,6 @@ def run_swtich():
         for (packet, dest) in packets:
             hip_socket.sendto(packet, dest)
         logging.debug("...Periodic cleaning task...")
-        sleep(10);
+        sleep(1);
 
 run_swtich()
