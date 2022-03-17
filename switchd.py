@@ -139,7 +139,31 @@ def ether_loop():
                 for (hip, packet, dest) in packets:
                     logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
                     if not hip:
-                        ip_sec_socket.sendto(packet, dest)
+                        buf = packet.get_payload()
+                        total_length = len(buf);
+                        fragment_len = 100;
+                        num_of_fragments = int(ceil(total_length / fragment_len))
+                        offset = 0;
+                        for i in range(0, num_of_fragments):
+                            # Create IPv4 packet
+                            ipv4_packet = IPv4.IPv4Packet();
+                            ipv4_packet.set_version(IPv4.IPV4_VERSION);
+                            ipv4_packet.set_destination_address(packet.get_destination_address());
+                            ipv4_packet.set_source_address(packet.get_source_address());
+                            ipv4_packet.set_ttl(IPv4.IPV4_DEFAULT_TTL);
+                            ipv4_packet.set_protocol(HIP.HIP_PROTOCOL);
+                            ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
+                        
+                            # Fragment the packet
+                            ipv4_packet.set_fragment_offset(offset);
+                            if num_of_fragments > 1 and num_of_fragments - 1 != i:
+                                # Set flag more fragments to follow
+                                ipv4_packet.set_flags(0x1)
+                                ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
+                                offset += fragment_len;
+                            else:
+                                ipv4_packet.set_payload(buf);
+                            ip_sec_socket.sendto(packet, dest)
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:
@@ -166,6 +190,6 @@ def run_swtich():
         for (packet, dest) in packets:
             hip_socket.sendto(packet, dest)
         logging.debug("...Periodic cleaning task...")
-        sleep(10);
+        sleep(1);
 
 run_swtich()
