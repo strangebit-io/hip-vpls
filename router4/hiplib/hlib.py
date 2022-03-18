@@ -2699,7 +2699,11 @@ class HIPLib():
                     ipv4_packet.set_payload(hip_i1_packet.get_buffer());
 
                     # Send HIP I1 packet to destination
-                    logging.debug("Sending I1 packet to %s" % (dst_str));
+                    logging.debug("Re-sending I1 packet to %s" % (dst_str));
+                    logging.debug("Re-sending I1 packet from %s" % (src_str));
+                    logging.debug("Reponder's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
+                    logging.debug("Initiator's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
+
                     #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0))
                     response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                     sv.i1_retries += 1;
@@ -2709,8 +2713,12 @@ class HIPLib():
             elif hip_state.is_i2_sent():
                 if sv.i2_timeout <= time.time():
                     dst_str = Utils.ipv4_bytes_to_string(sv.dst);
+                    src_str = Utils.ipv4_bytes_to_string(sv.src);
                     # Send HIP I2 packet to destination
-                    logging.debug("Sending I2 packet to %s" % (dst_str));
+                    logging.debug("Re-sending I2 packet to %s" % (dst_str));
+                    logging.debug("Re-sending I2 packet from %s" % (src_str));
+                    logging.debug("Reponder's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
+                    logging.debug("Initiator's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
                     #hip_socket.sendto(bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0))
                     response.append((bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0)))
                     sv.i2_retries += 1;
