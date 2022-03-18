@@ -2132,7 +2132,10 @@ class HIPLib():
             hip_state.established();
             #logging.debug("Sending IPv6 packet to %s" % (Utils.ipv6_bytes_to_hex_formatted(ihit)));
             #hip_tun.write(bytearray(ipv6_packet.get_buffer()));
-            return (frame, rhit, ihit);
+            if ihit == self.own_hit:
+                return (frame, rhit, ihit);
+            else:
+                return (frame, ihit, rhit);
 
         except Exception as e:
             logging.critical("Exception occured. Dropping IPSec packet.");
