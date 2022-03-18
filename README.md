@@ -14,8 +14,7 @@ channel. This repository contains simple implementation of HIP-VPLS.
 At the moment the development is ongoing. Linux was selected as a target system and all the 
 development currently done for this operating system.
 
-We are going to test the implementation using mininet and perhaps ONOS
-in our work. But that might change of course.
+We are going to test the implementation using Mininet simulation environment.
 
 # Usage
 
