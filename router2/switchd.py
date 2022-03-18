@@ -46,7 +46,6 @@ from time import sleep
 # Hex
 from binascii import hexlify
 
-from numpy import byte
 # Import HIP library
 from hiplib import hlib
 
@@ -218,6 +217,9 @@ ether_if_th_loop.start();
 def run_swtich():
     while True:
         packets = hiplib.maintenance();
+        if not packets:
+            sleep(1);
+            continue;
         for (packet, dest) in packets:
             hip_socket.sendto(packet, dest)
         logging.debug("...Periodic cleaning task...")

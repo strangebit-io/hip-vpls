@@ -46,7 +46,6 @@ from time import sleep
 # Hex
 from binascii import hexlify
 
-from numpy import byte
 # Import HIP library
 from hiplib import hlib
 
@@ -93,7 +92,7 @@ ip_sec_socket.bind(("0.0.0.0", IPSec.IPSEC_PROTOCOL));
 #ip_sec_socket.bind((hip_config.config["swtich"]["source_ip"], IPSec.IPSEC_PROTOCOL))
 
 # We will need to perform manual fragmentation
-#ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
+ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 # Open raw ethernet socket and bind it to the interface
 ETH_P_ALL = 3
 ether_socket = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL));
@@ -135,11 +134,11 @@ def ip_sec_loop():
 def ether_loop():
     while True:
         try:
-            buf = bytearray(ether_socket.recv(1524));
+            buf = bytearray(ether_socket.recv(1514));
             logging.debug("Got data on Ethernet link...")
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
-            src_mac = frame.get_source();
+            #src_mac = frame.get_source();
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
@@ -218,6 +217,9 @@ ether_if_th_loop.start();
 def run_swtich():
     while True:
         packets = hiplib.maintenance();
+        if not packets:
+            sleep(1);
+            continue;
         for (packet, dest) in packets:
             hip_socket.sendto(packet, dest)
         logging.debug("...Periodic cleaning task...")
