@@ -2071,10 +2071,10 @@ class HIPLib():
 
             sv.data_timeout = time.time() + self.config["general"]["UAL"];
 
-            #logging.debug("HMAC key");
-            #logging.debug(hmac_key);
-            #logging.debug("Cipher key");
-            #logging.debug(cipher_key);
+            logging.debug("------------------- HMAC key ------------------");
+            logging.debug(hmac_key);
+            logging.debug("Cipher key");
+            logging.debug(cipher_key);
 
             icv         = list(ip_sec_packet.get_byte_buffer())[-hmac_alg.LENGTH:];
 
@@ -2303,7 +2303,7 @@ class HIPLib():
                 logging.debug("---------------------ICV--------------------")
                 logging.debug(bytearray(icv))
                 logging.debug("--------------------------------------------")
-                
+
                 ip_sec_packet.add_payload(list(icv));
 
                 # Send ESP packet to destination
@@ -2717,7 +2717,7 @@ class HIPLib():
                     if sv.i2_retries > self.config["general"]["i2_retries"]:
                         hip_state.failed();
                         sv.failed_timeout = time.time() + self.config["general"]["failed_timeout"];
-                        return;
+                        return response;
                     sv.i2_timeout = time.time() + self.config["general"]["i2_timeout_s"];
             elif hip_state.is_r2_sent():
                 if sv.ec_complete_timeout <= time.time():
