@@ -67,10 +67,10 @@ def run():
     info( net[ 'r3' ].cmd( 'ifconfig r3-eth1 192.168.3.3 netmask 255.255.255.248' ) )
     info( net[ 'r4' ].cmd( 'ifconfig r4-eth1 192.168.3.4 netmask 255.255.255.248' ) )
 
-    #info( net[ 'r1' ].cmd( 'ifconfig r1-eth0 192.168.3.1 mtu 1400' ) )
-    #info( net[ 'r2' ].cmd( 'ifconfig r2-eth0 192.168.3.2 mtu 1400' ) )
-    #info( net[ 'r3' ].cmd( 'ifconfig r3-eth0 192.168.3.3 mtu 1400' ) )
-    #info( net[ 'r4' ].cmd( 'ifconfig r4-eth0 192.168.3.4 mtu 1400' ) )
+    info( net[ 'h1' ].cmd( 'ifconfig h1-eth0 mtu 1400' ) )
+    info( net[ 'h2' ].cmd( 'ifconfig h2-eth0 mtu 1400' ) )
+    info( net[ 'h3' ].cmd( 'ifconfig h3-eth0 mtu 1400' ) )
+    info( net[ 'h4' ].cmd( 'ifconfig h4-eth0 mtu 1400' ) )
 
 
     info( '*** Routing Table on Router:\n' )
