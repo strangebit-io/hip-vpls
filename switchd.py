@@ -110,7 +110,7 @@ def hip_loop():
     while True:
         try:
             logging.debug("Got HIP packet on the interface")
-            packet = bytearray(hip_socket.recv(1524))
+            packet = bytearray(hip_socket.recv(1518))
             packets = hiplib.process_hip_packet(packet);
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
@@ -121,78 +121,38 @@ def hip_loop():
 def ip_sec_loop():
     while True:
         try:
-            packet = bytearray(ip_sec_socket.recv(1524));
+            packet = bytearray(ip_sec_socket.recv(1518));
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
             if not frame:
                 continue;
             ether_socket.send(frame);
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
+            logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
         except Exception as e:
             logging.critical(e)
 
 def ether_loop():
     while True:
         try:
-            buf = bytearray(ether_socket.recv(1514));
-            logging.debug("Got data on Ethernet link...")
+            buf = bytearray(ether_socket.recv(1518));
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
-            #src_mac = frame.get_source();
+            src_mac = frame.get_source();
+
+            logging.debug("Got data on Ethernet link L2 %s %s..." % (hexlify(src_mac), hexlify(dst_mac)))
+
+            logging.debug(hexlify(src_mac))
+            logging.debug(hexlify(dst_mac))
+
+            logging.debug("----------------------------------")
+
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
                 for (hip, packet, dest) in packets:
-                    logging.debug("Sending L2 frame to: %s %s" % (ihit, rhit))
+                    logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
-                        """
-                        #+------------------------------------------------------------------+
-                        #|IP Header fields modified on sending when IP_HDRINCL is specified |
-                        #+------------------------------------------------------------------+
-                        #|  Sending fragments with IP_HDRINCL is not supported currently.   |
-                        #+--------------------------+---------------------------------------+
-                        #|IP Checksum               |Always filled in.                      |
-                        #+--------------------------+---------------------------------------+
-                        #|Source Address            |Filled in when zero.                   |
-                        #+--------------------------+---------------------------------------+
-                        #|Packet Id                 |Filled in when passed as 0.            |
-                        #+--------------------------+---------------------------------------+
-                        #|Total Length              |Always filled in.                      |
-                        #+--------------------------+---------------------------------------+
-                        #Fragmentation does not work on RAW sockets
-
-                        packet = IPv4.IPv4Packet(packet)
-                        buf = copy.deepcopy(packet.get_payload())
-                        total_length = len(buf);
-                        fragment_len = 100;
-                        num_of_fragments = int(ceil(total_length / fragment_len))
-                        offset = 0;
-                        for i in range(0, num_of_fragments):
-                            # Create IPv4 packet
-                            ipv4_packet = IPv4.IPv4Packet();
-                            ipv4_packet.set_version(IPv4.IPV4_VERSION);
-                            ipv4_packet.set_destination_address(packet.get_destination_address());
-                            ipv4_packet.set_source_address(packet.get_source_address());
-                            ipv4_packet.set_ttl(IPv4.IPV4_DEFAULT_TTL);
-                            ipv4_packet.set_protocol(HIP.HIP_PROTOCOL);
-                            ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
-                        
-                            # Fragment the packet
-                            ipv4_packet.set_fragment_offset(offset);
-                            if num_of_fragments > 1 and num_of_fragments - 1 != i:
-                                # Set flag more fragments to follow
-                                ipv4_packet.set_flags(0x4)
-                                ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
-                                offset += fragment_len;
-                            else:
-                                if num_of_fragments > 1:
-                                    ipv4_packet.set_payload(buf[offset:offset + fragment_len]);
-                                else:
-                                    ipv4_packet.set_payload(buf);
-                            logging.debug("Sending IPv4 fragment of size %s" % (len(ipv4_packet.get_buffer())))
-                            logging.debug(ipv4_packet);
-                            ip_sec_socket.sendto(bytearray(ipv4_packet.get_buffer()), dest)
-                            """
                         ip_sec_socket.sendto(packet, dest)
                     else:
                         hip_socket.sendto(packet, dest)
