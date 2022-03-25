@@ -38,6 +38,7 @@ class FIB():
         logging.debug("Searching for the next hop")
         # Multicast address
         if dmac[5] & 0x1:
+            logging.debug("Multicast frame....");
             return self.fib_broadcast;
         # Unicast
         dmac = hexlify(dmac).decode("ascii")
