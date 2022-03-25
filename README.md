@@ -56,3 +56,18 @@ You can view the progress of the BEX and other interaction in the logs:
 $ tail -f router1/hipls.log
 ```
 
+Other useful commands:
+
+View ports' statuses
+```
+mininet> s4 ovs-ofctl show "s4"
+```
+
+Capture the packets between HIP switches:
+
+```
+minenet > r2 tcpdump -n -i r2-eth1 -w ipsec.pcap
+```
+
+
+
