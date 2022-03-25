@@ -50,7 +50,7 @@ class FIB():
     def set_next_hop(self, dmac, shit, rhit):
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
-            and dmac[0] == 0xFF and dmac[0] == 0xFF and dmac[0] == 0xFF:
+            and dmac[2] == 0xFF and dmac[1] == 0xFF and dmac[0] == 0xFF:
             return;
         # Multicast address
         if dmac[5] & 0x1:
