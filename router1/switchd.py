@@ -72,11 +72,11 @@ import copy
 
 # Configure logging to console and file
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.CRITICAL,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
         logging.FileHandler("hipls.log")#,
-#        logging.StreamHandler(sys.stdout)
+        #logging.StreamHandler(sys.stdout)
     ]
 );
 
