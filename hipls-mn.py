@@ -67,6 +67,21 @@ def run():
     info( net[ 'r3' ].cmd( 'ifconfig r3-eth1 192.168.3.3 netmask 255.255.255.248' ) )
     info( net[ 'r4' ].cmd( 'ifconfig r4-eth1 192.168.3.4 netmask 255.255.255.248' ) )
 
+    info( net[ 'r1' ].cmd( '/sbin/ethtool r1-eth0 rx off tx off sg off' ) )
+    info( net[ 'r1' ].cmd( '/sbin/ethtool r1-eth1 rx off tx off sg off' ) )
+    info( net[ 'r2' ].cmd( '/sbin/ethtool r2-eth0 rx off tx off sg off' ) )
+    info( net[ 'r2' ].cmd( '/sbin/ethtool r2-eth1 rx off tx off sg off' ) )
+    info( net[ 'r3' ].cmd( '/sbin/ethtool r3-eth0 rx off tx off sg off' ) )
+    info( net[ 'r4' ].cmd( '/sbin/ethtool r3-eth1 rx off tx off sg off' ) )
+    info( net[ 'r4' ].cmd( '/sbin/ethtool r4-eth0 rx off tx off sg off' ) )
+    info( net[ 'r4' ].cmd( '/sbin/ethtool r4-eth1 rx off tx off sg off' ) )
+
+    info( net[ 'h1' ].cmd( '/sbin/ethtool h1-eth0 rx off tx off sg off' ) )
+    info( net[ 'h2' ].cmd( '/sbin/ethtool h2-eth0 rx off tx off sg off' ) )
+    info( net[ 'h3' ].cmd( '/sbin/ethtool h3-eth0 rx off tx off sg off' ) )
+    info( net[ 'h4' ].cmd( '/sbin/ethtool h4-eth0 rx off tx off sg off' ) )
+
+
     info( net[ 'h1' ].cmd( 'ifconfig h1-eth0 mtu 1400' ) )
     info( net[ 'h2' ].cmd( 'ifconfig h2-eth0 mtu 1400' ) )
     info( net[ 'h3' ].cmd( 'ifconfig h3-eth0 mtu 1400' ) )
