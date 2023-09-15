@@ -72,7 +72,7 @@ import copy
 
 # Configure logging to console and file
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
         logging.FileHandler("hipls.log")#,
