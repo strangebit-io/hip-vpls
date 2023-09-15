@@ -41,7 +41,7 @@ class NetworkTopo( Topo ):
                 params2={ 'ip' : '192.168.3.3/29' } )
         self.addLink( s1, router1, intfName2='r1-eth0',
                       params2={ 'ip' : '192.168.1.1/24' } )
-        self.addLink( s1, router2, intfName2='r2-eth0',
+        self.addLink( s2, router2, intfName2='r2-eth0',
                 params2={ 'ip' : '192.168.1.2/24' } )
         self.addLink( s3, router3, intfName2='r3-eth0',
                 params2={ 'ip' : '192.168.1.3/24' } )
@@ -55,7 +55,7 @@ class NetworkTopo( Topo ):
                            defaultRoute='via 192.168.1.1' )
         h4 = self.addHost( 'h4', ip='192.168.1.103/24',
                            defaultRoute='via 192.168.1.1' )
-        for h, s in [ (h1, s1), (h2, s1), (h3, s3), (h4, s4) ]:
+        for h, s in [ (h1, s1), (h2, s2), (h3, s3), (h4, s4) ]:
             self.addLink( h, s )
 from time import sleep
 def run():
