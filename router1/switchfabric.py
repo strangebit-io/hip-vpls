@@ -30,6 +30,7 @@ class FIB():
             rhit = bytes.fromhex(rhit)
             self.fib_broadcast.append((ihit, rhit));
     def get_next_hop(self, dmac):
+        
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
             and dmac[2] == 0xFF and dmac[1] == 0xFF and dmac[0] == 0xFF:
@@ -41,7 +42,8 @@ class FIB():
             logging.debug("Multicast frame....");
             return self.fib_broadcast;
         # Unicast
-        dmac = hexlify(dmac).decode("ascii")
+        #dmac = hexlify(dmac).decode("ascii")
+        dmac = int.from_bytes(dmac, byteorder="little")
         logging.debug("Looking up by the destination MAC address")
         if not self.fib_unicast.get(dmac, None):
             return self.fib_broadcast;
@@ -56,6 +58,7 @@ class FIB():
         # Multicast address
         if dmac[5] & 0x1:
             return;
-        dmac = hexlify(dmac).decode("ascii");
+        #dmac = hexlify(dmac).decode("ascii");
+        dmac = int.from_bytes(dmac, byteorder="little")
         self.fib_unicast[dmac] = (shit, rhit);
 
