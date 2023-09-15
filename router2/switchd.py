@@ -89,8 +89,8 @@ hip_socket.bind(("0.0.0.0", HIP.HIP_PROTOCOL));
 hip_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 logging.info("Initializing IPSec socket");
 ip_sec_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, IPSec.IPSEC_PROTOCOL);
-ip_sec_socket.bind(("0.0.0.0", IPSec.IPSEC_PROTOCOL));
-#ip_sec_socket.bind((hip_config.config["swtich"]["source_ip"], IPSec.IPSEC_PROTOCOL))
+#ip_sec_socket.bind(("0.0.0.0", IPSec.IPSEC_PROTOCOL));
+ip_sec_socket.bind((hip_config.config["swtich"]["source_ip"], IPSec.IPSEC_PROTOCOL))
 
 # We will need to perform manual fragmentation
 ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);

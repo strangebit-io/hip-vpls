@@ -42,6 +42,7 @@ import sys
 import atexit
 # Timing 
 from time import sleep
+from time import time
 
 # Hex
 from binascii import hexlify
@@ -71,7 +72,7 @@ import copy
 
 # Configure logging to console and file
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
         logging.FileHandler("hipls.log")#,
@@ -88,8 +89,8 @@ hip_socket.bind(("0.0.0.0", HIP.HIP_PROTOCOL));
 hip_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
 logging.info("Initializing IPSec socket");
 ip_sec_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, IPSec.IPSEC_PROTOCOL);
-ip_sec_socket.bind(("0.0.0.0", IPSec.IPSEC_PROTOCOL));
-#ip_sec_socket.bind((hip_config.config["swtich"]["source_ip"], IPSec.IPSEC_PROTOCOL))
+#ip_sec_socket.bind(("0.0.0.0", IPSec.IPSEC_PROTOCOL));
+ip_sec_socket.bind((hip_config.config["swtich"]["source_ip"], IPSec.IPSEC_PROTOCOL))
 
 # We will need to perform manual fragmentation
 ip_sec_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
@@ -121,11 +122,20 @@ def hip_loop():
 def ip_sec_loop():
     while True:
         try:
+            s = time()
             packet = bytearray(ip_sec_socket.recv(1518));
+            e = time()
+            logging.info("IPSEC recv time %f " % (e-s))
+            s = time()
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
+            e = time()
+            logging.info("IPSEC process time %f " % (e-s))
             if not frame:
                 continue;
+            s = time()
             ether_socket.send(frame);
+            e = time()
+            logging.info("L2 send time %f " % (e-s))
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
             logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
@@ -135,7 +145,10 @@ def ip_sec_loop():
 def ether_loop():
     while True:
         try:
+            s = time()
             buf = bytearray(ether_socket.recv(1518));
+            e = time()
+            logging.info("Ethernet recv time %f " % (e-s))
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
             src_mac = frame.get_source();
@@ -149,11 +162,17 @@ def ether_loop():
 
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
+                s = time()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["swtich"]["source_ip"]);
+                e = time()
+                logging.info("L2 process time %f " % (e-s))
                 for (hip, packet, dest) in packets:
                     logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
+                        s = time()
                         ip_sec_socket.sendto(packet, dest)
+                        e = time()
+                        logging.info("IPSEC send time %f " % (e-s))
                     else:
                         hip_socket.sendto(packet, dest)
         except Exception as e:
