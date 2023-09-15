@@ -1,0 +1,37 @@
+#IPSECprocess.txt IPSECrecv.txt    IPSECsend.txt    L2process.txt    L2recv.txt       L2send.txt
+p1<-read.csv("IPSECrecv.txt", header=F)
+p2<-read.csv("IPSECprocess.txt", header=F)
+p3<-read.csv("IPSECsend.txt", header=F)
+p4<-read.csv("L2process.txt", header=F)
+p5<-read.csv("L2recv.txt", header=F)
+p6<-read.csv("L2send.txt", header=F)
+
+m1<-median(p1$V1)
+m2<-median(p2$V1)
+m3<-median(p3$V1)
+m4<-median(p4$V1)
+m5<-median(p5$V1)
+m6<-median(p6$V1)
+
+print("IPSECrecv.txt")
+print(m1)
+print("IPSECprocess.txt")
+print(m2)
+print("IPSECsend.txt")
+print(m3)
+print("L2process.txt")
+print(m4)
+print("L2recv.txt")
+print(m5)
+print("L2send.txt")
+print(m6)
+print("---------------")
+
+print(m5+m2+m1)
+print(m6+m4+m3)
+
+print("Out perfromance")
+print(1500*8/(m5+m2+m1)/1024/1024)
+print("In perfromance")
+print(1500*8/(m6+m4+m3)/1024/1024)
+
