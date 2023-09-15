@@ -122,6 +122,7 @@ def hip_loop():
 def ip_sec_loop():
     while True:
         try:
+            es = time()
             s = time()
             packet = bytearray(ip_sec_socket.recv(1518));
             e = time()
@@ -138,7 +139,9 @@ def ip_sec_loop():
             logging.info("L2 send time %f " % (e-s))
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
-            logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
+            #logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
+            ee = time()
+            logging.info("Total time to process the IPSEC packet %f" % (ee - es))
         except Exception as e:
             logging.critical(e)
 
@@ -159,7 +162,7 @@ def ether_loop():
             logging.debug(hexlify(dst_mac))
 
             logging.debug("----------------------------------")
-
+            es = time()
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 s = time()
@@ -175,6 +178,8 @@ def ether_loop():
                         logging.info("IPSEC send time %f " % (e-s))
                     else:
                         hip_socket.sendto(packet, dest)
+            ee = time()
+            logging.info("Total time to process Ethernet frame %f" % (ee-es))
         except Exception as e:
            logging.debug("Exception occured while processing L2 frame")
            logging.debug(e)
