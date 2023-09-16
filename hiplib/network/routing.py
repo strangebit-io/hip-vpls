@@ -24,13 +24,13 @@ class Routing():
 	Routing configuration
 	"""
 	@staticmethod
-	def add_hip_default_route(interface = "hip0", prefix="2001:2000::/28"):
+	def add_hip_default_route(interface = "hip0", prefix="2001:0020::/28"):
 		"""
 		Adds default route for IPv6 packets
 		"""
 		system("ip -6 route add %s dev %s" % (prefix, interface));
 	@staticmethod
-	def del_hip_default_route(interface = "hip0", prefix="2001:2000::/28"):
+	def del_hip_default_route(interface = "hip0", prefix="2001:0020::/28"):
 		"""
 		Removes default route for IPv6 packets
 		"""
@@ -54,6 +54,17 @@ class Routing():
 		"""
 		interface = Routing.get_IPv4_default_route_interface();
 		addresses = netifaces.ifaddresses(interface);
+		for k in list(addresses.keys()):
+			if re.match("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}", addresses[k][0]["addr"]):
+				return addresses[k][0]["addr"]
+		return None;
+	@staticmethod
+	def get_default_IPv4_address_iface(iface):
+		"""
+		Gets default IPv4 address
+		"""
+		#interface = Routing.get_IPv4_default_route_interface();
+		addresses = netifaces.ifaddresses(iface);
 		for k in list(addresses.keys()):
 			if re.match("[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}", addresses[k][0]["addr"]):
 				return addresses[k][0]["addr"]

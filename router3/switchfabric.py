@@ -24,8 +24,8 @@ class FIB():
         pairs = fd.readlines();
         for mesh_pair in pairs:
             parts = mesh_pair.split(" ")
-            ihit = parts[0].replace(":", "")
-            rhit = parts[1].replace(":", "")
+            ihit = parts[0].replace(":", "").strip()
+            rhit = parts[1].replace(":", "").strip()
             ihit = bytes.fromhex(ihit)
             rhit = bytes.fromhex(rhit)
             self.fib_broadcast.append((ihit, rhit));
