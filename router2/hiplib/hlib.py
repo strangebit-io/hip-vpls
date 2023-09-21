@@ -2132,13 +2132,15 @@ class HIPLib():
             #ipv6_packet.set_hop_limit(1);
             #ipv6_packet.set_payload_length(len(unpadded_data));
             #ipv6_packet.set_payload(unpadded_data);
-
+            hss = time.time()
             if Utils.is_hit_smaller(rhit, ihit):
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
             else:
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
+            hse = time.time()
+            logging.critical("Time to process HIP state database %f " % (hse-hss))
             e = time.time()
             logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (e-s))
             if not hip_state:
