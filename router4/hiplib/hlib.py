@@ -2055,7 +2055,7 @@ class HIPLib():
             src_str       = Utils.ipv4_bytes_to_string(src);
             dst_str       = Utils.ipv4_bytes_to_string(dst);
             ee = time.time()
-            logging.critical("Time to unpack IPSEC packet %f " % (ee-ss))
+            #logging.critical("Time to unpack IPSEC packet %f " % (ee-ss))
 
             #logging.debug("Got packet from %s to %s of %d bytes" % (src_str, dst_str, len(buf)));
             # Get SA record and construct the ESP payload
@@ -2078,7 +2078,7 @@ class HIPLib():
             sv.data_timeout = time.time() + self.config["general"]["UAL"];
             ee = time.time()
 
-            logging.critical("Time to search the SA database %f " % (ee-ss))
+            #logging.critical("Time to search the SA database %f " % (ee-ss))
 
             #logging.debug("------------------- HMAC key ------------------");
             #logging.debug(hmac_key);
@@ -2121,7 +2121,7 @@ class HIPLib():
 
             frame  = IPSec.IPSecUtils.unpad(cipher.BLOCK_SIZE, decrypted_data);
             ee = time.time()
-            logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (ee-ss))
+            #logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (ee-ss))
             
 
             #next_header    = IPSec.IPSecUtils.get_next_header(decrypted_data);
@@ -2135,17 +2135,17 @@ class HIPLib():
             #ipv6_packet.set_hop_limit(1);
             #ipv6_packet.set_payload_length(len(unpadded_data));
             #ipv6_packet.set_payload(unpadded_data);
-            hss = time.time()
+            #hss = time.time()
             if Utils.is_hit_smaller(rhit, ihit):
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
             else:
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
-            hse = time.time()
-            logging.critical("Time to process HIP state database %f " % (hse-hss))
+            #hse = time.time()
+            #logging.critical("Time to process HIP state database %f " % (hse-hss))
             e = time.time()
-            logging.critical("Total time to process IPSEC packet inside  %f " % (e-s))
+            #logging.critical("Total time to process IPSEC packet inside  %f " % (e-s))
             if not hip_state:
                 return (None, None, None);
             hip_state.established();
@@ -2178,7 +2178,7 @@ class HIPLib():
             #logging.info("Next header %s " % (packet.get_next_header()));
             #logging.info("Hop limit %s" % (packet.get_hop_limit()));
             # Get the state
-            logging.debug("Processing L2 frame")
+            #logging.debug("Processing L2 frame")
             if Utils.is_hit_smaller(rhit, ihit):
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
@@ -2186,13 +2186,13 @@ class HIPLib():
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
             if hip_state.is_unassociated() or hip_state.is_closing() or hip_state.is_closed():
-                logging.debug("Unassociate state reached");
-                logging.debug("Starting HIP BEX %f" % (time.time()));
-                logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));
+                #logging.debug("Unassociate state reached");
+                #logging.debug("Starting HIP BEX %f" % (time.time()));
+                #logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));
 
                 # Resolve the HIT code can be improved
                 if not self.hit_resolver.resolve(Utils.ipv6_bytes_to_hex_formatted(rhit)):
-                    logging.critical("Cannot resolve HIT to IPv4 address");
+                    #logging.critical("Cannot resolve HIT to IPv4 address");
                     return [];
 
                 # Convert bytes to string representation of IPv6 address
@@ -2236,7 +2236,7 @@ class HIPLib():
                 ipv4_packet.set_payload(hip_i1_packet.get_buffer());
 
                 # Send HIP I1 packet to destination
-                logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
+                #logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
                 #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0));
                 response.append((True, bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 # Transition to an I1-Sent state
@@ -2294,37 +2294,41 @@ class HIPLib():
                 iv         = list(Utils.generate_random(cipher.BLOCK_SIZE));
                 sa_record.increment_sequence();
 
+                """
                 logging.debug("HMAC key");
                 logging.debug(hmac_key);
                 logging.debug("Cipher key");
                 logging.debug(cipher_key);
                 logging.debug("IV");
                 logging.debug(iv);
+                """
 
                 padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 0x0);
-                logging.debug("Length of the padded data %d" % (len(padded_data)));
+                #logging.debug("Length of the padded data %d" % (len(padded_data)));
 
                 encrypted_data = cipher.encrypt(cipher_key, bytearray(iv), bytearray(padded_data));
                 
+                """
                 logging.debug("Padded data");
                 logging.debug(iv + list(encrypted_data));
                 logging.debug(list(encrypted_data));
 
                 logging.debug("Encrypted padded data");
                 logging.debug(padded_data);
+                """
 
                 ip_sec_packet = IPSec.IPSecPacket();
                 ip_sec_packet.set_spi(spi);
                 ip_sec_packet.set_sequence(seq);
                 ip_sec_packet.add_payload(iv + list(encrypted_data));
 
-                logging.debug("Calculating ICV over IPSec packet");
-                logging.debug(list(ip_sec_packet.get_byte_buffer()));
+                #logging.debug("Calculating ICV over IPSec packet");
+                #logging.debug(list(ip_sec_packet.get_byte_buffer()));
 
                 icv = hmac_alg.digest(bytearray(ip_sec_packet.get_byte_buffer()));
-                logging.debug("---------------------ICV--------------------")
-                logging.debug(bytearray(icv))
-                logging.debug("--------------------------------------------")
+                #logging.debug("---------------------ICV--------------------")
+                #logging.debug(bytearray(icv))
+                #logging.debug("--------------------------------------------")
 
                 ip_sec_packet.add_payload(list(icv));
 
@@ -2338,18 +2342,19 @@ class HIPLib():
                 ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
                 ipv4_packet.set_payload(ip_sec_packet.get_byte_buffer());
 
-                logging.debug("Sending IPSEC packet to %s %d bytes" % (Utils.ipv4_bytes_to_string(dst), len(ipv4_packet.get_buffer())));
+                #logging.debug("Sending IPSEC packet to %s %d bytes" % (Utils.ipv4_bytes_to_string(dst), len(ipv4_packet.get_buffer())));
 
                 #ip_sec_socket.sendto(
                 #    bytearray(ipv4_packet.get_buffer()), 
                 #    (Utils.ipv4_bytes_to_string(dst), 0));
                 response.append((False, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
             else:
-                logging.debug("Unknown state reached.... %s " % (hip_state));
+                pass
+                #logging.debug("Unknown state reached.... %s " % (hip_state));
             return response;
         except Exception as e:
-            logging.critical("Exception occured while processing packet from TUN interface. Dropping the packet.");
-            logging.critical(e, exc_info=True);
+            #logging.critical("Exception occured while processing packet from TUN interface. Dropping the packet.");
+            #logging.critical(e, exc_info=True);
             traceback.print_exc()
         return [];
 
