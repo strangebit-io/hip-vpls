@@ -2037,7 +2037,7 @@ class HIPLib():
         This routine is responsible for reading IPSec packets
         from the raw socket
         """
-        logging.debug("Processing IPSec packet");
+        #logging.debug("Processing IPSec packet");
 
         try:
             #buf           = bytearray(ip_sec_socket.recv(2*MTU));
@@ -2053,12 +2053,12 @@ class HIPLib():
 
             src_str       = Utils.ipv4_bytes_to_string(src);
             dst_str       = Utils.ipv4_bytes_to_string(dst);
-            e = time.time()
-            logging.critical("Time to unpack IPSEC packet %f " % (e-s))
+            #e = time.time()
+            #logging.critical("Time to unpack IPSEC packet %f " % (e-s))
 
             #logging.debug("Got packet from %s to %s of %d bytes" % (src_str, dst_str, len(buf)));
             # Get SA record and construct the ESP payload
-            s = time.time()
+            #s = time.time()
             sa_record   = self.ip_sec_sa.get_record(src_str, dst_str);
             hmac_alg    = sa_record.get_hmac_alg();
             cipher      = sa_record.get_aes_alg();
@@ -2075,16 +2075,16 @@ class HIPLib():
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
 
             sv.data_timeout = time.time() + self.config["general"]["UAL"];
-            e = time.time()
+            #e = time.time()
 
-            logging.critical("Time to search the SA database %f " % (e-s))
+            #logging.critical("Time to search the SA database %f " % (e-s))
 
-            logging.debug("------------------- HMAC key ------------------");
-            logging.debug(hmac_key);
-            logging.debug("Cipher key");
-            logging.debug(cipher_key);
+            #logging.debug("------------------- HMAC key ------------------");
+            #logging.debug(hmac_key);
+            #logging.debug("Cipher key");
+            #logging.debug(cipher_key);
 
-            s = time.time()
+            #s = time.time()
             icv         = list(ip_sec_packet.get_byte_buffer())[-hmac_alg.LENGTH:];
 
             #logging.debug("Calculating ICV over IPSec packet");
@@ -2095,7 +2095,7 @@ class HIPLib():
             #logging.debug("--------------------------------------------")
 
             if bytearray(icv) != hmac_alg.digest(bytearray(list(ip_sec_packet.get_byte_buffer())[:-hmac_alg.LENGTH])):
-                logging.critical("Invalid ICV in IPSec packet");
+                #logging.critical("Invalid ICV in IPSec packet");
                 return  (None, None, None);
 
             padded_data = list(ip_sec_packet.get_payload())[:-hmac_alg.LENGTH];
@@ -2119,8 +2119,7 @@ class HIPLib():
             #logging.debug(decrypted_data);
 
             frame  = IPSec.IPSecUtils.unpad(cipher.BLOCK_SIZE, decrypted_data);
-            e = time.time()
-            logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (e-s))
+            
 
             #next_header    = IPSec.IPSecUtils.get_next_header(decrypted_data);
             
@@ -2140,6 +2139,8 @@ class HIPLib():
             else:
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
+            e = time.time()
+            logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (e-s))
             if not hip_state:
                 return (None, None, None);
             hip_state.established();
