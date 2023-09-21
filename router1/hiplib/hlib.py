@@ -2055,7 +2055,7 @@ class HIPLib():
             src_str       = Utils.ipv4_bytes_to_string(src);
             dst_str       = Utils.ipv4_bytes_to_string(dst);
             ee = time.time()
-            logging.critical("Time to unpack IPSEC packet %f " % (ee-ss))
+            #logging.critical("Time to unpack IPSEC packet %f " % (ee-ss))
 
             #logging.debug("Got packet from %s to %s of %d bytes" % (src_str, dst_str, len(buf)));
             # Get SA record and construct the ESP payload
@@ -2078,7 +2078,7 @@ class HIPLib():
             sv.data_timeout = time.time() + self.config["general"]["UAL"];
             ee = time.time()
 
-            logging.critical("Time to search the SA database %f " % (ee-ss))
+            #logging.critical("Time to search the SA database %f " % (ee-ss))
 
             #logging.debug("------------------- HMAC key ------------------");
             #logging.debug(hmac_key);
@@ -2121,7 +2121,7 @@ class HIPLib():
 
             frame  = IPSec.IPSecUtils.unpad(cipher.BLOCK_SIZE, decrypted_data);
             ee = time.time()
-            logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (ee-ss))
+            #logging.critical("Time to decrypt IPSEC packet and verify MAC %f " % (ee-ss))
             
 
             #next_header    = IPSec.IPSecUtils.get_next_header(decrypted_data);
@@ -2143,7 +2143,7 @@ class HIPLib():
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
             hse = time.time()
-            logging.critical("Time to process HIP state database %f " % (hse-hss))
+            #logging.critical("Time to process HIP state database %f " % (hse-hss))
             e = time.time()
             logging.critical("Total time to process IPSEC packet inside  %f " % (e-s))
             if not hip_state:
