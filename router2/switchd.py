@@ -75,8 +75,8 @@ logging.basicConfig(
     level=logging.CRITICAL,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("hipls.log")#,
-        #logging.StreamHandler(sys.stdout)
+        #logging.FileHandler("hipls.log")#,
+        logging.StreamHandler(sys.stdout)
     ]
 );
 
