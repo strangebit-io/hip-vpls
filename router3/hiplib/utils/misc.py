@@ -20,7 +20,7 @@ import os
 sys.path.append(os.getcwd())
 
 from math import log, ceil, floor
-from binascii import hexlify
+from binascii import hexlify, unhexlify
 import logging
 from os import urandom
 
@@ -217,6 +217,20 @@ class Utils():
 		return hexlify(address_bytes).decode("ascii");
 
 	@staticmethod
+	def mac_bytes_to_hex_formatted(address_bytes):
+		"""
+		Converts MAC bytes to a hexidecimal string
+		"""
+		return hexlify(address_bytes).decode("ascii");
+
+	@staticmethod
+	def mac_hex_to_bytes(mac):
+		"""
+		Converts MAC bytes to a hexidecimal string
+		"""
+		return unhexlify(mac);
+
+	@staticmethod
 	def ipv4_bytes_to_string(address_bytes):
 		if len(address_bytes) != 0x4:
 			return "";
@@ -229,12 +243,11 @@ class Utils():
 	def ipv6_to_bytes(address):
 		pass
 
+
 	@staticmethod
-	def ipv6_bytes_to_hex_formatted(address_bytes):
-		"""
-		Converts IPv6 bytes to a formatted string
-		"""
+	def ipv6_bytes_to_hex_formatted_resolver(address_bytes):
 		address = Utils.ipv6_bytes_to_hex(address_bytes);
+		
 		formatted = "";
 		c = 1;
 		for h in address:
@@ -243,6 +256,36 @@ class Utils():
 				formatted += ":"
 			c += 1;
 		return formatted.rstrip(":");
+
+	@staticmethod
+	def ipv6_bytes_to_hex_formatted(address_bytes):
+		"""
+		Converts IPv6 bytes to a formatted string
+		"""
+		address = Utils.ipv6_bytes_to_hex(address_bytes);
+		return address
+		"""
+		formatted = "";
+		c = 1;
+		for h in address:
+			formatted += h;
+			if c % 4 == 0:
+				formatted += ":"
+			c += 1;
+		return formatted.rstrip(":");
+		"""
+	@staticmethod
+	def ipv4_to_bytes(address):
+		try:
+			parts = address.split(".");
+			address_as_bytearray = bytearray([0] * 4);
+			address_as_bytearray[0] = int(parts[0]);
+			address_as_bytearray[1] = int(parts[1]);
+			address_as_bytearray[2] = int(parts[2]);
+			address_as_bytearray[3] = int(parts[3]);
+			return address_as_bytearray
+		except:
+			return None;
 
 	@staticmethod
 	def ipv4_to_int(address):
