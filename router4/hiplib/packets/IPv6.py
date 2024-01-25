@@ -41,7 +41,7 @@ class IPv6Packet():
 	def __init__(self, buffer = None):
 		self.buffer = buffer;
 		if not self.buffer:
-			self.buffer = [0] * IPV6_HEADER_LENGTH;
+			self.buffer = bytearray([0] * IPV6_HEADER_LENGTH);
 	def get_version(self):
 		return (self.buffer[IPV6_VERSION_OFFSET] >> 0x4);
 	def set_version(self, version):

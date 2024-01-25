@@ -36,7 +36,7 @@ IPSEC_IV_LENGTH             = 0x10;
 class IPSecPacket():
 	def __init__(self, buffer = None):
 		if not buffer:
-			self.buffer = [0] * (IPSEC_SPI_LENGTH + IPSEC_SEQUENCE_LENGTH)
+			self.buffer = bytearray([0] * (IPSEC_SPI_LENGTH + IPSEC_SEQUENCE_LENGTH))
 		else:
 			self.buffer = buffer
 	def add_payload(self, payload):
@@ -71,8 +71,8 @@ class IPSecUtils():
 	@staticmethod
 	def pad(block_size, data, next_header):
 		pad_length = block_size - ((len(data) + 2) % block_size) & 0xFF;
-		padding = [i for i in range(1, pad_length + 1)];
-		return data + padding + [pad_length, next_header];
+		padding = bytearray([i for i in range(1, pad_length + 1)]);
+		return data + padding + bytearray([pad_length, next_header]);
 
 	@staticmethod
 	def get_next_header(data):

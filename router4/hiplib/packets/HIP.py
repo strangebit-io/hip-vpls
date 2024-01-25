@@ -301,12 +301,13 @@ class DHParameter(HIPParameter):
 		if dh_public_value_length != 0x0:
 			raise Exception("DH public key was already set");
 		length = self.get_length();
-		length += len(public_value) + HIP_GROUP_ID_LENGTH + HIP_PUBLIC_VALUE_LENGTH_LENGTH;
-		self.set_length(length);
-		self.set_public_value_length(int(len(public_value) / 8));
 		self.buffer += public_value;
 		padding = (8 - len(self.buffer) % 8) % 8;
 		self.buffer += bytearray([0] * padding);
+		length = len(public_value) + HIP_GROUP_ID_LENGTH + HIP_PUBLIC_VALUE_LENGTH_LENGTH + padding;
+		self.set_length(length);
+		self.set_public_value_length(int(len(public_value) / 8));
+		
 	def get_public_value(self):
 		public_value_length = self.get_public_value_length() * 8;
 		return self.buffer[HIP_PUBLIC_VALUE_OFFSET:HIP_PUBLIC_VALUE_OFFSET + public_value_length]

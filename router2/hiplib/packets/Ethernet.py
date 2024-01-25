@@ -32,6 +32,8 @@ ETH_PAYLOAD_OFFSET                = 0xE;
 ETH_CHECKSUM_OFFEST               = 0x0;
 ETH_CHECKSUM_LENGTH               = 0x4;
 
+MAX_ETHERNET_FRAME                = 0x05EE;
+
 class EthernetFrame():
     def __init__(self, buffer = None):
         self.buffer = buffer;

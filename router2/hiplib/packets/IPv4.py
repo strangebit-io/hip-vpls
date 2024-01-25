@@ -43,7 +43,7 @@ class IPv4Packet():
 	def __init__(self, buffer = None):
 		self.buffer = buffer;
 		if not self.buffer:
-			self.buffer = [0] * IPV4_MIN_HEADER_LENGTH;
+			self.buffer = bytearray([0] * IPV4_MIN_HEADER_LENGTH);
 	def get_version(self):
 		return (self.buffer[IPV4_VERSION_OFFSET] >> 0x4) & 0xF;
 	def set_version(self, version):
