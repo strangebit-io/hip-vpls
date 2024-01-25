@@ -1,5 +1,5 @@
 config = {
-	"swtich": {
+	"switch": {
 		"l2interface": "r3-eth0",
 		"mesh": "hiplib/config/mesh",
                 "source_ip": "192.168.3.3"
