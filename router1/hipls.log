@@ -11599,3 +11599,26 @@
 2022-03-16 09:31:44,690 [DEBUG] b'333300000002'
 2022-03-16 09:31:44,690 [DEBUG] ++++++++++++++++++++++++++++++++
 2022-03-16 09:31:44,693 [CRITICAL] [Errno 100] Network is down
+2024-01-25 23:47:38,038 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-01-25 23:47:38,038 [INFO] Importing hosts file
+2024-01-25 23:47:38,038 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-01-25 23:47:38,038 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-01-25 23:47:38,038 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-01-25 23:47:38,038 [INFO] 2001:0021:77aa:b34f:657b:a4b2:ea6f:7537 192.168.3.4
+
+2024-01-25 23:47:38,038 [INFO] Loading public key and constructing HIT
+2024-01-25 23:47:46,909 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-01-25 23:47:46,909 [INFO] Importing hosts file
+2024-01-25 23:47:46,909 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-01-25 23:47:46,909 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-01-25 23:47:46,909 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-01-25 23:47:46,909 [INFO] 2001:0021:77aa:b34f:657b:a4b2:ea6f:7537 192.168.3.4
+
+2024-01-25 23:47:46,910 [INFO] Loading public key and constructing HIT
+2024-01-25 23:47:46,920 [INFO] Initializing IPSec socket

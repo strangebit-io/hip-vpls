@@ -72,7 +72,7 @@ from hiplib.packets import IPv4
 # Ethernet frame
 from hiplib.packets import Ethernet
 # Controller packets
-from hiplib.packets import Controller
+#from hiplib.packets import Controller
 # Configuration
 from hiplib.config import config as hip_config
 # Import switch FIB
@@ -122,8 +122,9 @@ ether_socket.bind((hip_config.config["switch"]["l2interface"], 0))
 fib = FIB(hip_config.config["switch"]["mesh"])
 
 # Load MAC ACL rules
-fib.load_rules(hip_config.config["firewall"]["acl_file"])
+#fib.load_rules(hip_config.config["firewall"]["acl_file"])
 
+"""
 hip_config_socket = None
 
 def onclose():
@@ -132,9 +133,6 @@ def onclose():
         hip_socket.sendto(packet, dest)
 
 def open_controller_socket():
-    """
-    Conncects to controller in the cloud
-    """
     ctx = ssl.create_default_context();
     ctx.load_verify_locations(hip_config.config["controller"]["ca_cert"]);
     ip = socket.gethostbyname(hip_config.config["controller"]["controller_host_name"])
@@ -286,10 +284,6 @@ def config_loop():
                 logging.debug("Invalid control-plane packet type")
 
 def heart_beat_loop():
-    """
-    Heart beat loop: 
-        send periodic registration messages to the cloud (this includes HIT and IP address)
-    """
     global hip_config_socket
     global hip_config_socket_lock
     while True:
@@ -320,17 +314,6 @@ def heart_beat_loop():
         hmac = digest.SHA256HMAC(bytearray(hip_config.config["controller"]["master_secret"], encoding="ascii"))
         hmac_ = hmac.digest(buf)
         heartbeat.set_hmac(hmac_)
-        """
-        logging.debug("---------------------")
-        logging.debug(hexlify(buf))
-        logging.debug(bytearray(hip_config.config["controller"]["master_secret"], encoding="ascii"))
-        logging.debug(hexlify(heartbeat.get_buffer()))
-        logging.debug("Nonce : " + str(hexlify(heartbeat.get_nonce())))
-        logging.debug("HIT: " + str(hexlify(heartbeat.get_hit())))
-        logging.debug("IP: " + str(hexlify(heartbeat.get_ip())))
-        logging.debug("MAC: " + str(hexlify(heartbeat.get_hmac())))
-        logging.debug("++++++++++++++++++++++")
-        """
         bytes_sent = hip_config_socket.send(heartbeat.get_buffer());
         if bytes_sent == 0:
             try:
@@ -342,7 +325,7 @@ def heart_beat_loop():
             finally:
                 hip_config_socket_lock.release();
         sleep(hip_config.config["controller"]["heartbeat_interval"]);
-
+"""
 def hip_loop():
     while True:
         try:
@@ -428,22 +411,20 @@ def ether_loop():
            logging.debug(e)
 
 
-# Register exit handler
-atexit.register(onclose);
 
 hip_th_loop = threading.Thread(target = hip_loop, args = (), daemon = True);
 ip_sec_th_loop = threading.Thread(target = ip_sec_loop, args = (), daemon = True);
 ether_if_th_loop = threading.Thread(target = ether_loop, args = (), daemon = True);
-heart_beat_th_loop = threading.Thread(target = heart_beat_loop, args = (), daemon = True);
-config_th_loop = threading.Thread(target = config_loop, args = (), daemon = True);
+#heart_beat_th_loop = threading.Thread(target = heart_beat_loop, args = (), daemon = True);
+#config_th_loop = threading.Thread(target = config_loop, args = (), daemon = True);
 
 logging.info("Starting the CuteHIP");
 
 hip_th_loop.start();
 ip_sec_th_loop.start();
 ether_if_th_loop.start();
-heart_beat_th_loop.start();
-config_th_loop.start();
+#heart_beat_th_loop.start();
+#config_th_loop.start();
 
 def run_switch():
     while True:
