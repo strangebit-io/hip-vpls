@@ -403,8 +403,9 @@ def ether_loop():
             es = time()
             
             # Check ACL
-            if not fib.is_allowed(hexlify(src_mac).decode("ascii"), hexlify(dst_mac).decode("ascii")):
-                continue
+            #if not fib.is_allowed(hexlify(src_mac).decode("ascii"), hexlify(dst_mac).decode("ascii")):
+            #    continue
+            logging.debug("FOUND NEXT HOP HOST")
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
                 s = time()
