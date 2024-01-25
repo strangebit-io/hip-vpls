@@ -181,6 +181,7 @@ class HIPLib():
     def process_hip_packet(self, packet):
         try:
             response = [];
+            logging.debug("PROCESSING THE HIP PACKET")
             # IP reassmebly is done automatically so we can read large enough packets
             #buf = bytearray(hip_socket.recv(4*MTU));
             ipv4_packet = IPv4.IPv4Packet(packet);
@@ -248,6 +249,7 @@ class HIPLib():
                 logging.critical("Invalid checksum");
                 return [];
 
+            logging.debug("PACKET TYPE %d " % (hip_packet.get_packet_type()))
             if hip_packet.get_packet_type() == HIP.HIP_I1_PACKET:
                 logging.info("I1 packet");
 

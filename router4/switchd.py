@@ -187,15 +187,16 @@ def ether_loop():
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
                 logging.debug("Processed the L2 frame.....")
                 e = time()
-                #logging.info("L2 process time %f " % (e-s))
+                logging.info("L2 process time %f " % (e-s))
                 for (hip, packet, dest) in packets:
-                    #logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
+                    logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
                         s = time()
                         ip_sec_socket.sendto(packet, dest)
                         e = time()
-                        #logging.info("IPSEC send time %f " % (e-s))
+                        logging.info("IPSEC send time %f " % (e-s))
                     else:
+                        logging.debug("Sending HIP packet to the destination")
                         hip_socket.sendto(packet, dest)
             ee = time()
             #logging.info("Total time to process Ethernet frame %f" % (ee-es))
