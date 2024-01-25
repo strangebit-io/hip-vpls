@@ -393,6 +393,7 @@ def ether_loop():
             for (ihit, rhit) in mesh:
                 s = time()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
+                logging.debug("Processed the L2 frame.....")
                 e = time()
                 #logging.info("L2 process time %f " % (e-s))
                 for (hip, packet, dest) in packets:

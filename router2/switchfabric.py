@@ -46,6 +46,7 @@ class FIB():
         dmac = int.from_bytes(dmac, byteorder="little")
         logging.debug("Looking up by the destination MAC address")
         if not self.fib_unicast.get(dmac, None):
+            logging.debug("Broadcast the frame.....")
             return self.fib_broadcast;
         logging.debug("Message found in the FIB database")
         return [self.fib_unicast.get(dmac)];
