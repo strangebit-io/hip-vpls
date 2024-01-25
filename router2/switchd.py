@@ -180,9 +180,9 @@ def ether_loop():
             logging.debug("----------------------------------")
             es = time()
             
-            logging.debug("FOUND NEXT HOP HOST")
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
+                logging.debug("FOUND NEXT HOP")
                 s = time()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
                 logging.debug("Processed the L2 frame.....")
