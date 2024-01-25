@@ -82,10 +82,6 @@ from switchfabric import FIB
 import socket
 import ssl
 
-# HIP controller lock
-hip_config_socket_lock = threading.Lock()
-
-
 # Copy routines
 import copy
 
@@ -94,8 +90,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        RotatingFileHandler("hipls.log"),
-        logging.StreamHandler(sys.stdout)
+        logging.FileHandler("hipls.log")
     ]
 );
 
