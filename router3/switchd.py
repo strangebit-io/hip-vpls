@@ -94,8 +94,8 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("hipls.log"),
-        logging.StreamHandler(sys.stdout)
+        logging.FileHandler("hipls.log")#,
+        #logging.StreamHandler(sys.stdout)
     ]
 );
 
