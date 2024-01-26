@@ -131,8 +131,8 @@ def onclose():
 def hip_loop():
     while True:
         try:
-            #logging.debug("Got HIP packet on the interface")
             packet = bytearray(hip_socket.recv(1518))
+            logging.debug("Got HIP packet on the interface")
             packets = hiplib.process_hip_packet(packet);
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
@@ -148,22 +148,22 @@ def ip_sec_loop():
             s = time()
             packet = bytearray(ip_sec_socket.recv(1518));
             e = time()
-            #logging.info("IPSEC recv time %f " % (e-s))
+            logging.info("IPSEC recv time %f " % (e-s))
             s = time()
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
             e = time()
-            #logging.info("IPSEC process time %f " % (e-s))
+            logging.info("IPSEC process time %f " % (e-s))
             if not frame:
                 continue;
             s = time()
             ether_socket.send(frame);
             e = time()
-            #logging.info("L2 send time %f " % (e-s))
+            logging.info("L2 send time %f " % (e-s))
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
-            #logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
+            logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
             ee = time()
-            #logging.info("Total time to process the IPSEC packet %f" % (ee - es))
+            logging.info("Total time to process the IPSEC packet %f" % (ee - es))
         except Exception as e:
             logging.debug("Exception occured while processing IPSEC packet")
             logging.critical(e)
@@ -179,12 +179,12 @@ def ether_loop():
             dst_mac = frame.get_destination();
             src_mac = frame.get_source();
 
-            #logging.debug("Got data on Ethernet link L2 %s %s..." % (hexlify(src_mac), hexlify(dst_mac)))
+            logging.debug("Got data on Ethernet link L2 %s %s..." % (hexlify(src_mac), hexlify(dst_mac)))
 
-            #logging.debug(hexlify(src_mac))
-            #logging.debug(hexlify(dst_mac))
+            logging.debug(hexlify(src_mac))
+            logging.debug(hexlify(dst_mac))
 
-            #logging.debug("----------------------------------")
+            logging.debug("----------------------------------")
             es = time()
             
             mesh = fib.get_next_hop(dst_mac);
@@ -192,18 +192,18 @@ def ether_loop():
                 s = time()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
                 e = time()
-                #logging.info("L2 process time %f " % (e-s))
+                logging.info("L2 process time %f " % (e-s))
                 for (hip, packet, dest) in packets:
-                    #logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
+                    logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
                         s = time()
                         ip_sec_socket.sendto(packet, dest)
                         e = time()
-                        #logging.info("IPSEC send time %f " % (e-s))
+                        logging.info("IPSEC send time %f " % (e-s))
                     else:
                         hip_socket.sendto(packet, dest)
             ee = time()
-            #logging.info("Total time to process Ethernet frame %f" % (ee-es))
+            logging.info("Total time to process Ethernet frame %f" % (ee-es))
         except Exception as e:
            logging.debug("Exception occured while processing L2 frame")
            logging.debug(e)
@@ -228,7 +228,7 @@ def run_switch():
             packets = hiplib.maintenance();
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
-            #logging.debug("...Periodic cleaning task...")
+            logging.debug("...Periodic cleaning task...")
             sleep(1);
         except Exception as e:
             logging.critical("Exception occured while processing HIP packets in maintenance loop")
