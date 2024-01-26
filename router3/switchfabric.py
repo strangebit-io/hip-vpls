@@ -19,7 +19,12 @@ from binascii import hexlify
 class FIB():
     def __init__(self, file):
         self.fib_broadcast = [];
+        self.mac_firewall = {};
         self.fib_unicast = {};
+        self.load_mesh(file);
+    
+    def load_mesh(self, file):
+        self.fib_broadcast = [];
         fd = open(file, "r")
         pairs = fd.readlines();
         for mesh_pair in pairs:
@@ -29,27 +34,53 @@ class FIB():
             ihit = bytes.fromhex(ihit)
             rhit = bytes.fromhex(rhit)
             self.fib_broadcast.append((ihit, rhit));
+    
+    def load_rules(self, file):
+        self.mac_firewall = {}
+        fd = open(file, "r")
+        pairs = fd.readlines();
+        for mac_pair in pairs:
+            parts = mac_pair.split(" ")
+            mac1 = parts[0].replace(":", "").strip()
+            mac2 = parts[1].replace(":", "").strip()
+            rule = parts[2].strip();
+            mask = 1
+            if rule != "allow":
+                mask = 0
+            if not self.mac_firewall.get(mac1, None):
+                self.mac_firewall[mac1] = {
+                    mac2: mask
+                }
+            else:
+                self.mac_firewall[mac1][mac2] = mask
+    def is_allowed(self, mac1, mac2):
+        if not self.mac_firewall.get(mac1, None):
+            return False
+        if not self.mac_firewall[mac1].get(mac2, None):
+            return False
+        return self.mac_firewall[mac1][mac2] == 1
+    
     def get_next_hop(self, dmac):
         
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
             and dmac[2] == 0xFF and dmac[1] == 0xFF and dmac[0] == 0xFF:
-            logging.debug("Broadcast frame....")
+            #logging.debug("Broadcast frame....")
             return self.fib_broadcast;
-        logging.debug("Searching for the next hop")
+        #logging.debug("Searching for the next hop")
         # Multicast address
         if dmac[5] & 0x1:
-            logging.debug("Multicast frame....");
+            #logging.debug("Multicast frame....");
             return self.fib_broadcast;
         # Unicast
         #dmac = hexlify(dmac).decode("ascii")
         dmac = int.from_bytes(dmac, byteorder="little")
-        logging.debug("Looking up by the destination MAC address")
-        if not self.fib_unicast.get(dmac, None):
-            logging.debug("Broadcast the frame.....")
+        #logging.debug("Looking up by the destination MAC address")
+        hop = self.fib_unicast.get(dmac, None)
+        if not hop:
             return self.fib_broadcast;
-        logging.debug("Message found in the FIB database")
-        return [self.fib_unicast.get(dmac)];
+        #logging.debug("Message found in the FIB database")
+        return [hop];
             
     def set_next_hop(self, dmac, shit, rhit):
         # Broadcast address

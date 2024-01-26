@@ -181,7 +181,6 @@ class HIPLib():
     def process_hip_packet(self, packet):
         try:
             response = [];
-            logging.debug("PROCESSING THE HIP PACKET")
             # IP reassmebly is done automatically so we can read large enough packets
             #buf = bytearray(hip_socket.recv(4*MTU));
             ipv4_packet = IPv4.IPv4Packet(packet);
@@ -249,7 +248,6 @@ class HIPLib():
                 logging.critical("Invalid checksum");
                 return [];
 
-            logging.debug("PACKET TYPE %d " % (hip_packet.get_packet_type()))
             if hip_packet.get_packet_type() == HIP.HIP_I1_PACKET:
                 logging.info("I1 packet");
 
@@ -1575,8 +1573,6 @@ class HIPLib():
                     hmac.ALG_ID, 
                     cipher.ALG_ID, 
                     rhit, ihit);
-                #(aes_key, hmac_key) = Utils.get_keys_esp(keymat, hmac_alg, selected_cipher, rhit, ihit);
-                #sa_record = SA.SecurityAssociationRecord(selected_cipher, hmac_alg, aes_key, hmac_key, rhit, ihit);
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
                 sa_record.set_spi(initiators_spi);
                 self.ip_sec_sa.add_record(dst_str, src_str, sa_record);
@@ -1727,6 +1723,7 @@ class HIPLib():
 
                 logging.debug(hmac.ALG_ID);
                 logging.debug(cipher.ALG_ID);
+                # Incomming SA (IPa, IPb)
                 (cipher_key, hmac_key) = Utils.get_keys_esp(
                     keymat, 
                     keymat_index, 
@@ -1735,9 +1732,11 @@ class HIPLib():
                     ihit, rhit);
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, dst, src);
                 sa_record.set_spi(responders_spi);
+                
                 self.ip_sec_sa.add_record(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit), sa_record);
-
+                
+                # Outgoing SA (HITa, HITb)
                 (cipher_key, hmac_key) = Utils.get_keys_esp(
                     keymat, 
                     keymat_index, 

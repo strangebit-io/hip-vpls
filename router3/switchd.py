@@ -72,7 +72,7 @@ from hiplib.packets import IPv4
 # Ethernet frame
 from hiplib.packets import Ethernet
 # Controller packets
-#from hiplib.packets import Controller
+from hiplib.packets import Controller
 # Configuration
 from hiplib.config import config as hip_config
 # Import switch FIB
@@ -82,6 +82,10 @@ from switchfabric import FIB
 import socket
 import ssl
 
+# HIP controller lock
+hip_config_socket_lock = threading.Lock()
+
+
 # Copy routines
 import copy
 
@@ -90,7 +94,8 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("hipls.log")
+        logging.FileHandler("hipls.log"),
+        logging.StreamHandler(sys.stdout)
     ]
 );
 
@@ -116,6 +121,13 @@ ether_socket.bind((hip_config.config["switch"]["l2interface"], 0))
 # Initialize FIB
 fib = FIB(hip_config.config["switch"]["mesh"])
 
+
+def onclose():
+    packets = hiplib.exit_handler()
+    for (packet, dest) in packets:
+        hip_socket.sendto(packet, dest)
+
+
 def hip_loop():
     while True:
         try:
@@ -136,22 +148,22 @@ def ip_sec_loop():
             s = time()
             packet = bytearray(ip_sec_socket.recv(1518));
             e = time()
-            logging.info("IPSEC recv time %f " % (e-s))
+            #logging.info("IPSEC recv time %f " % (e-s))
             s = time()
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
             e = time()
-            logging.info("IPSEC process time %f " % (e-s))
+            #logging.info("IPSEC process time %f " % (e-s))
             if not frame:
                 continue;
             s = time()
             ether_socket.send(frame);
             e = time()
-            logging.info("L2 send time %f " % (e-s))
+            #logging.info("L2 send time %f " % (e-s))
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
-            logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
+            #logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
             ee = time()
-            logging.info("Total time to process the IPSEC packet %f" % (ee - es))
+            #logging.info("Total time to process the IPSEC packet %f" % (ee - es))
         except Exception as e:
             logging.debug("Exception occured while processing IPSEC packet")
             logging.critical(e)
@@ -162,36 +174,33 @@ def ether_loop():
             s = time()
             buf = bytearray(ether_socket.recv(1518));
             e = time()
-            logging.info("Ethernet recv time %f " % (e-s))
+            #logging.info("Ethernet recv time %f " % (e-s))
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
             src_mac = frame.get_source();
 
-            logging.debug("Got data on Ethernet link L2 %s %s..." % (hexlify(src_mac), hexlify(dst_mac)))
+            #logging.debug("Got data on Ethernet link L2 %s %s..." % (hexlify(src_mac), hexlify(dst_mac)))
 
-            logging.debug(hexlify(src_mac))
-            logging.debug(hexlify(dst_mac))
+            #logging.debug(hexlify(src_mac))
+            #logging.debug(hexlify(dst_mac))
 
-            logging.debug("----------------------------------")
+            #logging.debug("----------------------------------")
             es = time()
             
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
-                logging.debug("FOUND NEXT HOP")
                 s = time()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
-                logging.debug("Processed the L2 frame.....")
                 e = time()
-                logging.info("L2 process time %f " % (e-s))
+                #logging.info("L2 process time %f " % (e-s))
                 for (hip, packet, dest) in packets:
-                    logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
+                    #logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
                         s = time()
                         ip_sec_socket.sendto(packet, dest)
                         e = time()
-                        logging.info("IPSEC send time %f " % (e-s))
+                        #logging.info("IPSEC send time %f " % (e-s))
                     else:
-                        logging.debug("Sending HIP packet to the destination")
                         hip_socket.sendto(packet, dest)
             ee = time()
             #logging.info("Total time to process Ethernet frame %f" % (ee-es))
@@ -200,6 +209,8 @@ def ether_loop():
            logging.debug(e)
 
 
+# Register exit handler
+atexit.register(onclose);
 
 hip_th_loop = threading.Thread(target = hip_loop, args = (), daemon = True);
 ip_sec_th_loop = threading.Thread(target = ip_sec_loop, args = (), daemon = True);
@@ -217,7 +228,7 @@ def run_switch():
             packets = hiplib.maintenance();
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
-            logging.debug("...Periodic cleaning task...")
+            #logging.debug("...Periodic cleaning task...")
             sleep(1);
         except Exception as e:
             logging.critical("Exception occured while processing HIP packets in maintenance loop")
