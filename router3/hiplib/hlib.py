@@ -210,7 +210,7 @@ class HIPLib():
 
             logging.info("Got HIP packet");
             logging.info("Responder's HIT %s" % Utils.ipv6_bytes_to_hex_formatted(rhit));
-            logging.info("Our own HIT %s " % Utils.ipv6_bytes_to_hex_formatted(own_hit));
+            logging.info("Our own HIT %s " % Utils.ipv6_bytes_to_hex_formatted(ihit));
 
 
             #hip_state = hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
