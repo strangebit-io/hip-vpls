@@ -273,6 +273,8 @@ class HIPLib():
                             Utils.ipv6_bytes_to_hex_formatted(ihit),
                             sv)
                         sv.is_responder = True;
+                        sv.ihit = ihit;
+                        sv.rhit = rhit;
                     else:
                         sv.state = hip_state.get_state()
                         sv.is_responder = True;
@@ -288,6 +290,8 @@ class HIPLib():
                             Utils.ipv6_bytes_to_hex_formatted(rhit),
                             sv)
                         sv.is_responder = True;
+                        sv.ihit = ihit;
+                        sv.rhit = rhit;
                     else:
                         sv.state = hip_state.get_state()
                         sv.is_responder = True;
@@ -493,7 +497,44 @@ class HIPLib():
                 # Stay in current state
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
                 logging.info("----------------------------- R1 packet ----------------------------- ");
-            
+                
+
+                if Utils.is_hit_smaller(rhit, ihit):
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            Utils.ipv6_bytes_to_hex_formatted(ihit))
+                    
+                    if not sv:
+                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
+                     
+                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            sv)
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                    else:
+                        sv.state = hip_state.get_state()
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                else:
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            Utils.ipv6_bytes_to_hex_formatted(rhit))
+                            
+                    if not sv:
+                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
+                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            sv)
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                    else:
+                        sv.state = hip_state.get_state()
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                
                 # 1 0 1
                 # 1 1 1
                 if (hip_state.is_unassociated() 
@@ -1071,6 +1112,42 @@ class HIPLib():
                 logging.info("---------------------------- I2 packet ---------------------------- ");
                 st = time.time();
 
+                if Utils.is_hit_smaller(rhit, ihit):
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            Utils.ipv6_bytes_to_hex_formatted(ihit))
+                    
+                    if not sv:
+                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
+                     
+                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            sv)
+                        sv.is_responder = True;
+                        sv.ihit = ihit;
+                        sv.rhit = rhit;
+                    else:
+                        sv.state = hip_state.get_state()
+                        sv.is_responder = True;
+                        sv.ihit = ihit;
+                        sv.rhit = rhit;
+                else:
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            Utils.ipv6_bytes_to_hex_formatted(rhit))
+                            
+                    if not sv:
+                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
+                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            sv)
+                        sv.is_responder = True;
+                        sv.ihit = ihit;
+                        sv.rhit = rhit;
+                    else:
+                        sv.state = hip_state.get_state()
+                        sv.is_responder = True;
+                        sv.ihit = ihit;
+                        sv.rhit = rhit;
+
                 if hip_state.is_i2_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I2-SENT state. Dropping the packet...");
                     return [];
@@ -1605,6 +1682,42 @@ class HIPLib():
                     or hip_state.is_closed()):
                     logging.debug("Dropping the packet");
                     return [];
+            
+                if Utils.is_hit_smaller(rhit, ihit):
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            Utils.ipv6_bytes_to_hex_formatted(ihit))
+                    
+                    if not sv:
+                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
+                     
+                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            sv)
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                    else:
+                        sv.state = hip_state.get_state()
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                else:
+                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            Utils.ipv6_bytes_to_hex_formatted(rhit))
+                            
+                    if not sv:
+                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
+                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
+                            Utils.ipv6_bytes_to_hex_formatted(rhit),
+                            sv)
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
+                    else:
+                        sv.state = hip_state.get_state()
+                        sv.is_responder = False;
+                        sv.ihit = rhit;
+                        sv.rhit = ihit;
 
                 st = time.time();
 
@@ -1803,6 +1916,7 @@ class HIPLib():
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
                         Utils.ipv6_bytes_to_hex_formatted(rhit));
 
+                
                 keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
                 
@@ -1827,7 +1941,7 @@ class HIPLib():
 
                 #if sv.is_responder:
                 # UPDATE packet incomming, IHIT - sender (Initiator), RHIT - own HIT (responder)
-                (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, ihit, rhit);
+                (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.ihit, sv.rhit);
                 #else:
                 #(aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, rhit, ihit);
                 
@@ -2985,6 +3099,12 @@ class HIPLib():
                     #else:
                     response.append((bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0)))
                     
+                    if sv.is_responder:
+                        sv.ihit = sv.rhit
+                        sv.rhit = sv.ihit
+
+                    sv.is_responder = False;
+
                     if sv.i2_retries > self.config["general"]["i2_retries"]:
                         hip_state.failed();
                         sv.failed_timeout = time.time() + self.config["general"]["failed_timeout"];
