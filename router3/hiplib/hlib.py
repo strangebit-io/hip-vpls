@@ -301,7 +301,7 @@ class HIPLib():
 
                 #st = time.time();
 
-                logging.debug("CHANGING %d " % sv.is_responder)
+                logging.debug("CHANGING I1 %d %s %s" % (sv.is_responder, Utils.ipv6_bytes_to_hex_formatted(ihit), Utils.ipv6_bytes_to_hex_formatted(rhit)))
                 
                 # Check the state of the HIP protocol
                 # R1 packet should be constructed only 
@@ -501,6 +501,17 @@ class HIPLib():
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
                 logging.info("----------------------------- R1 packet ----------------------------- ");
                 
+                # 1 0 1
+                # 1 1 1
+                if (hip_state.is_unassociated() 
+                    or hip_state.is_r2_sent() 
+                    or hip_state.is_established()
+                    #or hip_state.is_closing()
+                    #or hip_state.is_closed()
+                    or hip_state.is_failed()):
+                    logging.debug("Dropping packet... Invalid state");
+                    return [];
+
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
                             Utils.ipv6_bytes_to_hex_formatted(ihit))
@@ -536,21 +547,10 @@ class HIPLib():
                         sv.is_responder = False;
                         sv.ihit = rhit;
                         sv.rhit = ihit;
-                
-                logging.debug("CHANGING %d " % sv.is_responder)
-                
-                # 1 0 1
-                # 1 1 1
-                if (hip_state.is_unassociated() 
-                    or hip_state.is_r2_sent() 
-                    or hip_state.is_established()
-                    #or hip_state.is_closing()
-                    #or hip_state.is_closed()
-                    or hip_state.is_failed()):
-                    logging.debug("Dropping packet... Invalid state");
-                    return [];
 
 
+                #logging.debug("CHANGING %d " % sv.is_responder)
+                logging.debug("CHANGING R1 %d %s %s" % (sv.is_responder, Utils.ipv6_bytes_to_hex_formatted(ihit), Utils.ipv6_bytes_to_hex_formatted(rhit)))
 
                 oga = HIT.get_responders_oga_id(ihit);
                 
@@ -1116,8 +1116,11 @@ class HIPLib():
             elif hip_packet.get_packet_type() == HIP.HIP_I2_PACKET:
                 logging.info("---------------------------- I2 packet ---------------------------- ");
                 st = time.time();
-
-
+                
+                if hip_state.is_i2_sent() and Utils.is_hit_smaller(rhit, ihit):
+                    logging.debug("Staying in I2-SENT state. Dropping the packet...");
+                    return [];
+            
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
                             Utils.ipv6_bytes_to_hex_formatted(ihit))
@@ -1154,11 +1157,9 @@ class HIPLib():
                         sv.ihit = ihit;
                         sv.rhit = rhit;
                 
-                logging.debug("CHANGING %d " % sv.is_responder)
+                #logging.debug("CHANGING %d " % sv.is_responder)
+                logging.debug("CHANGING I2 %d %s %s" % (sv.is_responder, Utils.ipv6_bytes_to_hex_formatted(ihit), Utils.ipv6_bytes_to_hex_formatted(rhit)))
 
-                if hip_state.is_i2_sent() and Utils.is_hit_smaller(rhit, ihit):
-                    logging.debug("Staying in I2-SENT state. Dropping the packet...");
-                    return [];
 
                 solution_param     = None;
                 r1_counter_param   = None;
@@ -1733,8 +1734,9 @@ class HIPLib():
                         sv.ihit = rhit;
                         sv.rhit = ihit;
                 
-                logging.debug("CHANGING %d " % sv.is_responder)
-
+                #logging.debug("CHANGING %d " % sv.is_responder)
+                logging.debug("CHANGING R2 %d %s %s" % (sv.is_responder, Utils.ipv6_bytes_to_hex_formatted(ihit), Utils.ipv6_bytes_to_hex_formatted(rhit)))
+                
                 st = time.time();
 
                 logging.info("R2 packet");
