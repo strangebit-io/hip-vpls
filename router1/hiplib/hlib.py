@@ -1919,7 +1919,9 @@ class HIPLib():
                 
                 keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
-                
+                if not keymat:
+                    keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
                 
                 if sv.is_responder:
                     
@@ -1948,7 +1950,7 @@ class HIPLib():
                     (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.rhit, sv.ihit);
                 #else:
                 #(aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, rhit, ihit);
-                
+                #(aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.ihit, sv.rhit);
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
 
                 for parameter in parameters:
@@ -2000,7 +2002,10 @@ class HIPLib():
                 buf = hip_update_packet.get_buffer() + buf;
 
                 if hmac.digest(bytearray(buf)) != mac_param.get_hmac():
-                    logging.critical("Invalid HMAC (UPDATE packet). Dropping the packet %s %s" % (src_str, dst_str));
+                    if ack_param:
+                        logging.critical("Invalid HMAC (UPDATE ACK packet). Dropping the packet %s %s" % (src_str, dst_str))
+                    else:
+                        logging.critical("Invalid HMAC (UPDATE packet). Dropping the packet %s %s" % (src_str, dst_str));
                     return [];
 
                 responders_public_key = self.pubkey_storage.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
@@ -2054,7 +2059,8 @@ class HIPLib():
                     (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.rhit, sv.ihit);
                 else:
                     (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.ihit, sv.rhit);
-                
+                #(aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.rhit, sv.ihit);
+
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
 
                 hip_update_packet = HIP.UpdatePacket();
@@ -2590,7 +2596,6 @@ class HIPLib():
 
                 sv.i1_timeout = time.time() + self.config["general"]["i1_timeout_s"];
                 sv.i1_retries += 1;
-
             elif hip_state.is_established():
                 #logging.debug("Sending IPSEC packet...")
                 # IPv6 fields
@@ -2709,6 +2714,7 @@ class HIPLib():
             #    keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
             #        Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
             #if sv.is_responder:
+        
             keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                 Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
 
@@ -2933,6 +2939,9 @@ class HIPLib():
                     #        Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
                     keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                         Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                    if not keymat:
+                        keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                            Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
                     #if sv.is_responder:
                     #	logging.debug("Reponder's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
                     #	logging.debug("Initiator's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
@@ -2957,6 +2966,7 @@ class HIPLib():
                         (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.rhit, sv.ihit);
                     else:
                         (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, sv.ihit, sv.rhit);
+                    
                     hmac = HMACFactory.get(hmac_alg, hmac_key);
 
                     hip_update_packet = HIP.UpdatePacket();
