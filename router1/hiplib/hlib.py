@@ -2855,7 +2855,9 @@ class HIPLib():
         
             keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                 Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
-
+            if not keymat:
+                keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                    Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
             logging.debug("Responder's HIT %s" % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
             logging.debug("Initiator's HIT %s" % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
             hmac_alg  = HIT.get_responders_oga_id(sv.rhit);
@@ -3284,7 +3286,9 @@ class HIPLib():
 
                     keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                         Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
-
+                    if not keymat:
+                        keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                            Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
                     #if sv.is_responder:
                     #	logging.debug("Reponder's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
                     #	logging.debug("Initiator's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
