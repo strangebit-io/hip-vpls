@@ -1492,7 +1492,7 @@ class HIPLib():
                         keymat_index, 
                         hmac.ALG_ID, 
                         cipher.ALG_ID, 
-                        ihit, rhit);
+                        rhit, ihit);
                 
                 
                 logging.debug(" DERVIVING KEYS OUT I2")
@@ -2419,13 +2419,14 @@ class HIPLib():
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
 
             sv.data_timeout = time.time() + self.config["general"]["UAL"];
-
+            """
             logging.debug(hexlify(ihit))
             logging.debug(hexlify(rhit))
             logging.debug("------------------- HMAC key IPSEC ------------------");
             logging.debug(hexlify(hmac_key));
             logging.debug("Cipher key IPSEC");
             logging.debug(hexlify(cipher_key));
+            """
 
             icv         = ip_sec_packet.get_byte_buffer()[-hmac_alg.LENGTH:];
 
@@ -2617,14 +2618,14 @@ class HIPLib():
                 dst        = sa_record.get_dst();
                 iv         = Utils.generate_random(cipher.BLOCK_SIZE);
                 sa_record.increment_sequence();
-
+                """
                 logging.debug("HMAC key L2 frame");
                 logging.debug(hexlify(hmac_key));
                 logging.debug("Cipher key L2 frame");
                 logging.debug(hexlify(cipher_key));
                 logging.debug("IV");
                 logging.debug(hexlify(iv));
-
+                """
                 padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 0x0);
                 #logging.debug("Length of the padded data %d" % (len(padded_data)));
 
