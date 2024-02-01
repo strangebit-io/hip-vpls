@@ -224,10 +224,6 @@ class HIPLib():
             if hip_packet.get_packet_type() == HIP.HIP_I1_PACKET:
                 logging.info("I1 packet");
 
-                if not self.firewall.allow(Utils.ipv6_bytes_to_hex_formatted_resolver(ihit), Utils.ipv6_bytes_to_hex_formatted_resolver(rhit)):
-                    logging.critical("Blocked by firewall...")
-                    return [];
-
                 if hip_state.is_i1_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I1-SENT state");
                     return [];
@@ -1477,21 +1473,12 @@ class HIPLib():
                 # The first key out is for larger HIT
                 # If OWN HIT is larger then we SHOULD use the first key 
                 # THen we should pass the larger (or own) HIT first
-                if Utils.is_hit_smaller(ihit, rhit):
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
+                #if Utils.is_hit_smaller(ihit, rhit):
+                (cipher_key, hmac_key) = Utils.get_keys_esp(
                         keymat,
                         keymat_index, 
                         hmac.ALG_ID, 
                         cipher.ALG_ID,
-                        rhit, ihit);
-                # If OWN HIT is smaller we should use the second key
-                # THen we should pass the larger (or own) HIT also first
-                else:
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat, 
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID, 
                         rhit, ihit);
                 
                 
@@ -1521,22 +1508,13 @@ class HIPLib():
 
                 # If OWN HIT is smaller then we SHOULD use the first key 
                 # THen we should pass the larger (or own) HIT first
-                if Utils.is_hit_smaller(rhit, ihit):
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat,
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID,
-                        ihit, rhit);
-                # If OWN HIT is larger we should use the second key
-                # THen we should pass the larger (or own) HIT also first
-                else:
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat, 
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID, 
-                        ihit, rhit);
+                (cipher_key, hmac_key) = Utils.get_keys_esp(
+                    keymat,
+                    keymat_index, 
+                    hmac.ALG_ID, 
+                    cipher.ALG_ID,
+                    ihit, rhit);
+                
 
                 logging.debug(" DERVIVING KEYS IN I2")
                 logging.debug(hexlify(hmac_key))
@@ -1738,22 +1716,22 @@ class HIPLib():
                 # Initiator
                 # OUT DIRECTION (IHIT - sender, RHIT - OWN)
                 # If OWN HIT is larger then we SHOULD use the first key 
-                if Utils.is_hit_smaller(ihit, rhit):
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat,
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID,
-                        rhit, ihit);
+                #if Utils.is_hit_smaller(ihit, rhit):
+                (cipher_key, hmac_key) = Utils.get_keys_esp(
+                    keymat,
+                    keymat_index, 
+                    hmac.ALG_ID, 
+                    cipher.ALG_ID,
+                    rhit, ihit);
                 # If OWN HIT is smaller we should use the second key
-                else:
+                """else:
                     (cipher_key, hmac_key) = Utils.get_keys_esp(
                         keymat, 
                         keymat_index, 
                         hmac.ALG_ID, 
                         cipher.ALG_ID, 
                         rhit, ihit);
-                
+                """
                 logging.debug(" DERVIVING KEYS OUT R2")
                 logging.debug(hexlify(hmac_key))
                 logging.debug(hexlify(cipher_key))
@@ -1770,17 +1748,17 @@ class HIPLib():
                 
                 # Outgoing SA (HITa, HITb)
                 # IN DIRECTION (IHIT - sender, RHIT - OWN)
-                """
+                
                 (cipher_key, hmac_key) = Utils.get_keys_esp(
                     keymat, 
                     keymat_index, 
                     hmac.ALG_ID, 
                     cipher.ALG_ID, 
-                    rhit, ihit);
-                """
+                    ihit, rhit);
+                
                 # If OWN HIT is smaller then we SHOULD use the first key 
                 # THen we should pass the larger (or own) HIT first
-                if Utils.is_hit_smaller(rhit, ihit):
+                """if Utils.is_hit_smaller(rhit, ihit):
                     (cipher_key, hmac_key) = Utils.get_keys_esp(
                         keymat,
                         keymat_index, 
@@ -1796,6 +1774,7 @@ class HIPLib():
                         hmac.ALG_ID, 
                         cipher.ALG_ID, 
                         ihit, rhit);
+                """
                 logging.debug(" DERVIVING KEYS IN R2")
                 logging.debug(hexlify(hmac_key))
                 logging.debug(hexlify(cipher_key))
@@ -2998,8 +2977,8 @@ class HIPLib():
                     if sv.is_responder:
                         hip_i1_packet.set_senders_hit(sv.rhit);
                         hip_i1_packet.set_receivers_hit(sv.ihit);
-                        sv.ihit = sv.rhit
-                        sv.rhit = sv.ihit
+                        #sv.ihit = sv.rhit
+                        #sv.rhit = sv.ihit
                         logging.debug("Source HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
                         logging.debug("Destination HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
                     else:
@@ -3008,7 +2987,7 @@ class HIPLib():
                         logging.debug("Source HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
                         logging.debug("Destination HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.rhit)))
 
-                    sv.is_responder = False;
+                    #sv.is_responder = False;
                     hip_i1_packet.set_next_header(HIP.HIP_IPPROTO_NONE);
                     hip_i1_packet.set_version(HIP.HIP_VERSION);
                     hip_i1_packet.add_parameter(dh_groups_param);
@@ -3061,11 +3040,11 @@ class HIPLib():
                     logging.debug("Initiator's HIT %s " % (Utils.ipv6_bytes_to_hex_formatted(sv.ihit)))
                     response.append((bytearray(sv.i2_packet.get_buffer()), (dst_str.strip(), 0)))
                     
-                    if sv.is_responder:
-                        sv.ihit = sv.rhit
-                        sv.rhit = sv.ihit
+                    #if sv.is_responder:
+                    #sv.ihit = sv.rhit
+                    #sv.rhit = sv.ihit
 
-                    sv.is_responder = False;
+                    #sv.is_responder = False;
 
                     if sv.i2_retries > self.config["general"]["i2_retries"]:
                         hip_state.failed();
