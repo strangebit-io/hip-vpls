@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = "Dmitriy Kuptsov"
-__copyright__ = "Copyright 2022, stangebit"
+__copyright__ = "Copyright 2022, strangebit"
 __license__ = "GPL"
 __version__ = "0.0.1b"
 __maintainer__ = "Dmitriy Kuptsov"
