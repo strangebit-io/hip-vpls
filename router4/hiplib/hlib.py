@@ -1893,11 +1893,12 @@ class HIPLib():
 
                 # Compute HMAC here
                 buf = bytearray([]);
-                if ack_param:
-                    buf += ack_param.get_byte_buffer();
+                
                 if seq_param:
                     buf += seq_param.get_byte_buffer();
                 
+                if ack_param:
+                    buf += ack_param.get_byte_buffer();
 
                 original_length = hip_update_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
@@ -1929,10 +1930,12 @@ class HIPLib():
                 hip_update_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
                 buf = bytearray([]);
-                if ack_param:
-                    buf += ack_param.get_byte_buffer();
                 if seq_param:
                     buf += seq_param.get_byte_buffer();
+                
+                if ack_param:
+                    buf += ack_param.get_byte_buffer();
+                
                 buf += mac_param.get_byte_buffer();
 
                 original_length = hip_update_packet.get_length();
