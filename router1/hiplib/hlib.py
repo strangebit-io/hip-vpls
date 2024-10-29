@@ -1352,6 +1352,7 @@ class HIPLib():
 
                 if not signature_alg.verify(signature_param.get_signature(), bytearray(buf)):
                     logging.critical("Invalid signature. Dropping the packet");
+                    return []
                 else:
                     logging.debug("Signature is correct");
 
