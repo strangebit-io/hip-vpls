@@ -216,7 +216,7 @@ hip_th_loop = threading.Thread(target = hip_loop, args = (), daemon = True);
 ip_sec_th_loop = threading.Thread(target = ip_sec_loop, args = (), daemon = True);
 ether_if_th_loop = threading.Thread(target = ether_loop, args = (), daemon = True);
 
-logging.info("Starting the CuteHIP");
+logging.info("Starting the switchd");
 
 hip_th_loop.start();
 ip_sec_th_loop.start();
