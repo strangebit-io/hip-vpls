@@ -22,41 +22,60 @@ class LinuxRouter( Node ):
 
 class NetworkTopo( Topo ):
     def build( self, **_opts ):
-        router1 = self.addNode( 'r1', cls=LinuxRouter )
-        router2 = self.addNode( 'r2', cls=LinuxRouter )
-        router3 = self.addNode( 'r3', cls=LinuxRouter )
-        router4 = self.addNode( 'r4', cls=LinuxRouter )
-        s1, s2, s3, s4, s5 = [ self.addSwitch( s, cls=OVSKernelSwitch ) for s in ( 's1', 's2', 's3', 's4', 's5' ) ]
-        self.addLink( s5, router1,
-                intfName2='r1-eth1',
-                params2={ 'ip' : '192.168.3.1/29' } )
-        self.addLink( s5, router2,
-                intfName2='r2-eth1',
-                params2={ 'ip' : '192.168.3.2/29' } )
-        self.addLink( s5, router3,
-                intfName2='r3-eth1',
-                params2={ 'ip' : '192.168.3.3/29' } )
-        self.addLink( s5, router4,
-                intfName2='r4-eth1',
-                params2={ 'ip' : '192.168.3.3/29' } )
-        self.addLink( s1, router1, intfName2='r1-eth0',
-                      params2={ 'ip' : '192.168.1.1/24' } )
-        self.addLink( s2, router2, intfName2='r2-eth0',
-                params2={ 'ip' : '192.168.1.2/24' } )
-        self.addLink( s3, router3, intfName2='r3-eth0',
-                params2={ 'ip' : '192.168.1.3/24' } )
-        self.addLink( s4, router4, intfName2='r4-eth0',
-                params2={ 'ip' : '192.168.1.4/24' } )
-        h1 = self.addHost( 'h1', ip='192.168.1.100/24',
-                           defaultRoute='via 192.168.1.1' )
-        h2 = self.addHost( 'h2', ip='192.168.1.101/24',
-                           defaultRoute='via 192.168.1.1' )
-        h3 = self.addHost( 'h3', ip='192.168.1.102/24',
-                           defaultRoute='via 192.168.1.1' )
-        h4 = self.addHost( 'h4', ip='192.168.1.103/24',
-                           defaultRoute='via 192.168.1.1' )
-        for h, s in [ (h1, s1), (h2, s2), (h3, s3), (h4, s4) ]:
-            self.addLink( h, s )
+        hub1 = self.addNode( 'hu1', cls=LinuxRouter )
+        hub2 = self.addNode( 'hu2', cls=LinuxRouter )
+        hub3 = self.addNode( 'hu3', cls=LinuxRouter )
+
+        spoke1 = self.addNode( 'sp1', cls=LinuxRouter )
+        spoke2 = self.addNode( 'sp2', cls=LinuxRouter )
+        spoke3 = self.addNode( 'sp3', cls=LinuxRouter )
+        
+        switch = self.addSwitch( ̈́'sw', cls=OVSKernelSwitch)
+
+
+        self.addLink(spoke1, hub1)
+        self.addLink(spoke2, hub2)
+        self.addLink(spoke3, hub3)
+
+        self.addLink(hub1, switch)
+        self.addLink(hub2, switch)
+        self.addLink(hub3, switch)
+
+        # router1 = self.addNode( 'r1', cls=LinuxRouter )
+        # router2 = self.addNode( 'r2', cls=LinuxRouter )
+        # router3 = self.addNode( 'r3', cls=LinuxRouter )
+        # router4 = self.addNode( 'r4', cls=LinuxRouter )
+        # s1, s2, s3, s4, s5 = [ self.addSwitch( s, cls=OVSKernelSwitch ) for s in ( 's1', 's2', 's3', 's4', 's5' ) ]
+        # self.addLink( s5, router1,
+        #         intfName2='r1-eth1',
+        #         params2={ 'ip' : '192.168.3.1/29' } )
+        # self.addLink( s5, router2,
+        #         intfName2='r2-eth1',
+        #         params2={ 'ip' : '192.168.3.2/29' } )
+        # self.addLink( s5, router3,
+        #         intfName2='r3-eth1',
+        #         params2={ 'ip' : '192.168.3.3/29' } )
+        # self.addLink( s5, router4,
+        #         intfName2='r4-eth1',
+        #         params2={ 'ip' : '192.168.3.3/29' } )
+        # self.addLink( s1, router1, intfName2='r1-eth0',
+        #               params2={ 'ip' : '192.168.1.1/24' } )
+        # self.addLink( s2, router2, intfName2='r2-eth0',
+        #         params2={ 'ip' : '192.168.1.2/24' } )
+        # self.addLink( s3, router3, intfName2='r3-eth0',
+        #         params2={ 'ip' : '192.168.1.3/24' } )
+        # self.addLink( s4, router4, intfName2='r4-eth0',
+        #         params2={ 'ip' : '192.168.1.4/24' } )
+        # h1 = self.addHost( 'h1', ip='192.168.1.100/24',
+        #                    defaultRoute='via 192.168.1.1' )
+        # h2 = self.addHost( 'h2', ip='192.168.1.101/24',
+        #                    defaultRoute='via 192.168.1.1' )
+        # h3 = self.addHost( 'h3', ip='192.168.1.102/24',
+        #                    defaultRoute='via 192.168.1.1' )
+        # h4 = self.addHost( 'h4', ip='192.168.1.103/24',
+        #                    defaultRoute='via 192.168.1.1' )
+        # for h, s in [ (h1, s1), (h2, s2), (h3, s3), (h4, s4) ]:
+        #     self.addLink( h, s )
 from time import sleep
 def run():
     topo = NetworkTopo()
