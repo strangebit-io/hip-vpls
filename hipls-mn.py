@@ -29,8 +29,11 @@ class NetworkTopo( Topo ):
         spoke1 = self.addNode( 'sp1', cls=LinuxRouter )
         spoke2 = self.addNode( 'sp2', cls=LinuxRouter )
         spoke3 = self.addNode( 'sp3', cls=LinuxRouter )
+
+        switch = self.addSwitch( 'sw', cls=OVSKernelSwitch)
         
-        switch = self.addSwitch( ̈́'sw', cls=OVSKernelSwitch)
+
+
 
 
         self.addLink(spoke1, hub1)
