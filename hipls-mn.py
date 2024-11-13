@@ -133,8 +133,8 @@ def run():
     # info( net[ 'r3' ].cmd( 'cd router3 && python3 switchd.py &' ) )
     # info( '*** Running HIPLS on router 4 *** \n')
     # info( net[ 'r4' ].cmd( 'cd router4 && python3 switchd.py &' ) )
-    # CLI( net )
-    # net.stop()
+    CLI( net )
+    net.stop()
 
 if __name__ == '__main__':
     setLogLevel( 'info' )
