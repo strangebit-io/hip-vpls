@@ -5,9 +5,9 @@ sudo apt-get install python3
 sudo apt-get install python3-pip
 
 # Install libraries
-sudo pip3 install pycryptodome
-sudo pip3 install interfaces
-sudo pip3 install numpy
+sudo pip3 install pycryptodome --break-system-packages
+sudo pip3 install interfaces --break-system-packages
+sudo pip3 install numpy --break-system-packages
 
 cd ..
 
@@ -33,6 +33,3 @@ sudo PYTHON=python3 mininet/util/install.sh -a
 # Running the VPLS emulated environment
 cd hip-vpls
 sudo python3 hipls-mn.py
-
-
-
