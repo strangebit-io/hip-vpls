@@ -27,20 +27,20 @@ class NetworkTopo( Topo ):
         hub3 = self.addNode( 'hu3', cls=LinuxRouter )
 
         spoke1 = self.addNode( 'sp1', cls=LinuxRouter )
-        spoke2 = self.addNode( 'sp2', cls=LinuxRouter )
-        spoke3 = self.addNode( 'sp3', cls=LinuxRouter )
+        # spoke2 = self.addNode( 'sp2', cls=LinuxRouter )
+        # spoke3 = self.addNode( 'sp3', cls=LinuxRouter )
 
         switch1 = self.addSwitch( 'sw1', cls=OVSKernelSwitch)
-        switch2 = self.addSwitch( 'sw2', cls=OVSKernelSwitch)
-        switch3 = self.addSwitch( 'sw3', cls=OVSKernelSwitch)
+        # switch2 = self.addSwitch( 'sw2', cls=OVSKernelSwitch)
+        # switch3 = self.addSwitch( 'sw3', cls=OVSKernelSwitch)
         switch4 = self.addSwitch( 'sw4', cls=OVSKernelSwitch)
 
 
         
 
         # self.addLink(spoke1, switch1)
-        self.addLink(spoke2, switch2)
-        self.addLink(spoke3, switch3)
+        # self.addLink(spoke2, switch2)
+        # self.addLink(spoke3, switch3)
 
         # self.addLink(hub1, switch1)
         # self.addLink(hub2, switch2)
@@ -53,16 +53,16 @@ class NetworkTopo( Topo ):
         self.addLink(switch4, hub3, intfName2='hu3-eth1',
                                 params2={ 'ip' : '192.168.3.3/29' })
 
-        self.addLink( switch1, hub1, intfName2='hu1-eth0',
-                      params2={ 'ip' : '192.168.1.1/24' } )
-        self.addLink( switch2, hub2, intfName2='hu2-eth0',
-                params2={ 'ip' : '192.168.1.2/24' } )
-        self.addLink( switch3, hub3, intfName2='hu3-eth0',
-                params2={ 'ip' : '192.168.1.3/24' } )
+        self.addLink(switch1, hub1, intfName2='hu1-eth0',
+                      params2={ 'ip' : '192.168.1.1/29' } )
+        # self.addLink( switch2, hub2, intfName2='hu2-eth0',
+        #         params2={ 'ip' : '192.168.1.2/24' } )
+        # self.addLink( switch3, hub3, intfName2='hu3-eth0',
+        #         params2={ 'ip' : '192.168.1.3/24' } )
 
-        self.addLink( switch1, spoke1,
-                intfName2='sp1-eth0',
-                params2={ 'ip' : '192.168.3.4/24' } )
+        self.addLink(switch1, spoke1,
+                intfName2='sp1-eth1',
+                params2={ 'ip' : '192.168.1.4/29' } )
 
         # router1 = self.addNode( 'r1', cls=LinuxRouter )
         # router2 = self.addNode( 'r2', cls=LinuxRouter )
@@ -107,7 +107,7 @@ def run():
     info( net[ 'hu1' ].cmd( 'ifconfig hu1-eth1 192.168.3.1 netmask 255.255.255.248' ) )
     info( net[ 'hu2' ].cmd( 'ifconfig hu2-eth1 192.168.3.2 netmask 255.255.255.248' ) )
     info( net[ 'hu3' ].cmd( 'ifconfig hu3-eth1 192.168.3.3 netmask 255.255.255.248' ) )
-    info( net[ 'sp1' ].cmd( 'ifconfig sp1-eth1 192.168.3.4 netmask 255.255.255.248' ) )
+    info( net[ 'sp1' ].cmd( 'ifconfig sp1-eth1 192.168.1.4 netmask 255.255.255.248' ) )
 
     info( net[ 'hu1' ].cmd( '/sbin/ethtool -K hu1-eth0 rx off tx off sg off' ) )
     info( net[ 'hu1' ].cmd( '/sbin/ethtool -K hu1-eth1 rx off tx off sg off' ) )
@@ -116,7 +116,7 @@ def run():
     info( net[ 'hu3' ].cmd( '/sbin/ethtool -K hu3-eth0 rx off tx off sg off' ) )
     info( net[ 'hu3' ].cmd( '/sbin/ethtool -K hu3-eth1 rx off tx off sg off' ) )
     info( net[ 'sp1' ].cmd( '/sbin/ethtool -K sp1-eth0 rx off tx off sg off' ) )
-    # info( net[ 'sp1' ].cmd( '/sbin/ethtool -K sp1-eth1 rx off tx off sg off' ) )
+    info( net[ 'sp1' ].cmd( '/sbin/ethtool -K sp1-eth1 rx off tx off sg off' ) )
 
     # info( net[ 'h1' ].cmd( '/sbin/ethtool -K h1-eth0 rx off tx off sg off' ) )
     # info( net[ 'h2' ].cmd( '/sbin/ethtool -K h2-eth0 rx off tx off sg off' ) )
@@ -130,23 +130,23 @@ def run():
     # info( net[ 'h4' ].cmd( 'ifconfig h4-eth0 mtu 1400' ) )
 
     info( net[ 'sw1' ].cmd( 'ovs-vsctl set bridge sw1 stp_enable=true' ) )
-    info( net[ 'sw2' ].cmd( 'ovs-vsctl set bridge sw2 stp_enable=true' ) )
-    info( net[ 'sw3' ].cmd( 'ovs-vsctl set bridge sw3 stp_enable=true' ) )
+    # info( net[ 'sw2' ].cmd( 'ovs-vsctl set bridge sw2 stp_enable=true' ) )
+    # info( net[ 'sw3' ].cmd( 'ovs-vsctl set bridge sw3 stp_enable=true' ) )
     info( net[ 'sw4' ].cmd( 'ovs-vsctl set bridge sw4 stp_enable=true' ) )
 
 
     info( '*** Routing Table on Router:\n' )
-    info( net[ 'hu1' ].cmd( 'route' ) )
-    info( '*** Routing Table on Router:\n' )
-    info( net[ 'hu2' ].cmd( 'route' ) )
-    info( '*** Running HIPLS on router 1 *** \n')
-    info( net[ 'hu1' ].cmd( 'cd hub1 && python3 switchd.py &' ) )
-    info( '*** Running HIPLS on router 2 *** \n')
-    info( net[ 'hu2' ].cmd( 'cd hub2 && python3 switchd.py &' ) )
-    info( '*** Running HIPLS on router 3 *** \n')
-    info( net[ 'hu3' ].cmd( 'cd hub3 && python3 switchd.py &' ) )
+    # info( net[ 'hu1' ].cmd( 'route' ) )
+    # info( '*** Routing Table on Router:\n' )
+    # info( net[ 'hu2' ].cmd( 'route' ) )
+    # info( '*** Running HIPLS on router 1 *** \n')
+    # info( net[ 'hu1' ].cmd( 'cd hub1 && python3 switchd.py &' ) )
+    # info( '*** Running HIPLS on router 2 *** \n')
+    # info( net[ 'hu2' ].cmd( 'cd hub2 && python3 switchd.py &' ) )
+    # info( '*** Running HIPLS on router 3 *** \n')
+    # info( net[ 'hu3' ].cmd( 'cd hub3 && python3 switchd.py &' ) )
     # info( '*** Running HIPLS on router 4 *** \n')
-    info( net[ 'sp1' ].cmd( 'cd spoke1 && python3 switchd.py &' ) )
+    # info( net[ 'sp1' ].cmd( 'cd spoke1 && python3 switchd.py &' ) )
     CLI( net )
     net.stop()
 
