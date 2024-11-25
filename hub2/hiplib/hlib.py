@@ -93,7 +93,7 @@ class HIPLib():
         # Domain identifier
         self.di = DIFactory.get(self.config["resolver"]["domain_identifier"]["type"], 
             bytearray(self.config["resolver"]["domain_identifier"]["value"], encoding="ascii"));
-
+        self.I1_rec = False
         #logging.debug(di);
         logging.info("Loading public key and constructing HIT")
         self.pubkey       = None;
@@ -434,6 +434,8 @@ class HIPLib():
                 dst_str = Utils.ipv4_bytes_to_string(dst);
                 response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
                 # Stay in current state
+                logging.info('-----RECIVED HIP STATE---------------')
+                self.I1_rec = True
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
                 logging.info("----------------------------- R1 packet ----------------------------- ");
                 
@@ -2486,7 +2488,7 @@ class HIPLib():
             else:
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
-            if hip_state.is_unassociated() or hip_state.is_closing() or hip_state.is_closed():
+            if self.I1_rec and (hip_state.is_unassociated() or hip_state.is_closing() or hip_state.is_closed()):
                 #logging.debug("Unassociate state reached");
                 #logging.debug("Starting HIP BEX %f" % (time.time()));
                 #logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));

@@ -121,7 +121,6 @@ ether_socket.bind((hip_config.config["switch"]["l2interface"], 0))
 # Initialize FIB
 fib = FIB(hip_config.config["switch"]["mesh"])
 
-
 def onclose():
     packets = hiplib.exit_handler()
     for (packet, dest) in packets:
@@ -192,14 +191,14 @@ def ether_loop():
                 s = time()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
                 e = time()
-                #logging.info("L2 process time %f " % (e-s))
+                # logging.info("L2 process time %f " % (e-s))
                 for (hip, packet, dest) in packets:
-                    #logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
+                    logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
                         s = time()
                         ip_sec_socket.sendto(packet, dest)
                         e = time()
-                        #logging.info("IPSEC send time %f " % (e-s))
+                        logging.info("IPSEC send time %f " % (e-s))
                     else:
                         hip_socket.sendto(packet, dest)
             ee = time()

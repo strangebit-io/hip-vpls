@@ -433,6 +433,7 @@ class HIPLib():
                 # Send the packet
                 dst_str = Utils.ipv4_bytes_to_string(dst);
                 response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+                logging.info('-----RECIVED HIP STATE---------------')
                 # Stay in current state
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
                 logging.info("----------------------------- R1 packet ----------------------------- ");
@@ -2479,7 +2480,7 @@ class HIPLib():
     def process_l2_frame(self, frame, ihit, rhit, src_str):
         try:
             response = [];
-            #logging.debug("Processing L2 frame")
+            logging.debug("Processing L2 frame")
             if Utils.is_hit_smaller(rhit, ihit):
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
@@ -2488,8 +2489,8 @@ class HIPLib():
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
             if hip_state.is_unassociated() or hip_state.is_closing() or hip_state.is_closed():
                 #logging.debug("Unassociate state reached");
-                #logging.debug("Starting HIP BEX %f" % (time.time()));
-                #logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));
+                logging.debug("Starting HIP BEX %f" % (time.time()));
+                logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));
 
                 # Resolve the HIT code can be improved
                 if not self.hit_resolver.resolve(Utils.ipv6_bytes_to_hex_formatted_resolver(rhit)):
