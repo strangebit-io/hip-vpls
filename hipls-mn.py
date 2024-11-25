@@ -87,11 +87,11 @@ def run():
     info( net[ 'sp1' ].cmd( 'ifconfig sp1-eth1 192.168.1.4 netmask 255.255.255.0' ) )
     info( net[ 'hu1' ].cmd( 'ifconfig hu1-eth0 192.168.1.1 netmask 255.255.255.0'))
 
-    info( net[ 'sp2' ].cmd( 'ifconfig sp1-eth1 192.168.1.5 netmask 255.255.255.0' ) )
-    info( net[ 'hu2' ].cmd( 'ifconfig hu1-eth0 192.168.1.2 netmask 255.255.255.0'))
+    info( net[ 'sp2' ].cmd( 'ifconfig sp2-eth1 192.168.1.5 netmask 255.255.255.0' ) )
+    info( net[ 'hu2' ].cmd( 'ifconfig hu2-eth0 192.168.1.2 netmask 255.255.255.0'))
 
-    info( net[ 'sp3' ].cmd( 'ifconfig sp1-eth1 192.168.1.6 netmask 255.255.255.0' ) )
-    info( net[ 'hu3' ].cmd( 'ifconfig hu1-eth0 192.168.1.3 netmask 255.255.255.0'))
+    info( net[ 'sp3' ].cmd( 'ifconfig sp3-eth1 192.168.1.6 netmask 255.255.255.0' ) )
+    info( net[ 'hu3' ].cmd( 'ifconfig hu3-eth0 192.168.1.3 netmask 255.255.255.0'))
 
     info( net[ 'hu1' ].cmd( '/sbin/ethtool -K hu1-eth0 rx off tx off sg off' ) )
     info( net[ 'hu1' ].cmd( '/sbin/ethtool -K hu1-eth1 rx off tx off sg off' ) )
@@ -103,8 +103,8 @@ def run():
     info( net[ 'hu3' ].cmd( '/sbin/ethtool -K hu3-eth1 rx off tx off sg off' ) )
 
     info( net[ 'sp1' ].cmd( '/sbin/ethtool -K sp1-eth1 rx off tx off sg off' ) )
-    info( net[ 'sp2' ].cmd( '/sbin/ethtool -K sp1-eth1 rx off tx off sg off' ) )
-    info( net[ 'sp3' ].cmd( '/sbin/ethtool -K sp1-eth1 rx off tx off sg off' ) )
+    info( net[ 'sp2' ].cmd( '/sbin/ethtool -K sp2-eth1 rx off tx off sg off' ) )
+    info( net[ 'sp3' ].cmd( '/sbin/ethtool -K sp3-eth1 rx off tx off sg off' ) )
 
     # net['hu1'].cmd('ip route add 192.168.1.4/24 via 192.168.3.4 dev hu1-eth1')
     # net['hu2'].cmd('ip route add 192.168.1.4/24 via 192.168.3.4 dev hu2-eth1')
