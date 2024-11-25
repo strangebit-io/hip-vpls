@@ -8772,3 +8772,24 @@
 2024-11-25 14:33:12,030 [INFO] 2001:0021:394b:5c1b:a114:0f3f:d0b8:74b2 192.168.1.5
 2024-11-25 14:33:12,030 [INFO] Loading public key and constructing HIT
 2024-11-25 14:33:12,291 [INFO] Initializing IPSec socket
+2024-11-25 14:41:43,165 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:41:43,166 [INFO] Importing hosts file
+2024-11-25 14:41:43,166 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:41:43,166 [INFO] 2001:0021:394b:5c1b:a114:0f3f:d0b8:74b2 192.168.1.5
+2024-11-25 14:41:43,166 [INFO] Loading public key and constructing HIT
+2024-11-25 14:41:43,366 [INFO] Initializing IPSec socket
+2024-11-25 14:42:24,745 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:42:24,745 [INFO] Importing hosts file
+2024-11-25 14:42:24,746 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:42:24,746 [INFO] 2001:0021:394b:5c1b:a114:0f3f:d0b8:74b2 192.168.1.5
+2024-11-25 14:42:24,749 [INFO] Loading public key and constructing HIT
+2024-11-25 14:42:24,962 [INFO] Initializing IPSec socket
+2024-11-25 14:53:14,802 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:53:14,823 [INFO] Importing hosts file
+2024-11-25 14:53:14,823 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:53:14,823 [INFO] 2001:0021:394b:5c1b:a114:0f3f:d0b8:74b2 192.168.1.5
+2024-11-25 14:53:14,829 [INFO] Loading public key and constructing HIT
+2024-11-25 14:53:14,973 [INFO] Initializing IPSec socket
