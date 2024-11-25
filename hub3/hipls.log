@@ -8620,3 +8620,1750 @@
 
 2024-11-19 11:42:44,910 [INFO] Loading public key and constructing HIT
 2024-11-19 11:42:44,978 [INFO] Initializing IPSec socket
+2024-11-20 08:29:44,074 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:29:44,079 [INFO] Importing hosts file
+2024-11-20 08:29:44,079 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:29:44,079 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:29:44,080 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:29:44,080 [INFO] Loading public key and constructing HIT
+2024-11-20 08:29:44,401 [INFO] Initializing IPSec socket
+2024-11-20 08:41:06,268 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:41:06,268 [INFO] Importing hosts file
+2024-11-20 08:41:06,268 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:41:06,269 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:41:06,269 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:41:06,269 [INFO] Loading public key and constructing HIT
+2024-11-20 08:41:06,357 [INFO] Initializing IPSec socket
+2024-11-20 08:42:42,562 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:42:42,563 [INFO] Importing hosts file
+2024-11-20 08:42:42,563 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:42:42,563 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:42:42,563 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:42:42,564 [INFO] Loading public key and constructing HIT
+2024-11-20 08:42:42,622 [INFO] Initializing IPSec socket
+2024-11-20 08:44:53,034 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:44:53,034 [INFO] Importing hosts file
+2024-11-20 08:44:53,034 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:44:53,034 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:44:53,034 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:44:53,035 [INFO] Loading public key and constructing HIT
+2024-11-20 08:44:53,112 [INFO] Initializing IPSec socket
+2024-11-20 08:45:49,714 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:45:49,715 [INFO] Importing hosts file
+2024-11-20 08:45:49,715 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:45:49,715 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:45:49,715 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:45:49,715 [INFO] Loading public key and constructing HIT
+2024-11-20 08:45:49,783 [INFO] Initializing IPSec socket
+2024-11-20 08:46:15,337 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:46:15,337 [INFO] Importing hosts file
+2024-11-20 08:46:15,338 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:46:15,338 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:46:15,338 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:46:15,338 [INFO] Loading public key and constructing HIT
+2024-11-20 08:46:15,423 [INFO] Initializing IPSec socket
+2024-11-20 08:46:46,195 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:46:46,196 [INFO] Importing hosts file
+2024-11-20 08:46:46,196 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:46:46,196 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:46:46,200 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:46:46,200 [INFO] Loading public key and constructing HIT
+2024-11-20 08:46:46,282 [INFO] Initializing IPSec socket
+2024-11-20 08:47:38,168 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:47:38,168 [INFO] Importing hosts file
+2024-11-20 08:47:38,168 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:47:38,169 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:47:38,172 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:47:38,172 [INFO] Loading public key and constructing HIT
+2024-11-20 08:47:38,265 [INFO] Initializing IPSec socket
+2024-11-20 08:48:59,845 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:48:59,845 [INFO] Importing hosts file
+2024-11-20 08:48:59,845 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:48:59,845 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:48:59,845 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:48:59,845 [INFO] Loading public key and constructing HIT
+2024-11-20 08:48:59,916 [INFO] Initializing IPSec socket
+2024-11-20 08:50:16,741 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:50:16,741 [INFO] Importing hosts file
+2024-11-20 08:50:16,742 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:50:16,742 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:50:16,742 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:50:16,743 [INFO] Loading public key and constructing HIT
+2024-11-20 08:50:16,823 [INFO] Initializing IPSec socket
+2024-11-20 08:51:39,219 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:51:39,219 [INFO] Importing hosts file
+2024-11-20 08:51:39,220 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:51:39,220 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:51:39,220 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:51:39,220 [INFO] Loading public key and constructing HIT
+2024-11-20 08:51:39,292 [INFO] Initializing IPSec socket
+2024-11-20 08:52:19,306 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:52:19,307 [INFO] Importing hosts file
+2024-11-20 08:52:19,307 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:52:19,307 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:52:19,308 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:52:19,308 [INFO] Loading public key and constructing HIT
+2024-11-20 08:52:19,403 [INFO] Initializing IPSec socket
+2024-11-20 08:54:14,317 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:54:14,317 [INFO] Importing hosts file
+2024-11-20 08:54:14,317 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:54:14,317 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:54:14,317 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:54:14,318 [INFO] Loading public key and constructing HIT
+2024-11-20 08:54:14,381 [INFO] Initializing IPSec socket
+2024-11-20 08:54:42,763 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:54:42,764 [INFO] Importing hosts file
+2024-11-20 08:54:42,764 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:54:42,764 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:54:42,764 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:54:42,765 [INFO] Loading public key and constructing HIT
+2024-11-20 08:54:42,833 [INFO] Initializing IPSec socket
+2024-11-20 08:56:48,392 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 08:56:48,392 [INFO] Importing hosts file
+2024-11-20 08:56:48,393 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 08:56:48,393 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 08:56:48,393 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 08:56:48,393 [INFO] Loading public key and constructing HIT
+2024-11-20 08:56:48,450 [INFO] Initializing IPSec socket
+2024-11-20 09:01:07,314 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 09:01:07,319 [INFO] Importing hosts file
+2024-11-20 09:01:07,319 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 09:01:07,319 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 09:01:07,319 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 09:01:07,319 [INFO] Loading public key and constructing HIT
+2024-11-20 09:01:07,389 [INFO] Initializing IPSec socket
+2024-11-20 09:01:47,710 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-20 09:01:47,710 [INFO] Importing hosts file
+2024-11-20 09:01:47,711 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-20 09:01:47,711 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-20 09:01:47,711 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-20 09:01:47,711 [INFO] Loading public key and constructing HIT
+2024-11-20 09:01:47,803 [INFO] Initializing IPSec socket
+2024-11-25 13:33:17,830 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:33:17,831 [INFO] Importing hosts file
+2024-11-25 13:33:17,832 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:33:17,832 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:33:17,839 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:33:17,839 [INFO] Loading public key and constructing HIT
+2024-11-25 13:33:17,925 [INFO] Initializing IPSec socket
+2024-11-25 13:36:19,754 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:36:19,754 [INFO] Importing hosts file
+2024-11-25 13:36:19,754 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:36:19,755 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:36:19,755 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:36:19,755 [INFO] Loading public key and constructing HIT
+2024-11-25 13:36:19,856 [INFO] Initializing IPSec socket
+2024-11-25 13:37:47,155 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:37:47,155 [INFO] Importing hosts file
+2024-11-25 13:37:47,156 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:37:47,156 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:37:47,156 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:37:47,156 [INFO] Loading public key and constructing HIT
+2024-11-25 13:37:47,364 [INFO] Initializing IPSec socket
+2024-11-25 13:43:50,402 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:43:50,402 [INFO] Importing hosts file
+2024-11-25 13:43:50,402 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:43:50,402 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:43:50,402 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:43:50,403 [INFO] Loading public key and constructing HIT
+2024-11-25 13:43:50,608 [INFO] Initializing IPSec socket
+2024-11-25 13:44:35,542 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:44:35,543 [INFO] Importing hosts file
+2024-11-25 13:44:35,543 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:44:35,543 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:44:35,543 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:44:35,543 [INFO] Loading public key and constructing HIT
+2024-11-25 13:44:35,698 [INFO] Initializing IPSec socket
+2024-11-25 13:46:40,120 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:46:40,121 [INFO] Importing hosts file
+2024-11-25 13:46:40,121 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:46:40,121 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:46:40,121 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:46:40,122 [INFO] Loading public key and constructing HIT
+2024-11-25 13:46:40,244 [INFO] Initializing IPSec socket
+2024-11-25 13:51:57,391 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:51:57,392 [INFO] Importing hosts file
+2024-11-25 13:51:57,392 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:51:57,392 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:51:57,393 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:51:57,393 [INFO] Loading public key and constructing HIT
+2024-11-25 13:51:57,463 [INFO] Initializing IPSec socket
+2024-11-25 13:56:14,204 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:56:14,204 [INFO] Importing hosts file
+2024-11-25 13:56:14,204 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:56:14,205 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:56:14,205 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:56:14,205 [INFO] Loading public key and constructing HIT
+2024-11-25 13:56:14,322 [INFO] Initializing IPSec socket
+2024-11-25 13:57:31,309 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 13:57:31,309 [INFO] Importing hosts file
+2024-11-25 13:57:31,310 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 13:57:31,310 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 13:57:31,310 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 13:57:31,317 [INFO] Loading public key and constructing HIT
+2024-11-25 13:57:31,525 [INFO] Initializing IPSec socket
+2024-11-25 14:22:43,657 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:22:43,658 [INFO] Importing hosts file
+2024-11-25 14:22:43,658 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 14:22:43,658 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:22:43,658 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 14:22:43,658 [INFO] Loading public key and constructing HIT
+2024-11-25 14:22:43,873 [INFO] Initializing IPSec socket
+2024-11-25 14:24:07,917 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:24:07,917 [INFO] Importing hosts file
+2024-11-25 14:24:07,917 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 14:24:07,917 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:24:07,918 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 14:24:07,918 [INFO] Loading public key and constructing HIT
+2024-11-25 14:24:08,155 [INFO] Initializing IPSec socket
+2024-11-25 14:24:08,167 [INFO] Starting the CuteHIP
+2024-11-25 14:24:08,179 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:08,208 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000937
+2024-11-25 14:24:08,222 [DEBUG] Sending I1 packet to 192.168.3.2
+ 0.000110
+2024-11-25 14:24:08,261 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:08,271 [INFO] I1 packet
+2024-11-25 14:24:08,272 [DEBUG] Staying in I1-SENT state
+2024-11-25 14:24:08,272 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:08,272 [INFO] I1 packet
+2024-11-25 14:24:08,740 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:24:08,742 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:24:08,997 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:08,998 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:24:08,998 [DEBUG] <hiplib.crypto.digest.SHA256Digest object at 0x76d7aa1225a0>
+2024-11-25 14:24:08,998 [DEBUG] [<hiplib.packets.HIP.R1CounterParameter object at 0x76d7aae625a0>, <hiplib.packets.HIP.PuzzleParameter object at 0x76d7aa9b70b0>, <hiplib.packets.HIP.DHParameter object at 0x76d7aa1229f0>, <hiplib.packets.HIP.CipherParameter object at 0x76d7aa1229c0>, <hiplib.packets.HIP.ESPTransformParameter object at 0x76d7aa121fd0>, <hiplib.packets.HIP.HostIdParameter object at 0x76d7aa122a20>, <hiplib.packets.HIP.HITSuitListParameter object at 0x76d7aa122a50>, <hiplib.packets.HIP.DHGroupListParameter object at 0x76d7aa121af0>, <hiplib.packets.HIP.TransportListParameter object at 0x76d7aa122960>, <hiplib.packets.HIP.Signature2Parameter object at 0x76d7aa1227e0>]
+2024-11-25 14:24:08,998 [DEBUG] !!!!!!!!!!!!!!!!!!!!!!
+2024-11-25 14:24:09,000 [DEBUG] R1 counter
+2024-11-25 14:24:09,001 [DEBUG] Puzzle parameter
+2024-11-25 14:24:09,006 [DEBUG] DH parameter
+2024-11-25 14:24:09,006 [DEBUG] Ciphers
+2024-11-25 14:24:09,006 [DEBUG] ESP transform
+2024-11-25 14:24:09,006 [DEBUG] DI type: 2 
+2024-11-25 14:24:09,007 [DEBUG] DI value: bytearray(b'dmitriy.kuptsov@strangebit.com') 
+2024-11-25 14:24:09,010 [DEBUG] Host ID
+2024-11-25 14:24:09,011 [DEBUG] Responder's OGA ID 1
+2024-11-25 14:24:09,011 [DEBUG] bytearray(b'\x03\x01\x00\x01\xeaF\x99\x8b-n\xe8l\xd5j\xf8\xdb+\x9f\xf3=\x9fT\xaam:\xd2.\xd2\x10\xd1\xd7\xe4.\x97=[\x08\x16!\xa3"\xa8=\'\xcf\xc4\xad\x80@$\x03z\x02\x1f!\xeb.oc\x92=\xab\xad\x8a**\xceh+_jk\x10|\x08e\x90\xb9\x81%\xa2M\xf1\xde\x0f\xc6\r*@\x94j=\x8e\x03\x1b\xfeD\xfd\xe5\x96\x7f\x16\xa0\xfcT1\x94\x18\x8d\xe1\x88\xcdn<\xdd;).\xe4\xbeyDv\xe60\x07\xb0\xf2\x97\xa4\x1e9')
+2024-11-25 14:24:09,011 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:24:09,011 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:24:09,012 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:24:09,012 [DEBUG] HIT suit list
+2024-11-25 14:24:09,015 [DEBUG] DH groups parameter
+2024-11-25 14:24:09,015 [DEBUG] Transport parameter
+2024-11-25 14:24:09,015 [DEBUG] [4095]
+2024-11-25 14:24:09,016 [DEBUG] Signature parameter
+2024-11-25 14:24:09,193 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:10,209 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:10,264 [DEBUG] Puzzle was solved and verified....
+2024-11-25 14:24:10,270 [DEBUG] DH public key value: 2768520163054018588791507620428418730808387982212673549711215701358596484883408899707239535444063473495011660611872792981442757692639613860850287134331903856032076498678074371698633120513908511330612548845091206278187269971017370743252395415094571078187305968990696222238415518468768023372184379535325317103072242789515088024976297689059285555035289837514406711408651921530370646099967636825218548900727615060967783209132760577557877418250318447187598903085643772837550262914143983954627855042919374520964119248245302491730509671188119271529032066684098291822893445156025122397690870380062981939160424623243711339445605441261075280732744178499989221444657052102526045736377693603900657389837269823049265656015273549713238615687947830726832154441520398309346088003401029355781583252970887860690330592542577471889939072602705637067443017223543954279069279299333548106297521232488894542610062456527307943581416859705571659480702 
+2024-11-25 14:24:11,055 [DEBUG] Saving keying material in R1 192.168.3.3 192.168.3.1
+2024-11-25 14:24:11,055 [DEBUG] Processing R1 packet 2.057422
+2024-11-25 14:24:11,056 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:24:11,059 [DEBUG] [69, 0, 0, 0, 0, 0, 0, 0, 128, 139, 0, 0, 192, 168, 3, 3, 192, 168, 3, 1, 59, 113, 3, 33, 229, 132, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129, 0, 65, 0, 12, 0, 0, 0, 128, 0, 0, 0, 0, 164, 111, 137, 27, 0, 129, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 65, 0, 68, 16, 0, 214, 217, 204, 224, 218, 177, 4, 149, 65, 189, 103, 72, 63, 154, 89, 206, 126, 193, 95, 64, 145, 149, 91, 217, 207, 32, 240, 49, 192, 62, 178, 10, 95, 134, 196, 42, 158, 171, 185, 215, 184, 77, 41, 216, 159, 115, 152, 27, 5, 221, 44, 187, 51, 216, 7, 70, 241, 134, 193, 103, 253, 199, 65, 176, 93, 128, 2, 1, 1, 131, 4, 0, 48, 196, 183, 202, 157, 103, 37, 30, 195, 159, 188, 34, 225, 182, 112, 0, 24, 194, 211, 200, 155, 76, 26, 224, 175, 128, 233, 161, 246, 55, 70, 71, 41, 135, 192, 0, 64, 92, 158, 160, 70, 120, 157, 137, 57, 47, 135, 224, 94, 115, 223, 91, 244, 59, 70, 190, 172, 224, 103, 32, 14, 219, 128, 50, 119, 8, 189, 197, 126, 242, 246, 124, 128, 214, 149, 186, 155, 124, 85, 73, 175, 76, 178, 63, 250, 35, 208, 53, 136, 153, 168, 77, 155, 96, 95, 189, 33, 96, 12, 83, 75, 238, 82, 88, 188, 30, 108, 79, 119, 52, 220, 110, 243, 126, 204, 221, 5, 124, 48, 239, 115, 29, 66, 2, 188, 21, 226, 198, 116, 126, 212, 23, 188, 197, 25, 56, 212, 223, 215, 45, 235, 246, 22, 159, 28, 199, 166, 84, 59, 137, 74, 207, 245, 160, 115, 9, 210, 235, 100, 212, 186, 55, 229, 57, 78, 206, 139, 88, 77, 143, 236, 171, 250, 88, 114, 55, 26, 246, 7, 227, 128, 208, 87, 33, 128, 161, 49, 222, 227, 100, 133, 134, 212, 98, 95, 97, 175, 204, 220, 153, 31, 219, 182, 217, 219, 70, 27, 16, 241, 212, 24, 69, 145, 161, 213, 11, 24, 165, 130, 170, 140, 146, 146, 140, 126, 223, 150, 206, 210, 192, 82, 141, 19, 1, 85, 228, 76, 173, 67, 182, 212, 72, 145, 221, 185, 123, 51, 25, 122, 56, 22, 169, 66, 46, 89, 124, 89, 114, 10, 250, 207, 49, 16, 146, 222, 34, 252, 173, 71, 119, 170, 213, 10, 26, 33, 181, 53, 188, 23, 60, 180, 210, 100, 115, 250, 76, 208, 225, 135, 70, 207, 79, 80, 215, 93, 214, 233, 157, 151, 242, 140, 231, 163, 11, 46, 211, 252, 153, 190, 16, 200, 205, 247, 238, 117, 188, 3, 98, 126, 238, 160, 224, 184, 36, 29, 180, 98, 38, 184, 49, 224, 54, 252, 170, 85, 172, 39, 164, 225, 221, 30, 92, 129, 86, 55, 152, 64, 93, 180, 68, 102, 66, 30, 252, 43, 23, 179, 144, 23, 132, 92, 94, 108, 188, 181, 28, 247, 116, 84, 86, 42, 42, 232, 169, 0, 100, 109, 85, 160, 173, 216, 47, 122, 131, 23, 0, 2, 67, 0, 2, 0, 4, 0, 0, 15, 255, 0, 4, 0, 0, 0, 9, 2, 193, 0, 168, 0, 132, 32, 30, 0, 5, 3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91, 100, 109, 105, 116, 114, 105, 121, 46, 107, 117, 112, 116, 115, 111, 118, 64, 115, 116, 114, 97, 110, 103, 101, 98, 105, 116, 46, 99, 111, 109, 0, 0, 0, 0, 8, 1, 0, 2, 15, 255, 0, 0, 240, 65, 0, 32, 219, 215, 126, 77, 121, 49, 101, 215, 159, 42, 216, 162, 160, 102, 98, 147, 78, 92, 100, 120, 132, 137, 153, 56, 84, 182, 232, 25, 195, 64, 124, 125, 0, 0, 0, 0, 241, 1, 0, 130, 0, 5, 47, 139, 176, 60, 32, 180, 189, 254, 169, 19, 10, 55, 144, 162, 253, 22, 235, 232, 178, 238, 229, 6, 46, 168, 137, 246, 90, 103, 56, 158, 130, 56, 115, 81, 235, 113, 228, 163, 104, 27, 211, 225, 86, 10, 111, 78, 154, 230, 197, 59, 13, 50, 169, 228, 30, 86, 124, 153, 81, 219, 50, 250, 21, 220, 99, 67, 5, 20, 216, 34, 155, 232, 223, 191, 96, 219, 133, 199, 226, 36, 95, 128, 242, 189, 39, 151, 116, 201, 214, 209, 13, 243, 69, 176, 184, 141, 126, 78, 245, 206, 221, 128, 242, 115, 141, 16, 152, 13, 227, 155, 44, 51, 206, 159, 182, 152, 252, 145, 71, 92, 10, 135, 9, 252, 209, 158, 208, 122, 0, 0]
+2024-11-25 14:24:11,060 [DEBUG] Sending I2 packet to 192.168.3.1 932
+2024-11-25 14:24:11,186 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:11,187 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:24:11,187 [DEBUG] ESP info parameter
+2024-11-25 14:24:11,188 [DEBUG] R1 counter
+2024-11-25 14:24:11,188 [DEBUG] Puzzle solution parameter
+2024-11-25 14:24:11,189 [DEBUG] DH parameter
+2024-11-25 14:24:11,189 [DEBUG] Ciphers parameter
+2024-11-25 14:24:11,189 [DEBUG] ESP transform parameter
+2024-11-25 14:24:11,189 [DEBUG] Host ID
+2024-11-25 14:24:11,189 [DEBUG] OGA ID 1 
+2024-11-25 14:24:11,194 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:24:11,194 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:24:11,195 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:24:11,195 [DEBUG] Transport parameter
+2024-11-25 14:24:11,195 [DEBUG] MAC parameter
+2024-11-25 14:24:11,195 [DEBUG] Signature parameter
+2024-11-25 14:24:11,196 [DEBUG] Puzzle was solved
+2024-11-25 14:24:11,245 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:11,477 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:24:11,479 [DEBUG] Signature is correct
+2024-11-25 14:24:11,479 [DEBUG] Processing I2 packet 0.291420
+2024-11-25 14:24:11,482 [DEBUG] Current system state is 1
+2024-11-25 14:24:11,483 [DEBUG] Sending R2 packet to 192.168.3.2 0.003443
+2024-11-25 14:24:11,484 [DEBUG] Setting SA records...
+2024-11-25 14:24:11,484 [DEBUG] Transform 9 
+2024-11-25 14:24:11,484 [DEBUG] DERIVING KEYS
+2024-11-25 14:24:11,484 [DEBUG] bytearray(b'BC\xf7i\xd0c\xd7.~\x12\xa8\xadTz\x81[\xf8\x01Z\x14\x7f\x19\x7fk|\xf4\xba\xee\x11\x96v\x93~\x8f\x8d\xbe\x93\xe5\x05I3\x10\xdf\xb6\x114IM\xdal\x8a\x1c\xef\x17\\\xd1r\x9eo\xf4d\xf9\x05[uI*9\x1f\xc8\xb6;\\\x9a\xb7c\xf1\x85y\xf1\xa3\x9c\x91\x05\xc6\xddt7tJ\xbaV\xc2o\x89\x1c\x99\xd4\x88\xb6\x85\xb1\x13\x9f\x88\xe5\xe6;\x86at!\xba\xb5\x94\xc7[B\xf7e\xb8Uh\xfb\xd0\xb1\x05s,\xc4\x8b\xda3\x1fqk\xc1\xdc\xe5\x98u \xcd.roQ\x9d\x04\xfa&\xf7yQn2\r\xbe\xedw\x8bD1\xbe\xc4\xc8\x8d\xe9x\x10\xc1\xccd\x0f\xb0\t\xf9\x0b\x95\x9d\xc9\x16\x0cU9\xb6\x8f\xa6\x1b\x99r\xd1\xc9-\x0bJ\x93eM}\xb4\x0f\xf0^\xe7\x04L\xc3\xceHm\x1a\x97\xe5\x05\xf7\xed2{\x8f\x1c\xedz\xcb\xfd\x1bE?.P#\x8d\xdek\x9eb\xfc\xb0\x0c%\x8abb\x1b\xae?\\\xf1sa\x9cx\x99lz\xbc\xf7j%|\x93\xfc\xeez{\xaaCBD\xbf\xd8\xcdh>\xf2\xd2N\xc9^\x8c\xf6=\xae\xc4\xf7\xf4\xcd\x1c\x01;\x1e|\xed\xd7\x8c\x1e\xff\x84\xe18F\x80~\x12\x1f\xfb\x82\xaf\xedO\xc8+O\xe6yQ\xc4\xab\x9d\xf3\xd4\x849;\xb0r\xa9r\x86dm\xad\x97\xd8\x83\x9fi\x13C\x06\xcb\xb4\x8d\xbb\x90bU\xab$c\xa6\xcf\xe8I\x92\xa4j\xbfGWc@\x99%sK\x00\xdcYlI\xce+\xc7\xa6\xf6\xd3\x95\xa9y"\xd1\xfam4\x97LL\xd8\xcdb\xb6\xa0R\xf7\xce\x9d\xdc\xec\xf3G\x8b\x9e4\x10\x8e\xd7\x1c\xf7\xd9\x8d\xf2a7\x7f\x8c&lT\xe7*\x8c\xd8\xbfN\xa2\xb1\x8a\x95\xbe\xeb@\x96\x93\x1dMt\xd9\xec\x9fa\xd5\xcaff\x85L\x07G\x9a\xf1\x9f\xf3\r\xfc\x14\\\x9d`\x1a2\x18_\x93w4p\xd2y>\x90\x7fB\xec\x14\x98\x13(q\xd8\x0cB[\xf2<q]\x18\xa0{\x01C\xd8\xae\xdc\xac\xfej\xcd3n\xc2\xb8\xec\xae\x0b~\x02e\x0b5\xc0&\xb9`\x94\x9c9\xd6\xb8>\x96\xb4\xbe>/\xc7f\xbe\xff\xb0\xc7-\xd0\xf9\x9d\xc5L\x8d\xf7F-\xc8 A.\t\xc1\x80g\xf7\xb8\xd4\x1b\x94\xf4\x16P\xdb\xa0\x07\x1c"L\n4\xd7\xc0\xbe_\xac\xef\nx\xcf\xed&PcT ~\x86~\xd9\xb0j\x11^.\xa8:\x87\xc2\xcd\xd2\xd5-\x8dF\x93W\x9bb\xaa9\x0ctJ@\xb2\x1e}\x13z\xcc\xdd\xd7S37\xe4\xa4\x8b0\xbd\xcc!-X\xc9"(\xe6>?\x91\x90\xcbc')
+2024-11-25 14:24:11,485 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:24:11,485 [DEBUG] b'fd1b453f2e50238dde6b9e62fcb00c258a62621bae3f5cf173619c78996c7abc'
+2024-11-25 14:24:11,486 [DEBUG] b'c92d0b4a93654d7db40ff05ee7044cc3ce486d1a97e505f7ed327b8f1ced7acb'
+2024-11-25 14:24:11,486 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,487 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:24:11,487 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,488 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:24:11,488 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:24:11,488 [DEBUG] b'8b4431bec4c88de97810c1cc640fb009f90b959dc9160c5539b68fa61b9972d1'
+2024-11-25 14:24:11,489 [DEBUG] b'2cc48bda331f716bc1dce5987520cd2e726f519d04fa26f779516e320dbeed77'
+2024-11-25 14:24:11,490 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,490 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,490 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:24:11,490 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:24:11,539 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:11,539 [INFO] R2 packet
+2024-11-25 14:24:11,540 [DEBUG] ESP info parameter
+2024-11-25 14:24:11,540 [DEBUG] MAC2 parameter
+2024-11-25 14:24:11,540 [DEBUG] Signature2 parameter
+2024-11-25 14:24:11,546 [DEBUG] HMAC is ok. return with signature
+2024-11-25 14:24:11,556 [DEBUG] Signature is correct
+2024-11-25 14:24:11,559 [DEBUG] Processing R2 packet 0.019014
+2024-11-25 14:24:11,559 [DEBUG] Ending HIP BEX 1732541051.559310
+2024-11-25 14:24:11,559 [DEBUG] Setting SA records... 192.168.3.1 - 192.168.3.3
+2024-11-25 14:24:11,559 [DEBUG] Transform 9 
+2024-11-25 14:24:11,559 [DEBUG] 1
+2024-11-25 14:24:11,559 [DEBUG] 4
+2024-11-25 14:24:11,573 [DEBUG] DERIVING KEYS
+2024-11-25 14:24:11,573 [DEBUG] bytearray(b'\xad\x009\xbbYY\xcb\xc3\x8dUc\xa0\x1fEK\xc8E\xe7\x1e.\xc4\x82\xb3c\x03\x85\x8b\xf5=,\x80\xc0\x1d\xb3{\xc6L\x04\xa9H\xae\xa8\x8e\xf5\xf9\xccuO\xc2\x01\x19\x07\xad\xf4\x15\xb9\x9e"\xa7\xa4\xce\x8e\xc9\xf7\x8b\xf8o4|\x1e\x00/\xe3\x7f\x0e8\xfe\x8bk\xa8]\x0eX\xc9\x1b$\xeb`\xe8<\xdb6"\xd32\xeb\xfaP\xa2\xb0\x82\xfbK\xbd\xf9^M\xe5\\\xa5$w\xc2\xfe\xe9\x12\xb6G\xe6\\6\xfb\xdbSA;\xce\xc9}\x80!\xae\xa1-\x88I6\xf7\x8ci\x03\xff\x02\xe615#/\xae\xceZ\xbe$tp\xe7\xb8\x9by\xf5A\x18r/\x93q\xdc2\xb25\x1f\x1a\xee\x05\x84\xd8)\x9d?O\t\xe3\x0e\xe2\x99\xe2\xb6kp\xf3\x06\x82B\xe2\x17\xa2\xfdw&U\x98\xb8\xd3\x94\xc1\x06\x99\xd8\xa7|\x93\xca\xd4}\xb1\x9c|\xee\x98\xe4T{>hX\xd1-\xa8&G\x9f\xb3\xb8@d0J\xf18Hj`\x15\x9a\x1c\x1a\xf5\x8c@\xeeV\x06\x92C\x88\xbd\xa4\xca]UY\xe4Y\x02r\x1f\xf2\x15\x8bl\xe5\xf0\x05E+\xd9\x19\xa2\xd9^Z\xd6\x88U;\xd5)9\x82\xfe\xb5j\xae\x1e\xcd\xa6\xb2\xfc\xd5F\xd5\xf4\xfb\xf66\x8dw\x08/\xd4\xe0\x0e\xf2\x9ah\xacv\xee\x15\xfc\xae\xd5\xbb:\x89\xd6\x1e\xfb\xa9\x06\xd2-\x18\x90\xe6H\x99\x16\xff\x10\xdd\r\x7f\xd4Kl$\xd0\x14\xacK\xb7\xaf\xd5\x7f\xc2\xb8\xfbsu)!o\xdfE\x9c7\xd3\xf8s6\x18\xbb\x00z\xcf\xef\xd0L\x06\x94v\x90\xe6?\xe1\xe8\xa1\xb3\xf51\x8b\xb0\x91lr\xf6;\xe6\xf1\xba5\xda\x8a\xc4\xf8\xd0E\xa0\x82\x14\xd3\xdb\xe29\x16\xe4\xbe\x13]I\xac\x02\xc6\xb1\x8fFV\xac3>\xa2\x8e[i\xe5?sn:"\xd38|\xcdH \xc4\x9c\x00;L\x07\xa4X\xdb\x9b\xeb\xde\xada\x9f\x15m\xaa>l\xddv\xad\x19\x08\xcd\xfe\xb4PinC\xb8<\xcc{\xe2\x9a\xbd\x8c\xb6\xc3,\xe3\x8b\xe6\xce(Ohj2\xb8\xf4V\x06&\x8f\xd1S\xac\x15\x85\xc7m\xa7\x9fz:\xec\xc8h\xd9\xf7\x1am\x93\xbfm\xe6\n[XJ\x04\xec\x8et\xc4\xa5\xfc\x13\xb9\x9e\xf3|\x01\xec@@m\xb0\x184\xbf\x18D\x80"\xdf\x8a*|n%/\x12\xcbcA\xa68\xcaxE?BJ\x1a\x1b\x17\t\xb0R\xefZn\x89d,\'\x11\x9e=\xbb\xbc\xe7\xacA\x87\xe0\xcb\xb0\xd1\x03C{\x90"\x82Z;v\x15\x80c\xf1Q\x1fn\xac\xaa\xc4X\xc9\xe4\x873\xd6\xd2\xceY\xfcf\x08U\xbba\x9fB\x86\xa8j')
+2024-11-25 14:24:11,574 [DEBUG]  DERVIVING KEYS OUT R2
+2024-11-25 14:24:11,574 [DEBUG] b'4118722f9371dc32b2351f1aee0584d8299d3f4f09e30ee299e2b66b70f30682'
+2024-11-25 14:24:11,574 [DEBUG] b'7d8021aea12d884936f78c6903ff02e63135232faece5abe247470e7b89b79f5'
+2024-11-25 14:24:11,577 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,577 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:24:11,578 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,578 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 20010021e1ddfc6a83ee5648830c5681
+2024-11-25 14:24:11,578 [DEBUG]  DERVIVING KEYS IN R2
+2024-11-25 14:24:11,578 [DEBUG] b'58d12da826479fb3b84064304af138486a60159a1c1af58c40ee5606924388bd'
+2024-11-25 14:24:11,578 [DEBUG] b'42e217a2fd77265598b8d394c10699d8a77c93cad47db19c7cee98e4547b3e68'
+2024-11-25 14:24:11,583 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,583 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:11,583 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:24:11,583 [DEBUG] Adding record for 192.168.3.1 - 192.168.3.3
+2024-11-25 14:24:12,257 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:13,178 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:13,179 [INFO] UPDATE packet
+2024-11-25 14:24:13,180 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:13,181 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:24:13,182 [DEBUG] Reponder's HMAC algorithm 1
+2024-11-25 14:24:13,184 [DEBUG] Sequence parameter
+2024-11-25 14:24:13,189 [DEBUG] MAC parameter
+2024-11-25 14:24:13,189 [DEBUG] Signature parameter
+2024-11-25 14:24:13,192 [DEBUG] Signature is correct
+2024-11-25 14:24:13,194 [DEBUG] Sending UPDATE ACK packet 192.168.3.1
+2024-11-25 14:24:13,262 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:24:13,262 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:13,262 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:24:13,262 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:13,265 [DEBUG] Destination HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:24:13,276 [DEBUG] Sending UPDATE PACKET packet 192.168.3.1
+2024-11-25 14:24:13,277 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:13,300 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:13,300 [INFO] UPDATE packet
+2024-11-25 14:24:13,301 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:13,301 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:24:13,301 [DEBUG] Reponder's HMAC algorithm 1
+2024-11-25 14:24:13,307 [DEBUG] Acknowledgement parameter
+2024-11-25 14:24:13,308 [DEBUG] MAC parameter
+2024-11-25 14:24:13,309 [DEBUG] Signature parameter
+2024-11-25 14:24:13,310 [DEBUG] Signature is correct
+2024-11-25 14:24:13,310 [DEBUG] This is a response to a UPDATE. Skipping pong...
+2024-11-25 14:24:14,108 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:14,116 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:24:14,117 [DEBUG] ESP info parameter
+2024-11-25 14:24:14,122 [DEBUG] R1 counter
+2024-11-25 14:24:14,122 [DEBUG] Puzzle solution parameter
+2024-11-25 14:24:14,122 [DEBUG] DH parameter
+2024-11-25 14:24:14,122 [DEBUG] Ciphers parameter
+2024-11-25 14:24:14,123 [DEBUG] ESP transform parameter
+2024-11-25 14:24:14,123 [DEBUG] Host ID
+2024-11-25 14:24:14,123 [DEBUG] OGA ID 1 
+2024-11-25 14:24:14,124 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:24:14,124 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:24:14,124 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:24:14,125 [DEBUG] Transport parameter
+2024-11-25 14:24:14,128 [DEBUG] MAC parameter
+2024-11-25 14:24:14,128 [DEBUG] Signature parameter
+2024-11-25 14:24:14,128 [DEBUG] Puzzle was solved
+2024-11-25 14:24:14,294 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:14,766 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:24:14,767 [DEBUG] Signature is correct
+2024-11-25 14:24:14,768 [DEBUG] Processing I2 packet 0.650657
+2024-11-25 14:24:14,769 [DEBUG] Current system state is 3
+2024-11-25 14:24:14,769 [DEBUG] Sending R2 packet to 192.168.3.2 0.001603
+2024-11-25 14:24:14,770 [DEBUG] Setting SA records...
+2024-11-25 14:24:14,770 [DEBUG] Transform 9 
+2024-11-25 14:24:14,770 [DEBUG] DERIVING KEYS
+2024-11-25 14:24:14,770 [DEBUG] bytearray(b'BC\xf7i\xd0c\xd7.~\x12\xa8\xadTz\x81[\xf8\x01Z\x14\x7f\x19\x7fk|\xf4\xba\xee\x11\x96v\x93~\x8f\x8d\xbe\x93\xe5\x05I3\x10\xdf\xb6\x114IM\xdal\x8a\x1c\xef\x17\\\xd1r\x9eo\xf4d\xf9\x05[uI*9\x1f\xc8\xb6;\\\x9a\xb7c\xf1\x85y\xf1\xa3\x9c\x91\x05\xc6\xddt7tJ\xbaV\xc2o\x89\x1c\x99\xd4\x88\xb6\x85\xb1\x13\x9f\x88\xe5\xe6;\x86at!\xba\xb5\x94\xc7[B\xf7e\xb8Uh\xfb\xd0\xb1\x05s,\xc4\x8b\xda3\x1fqk\xc1\xdc\xe5\x98u \xcd.roQ\x9d\x04\xfa&\xf7yQn2\r\xbe\xedw\x8bD1\xbe\xc4\xc8\x8d\xe9x\x10\xc1\xccd\x0f\xb0\t\xf9\x0b\x95\x9d\xc9\x16\x0cU9\xb6\x8f\xa6\x1b\x99r\xd1\xc9-\x0bJ\x93eM}\xb4\x0f\xf0^\xe7\x04L\xc3\xceHm\x1a\x97\xe5\x05\xf7\xed2{\x8f\x1c\xedz\xcb\xfd\x1bE?.P#\x8d\xdek\x9eb\xfc\xb0\x0c%\x8abb\x1b\xae?\\\xf1sa\x9cx\x99lz\xbc\xf7j%|\x93\xfc\xeez{\xaaCBD\xbf\xd8\xcdh>\xf2\xd2N\xc9^\x8c\xf6=\xae\xc4\xf7\xf4\xcd\x1c\x01;\x1e|\xed\xd7\x8c\x1e\xff\x84\xe18F\x80~\x12\x1f\xfb\x82\xaf\xedO\xc8+O\xe6yQ\xc4\xab\x9d\xf3\xd4\x849;\xb0r\xa9r\x86dm\xad\x97\xd8\x83\x9fi\x13C\x06\xcb\xb4\x8d\xbb\x90bU\xab$c\xa6\xcf\xe8I\x92\xa4j\xbfGWc@\x99%sK\x00\xdcYlI\xce+\xc7\xa6\xf6\xd3\x95\xa9y"\xd1\xfam4\x97LL\xd8\xcdb\xb6\xa0R\xf7\xce\x9d\xdc\xec\xf3G\x8b\x9e4\x10\x8e\xd7\x1c\xf7\xd9\x8d\xf2a7\x7f\x8c&lT\xe7*\x8c\xd8\xbfN\xa2\xb1\x8a\x95\xbe\xeb@\x96\x93\x1dMt\xd9\xec\x9fa\xd5\xcaff\x85L\x07G\x9a\xf1\x9f\xf3\r\xfc\x14\\\x9d`\x1a2\x18_\x93w4p\xd2y>\x90\x7fB\xec\x14\x98\x13(q\xd8\x0cB[\xf2<q]\x18\xa0{\x01C\xd8\xae\xdc\xac\xfej\xcd3n\xc2\xb8\xec\xae\x0b~\x02e\x0b5\xc0&\xb9`\x94\x9c9\xd6\xb8>\x96\xb4\xbe>/\xc7f\xbe\xff\xb0\xc7-\xd0\xf9\x9d\xc5L\x8d\xf7F-\xc8 A.\t\xc1\x80g\xf7\xb8\xd4\x1b\x94\xf4\x16P\xdb\xa0\x07\x1c"L\n4\xd7\xc0\xbe_\xac\xef\nx\xcf\xed&PcT ~\x86~\xd9\xb0j\x11^.\xa8:\x87\xc2\xcd\xd2\xd5-\x8dF\x93W\x9bb\xaa9\x0ctJ@\xb2\x1e}\x13z\xcc\xdd\xd7S37\xe4\xa4\x8b0\xbd\xcc!-X\xc9"(\xe6>?\x91\x90\xcbc')
+2024-11-25 14:24:14,771 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:24:14,771 [DEBUG] b'fd1b453f2e50238dde6b9e62fcb00c258a62621bae3f5cf173619c78996c7abc'
+2024-11-25 14:24:14,771 [DEBUG] b'c92d0b4a93654d7db40ff05ee7044cc3ce486d1a97e505f7ed327b8f1ced7acb'
+2024-11-25 14:24:14,771 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:14,771 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:24:14,771 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:14,771 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:24:14,771 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:24:14,771 [DEBUG] b'8b4431bec4c88de97810c1cc640fb009f90b959dc9160c5539b68fa61b9972d1'
+2024-11-25 14:24:14,772 [DEBUG] b'2cc48bda331f716bc1dce5987520cd2e726f519d04fa26f779516e320dbeed77'
+2024-11-25 14:24:14,772 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:14,772 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:14,772 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:24:14,772 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:24:15,150 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:15,150 [INFO] UPDATE packet
+2024-11-25 14:24:15,150 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:24:15,150 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:15,151 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:24:15,152 [DEBUG] Sequence parameter
+2024-11-25 14:24:15,153 [DEBUG] MAC parameter
+2024-11-25 14:24:15,153 [DEBUG] Signature parameter
+2024-11-25 14:24:15,163 [DEBUG] Signature is correct
+2024-11-25 14:24:15,175 [DEBUG] Sending UPDATE ACK packet 192.168.3.2
+2024-11-25 14:24:15,296 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:15,296 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:24:15,307 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:24:15,307 [DEBUG] HMAC algorithm 1
+2024-11-25 14:24:15,308 [DEBUG] [126, 143, 141, 190, 147, 229, 5, 73, 51, 16, 223, 182, 17, 52, 73, 77, 218, 108, 138, 28, 239, 23, 92, 209, 114, 158, 111, 244, 100, 249, 5, 91]
+2024-11-25 14:24:15,308 [DEBUG] ------------------------------
+2024-11-25 14:24:15,308 [DEBUG] [59, 5, 18, 33, 0, 0, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158, 3, 129, 0, 4, 82, 252, 65, 169]
+2024-11-25 14:24:15,308 [DEBUG] ------------------------------
+2024-11-25 14:24:15,352 [DEBUG] Sending CLOSE PACKET packet 192.168.3.2
+2024-11-25 14:24:15,364 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:15,365 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:24:15,365 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:24:15,365 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:24:15,365 [DEBUG] Destination HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:24:15,372 [DEBUG] Sending UPDATE PACKET packet 192.168.3.2
+2024-11-25 14:24:15,372 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:15,476 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:16,373 [DEBUG] Transitioning to UNASSOCIATED state....
+2024-11-25 14:24:16,373 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:17,374 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:17,813 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:17,814 [INFO] I1 packet
+2024-11-25 14:24:18,163 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:24:18,164 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:24:18,339 [DEBUG] Sending I1 packet to 192.168.3.2
+ 0.000079
+2024-11-25 14:24:18,377 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:19,378 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:20,379 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:21,381 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:22,117 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:22,118 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:24:22,118 [DEBUG] ESP info parameter
+2024-11-25 14:24:22,118 [DEBUG] R1 counter
+2024-11-25 14:24:22,118 [DEBUG] Puzzle solution parameter
+2024-11-25 14:24:22,119 [DEBUG] DH parameter
+2024-11-25 14:24:22,119 [DEBUG] Ciphers parameter
+2024-11-25 14:24:22,122 [DEBUG] ESP transform parameter
+2024-11-25 14:24:22,131 [DEBUG] Host ID
+2024-11-25 14:24:22,131 [DEBUG] OGA ID 1 
+2024-11-25 14:24:22,131 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:24:22,132 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:24:22,132 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:24:22,132 [DEBUG] Transport parameter
+2024-11-25 14:24:22,132 [DEBUG] MAC parameter
+2024-11-25 14:24:22,133 [DEBUG] Signature parameter
+2024-11-25 14:24:22,133 [DEBUG] Puzzle was solved
+2024-11-25 14:24:22,361 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:24:22,363 [DEBUG] Signature is correct
+2024-11-25 14:24:22,363 [DEBUG] Processing I2 packet 0.245376
+2024-11-25 14:24:22,366 [DEBUG] Current system state is 1
+2024-11-25 14:24:22,367 [DEBUG] Sending R2 packet to 192.168.3.2 0.003492
+2024-11-25 14:24:22,368 [DEBUG] Setting SA records...
+2024-11-25 14:24:22,368 [DEBUG] Transform 9 
+2024-11-25 14:24:22,368 [DEBUG] DERIVING KEYS
+2024-11-25 14:24:22,368 [DEBUG] bytearray(b'\t\xd0\xf7\x98\tpJubfx\xd2\xc4\xc5\x9d\n\xbc\x03\xe6\x10\x88\xa1\xdf\xfco\xaf)\xbc\xb6\xa1H\x90/\x89\x9c\xc6r%\xec*BE\x9c\xb5/\xd6\xcc\xe0u\xdf\x98\xa8\x86\xfc\x18CN\xb2\xc3\xe2m\xad\xa6\xde;".\xf5\x1b\x9eL\x88\xe1\xa8\xf5I=\xcf>\xdei\xd2\x81\x8f\xb56\x94S\x93\xb6q\xb5*0X"\xa3\xb8\x7f\xb8<\xd1\xc9\xc8,\n\xach7\xf3a\x16x\xef\xeb\x9e\xe3\'\x9cD\n\x8f\x04\xde\xaef\xcf\xd86\x95\xc2\xb2\xac#>\xd8:\x9b\xd1\xec\xc5\x9c\x8c\xc2\xd7v\x82\xe5\xa1\x1fE=\x8d0\xd7DE\x0f\xa3s \x9a\xc2\x94\x8a:\x1f*H\xfbG\x8f\xe1\xbf\x02\xea<\xa9\x9eCn\xca\r\xe4\xce\x07\x98P\xcd\xc91\x1e\x1e\xc9E[\x93\x91\xf8\x84\xed\xd2m\x02=l\x14I\xf2\x7f\x8e\xfe\xdc\xd8V\x8c\x97\xce\x9a\x0e\xb4\xba\xd0\t\x8d\x04c% \xdf\xb8t\xb2\xa5\xba\xd7"\x14)R\x9f\x9c\xa9\xf9\x0b\xa6\xe5\xa1\x05\x9f\xad\'\xa4A\xfb\xf8\x86\xd1J\xc6S\x06\x89\xe4-M\xd0\x8ev\xda\x93%\t\xad>\xf9\xbf\xd6\xc3G\xa9\xf1\x18\xab\xc17\x9e`\x0b:B;\xe0\x93*\xf1\x10\xd1t\xdf\xf2$\xa8Z7\xf1\x1b\x81E\xe4A\x80\x985y{\xac\xe0\xb5\xc5m\xb6\xd2$4\xc6\xf6LSK\x98\x1f9}\xdf\xc2m\xc1\xb3\xefTu2zK\xd9\x8d;\x9f\xbar\xde\x7f\xf1(V\xb0\nI\xca\x1c\x83\x10\xed\x11M\xe4\x1au\xd0_\x80wF\x95\x03[D\x15\xae\xedF$!\xb6\xe6P\xf9_\xaeI\xa8l\xdf\x85\x90\x1c\xd0\x10\xd7\xc8*\x8b\t\xae\x86\r[\xe1\x08\xe5\xd7\x00d#\xf6:\xb6d\x90`=\x1c\xa1?\x8c;5)\xc9\x1d\x89t\xe2\xa3\xd5\xc9k\x1f\x1e\xfaf\xd2\x1a\x1d\xef\xf3?<5\xa5\x1a\xedA\xb2\xbf\xf7\xcb\xcdA\x13\xe2\x91\xfa\x17\xf0\xa1\xce^\xdd\x10\xbc\xc2\xd3\x89"\x0cUD\x8fI\x90\xc8r!p\x06|\x83\x93\x90\xcf<\xac_\xe2\xd2@\x96W_\xd1\xb6\xedQ\x95r\r\xf9\xeb\xfb\x96[K\xd7\xae\x04\xb4\xa1\x81\x1e\xbe0\x17\xb6FM\xf1e\xe1=\xa3\xcd%9u\xb2\xbfQ\xd3\x81\x8f\x1b\xd5\x08\xc4\xf3\xc8q\xa3\xfe\xa1\x13/\xb5xCqJq\xa1\xbcp)su\xbd\xf3$b\x91P\xe4j\x95\\s`\x08\x0c\xaf\\$\xee\xd2_\n\xc6\xf4=\xff\xd2\xb6\x18fJ\xe2z\xa4\xad\xb7\xf9\xbf\xba\x0cV\x00\x11\x02\xb6\x8dN\xd6\x90\x80\xd5t\xaf5%\x91d\xb63^\x8d\x08]ig\xda\xc50\x7f\x87{\xe1\x08\x11\x00')
+2024-11-25 14:24:22,369 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:24:22,369 [DEBUG] b'8d04632520dfb874b2a5bad7221429529f9ca9f90ba6e5a1059fad27a441fbf8'
+2024-11-25 14:24:22,369 [DEBUG] b'1ec9455b9391f884edd26d023d6c1449f27f8efedcd8568c97ce9a0eb4bad009'
+2024-11-25 14:24:22,369 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:22,369 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:24:22,370 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:22,370 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:24:22,370 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:24:22,371 [DEBUG] b'209ac2948a3a1f2a48fb478fe1bf02ea3ca99e436eca0de4ce079850cdc9311e'
+2024-11-25 14:24:22,371 [DEBUG] b'3695c2b2ac233ed83a9bd1ecc59c8cc2d77682e5a11f453d8d30d744450fa373'
+2024-11-25 14:24:22,371 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:22,371 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:24:22,371 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:24:22,372 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:24:22,374 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:24:22,375 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:24:22,375 [DEBUG] Dropping packet... Invalid state
+2024-11-25 14:24:22,386 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:23,388 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:24,389 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:25,391 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:24:26,023 [DEBUG] Exception occured while processing L2 frame
+2024-11-25 14:24:26,023 [DEBUG] [Errno 100] Network is down
+2024-11-25 14:24:26,393 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:27,071 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:27:27,072 [INFO] Importing hosts file
+2024-11-25 14:27:27,072 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 14:27:27,072 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:27:27,072 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 14:27:27,072 [INFO] Loading public key and constructing HIT
+2024-11-25 14:27:27,184 [INFO] Initializing IPSec socket
+2024-11-25 14:27:27,199 [INFO] Starting the CuteHIP
+2024-11-25 14:27:27,215 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:27,311 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000225
+2024-11-25 14:27:27,320 [DEBUG] Sending I1 packet to 192.168.3.2
+ 0.000096
+2024-11-25 14:27:27,945 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:27,945 [INFO] I1 packet
+2024-11-25 14:27:28,224 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:28,288 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:27:28,288 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:27:28,499 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:28,499 [INFO] I1 packet
+2024-11-25 14:27:28,500 [DEBUG] Staying in I1-SENT state
+2024-11-25 14:27:29,225 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:30,226 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:31,022 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:31,027 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:27:31,028 [DEBUG] ESP info parameter
+2024-11-25 14:27:31,028 [DEBUG] R1 counter
+2024-11-25 14:27:31,028 [DEBUG] Puzzle solution parameter
+2024-11-25 14:27:31,029 [DEBUG] DH parameter
+2024-11-25 14:27:31,029 [DEBUG] Ciphers parameter
+2024-11-25 14:27:31,029 [DEBUG] ESP transform parameter
+2024-11-25 14:27:31,029 [DEBUG] Host ID
+2024-11-25 14:27:31,029 [DEBUG] OGA ID 1 
+2024-11-25 14:27:31,029 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:27:31,029 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:27:31,030 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:27:31,031 [DEBUG] Transport parameter
+2024-11-25 14:27:31,034 [DEBUG] MAC parameter
+2024-11-25 14:27:31,034 [DEBUG] Signature parameter
+2024-11-25 14:27:31,034 [DEBUG] Puzzle was solved
+2024-11-25 14:27:31,233 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:31,299 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:27:31,301 [DEBUG] Signature is correct
+2024-11-25 14:27:31,301 [DEBUG] Processing I2 packet 0.273618
+2024-11-25 14:27:31,304 [DEBUG] Current system state is 1
+2024-11-25 14:27:31,304 [DEBUG] Sending R2 packet to 192.168.3.2 0.002909
+2024-11-25 14:27:31,305 [DEBUG] Setting SA records...
+2024-11-25 14:27:31,305 [DEBUG] Transform 9 
+2024-11-25 14:27:31,306 [DEBUG] DERIVING KEYS
+2024-11-25 14:27:31,307 [DEBUG] bytearray(b'\xcf\x1f\x13\xc2"\xbc\x0c\x1c\x16y#\xf0\xf76%I\x86w\xe2\xd3&\x93=\x8c\xc1\x8f\x08!\x1czs\x19Oo\x85\xd3\x9f\xbdX\x84.R\xcb\xf3\xcb\xca\xcc~\xa6\x12`\xfb\xe7CK\x11\xbfs\x16\xcf\x80K\t\xe8\x14\xb2\xcf+\x1b\x16\x01\x8c]\' E\xd1\x974,\x08h\x17\\\xdea\x86M\x07\xa28\x98\xcd\x9b\x82\xb4\x0el\x1c\x14:`\xbe\xf1o\xeax\x9b\xff\xed(\x83\xfa\xc8v\xe1\xc8\xd5}\xf0\x9aR\x94#\xe9\xc7\xafkp\x1b\xc0ak\xf4\x02\xef@\xeb\x858\x1cFU\xc7c\x01\xc2\xf83A"\xffcu\xca=\xcb5g\x90\x82\xe9\xb3\xb3Rm\xacq\xd3\xc4"\x18%+\x1cZ\xee\xfd\x89,\xf1X\xff`Y<\xb9dp\xdfP\x8b\x9f\x86>\x02\x86\x8b4\xabM#\xbe\x82 \xb6\x88\xb5\x98\xed\x86\xef\xe8\xe6i\\2EI\x12\xb4}\x155\xe1\xbb\x0f\x8c\xce\x8d\x86\xf7\x16kCv\x99\x9f\xe2\x9a\xc4\x80U\xe1\xbai\x10\x1f\xe2\xee\x90\x86\x99\xeeNK"\xa3&\x8c\xa3\xfc\xe11Y\x98\x83(fP\x9b\xaa\xee\x90 7\x06\xdal\xe8\xa2m`\xc9\xbca\xf4\xaaj\xc6\xd9\xd8]\x9bs=\xfb\xaf\xaf\x9b\x18\xa4x\xc7\xfb6\xb3\xbe|L\x9ct\xa4\xc5nv\x9f\x84`0\x02C\xe1\x9dE\t\x1c\xf2\x88\xd1\xcdn\xde\xb7\x8c\x04)\xc7CU\x18\xac+\xa9\xa7\xb13]\xb2l\xd4\xfb\xd4\xa4\x04(@gv\xdc\x83\x82\x85\xa2\x9b\xdf\xf8\x1eZ\x1a\xa3\xc7\x1d\xe1V\xee\xa0\xc6\x1cj\x88\xcem=y8\xa7\xd0\xf7jI\x9d\x07# w\xce\xe4\xd3\xc3i\xd7\xbb\x1c\x1f\x8b\xeb#f@,\xc2i<\x85\xd6\x8b\xeb\xaem2\x07\xa0\x0b\x06\xfa\x84\x02\xa8W\xac\x12\x86T\xbb\x88d+\x90,\xc7\xb8^\xaa/\xfa\x0e\xf5\xf7\xdc\r\x91\x95D\xdbf\xdf\xd8n=\xed\x02\x9c\xdew\x0f\x89\xbc\xd6@Bu\x87\'\xcb\xd7fNu<\x04.\x1b\xb2ERg\xc6\xf7S\x8eI}\x02 \x08Sc\x91\x81\x8d\x1b"\xa6\xdaWPo\x96\x18\x12\x0c\x94g\xe1\x1b\xa6\xff\x97FW\xbd\xa9\'\xfb:\xed\xe5M&\x99\xf7\x00\xf4\xee\xcd\x1a\xfb\xc7\xa8\xfc\xf3\x13\x9b\xb0A]\xc7\x98Ak\xb4q"S~q\x01\'\xf0\xaf\x92\x9c\x8c2>\x9c\xca\x94\xff8+\n\xf6dU\xe3cp\x1b\xee-?\xe6Za\xdaD\xadRNX\xe7\xf5H\xe9\x8d\xa7\x00\x1d\x91D\xf8\x83(\xba\xf7u\xdbms\xa4>Cp\x9d\xbd\x14\xeb\x1b\xeb\xacT\x92\x94\x92\x1aj\x11\xcb$\xe6\x90)`\xd4\x1c\xd9\xbdh')
+2024-11-25 14:27:31,307 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:27:31,308 [DEBUG] b'e1bb0f8cce8d86f7166b4376999fe29ac48055e1ba69101fe2ee908699ee4e4b'
+2024-11-25 14:27:31,308 [DEBUG] b'9f863e02868b34ab4d23be8220b688b598ed86efe8e6695c32454912b47d1535'
+2024-11-25 14:27:31,308 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:31,308 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:27:31,308 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:31,310 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:27:31,310 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:27:31,310 [DEBUG] b'82e9b3b3526dac71d3c42218252b1c5aeefd892cf158ff60593cb96470df508b'
+2024-11-25 14:27:31,311 [DEBUG] b'701bc0616bf402ef40eb85381c4655c76301c2f8334122ff6375ca3dcb356790'
+2024-11-25 14:27:31,311 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:31,312 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:31,312 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:27:31,312 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:27:32,241 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:32,917 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:32,917 [INFO] UPDATE packet
+2024-11-25 14:27:32,918 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:27:32,918 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:32,918 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:27:32,919 [DEBUG] Sequence parameter
+2024-11-25 14:27:32,919 [DEBUG] MAC parameter
+2024-11-25 14:27:32,920 [DEBUG] Signature parameter
+2024-11-25 14:27:32,921 [DEBUG] Signature is correct
+2024-11-25 14:27:32,931 [DEBUG] Sending UPDATE ACK packet 192.168.3.2
+2024-11-25 14:27:33,244 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:33,245 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:27:33,245 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:27:33,246 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:33,246 [DEBUG] Destination HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:27:33,251 [DEBUG] Sending UPDATE PACKET packet 192.168.3.2
+2024-11-25 14:27:33,252 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:33,260 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:33,260 [INFO] UPDATE packet
+2024-11-25 14:27:33,265 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:27:33,267 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:33,268 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:27:33,268 [DEBUG] Acknowledgement parameter
+2024-11-25 14:27:33,269 [DEBUG] MAC parameter
+2024-11-25 14:27:33,269 [DEBUG] Signature parameter
+2024-11-25 14:27:33,270 [DEBUG] Signature is correct
+2024-11-25 14:27:33,271 [DEBUG] This is a response to a UPDATE. Skipping pong...
+2024-11-25 14:27:34,254 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:35,255 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:36,258 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:37,261 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:38,264 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:39,266 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:40,269 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:41,271 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:42,273 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:43,277 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:44,280 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:45,282 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:46,284 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:47,288 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:48,290 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:48,290 [DEBUG] Destination HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:48,291 [DEBUG] Re-sending I1 packet to 192.168.3.1
+2024-11-25 14:27:48,291 [DEBUG] Re-sending I1 packet from 192.168.3.3
+2024-11-25 14:27:48,292 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:48,292 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:48,292 [DEBUG] I2 packet buffer------------
+2024-11-25 14:27:48,292 [DEBUG] bytearray(b'E\x00\x00\x00\x00\x00\x00\x00\x80\x8b\x00\x00\xc0\xa8\x03\x03\xc0\xa8\x03\x01;\x06\x01!@\x11\x00\x00 \x01\x00!\xb7\x00\xc8El_F\xbb\xbeX#\x88 \x01\x00!\xe1\xdd\xfcj\x83\xeeVH\x83\x0cV\x81\x01\xff\x00\x06\x04\t\x08\x03\x07\n\x00\x00\x00\x00\x00\x00')
+2024-11-25 14:27:48,305 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:48,635 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:48,641 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:27:48,641 [DEBUG] <hiplib.crypto.digest.SHA256Digest object at 0x7562e3f8c440>
+2024-11-25 14:27:48,642 [DEBUG] [<hiplib.packets.HIP.R1CounterParameter object at 0x7562e3f5b140>, <hiplib.packets.HIP.PuzzleParameter object at 0x7562e3f8c1d0>, <hiplib.packets.HIP.DHParameter object at 0x7562e3f8c290>, <hiplib.packets.HIP.CipherParameter object at 0x7562e3f8c170>, <hiplib.packets.HIP.ESPTransformParameter object at 0x7562e3f8c650>, <hiplib.packets.HIP.HostIdParameter object at 0x7562e3f8c530>, <hiplib.packets.HIP.HITSuitListParameter object at 0x7562e3f8c2f0>, <hiplib.packets.HIP.DHGroupListParameter object at 0x7562e3f8c320>, <hiplib.packets.HIP.TransportListParameter object at 0x7562e3f8c560>, <hiplib.packets.HIP.Signature2Parameter object at 0x7562e3f8c4d0>]
+2024-11-25 14:27:48,642 [DEBUG] !!!!!!!!!!!!!!!!!!!!!!
+2024-11-25 14:27:48,642 [DEBUG] R1 counter
+2024-11-25 14:27:48,642 [DEBUG] Puzzle parameter
+2024-11-25 14:27:48,642 [DEBUG] DH parameter
+2024-11-25 14:27:48,642 [DEBUG] Ciphers
+2024-11-25 14:27:48,643 [DEBUG] ESP transform
+2024-11-25 14:27:48,643 [DEBUG] DI type: 2 
+2024-11-25 14:27:48,643 [DEBUG] DI value: bytearray(b'dmitriy.kuptsov@strangebit.com') 
+2024-11-25 14:27:48,643 [DEBUG] Host ID
+2024-11-25 14:27:48,643 [DEBUG] Responder's OGA ID 1
+2024-11-25 14:27:48,643 [DEBUG] bytearray(b'\x03\x01\x00\x01\xeaF\x99\x8b-n\xe8l\xd5j\xf8\xdb+\x9f\xf3=\x9fT\xaam:\xd2.\xd2\x10\xd1\xd7\xe4.\x97=[\x08\x16!\xa3"\xa8=\'\xcf\xc4\xad\x80@$\x03z\x02\x1f!\xeb.oc\x92=\xab\xad\x8a**\xceh+_jk\x10|\x08e\x90\xb9\x81%\xa2M\xf1\xde\x0f\xc6\r*@\x94j=\x8e\x03\x1b\xfeD\xfd\xe5\x96\x7f\x16\xa0\xfcT1\x94\x18\x8d\xe1\x88\xcdn<\xdd;).\xe4\xbeyDv\xe60\x07\xb0\xf2\x97\xa4\x1e9')
+2024-11-25 14:27:48,644 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:27:48,644 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:27:48,644 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:27:48,645 [DEBUG] HIT suit list
+2024-11-25 14:27:48,645 [DEBUG] DH groups parameter
+2024-11-25 14:27:48,645 [DEBUG] Transport parameter
+2024-11-25 14:27:48,645 [DEBUG] [4095]
+2024-11-25 14:27:48,646 [DEBUG] Signature parameter
+2024-11-25 14:27:49,307 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:50,319 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:51,327 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:51,671 [DEBUG] Puzzle was solved and verified....
+2024-11-25 14:27:51,672 [DEBUG] DH public key value: 5302993932300585760033315456914516797444052855600156435944355319523489569402411624830072948240854099759509314315782832822318373260483927265213476964401952133314289263387341285952970634545409692838107208951177066506219362263851097230378433304082610841021942097387097159679749026310810156328501392104975219733272088241428822583813492672282103833766435652344485316743567752105382063575989735261755478129364889757168318369724919000437861950585262146371500647011790080969882086463871564383797752949115517516001717823592458465263264736124547252068897043391156270049033006009760194532075245133847442154966694804789333990429515119652028098810735872546947681056845314584368379929251741263829355629781442410253675760382082853889903136788247888447547399243994824441386802472023893218079767599454832868253925146937808022210807466874172064333754291076817676909714383901257750988409619028011741550905799439476169773294895269930724423768172 
+2024-11-25 14:27:51,982 [DEBUG] Saving keying material in R1 192.168.3.3 192.168.3.1
+2024-11-25 14:27:51,982 [DEBUG] Processing R1 packet 3.340645
+2024-11-25 14:27:51,983 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:27:51,985 [DEBUG] [69, 0, 0, 0, 0, 0, 0, 0, 128, 139, 0, 0, 192, 168, 3, 3, 192, 168, 3, 1, 59, 113, 3, 33, 235, 196, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129, 0, 65, 0, 12, 0, 0, 0, 128, 0, 0, 0, 0, 126, 246, 143, 68, 0, 129, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 65, 0, 68, 16, 0, 208, 138, 73, 218, 123, 250, 51, 238, 191, 185, 206, 113, 134, 155, 86, 144, 49, 189, 92, 182, 179, 216, 122, 202, 182, 247, 45, 87, 220, 8, 146, 48, 24, 177, 159, 112, 64, 201, 11, 221, 121, 202, 50, 238, 251, 190, 102, 119, 103, 0, 24, 217, 185, 207, 58, 124, 85, 119, 182, 9, 97, 241, 216, 221, 250, 9, 2, 1, 1, 131, 4, 0, 48, 171, 153, 165, 217, 160, 211, 14, 103, 212, 140, 178, 159, 142, 114, 93, 54, 11, 138, 183, 145, 89, 109, 233, 245, 121, 83, 222, 135, 163, 234, 222, 135, 120, 120, 170, 249, 91, 104, 13, 237, 156, 85, 89, 233, 199, 155, 119, 176, 115, 99, 158, 212, 87, 240, 75, 30, 250, 28, 227, 71, 150, 29, 235, 18, 153, 179, 221, 173, 226, 246, 59, 146, 84, 7, 141, 120, 145, 196, 146, 57, 16, 231, 102, 237, 160, 179, 201, 28, 247, 89, 181, 12, 102, 31, 150, 175, 250, 76, 221, 156, 192, 43, 184, 226, 54, 92, 171, 79, 236, 128, 91, 45, 74, 203, 100, 255, 156, 141, 157, 131, 33, 113, 162, 113, 205, 226, 98, 32, 232, 198, 36, 116, 9, 37, 149, 202, 107, 171, 221, 86, 101, 166, 35, 92, 141, 28, 38, 1, 155, 12, 156, 247, 162, 70, 122, 205, 201, 10, 11, 189, 136, 232, 154, 255, 180, 208, 181, 192, 51, 204, 90, 122, 91, 211, 252, 16, 193, 26, 41, 120, 136, 245, 36, 243, 11, 222, 228, 29, 41, 91, 46, 58, 117, 184, 241, 247, 115, 121, 190, 3, 137, 37, 130, 2, 2, 41, 127, 214, 172, 60, 139, 4, 24, 121, 148, 109, 142, 177, 12, 4, 178, 17, 167, 116, 232, 80, 93, 170, 148, 244, 197, 201, 232, 44, 101, 231, 28, 197, 199, 160, 62, 92, 170, 122, 172, 174, 97, 105, 128, 173, 201, 234, 195, 170, 194, 100, 204, 47, 74, 183, 86, 54, 62, 234, 253, 16, 235, 206, 201, 232, 40, 111, 98, 64, 161, 97, 105, 81, 145, 220, 96, 123, 45, 191, 69, 155, 23, 243, 27, 43, 14, 24, 95, 5, 14, 216, 155, 234, 16, 38, 138, 208, 161, 50, 42, 40, 138, 140, 147, 144, 6, 235, 76, 207, 206, 60, 98, 10, 203, 168, 88, 187, 160, 153, 11, 208, 140, 177, 69, 242, 9, 72, 39, 9, 161, 84, 154, 193, 200, 84, 33, 129, 204, 135, 37, 129, 19, 242, 253, 82, 29, 128, 83, 101, 94, 166, 102, 56, 65, 161, 247, 24, 75, 190, 179, 88, 150, 17, 223, 220, 51, 136, 235, 254, 204, 237, 234, 93, 212, 50, 116, 134, 67, 112, 0, 2, 67, 0, 2, 0, 4, 0, 0, 15, 255, 0, 4, 0, 0, 0, 9, 2, 193, 0, 168, 0, 132, 32, 30, 0, 5, 3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91, 100, 109, 105, 116, 114, 105, 121, 46, 107, 117, 112, 116, 115, 111, 118, 64, 115, 116, 114, 97, 110, 103, 101, 98, 105, 116, 46, 99, 111, 109, 0, 0, 0, 0, 8, 1, 0, 2, 15, 255, 0, 0, 240, 65, 0, 32, 85, 110, 247, 234, 56, 211, 228, 106, 107, 60, 160, 231, 16, 155, 68, 127, 135, 66, 98, 22, 186, 214, 4, 111, 27, 100, 132, 255, 230, 132, 122, 171, 0, 0, 0, 0, 241, 1, 0, 130, 0, 5, 3, 69, 191, 16, 208, 182, 73, 208, 170, 136, 217, 80, 220, 23, 106, 52, 244, 133, 74, 19, 221, 73, 116, 66, 72, 210, 244, 245, 255, 255, 67, 115, 175, 134, 38, 222, 179, 11, 217, 213, 246, 106, 221, 2, 211, 215, 91, 10, 172, 161, 82, 68, 178, 244, 178, 255, 215, 5, 79, 104, 149, 162, 143, 5, 48, 163, 14, 169, 79, 23, 169, 209, 221, 121, 136, 159, 208, 231, 213, 252, 230, 94, 127, 207, 212, 178, 229, 208, 157, 71, 152, 63, 244, 187, 227, 166, 135, 5, 119, 22, 49, 156, 206, 122, 176, 3, 104, 119, 38, 155, 231, 69, 183, 56, 180, 108, 73, 240, 198, 217, 231, 193, 213, 0, 228, 76, 198, 117, 0, 0]
+2024-11-25 14:27:51,985 [DEBUG] Sending I2 packet to 192.168.3.1 932
+2024-11-25 14:27:51,988 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:51,988 [INFO] I1 packet
+2024-11-25 14:27:52,269 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:27:52,270 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:27:52,329 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:27:52,329 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:27:52,329 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:52,329 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:52,329 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:52,602 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:52,602 [INFO] R2 packet
+2024-11-25 14:27:52,602 [DEBUG] ESP info parameter
+2024-11-25 14:27:52,603 [DEBUG] MAC2 parameter
+2024-11-25 14:27:52,603 [DEBUG] Signature2 parameter
+2024-11-25 14:27:52,604 [DEBUG] HMAC is ok. return with signature
+2024-11-25 14:27:52,628 [DEBUG] Signature is correct
+2024-11-25 14:27:52,634 [DEBUG] Processing R2 packet 0.031779
+2024-11-25 14:27:52,634 [DEBUG] Ending HIP BEX 1732541272.634557
+2024-11-25 14:27:52,634 [DEBUG] Setting SA records... 192.168.3.1 - 192.168.3.3
+2024-11-25 14:27:52,634 [DEBUG] Transform 9 
+2024-11-25 14:27:52,635 [DEBUG] 1
+2024-11-25 14:27:52,635 [DEBUG] 4
+2024-11-25 14:27:52,635 [DEBUG] DERIVING KEYS
+2024-11-25 14:27:52,635 [DEBUG] bytearray(b'6\xd9\x1aP\xde4\xbf\x95\xd1\x10\xbf_\xb2\xc6\x1f\xe4\t\xf4\x1c)\xb2\xb3tS\x9aN\xcc\xa9*\xb5k\x91\xebO\xbfS\x19\xebB\x97U\x9e/\x8b\x0eN\xb1x\xb4K5\xe7v\x0c\xec\xb22!2*\x9d\x1f\x90\x1a\xd3\xa6fs\xf9\xd0\x93\xd1nDa\xb5A\xaf\xb0\xf2\x06aqS_\x8d?d\xfb\xda$\xab\xef$\x03\x88^H\x15\xc7\xdf8\x83\xbcza\xf2]\x11qI\x9cGMLW\xa3\xec\xcd;=y\x13x\xc3\xf4\xbd\x9db\xbd\xe0\xee\xc9\x1fLHq\x1fH\xb2\x16\xa1\'j:\xc88\x81\xbf\xbc\x89\xed1\xe7b\xc7\xe4\xbb\xd4j\xf5MT\xc3\xbd.a\xce\\\xfbf\xd0\xf8n\xd7\x9d\xab\xd8\xc2\xe1xk@\x07V\r\x9f`\x87\xd2\'\xe3\x9b\xdd\x95-\x805H\x07\x91\xbaQDx\x12\x9d\x13_\xee\xc18x(\xa1(\xbb\xe3\xe5A\xa9O4\x16\x1a\xaf\xc9\xe2%A+\xa5\x97\x1d\x1e}\\]\xa2F@\x90\t\\\n,$\xc0\xd0\x17U\xff\xf7B\xa86\x19\xe4\xa9_0)\xa1\xdeW[\x88\x9e;ZA\xee\xa3\xb3\x84\xa7\x80\x80.i\xf2\x02z\xc4\xc6q8\xd0\x948\x9e\xbaD\xaf\xc5\xa2P\xaa\xc5\x8ec\x13=P\x8c\xfe\x0f\xe1\xcf^\x0f\xecj\xc8\x1a\xe68<\xf7\xd2FO\xd5\x027\xf0+\xb1=\x94\x15[\xab\xc5\xf5\xf2!\x94\x18m\x882\x17\xb1\xe8\x7f\x7f\x1c\x01\x00\x95\xfb\xe1BZ\xc3X\xfa\xb0\x04oxsb\xe0BzP\xd8\x87<\xecS\xb8p^\xee\x9fm\x96\xf4\x15\xb86H\xf8uhu\xb7\xbd\xbe\xcf\xfc\x8c\x85^$\x1d\xa0\xf8Q\x8c!\x86\x1e\x8d>\n\x87\x00X\xd4R\x00\x9d\xcf\x92&v\x12\x03\x9dE\xa1I\xe1\x8eQ\xe0\xb7\x9d\xff\x19\x13\xf6\x8fU\xba\x84*\x91D|y\x98a\xd7y\x89\xd5\xd7\xb3\xe5\x8a,\x88z0\x1c\xef\xec\xecr\xd8QCG\xc4\x92_\xc2=\x89L\xa1\xa0\xf1x\x90\xeb\xeb\x8f!]\xd6=\xc5\xfa\xcf7\xcb\x18\x93\x8fE.u_\xa6\x1f\xa4\xc5\xcf\xa9\xde|\xed\xb1\xfc"D;\xd9D"\xf1\x93\xab:o\xef\r\xb0\x1b\x81\xc3)1\xc7\xf1t\xd0\xac:\xe0U?\xd1\xc6\x92^M\xd9\xcd\xbc7Hz\x99k\xf6\xc6]o\xc3 \x92\x1d\x1d[\x8b\x8d\x1b\xa1~6k\x12p\xe6\x0f\xc5\xce\xe0\x033\xdf\xd8\x88C\xdf\x0c\xef\x06\xfc\xd0\x0cHA\x91\xd6\xa4\x9a-\xb6X\xe0\tU\xdfl\xcc3\xb1\xa5 \x15\xc1\xc7\xee\xbc\xc7\xb5H\xed\x8b\x0c\xe1\xf9\xfd\xa8\xdc\xcf\x1a\xa0\xec\xe1\xc8c\x01\x85\xf0\xb7\xab\x94\'`\xbf<')
+2024-11-25 14:27:52,635 [DEBUG]  DERVIVING KEYS OUT R2
+2024-11-25 14:27:52,636 [DEBUG] b'f54d54c3bd2e61ce5cfb66d0f86ed79dabd8c2e1786b4007560d9f6087d227e3'
+2024-11-25 14:27:52,636 [DEBUG] b'62bde0eec91f4c48711f48b216a1276a3ac83881bfbc89ed31e762c7e4bbd46a'
+2024-11-25 14:27:52,636 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:52,636 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:27:52,636 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:52,644 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 20010021e1ddfc6a83ee5648830c5681
+2024-11-25 14:27:52,646 [DEBUG]  DERVIVING KEYS IN R2
+2024-11-25 14:27:52,646 [DEBUG] b'1aafc9e225412ba5971d1e7d5c5da2464090095c0a2c24c0d01755fff742a836'
+2024-11-25 14:27:52,646 [DEBUG] b'9bdd952d8035480791ba514478129d135feec1387828a128bbe3e541a94f3416'
+2024-11-25 14:27:52,663 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:52,664 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:27:52,669 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:27:52,669 [DEBUG] Adding record for 192.168.3.1 - 192.168.3.3
+2024-11-25 14:27:53,157 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:53,157 [DEBUG] Dropping the packet
+2024-11-25 14:27:53,332 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:53,332 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:53,332 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:27:53,333 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:53,333 [DEBUG] Destination HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:53,334 [DEBUG] Sending UPDATE PACKET packet 192.168.3.1
+2024-11-25 14:27:53,334 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:54,349 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:55,350 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:56,351 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:57,356 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:57,503 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:57,506 [INFO] UPDATE packet
+2024-11-25 14:27:57,506 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:57,507 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:57,511 [DEBUG] Reponder's HMAC algorithm 1
+2024-11-25 14:27:57,511 [DEBUG] Acknowledgement parameter
+2024-11-25 14:27:57,511 [DEBUG] MAC parameter
+2024-11-25 14:27:57,511 [DEBUG] Signature parameter
+2024-11-25 14:27:57,519 [DEBUG] Signature is correct
+2024-11-25 14:27:57,563 [DEBUG] This is a response to a UPDATE. Skipping pong...
+2024-11-25 14:27:57,564 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:57,565 [INFO] UPDATE packet
+2024-11-25 14:27:57,565 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:27:57,565 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:27:57,571 [DEBUG] Reponder's HMAC algorithm 1
+2024-11-25 14:27:57,572 [DEBUG] Sequence parameter
+2024-11-25 14:27:57,572 [DEBUG] MAC parameter
+2024-11-25 14:27:57,572 [DEBUG] Signature parameter
+2024-11-25 14:27:57,574 [DEBUG] Signature is correct
+2024-11-25 14:27:57,599 [DEBUG] Sending UPDATE ACK packet 192.168.3.1
+2024-11-25 14:27:58,374 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:27:59,210 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:27:59,210 [INFO] CLOSE packet
+2024-11-25 14:27:59,211 [DEBUG] Responder's HMAC algorithm 1
+2024-11-25 14:27:59,218 [DEBUG] Cipher algorithm 4 
+2024-11-25 14:27:59,218 [DEBUG] HMAC algorithm 1
+2024-11-25 14:27:59,222 [DEBUG] Echo request signed parameter
+2024-11-25 14:27:59,223 [DEBUG] [3, 129, 0, 4, 190, 27, 104, 191]
+2024-11-25 14:27:59,223 [DEBUG] MAC parameter
+2024-11-25 14:27:59,225 [DEBUG] Signature parameter
+2024-11-25 14:27:59,225 [DEBUG] Sender's HIT 20010021e1ddfc6a83ee5648830c5681
+2024-11-25 14:27:59,225 [DEBUG] Receiver's HIT 20010021b700c8456c5f46bbbe582388
+2024-11-25 14:27:59,226 [DEBUG] ------------------------------------
+2024-11-25 14:27:59,226 [DEBUG] [59, 5, 18, 33, 0, 0, 0, 0, 32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 3, 129, 0, 4, 190, 27, 104, 191]
+2024-11-25 14:27:59,227 [DEBUG] ------------------------------------
+2024-11-25 14:27:59,227 [DEBUG] HMAC OK
+2024-11-25 14:27:59,228 [DEBUG] Signature is correct
+2024-11-25 14:27:59,234 [DEBUG] Sending CLOSE ACK packet 192.168.3.1
+2024-11-25 14:27:59,375 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:00,377 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:01,379 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:02,380 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:03,381 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:04,383 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:05,385 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:06,386 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:07,388 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:08,390 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:09,143 [DEBUG] Exception occured while processing L2 frame
+2024-11-25 14:28:09,144 [DEBUG] [Errno 100] Network is down
+2024-11-25 14:28:09,423 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:28:10,504 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:12,853 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:29:12,853 [INFO] Importing hosts file
+2024-11-25 14:29:12,853 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 14:29:12,853 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:29:12,854 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 14:29:12,854 [INFO] Loading public key and constructing HIT
+2024-11-25 14:29:13,185 [INFO] Initializing IPSec socket
+2024-11-25 14:29:13,199 [INFO] Starting the CuteHIP
+2024-11-25 14:29:13,203 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:13,203 [INFO] I1 packet
+2024-11-25 14:29:13,275 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000117
+2024-11-25 14:29:13,276 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:13,297 [DEBUG] Sending I1 packet to 192.168.3.2
+ 0.000111
+2024-11-25 14:29:13,811 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:29:13,817 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:29:13,848 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:13,849 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:29:13,849 [DEBUG] <hiplib.crypto.digest.SHA256Digest object at 0x7236b5f268d0>
+2024-11-25 14:29:13,849 [DEBUG] [<hiplib.packets.HIP.R1CounterParameter object at 0x7236b6c625a0>, <hiplib.packets.HIP.PuzzleParameter object at 0x7236b5f26ae0>, <hiplib.packets.HIP.DHParameter object at 0x7236b5f26ab0>, <hiplib.packets.HIP.CipherParameter object at 0x7236b5f26bd0>, <hiplib.packets.HIP.ESPTransformParameter object at 0x7236b5f26d20>, <hiplib.packets.HIP.HostIdParameter object at 0x7236b5f26a20>, <hiplib.packets.HIP.HITSuitListParameter object at 0x7236b5f269c0>, <hiplib.packets.HIP.DHGroupListParameter object at 0x7236b5f26990>, <hiplib.packets.HIP.TransportListParameter object at 0x7236b5f26930>, <hiplib.packets.HIP.Signature2Parameter object at 0x7236b5f26900>]
+2024-11-25 14:29:13,855 [DEBUG] !!!!!!!!!!!!!!!!!!!!!!
+2024-11-25 14:29:13,855 [DEBUG] R1 counter
+2024-11-25 14:29:13,855 [DEBUG] Puzzle parameter
+2024-11-25 14:29:13,856 [DEBUG] DH parameter
+2024-11-25 14:29:13,856 [DEBUG] Ciphers
+2024-11-25 14:29:13,857 [DEBUG] ESP transform
+2024-11-25 14:29:13,857 [DEBUG] DI type: 2 
+2024-11-25 14:29:13,857 [DEBUG] DI value: bytearray(b'dmitriy.kuptsov@strangebit.com') 
+2024-11-25 14:29:13,857 [DEBUG] Host ID
+2024-11-25 14:29:13,857 [DEBUG] Responder's OGA ID 1
+2024-11-25 14:29:13,864 [DEBUG] bytearray(b'\x03\x01\x00\x01\xeaF\x99\x8b-n\xe8l\xd5j\xf8\xdb+\x9f\xf3=\x9fT\xaam:\xd2.\xd2\x10\xd1\xd7\xe4.\x97=[\x08\x16!\xa3"\xa8=\'\xcf\xc4\xad\x80@$\x03z\x02\x1f!\xeb.oc\x92=\xab\xad\x8a**\xceh+_jk\x10|\x08e\x90\xb9\x81%\xa2M\xf1\xde\x0f\xc6\r*@\x94j=\x8e\x03\x1b\xfeD\xfd\xe5\x96\x7f\x16\xa0\xfcT1\x94\x18\x8d\xe1\x88\xcdn<\xdd;).\xe4\xbeyDv\xe60\x07\xb0\xf2\x97\xa4\x1e9')
+2024-11-25 14:29:13,864 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:29:13,864 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:29:13,864 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:29:13,865 [DEBUG] HIT suit list
+2024-11-25 14:29:13,865 [DEBUG] DH groups parameter
+2024-11-25 14:29:13,865 [DEBUG] Transport parameter
+2024-11-25 14:29:13,866 [DEBUG] [4095]
+2024-11-25 14:29:13,866 [DEBUG] Signature parameter
+2024-11-25 14:29:14,311 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:14,897 [DEBUG] Puzzle was solved and verified....
+2024-11-25 14:29:14,899 [DEBUG] DH public key value: 5062393705849707532169188635810314543747835416860266932919593625448692296175248009876783905068092945512323375740242400509086400198169028524663921183283396059665281183649316476247543615093898016212956987788042921376932822316789051718554553720129343365314150246885266067215674681719824241958147232353446016663897062971531427446780434532934709875715819814393700911671017809865401416529444908861433647413458841564966034861006144318318355654192876732591212814524344316176191396781380311959579412076407731034833759898077523803387487936481702367789061459762620121194689457416604248654222813982015263632286063776962623773264886527803362552990372738125066081677096528123270921171540858387551311328792257259059504532179293047364968203371985606303463627640937306637868263088914791478655329981054165516520246481916011082262541028902621619327926368573522339821320724942750867813998637231347455337907461365633408099289057252568915481150370 
+2024-11-25 14:29:15,327 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:15,532 [DEBUG] Saving keying material in R1 192.168.3.3 192.168.3.1
+2024-11-25 14:29:15,532 [DEBUG] Processing R1 packet 1.683177
+2024-11-25 14:29:15,533 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:29:15,538 [DEBUG] [69, 0, 0, 0, 0, 0, 0, 0, 128, 139, 0, 0, 192, 168, 3, 3, 192, 168, 3, 1, 59, 113, 3, 33, 224, 101, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129, 0, 65, 0, 12, 0, 0, 0, 128, 0, 0, 0, 0, 152, 28, 21, 80, 0, 129, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 65, 0, 68, 16, 0, 66, 182, 48, 72, 119, 14, 86, 42, 81, 22, 197, 171, 136, 32, 111, 199, 43, 223, 79, 161, 220, 129, 165, 118, 32, 127, 66, 83, 133, 30, 201, 246, 119, 53, 243, 212, 29, 232, 154, 221, 90, 207, 30, 91, 67, 111, 197, 144, 25, 248, 229, 62, 39, 104, 117, 245, 99, 90, 179, 116, 1, 215, 30, 15, 168, 177, 2, 1, 1, 131, 4, 0, 48, 173, 143, 53, 49, 77, 228, 85, 236, 129, 147, 81, 96, 141, 222, 76, 228, 136, 77, 241, 132, 27, 102, 166, 57, 238, 2, 198, 67, 234, 95, 168, 223, 169, 213, 85, 151, 159, 136, 41, 25, 146, 96, 24, 248, 235, 2, 224, 51, 15, 37, 61, 33, 134, 210, 106, 102, 254, 12, 1, 96, 110, 17, 71, 146, 128, 85, 166, 38, 198, 241, 9, 108, 226, 70, 135, 4, 85, 171, 21, 238, 12, 225, 145, 201, 106, 110, 179, 147, 166, 186, 39, 212, 169, 250, 167, 23, 231, 139, 148, 194, 129, 85, 51, 5, 125, 22, 160, 194, 210, 43, 115, 24, 136, 195, 39, 15, 83, 126, 249, 142, 234, 143, 64, 51, 169, 179, 57, 81, 126, 130, 172, 137, 41, 198, 17, 185, 84, 188, 167, 102, 15, 226, 22, 229, 241, 90, 80, 209, 178, 13, 31, 52, 251, 193, 199, 97, 136, 43, 55, 242, 141, 19, 139, 164, 145, 150, 189, 212, 171, 198, 140, 201, 156, 166, 237, 17, 193, 33, 123, 44, 243, 143, 253, 186, 167, 249, 84, 28, 153, 2, 87, 84, 237, 82, 82, 196, 90, 251, 251, 252, 101, 4, 87, 100, 22, 217, 119, 31, 206, 190, 229, 0, 1, 188, 9, 219, 114, 174, 242, 84, 245, 245, 187, 191, 255, 188, 94, 199, 167, 146, 201, 107, 82, 96, 150, 125, 199, 229, 138, 194, 64, 160, 206, 217, 176, 45, 105, 165, 19, 26, 195, 247, 17, 62, 159, 131, 61, 199, 197, 235, 251, 254, 127, 54, 67, 110, 169, 101, 241, 9, 16, 100, 57, 153, 127, 144, 155, 80, 43, 98, 171, 40, 14, 117, 17, 168, 113, 78, 210, 243, 82, 181, 241, 98, 250, 232, 228, 50, 107, 160, 56, 187, 133, 53, 191, 99, 193, 184, 9, 246, 30, 191, 24, 25, 11, 166, 137, 158, 204, 161, 216, 237, 39, 18, 119, 255, 92, 89, 248, 133, 188, 132, 83, 48, 114, 177, 135, 142, 165, 54, 107, 68, 135, 54, 57, 57, 219, 105, 230, 79, 152, 210, 201, 41, 127, 109, 169, 216, 247, 192, 28, 84, 27, 49, 112, 181, 141, 28, 253, 152, 158, 96, 38, 157, 234, 11, 160, 61, 103, 224, 108, 20, 255, 52, 0, 2, 67, 0, 2, 0, 4, 0, 0, 15, 255, 0, 4, 0, 0, 0, 9, 2, 193, 0, 168, 0, 132, 32, 30, 0, 5, 3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91, 100, 109, 105, 116, 114, 105, 121, 46, 107, 117, 112, 116, 115, 111, 118, 64, 115, 116, 114, 97, 110, 103, 101, 98, 105, 116, 46, 99, 111, 109, 0, 0, 0, 0, 8, 1, 0, 2, 15, 255, 0, 0, 240, 65, 0, 32, 57, 23, 138, 243, 158, 187, 40, 197, 217, 176, 7, 227, 82, 1, 69, 163, 38, 187, 181, 158, 221, 122, 148, 181, 123, 234, 218, 235, 190, 240, 78, 253, 0, 0, 0, 0, 241, 1, 0, 130, 0, 5, 38, 205, 152, 203, 159, 179, 202, 183, 121, 240, 95, 234, 65, 153, 151, 82, 91, 240, 96, 245, 58, 187, 151, 241, 207, 19, 191, 225, 95, 202, 205, 2, 183, 237, 44, 202, 168, 212, 66, 72, 235, 17, 115, 92, 203, 174, 44, 245, 198, 4, 214, 16, 85, 146, 192, 44, 115, 240, 115, 251, 88, 2, 182, 225, 21, 116, 82, 194, 63, 3, 69, 71, 149, 243, 232, 80, 33, 153, 145, 2, 241, 20, 29, 110, 119, 173, 147, 220, 3, 190, 96, 225, 8, 178, 40, 121, 186, 239, 4, 128, 228, 212, 11, 91, 82, 178, 252, 46, 191, 52, 167, 246, 84, 8, 124, 154, 173, 36, 195, 225, 39, 113, 189, 97, 90, 23, 145, 172, 0, 0]
+2024-11-25 14:29:15,538 [DEBUG] Sending I2 packet to 192.168.3.1 932
+2024-11-25 14:29:16,328 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:16,922 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:16,922 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:16,922 [DEBUG] Staying in I2-SENT state. Dropping the packet...
+2024-11-25 14:29:17,329 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:18,333 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:29:18,334 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:29:18,334 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:29:18,334 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:18,334 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:19,061 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:19,067 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:19,069 [DEBUG] Staying in I2-SENT state. Dropping the packet...
+2024-11-25 14:29:19,336 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:20,337 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:21,339 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:22,341 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:23,344 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:24,347 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:25,349 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:26,353 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:27,358 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:28,360 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:29,363 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:30,370 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:31,371 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:32,374 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:32,798 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:32,806 [INFO] I1 packet
+2024-11-25 14:29:32,938 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:29:32,938 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:29:33,377 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:33,377 [DEBUG] Destination HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:29:33,377 [DEBUG] Re-sending I1 packet to 192.168.3.2
+2024-11-25 14:29:33,377 [DEBUG] Re-sending I1 packet from 192.168.3.3
+2024-11-25 14:29:33,377 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:33,377 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:29:33,378 [DEBUG] I2 packet buffer------------
+2024-11-25 14:29:33,378 [DEBUG] bytearray(b'E\x00\x00\x00\x00\x00\x00\x00\x80\x8b\x00\x00\xc0\xa8\x03\x03\xc0\xa8\x03\x02;\x06\x01!v\x80\x00\x00 \x01\x00!\xb7\x00\xc8El_F\xbb\xbeX#\x88 \x01\x00!mo\xe8\xec}\xce\xbd\x01\xa6\xd2#\x9e\x01\xff\x00\x06\x04\t\x08\x03\x07\n\x00\x00\x00\x00\x00\x00')
+2024-11-25 14:29:33,379 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:34,384 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:34,740 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:34,740 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:34,740 [DEBUG] ESP info parameter
+2024-11-25 14:29:34,740 [DEBUG] R1 counter
+2024-11-25 14:29:34,741 [DEBUG] Puzzle solution parameter
+2024-11-25 14:29:34,741 [DEBUG] DH parameter
+2024-11-25 14:29:34,741 [DEBUG] Ciphers parameter
+2024-11-25 14:29:34,741 [DEBUG] ESP transform parameter
+2024-11-25 14:29:34,741 [DEBUG] Host ID
+2024-11-25 14:29:34,755 [DEBUG] OGA ID 1 
+2024-11-25 14:29:34,755 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:29:34,755 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:29:34,756 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:29:34,756 [DEBUG] Transport parameter
+2024-11-25 14:29:34,756 [DEBUG] MAC parameter
+2024-11-25 14:29:34,756 [DEBUG] Signature parameter
+2024-11-25 14:29:34,761 [DEBUG] Puzzle was solved
+2024-11-25 14:29:35,292 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:29:35,297 [DEBUG] Signature is correct
+2024-11-25 14:29:35,299 [DEBUG] Processing I2 packet 0.558549
+2024-11-25 14:29:35,300 [DEBUG] Current system state is 1
+2024-11-25 14:29:35,301 [DEBUG] Sending R2 packet to 192.168.3.2 0.001588
+2024-11-25 14:29:35,301 [DEBUG] Setting SA records...
+2024-11-25 14:29:35,301 [DEBUG] Transform 9 
+2024-11-25 14:29:35,301 [DEBUG] DERIVING KEYS
+2024-11-25 14:29:35,304 [DEBUG] bytearray(b'"\x18|?GM\xad\x93\x1d~\x8a\x98\xc02\x1b3S\xe4\xca\xd2*J\x01L[\xfeTN\xc6/\xe2\xc95l@\xf6\xad\x81\xd4\xcbC_\xabQBs\x98\xfe\xab\x1f\xe3f%X\x1d6\'4\x9eM\x0c\x94\xeb\xc7\xe3\x94\x07\xc4,\x1aNv\x9f\x80\x05\x89\x8f\xc6L\xb1 n\x01P\xd6u\xecOX\xa5\xd4\xd5\xe7\xbd]m\x1d\xa6\x80\x87\xbf_\x0f\xb4#<\x8c\x84\xec\x9b\x8c\x13\xe6nVW7\x98\x99\xe8(HR\x06\x88\xae\x80>&Wh\xe6\x10\xa1E\xe2\xc0\xb7W$\xc4^\xb1\xfe\xa9u\x06>\xdc\xec\xa5\xab\xa1\xe4\x1c.\x1d\xc4\xffu4\x1f8\x85\xe0\x8d\xa8/\xed\x9eL\x0f\xad\xfa\xcciw\xbc\xf7Js9\xd4\x9c\xe4\x01\x06\xed/+(\xea\xac]\xa6z\x9eY\xf6\x9ff)\xe5\xfars\xcd\x01\x1c\x88\x02\xed\xe8\xb8\x96\x1b:\x05\x88\xd1\\\xfcy\xdeNR\xc7\x93HWJ\xa5\xd4\xd7R\\\xdbZ\x85N\x97\xd4V\xe8\xa2Uu\xb0N\xc3\xb7VZ\xa6\xf32\x84Oo=\x953\xba\x88\xc0z\xa6\xe3\xec\x98/\x0c\x1a\x03\xd3e\x87\xfc(\xe6\x93\xd5\nV\x05\xba\xa7\x96\xe0\xb0\xff@\xd9\x03\xbb\xdf^\x8d\x8e\xfe\xd0`*m{b\xe7\\U\xfc%\xab\x17r1\xdd/\\\xa1\xf0q\x8ee4\xd4\x9d\x92\xbb\x0bi\xf0y\xa7\x9bP\x8f~\x9a\xed\xcaLs[ {\xd9/\xd5\\n\xf3\xad\x99C\x86hy\xc5,iQ\xacP\xd3\xed\xb2}\x1a\xd5-.\x17?\xca*q\xb6|\x1ee\xeb\xdaZ`B\x18\xd8\x1d6s\xaaH\xa6%M\xea\tAP*\xaen\xa3!\xe1\xeeI\xec\\\xc8+\xb8\xf6X\xb5M\n\xdf\x94\x81\x97\x9b\xceVQ\x98D\xb6\xbc\xac\x15\xf6\x8e\x81\xedp\x85\xb2\x82H#\xe2\x02\xf0\xcdP\x1d?n\xdc\x1b0`I.\x9e\x89\x15\xcfS\xee\x83\xbf\x9f\xc5\xc0M\xa5~=Y\xbd\xf6\xd5\xc7\xfeV6Y\xc7\x9b\xb3m\x82\xc9\xe1Y\\x\xda-\xac\xf0\x9d\xbb\x9c\xfeK\xd4\x0f;z\xd9jy\xd0\xf0\x96\x17\xff\x9c\x84\xdfF\xf4\xe4\x8f\x8d\xf7=C"\x84\x8c=\xc7\x88"\x83\xd7_\xda\\\xee46\xb0B\xf9._\x91\xa4]X\x81M;Q\x83\x1c\xd7\xc2v@\xdc\x10\x07\xaf\xbb\x96PG\xa0\x86\x1f\xbc\x16\x05\xb3\xbf\xbd\x92k\t\x99/\xe2<\x8cm\xc8\t\xb1\xde\xf6oh\xcb\x15\xfc\xd5&\x93%-\xe8\x96\x10$,\xc6\xa3\xb2\xfbi\xf4\x8c\xe72\xa4q:\xcf\xd3\x14\x1f\x8c\xbf\xa9\x9bj\x16\x01\xc7\xe5g\x8d7\xb9\x9f\xf7\xbfvS\xd9w\xe3/:')
+2024-11-25 14:29:35,304 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:29:35,305 [DEBUG] b'4e52c79348574aa5d4d7525cdb5a854e97d456e8a25575b04ec3b7565aa6f332'
+2024-11-25 14:29:35,305 [DEBUG] b'ac5da67a9e59f69f6629e5fa7273cd011c8802ede8b8961b3a0588d15cfc79de'
+2024-11-25 14:29:35,305 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,305 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:29:35,305 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,305 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:29:35,308 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:29:35,308 [DEBUG] b'341f3885e08da82fed9e4c0fadfacc6977bcf74a7339d49ce40106ed2f2b28ea'
+2024-11-25 14:29:35,308 [DEBUG] b'265768e610a145e2c0b75724c45eb1fea975063edceca5aba1e41c2e1dc4ff75'
+2024-11-25 14:29:35,309 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,309 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,309 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:29:35,309 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:29:35,309 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:35,309 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:35,311 [DEBUG] ESP info parameter
+2024-11-25 14:29:35,311 [DEBUG] R1 counter
+2024-11-25 14:29:35,311 [DEBUG] Puzzle solution parameter
+2024-11-25 14:29:35,312 [DEBUG] DH parameter
+2024-11-25 14:29:35,312 [DEBUG] Ciphers parameter
+2024-11-25 14:29:35,312 [DEBUG] ESP transform parameter
+2024-11-25 14:29:35,312 [DEBUG] Host ID
+2024-11-25 14:29:35,312 [DEBUG] OGA ID 1 
+2024-11-25 14:29:35,313 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:29:35,313 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:29:35,313 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:29:35,313 [DEBUG] Transport parameter
+2024-11-25 14:29:35,313 [DEBUG] MAC parameter
+2024-11-25 14:29:35,318 [DEBUG] Signature parameter
+2024-11-25 14:29:35,318 [DEBUG] Puzzle was solved
+2024-11-25 14:29:35,412 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:35,604 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:29:35,645 [DEBUG] Signature is correct
+2024-11-25 14:29:35,648 [DEBUG] Processing I2 packet 0.336832
+2024-11-25 14:29:35,650 [DEBUG] Current system state is 3
+2024-11-25 14:29:35,656 [DEBUG] Sending R2 packet to 192.168.3.2 0.008188
+2024-11-25 14:29:35,657 [DEBUG] Setting SA records...
+2024-11-25 14:29:35,658 [DEBUG] Transform 9 
+2024-11-25 14:29:35,660 [DEBUG] DERIVING KEYS
+2024-11-25 14:29:35,661 [DEBUG] bytearray(b'"\x18|?GM\xad\x93\x1d~\x8a\x98\xc02\x1b3S\xe4\xca\xd2*J\x01L[\xfeTN\xc6/\xe2\xc95l@\xf6\xad\x81\xd4\xcbC_\xabQBs\x98\xfe\xab\x1f\xe3f%X\x1d6\'4\x9eM\x0c\x94\xeb\xc7\xe3\x94\x07\xc4,\x1aNv\x9f\x80\x05\x89\x8f\xc6L\xb1 n\x01P\xd6u\xecOX\xa5\xd4\xd5\xe7\xbd]m\x1d\xa6\x80\x87\xbf_\x0f\xb4#<\x8c\x84\xec\x9b\x8c\x13\xe6nVW7\x98\x99\xe8(HR\x06\x88\xae\x80>&Wh\xe6\x10\xa1E\xe2\xc0\xb7W$\xc4^\xb1\xfe\xa9u\x06>\xdc\xec\xa5\xab\xa1\xe4\x1c.\x1d\xc4\xffu4\x1f8\x85\xe0\x8d\xa8/\xed\x9eL\x0f\xad\xfa\xcciw\xbc\xf7Js9\xd4\x9c\xe4\x01\x06\xed/+(\xea\xac]\xa6z\x9eY\xf6\x9ff)\xe5\xfars\xcd\x01\x1c\x88\x02\xed\xe8\xb8\x96\x1b:\x05\x88\xd1\\\xfcy\xdeNR\xc7\x93HWJ\xa5\xd4\xd7R\\\xdbZ\x85N\x97\xd4V\xe8\xa2Uu\xb0N\xc3\xb7VZ\xa6\xf32\x84Oo=\x953\xba\x88\xc0z\xa6\xe3\xec\x98/\x0c\x1a\x03\xd3e\x87\xfc(\xe6\x93\xd5\nV\x05\xba\xa7\x96\xe0\xb0\xff@\xd9\x03\xbb\xdf^\x8d\x8e\xfe\xd0`*m{b\xe7\\U\xfc%\xab\x17r1\xdd/\\\xa1\xf0q\x8ee4\xd4\x9d\x92\xbb\x0bi\xf0y\xa7\x9bP\x8f~\x9a\xed\xcaLs[ {\xd9/\xd5\\n\xf3\xad\x99C\x86hy\xc5,iQ\xacP\xd3\xed\xb2}\x1a\xd5-.\x17?\xca*q\xb6|\x1ee\xeb\xdaZ`B\x18\xd8\x1d6s\xaaH\xa6%M\xea\tAP*\xaen\xa3!\xe1\xeeI\xec\\\xc8+\xb8\xf6X\xb5M\n\xdf\x94\x81\x97\x9b\xceVQ\x98D\xb6\xbc\xac\x15\xf6\x8e\x81\xedp\x85\xb2\x82H#\xe2\x02\xf0\xcdP\x1d?n\xdc\x1b0`I.\x9e\x89\x15\xcfS\xee\x83\xbf\x9f\xc5\xc0M\xa5~=Y\xbd\xf6\xd5\xc7\xfeV6Y\xc7\x9b\xb3m\x82\xc9\xe1Y\\x\xda-\xac\xf0\x9d\xbb\x9c\xfeK\xd4\x0f;z\xd9jy\xd0\xf0\x96\x17\xff\x9c\x84\xdfF\xf4\xe4\x8f\x8d\xf7=C"\x84\x8c=\xc7\x88"\x83\xd7_\xda\\\xee46\xb0B\xf9._\x91\xa4]X\x81M;Q\x83\x1c\xd7\xc2v@\xdc\x10\x07\xaf\xbb\x96PG\xa0\x86\x1f\xbc\x16\x05\xb3\xbf\xbd\x92k\t\x99/\xe2<\x8cm\xc8\t\xb1\xde\xf6oh\xcb\x15\xfc\xd5&\x93%-\xe8\x96\x10$,\xc6\xa3\xb2\xfbi\xf4\x8c\xe72\xa4q:\xcf\xd3\x14\x1f\x8c\xbf\xa9\x9bj\x16\x01\xc7\xe5g\x8d7\xb9\x9f\xf7\xbfvS\xd9w\xe3/:')
+2024-11-25 14:29:35,664 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:29:35,664 [DEBUG] b'4e52c79348574aa5d4d7525cdb5a854e97d456e8a25575b04ec3b7565aa6f332'
+2024-11-25 14:29:35,664 [DEBUG] b'ac5da67a9e59f69f6629e5fa7273cd011c8802ede8b8961b3a0588d15cfc79de'
+2024-11-25 14:29:35,664 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,665 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:29:35,665 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,665 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:29:35,665 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:29:35,666 [DEBUG] b'341f3885e08da82fed9e4c0fadfacc6977bcf74a7339d49ce40106ed2f2b28ea'
+2024-11-25 14:29:35,666 [DEBUG] b'265768e610a145e2c0b75724c45eb1fea975063edceca5aba1e41c2e1dc4ff75'
+2024-11-25 14:29:35,666 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,666 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:35,666 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:29:35,666 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:29:35,676 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:35,676 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:29:35,677 [DEBUG] Dropping packet... Invalid state
+2024-11-25 14:29:35,953 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:35,954 [INFO] UPDATE packet
+2024-11-25 14:29:35,954 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:29:35,954 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:35,954 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:29:35,954 [DEBUG] Sequence parameter
+2024-11-25 14:29:35,955 [DEBUG] MAC parameter
+2024-11-25 14:29:35,955 [DEBUG] Signature parameter
+2024-11-25 14:29:35,970 [DEBUG] Signature is correct
+2024-11-25 14:29:35,984 [DEBUG] Sending UPDATE ACK packet 192.168.3.2
+2024-11-25 14:29:36,425 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:36,425 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:29:36,425 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:29:36,425 [DEBUG] HMAC algorithm 1
+2024-11-25 14:29:36,426 [DEBUG] [53, 108, 64, 246, 173, 129, 212, 203, 67, 95, 171, 81, 66, 115, 152, 254, 171, 31, 227, 102, 37, 88, 29, 54, 39, 52, 158, 77, 12, 148, 235, 199]
+2024-11-25 14:29:36,430 [DEBUG] ------------------------------
+2024-11-25 14:29:36,433 [DEBUG] [59, 5, 18, 33, 0, 0, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158, 3, 129, 0, 4, 74, 247, 161, 56]
+2024-11-25 14:29:36,433 [DEBUG] ------------------------------
+2024-11-25 14:29:36,451 [DEBUG] Sending CLOSE PACKET packet 192.168.3.2
+2024-11-25 14:29:36,451 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:36,451 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:29:36,451 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:29:36,452 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:36,452 [DEBUG] Destination HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:29:36,458 [DEBUG] Sending UPDATE PACKET packet 192.168.3.2
+2024-11-25 14:29:36,459 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:36,497 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:37,462 [DEBUG] Transitioning to UNASSOCIATED state....
+2024-11-25 14:29:37,462 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:38,341 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:38,341 [INFO] I1 packet
+2024-11-25 14:29:38,471 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:29:38,472 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:29:38,474 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:29:38,477 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:38,492 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:38,904 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:29:38,905 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:29:39,209 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:39,210 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:39,210 [DEBUG] Staying in I2-SENT state. Dropping the packet...
+2024-11-25 14:29:39,508 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:40,385 [DEBUG] Sending I1 packet to 192.168.3.2
+ 0.000108
+2024-11-25 14:29:40,510 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:41,517 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:42,279 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:42,280 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:42,285 [DEBUG] ESP info parameter
+2024-11-25 14:29:42,285 [DEBUG] R1 counter
+2024-11-25 14:29:42,285 [DEBUG] Puzzle solution parameter
+2024-11-25 14:29:42,285 [DEBUG] DH parameter
+2024-11-25 14:29:42,286 [DEBUG] Ciphers parameter
+2024-11-25 14:29:42,286 [DEBUG] ESP transform parameter
+2024-11-25 14:29:42,286 [DEBUG] Host ID
+2024-11-25 14:29:42,287 [DEBUG] OGA ID 1 
+2024-11-25 14:29:42,287 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:29:42,287 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:29:42,289 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:29:42,290 [DEBUG] Transport parameter
+2024-11-25 14:29:42,290 [DEBUG] MAC parameter
+2024-11-25 14:29:42,290 [DEBUG] Signature parameter
+2024-11-25 14:29:42,290 [DEBUG] Puzzle was solved
+2024-11-25 14:29:42,527 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:42,598 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:29:42,600 [DEBUG] Signature is correct
+2024-11-25 14:29:42,600 [DEBUG] Processing I2 packet 0.319437
+2024-11-25 14:29:42,603 [DEBUG] Current system state is 1
+2024-11-25 14:29:42,604 [DEBUG] Sending R2 packet to 192.168.3.2 0.002942
+2024-11-25 14:29:42,604 [DEBUG] Setting SA records...
+2024-11-25 14:29:42,604 [DEBUG] Transform 9 
+2024-11-25 14:29:42,604 [DEBUG] DERIVING KEYS
+2024-11-25 14:29:42,604 [DEBUG] bytearray(b"\xb0\xdb\xc0\xa3i\xd60\xb7\xf3\x96\xd0>\xf1\xf7\x94\x15\xee\xb2\x07\xa2\xa5+\xa0\xa5\xcf\x7f\xa1\xd2r\x1d\x08\xa6\x83\xe96\x8eG\xa2\x01\x9e_\xcdgzI\x87\x8d\xf0\x99\xc7(W\x88\xcc\xba\x16\xa9$\xe4\x96|\xae\x0f72z\xbcz-\xc2\x8d{N\x8e\x04\xae~BV\xed\x15^^u\xa5^!y|\x0c7\x8a)\xf3X\xb5\x06\x9f%\x90\xaa\xe5\xecY\x85\x12*\x17\xe6>\x00\x80^\xf1\xb8\xaf\x87\xf8\xb3|\x95\x98\xb8\x94\xda<\x1eQe\x15\x0e\xf3\xaa\x84$)\xd33_\x94YRo!\xc7.k\x16r\x99x\t\x06?,\xc5@\t\xd5\xe5<o\xda\x9c\xc4E\xd5y \xa7i\xe4&\x01G\xf3\x8b\x15C\xed{\xedI&\xfc\xf2\xd4\x83K\xee\xc3\t\x1a\xa8\xd6\x9b\x1d\xe5\x94\xa5\x8d;\xbf\xb3\xac\xd4(\xbd\xc8wC!\xbd\xc1\xea\xce\xe3\x97\xfe\x1f2\x8fJ\xc2\xd9\t\xb4V|\x08\xcaZ\xf7UO\xabj\x87r\x88\x9e\x1b$\x982\xc5\x1c\x19\xef\xad\xea\xdaBT\x9e\xa5\xba0\x95\xf2\x9cS[H\x17h\xc9\xe6\rRR\x8f{\x02)T\x0b\x07\x1e\x02&\xd5Q|y:H\x12\xed\xe1\x08Io\x95@\x88\xb0\xa1\xc5\xbeP\x9c\x16\x12\xf1 D?\xb8\x14\x08j<\xec\x94\x9e\xd1\xe7\x1eA\xaf\xe8\xca#\xfd\xf2`\x0f\x99\x02\xf3\xe6\xa2{\xfc\x8d\xafx\x0b\xc6\xfd\xfd[_\'q\'\xac\x88\xf90\xb4>5O\xf8y|\xfb\xa6L\x15A\xc0\x12MA\xf1\xbd\xbeN\x0ck~\x8f\xd3\x0b\xb0\xd6\xfc}hpb%\x9d\xa2\xfd>\xc5\x87\x12o\xe0\xd4d\x97+$u\xc2EK\xf9L\x82\xf9\x06\xa3\xfc\xdd\xc5/\xf1\xab\x96G\xf8\xd8\xfb*\xb9,\x04W\xb6\xd5\xd7H\xc88k\xf0\xdf\x1d\xe72\x8dI\xa6\xd3\xeeG_\xb4<\xa2v\xdc\xccG>\xaf\x942\xe5@\x0c\x10[\x9ez7\xcdT\xdd\x9d\x81\xaf\xf2\xad\xf9\xab?\xce\xf3\xd04\x98\xd8\xdd\x08\xb2f\x15@\xc9\xea\xee\xbd\x13!\xbe\x02S9 \x1e\x8d;\xc2\xcd\xa7\x1a\x01E\x13=Ta\x161\x852S\x91\x8bo\x01@\x19\xad>\x98I\xc2{?k\x85\xd3\xb5`\xb8\xa4\x15L\x86\xc6G\xa2$l]\xa7\xa8\x9d\xbcQ\xf1\xf7xU\x99q\xd9\x1d\xf5P\xd1#\x87\xce\x1a>sqa\xdd\xfbg\xc1\xac\x101\xda\x96\xfe\x17\'F\xd6NmP\xa5\xb0KO\xe0\x0c\x18\xa6\xad\x19|\xdd\xef\x03\xe3\xe5[\xb5\xfb)\xc1\xa7\x8el@\x05;\x18\x83E\xda%\xe8y\xc4l\xc8\xb4\xc2\xedt(N7\xf5\x0f\x10WR\xab\x8d\xac<\xde\x03")
+2024-11-25 14:29:42,605 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:29:42,605 [DEBUG] b'd909b4567c08ca5af7554fab6a8772889e1b249832c51c19efadeada42549ea5'
+2024-11-25 14:29:42,606 [DEBUG] b'1aa8d69b1de594a58d3bbfb3acd428bdc8774321bdc1eacee397fe1f328f4ac2'
+2024-11-25 14:29:42,606 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:42,607 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:29:42,607 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:42,607 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:29:42,608 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:29:42,608 [DEBUG] b'3c6fda9cc445d57920a769e4260147f38b1543ed7bed4926fcf2d4834beec309'
+2024-11-25 14:29:42,608 [DEBUG] b'65150ef3aa842429d3335f9459526f21c72e6b1672997809063f2cc54009d5e5'
+2024-11-25 14:29:42,609 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:42,609 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:29:42,609 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:29:42,609 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:29:42,614 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:42,615 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:29:42,615 [DEBUG] Dropping packet... Invalid state
+2024-11-25 14:29:43,535 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:44,536 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:45,538 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:46,541 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:47,542 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:48,546 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:49,550 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:50,552 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:51,556 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:52,560 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:53,563 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:54,564 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:55,566 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:56,570 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:57,598 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:58,600 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:29:58,602 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:29:58,606 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:29:58,606 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:29:58,607 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:29:59,287 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:29:59,288 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:29:59,288 [DEBUG] Staying in I2-SENT state. Dropping the packet...
+2024-11-25 14:29:59,609 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:00,612 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:01,617 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:02,622 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:03,638 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:04,640 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:05,644 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:06,648 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:07,654 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:08,655 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:09,657 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:10,660 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:11,666 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:12,667 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:13,670 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:14,671 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:15,672 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:16,675 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:17,679 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:18,681 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:30:18,682 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:30:18,682 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:30:18,682 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:30:18,683 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:19,439 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:30:19,440 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:30:19,440 [DEBUG] Staying in I2-SENT state. Dropping the packet...
+2024-11-25 14:30:19,686 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:20,688 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:21,693 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:22,724 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:23,727 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:24,733 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:25,754 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:26,770 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:27,772 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:28,774 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:29,776 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:30,777 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:31,780 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:32,782 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:33,784 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:34,786 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:35,791 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:36,796 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:37,801 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:38,804 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:30:38,804 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:30:38,805 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:30:38,805 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:30:38,806 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:39,552 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:30:39,561 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:30:39,561 [DEBUG] ESP info parameter
+2024-11-25 14:30:39,562 [DEBUG] R1 counter
+2024-11-25 14:30:39,562 [DEBUG] Puzzle solution parameter
+2024-11-25 14:30:39,562 [DEBUG] DH parameter
+2024-11-25 14:30:39,562 [DEBUG] Ciphers parameter
+2024-11-25 14:30:39,562 [DEBUG] ESP transform parameter
+2024-11-25 14:30:39,563 [DEBUG] Host ID
+2024-11-25 14:30:39,563 [DEBUG] OGA ID 1 
+2024-11-25 14:30:39,563 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:30:39,570 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:30:39,583 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:30:39,591 [DEBUG] Transport parameter
+2024-11-25 14:30:39,591 [DEBUG] MAC parameter
+2024-11-25 14:30:39,592 [DEBUG] Signature parameter
+2024-11-25 14:30:39,592 [DEBUG] Puzzle was solved
+2024-11-25 14:30:39,813 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:39,851 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.1
+2024-11-25 14:30:39,852 [CRITICAL] Invalid HMAC (I2). Dropping the packet
+2024-11-25 14:30:40,817 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:41,822 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:42,825 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:43,829 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:44,831 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:45,833 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:46,839 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:47,843 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:48,845 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:49,851 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:50,853 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:51,858 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:52,862 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:53,863 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:54,863 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:55,864 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:56,869 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:57,873 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:58,875 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:30:59,887 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:00,900 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:01,908 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:02,910 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:03,913 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:04,916 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:05,922 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:06,925 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:07,929 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:08,943 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:09,947 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:10,950 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:11,953 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:12,956 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:13,958 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:14,960 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:15,962 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:16,964 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:17,967 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:18,970 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:19,972 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:20,976 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:21,980 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:22,982 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:23,986 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:24,990 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:25,993 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:26,997 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:27,999 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:29,003 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:30,005 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:31,007 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:32,011 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:33,013 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:34,015 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:35,017 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:36,024 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:36,651 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:31:36,651 [INFO] UPDATE packet
+2024-11-25 14:31:36,652 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:31:36,652 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:31:36,652 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:31:36,652 [DEBUG] Sequence parameter
+2024-11-25 14:31:36,652 [DEBUG] MAC parameter
+2024-11-25 14:31:36,659 [DEBUG] Signature parameter
+2024-11-25 14:31:36,660 [DEBUG] Signature is correct
+2024-11-25 14:31:36,662 [DEBUG] Sending UPDATE ACK packet 192.168.3.2
+2024-11-25 14:31:37,024 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:31:37,025 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:31:37,025 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:31:37,025 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:31:37,026 [DEBUG] Destination HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:31:37,028 [DEBUG] Sending UPDATE PACKET packet 192.168.3.2
+2024-11-25 14:31:37,036 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:37,077 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:31:37,078 [INFO] UPDATE packet
+2024-11-25 14:31:37,078 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:31:37,083 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:31:37,083 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:31:37,084 [DEBUG] Acknowledgement parameter
+2024-11-25 14:31:37,084 [DEBUG] MAC parameter
+2024-11-25 14:31:37,084 [DEBUG] Signature parameter
+2024-11-25 14:31:37,086 [DEBUG] Signature is correct
+2024-11-25 14:31:37,086 [DEBUG] This is a response to a UPDATE. Skipping pong...
+2024-11-25 14:31:38,039 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:39,044 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:40,049 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:41,051 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:42,054 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:43,057 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:44,059 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:45,060 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:46,063 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:47,065 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:48,069 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:49,073 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:50,075 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:51,077 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:52,080 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:53,084 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:54,086 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:55,089 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:56,093 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:57,097 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:58,101 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:31:59,102 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:00,104 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:01,108 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:02,112 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:03,116 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:04,119 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:05,121 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:06,124 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:07,127 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:08,130 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:09,132 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:10,134 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:11,138 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:12,141 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:13,142 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:14,145 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:15,149 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:16,153 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:17,156 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:18,160 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:19,161 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:20,163 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:21,167 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:22,168 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:23,171 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:24,172 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:25,174 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:26,176 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:27,179 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:28,181 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:29,188 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:30,194 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:31,218 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:32,223 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:33,226 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:34,229 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:35,232 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:36,233 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:37,238 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:38,242 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:39,245 [DEBUG] Transitioning to UNASSOCIATED state...
+2024-11-25 14:32:39,246 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:40,249 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:41,251 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:42,253 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:43,256 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:44,258 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:45,261 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:46,263 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:47,266 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:48,268 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:49,272 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:50,275 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:51,279 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:52,282 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:53,285 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:54,289 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:55,294 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:56,303 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:57,307 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:58,308 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:32:59,311 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:00,106 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:00,108 [INFO] I1 packet
+2024-11-25 14:33:00,333 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:00,679 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:33:00,690 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:33:01,340 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:02,368 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:03,383 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:04,385 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:05,390 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:06,242 [DEBUG] Exception occured while processing L2 frame
+2024-11-25 14:33:06,246 [DEBUG] [Errno 100] Network is down
+2024-11-25 14:33:06,391 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:11,770 [INFO] Using hosts file to resolve HITS hiplib/config/hosts
+2024-11-25 14:33:11,770 [INFO] Importing hosts file
+2024-11-25 14:33:11,771 [INFO] 2001:0021:e1dd:fc6a:83ee:5648:830c:5681 192.168.3.1
+
+2024-11-25 14:33:11,771 [INFO] 2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e 192.168.3.2
+
+2024-11-25 14:33:11,771 [INFO] 2001:0021:b700:c845:6c5f:46bb:be58:2388 192.168.3.3
+
+2024-11-25 14:33:11,772 [INFO] Loading public key and constructing HIT
+2024-11-25 14:33:12,008 [INFO] Initializing IPSec socket
+2024-11-25 14:33:12,016 [INFO] Starting the CuteHIP
+2024-11-25 14:33:12,056 [DEBUG] Sending I1 packet to 192.168.3.1
+ 0.000135
+2024-11-25 14:33:12,056 [DEBUG] Sending I1 packet to 192.168.3.2
+ 0.000074
+2024-11-25 14:33:12,062 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:12,376 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:12,376 [INFO] I1 packet
+2024-11-25 14:33:12,377 [DEBUG] Staying in I1-SENT state
+2024-11-25 14:33:12,652 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:12,652 [INFO] I1 packet
+2024-11-25 14:33:13,067 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:33:13,067 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:13,068 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:33:14,070 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:15,071 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:16,072 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:17,079 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:18,082 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:19,093 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:20,098 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:21,105 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:21,739 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:21,740 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:33:21,741 [DEBUG] ESP info parameter
+2024-11-25 14:33:21,741 [DEBUG] R1 counter
+2024-11-25 14:33:21,741 [DEBUG] Puzzle solution parameter
+2024-11-25 14:33:21,749 [DEBUG] DH parameter
+2024-11-25 14:33:21,750 [DEBUG] Ciphers parameter
+2024-11-25 14:33:21,751 [DEBUG] ESP transform parameter
+2024-11-25 14:33:21,751 [DEBUG] Host ID
+2024-11-25 14:33:21,751 [DEBUG] OGA ID 1 
+2024-11-25 14:33:21,751 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:33:21,763 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:33:21,772 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:33:21,775 [DEBUG] Transport parameter
+2024-11-25 14:33:21,776 [DEBUG] MAC parameter
+2024-11-25 14:33:21,776 [DEBUG] Signature parameter
+2024-11-25 14:33:21,776 [DEBUG] Puzzle was solved
+2024-11-25 14:33:22,127 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:23,200 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:23,322 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:33:23,346 [DEBUG] Signature is correct
+2024-11-25 14:33:23,355 [DEBUG] Processing I2 packet 1.606136
+2024-11-25 14:33:23,368 [DEBUG] Current system state is 1
+2024-11-25 14:33:23,375 [DEBUG] Sending R2 packet to 192.168.3.2 0.018939
+2024-11-25 14:33:23,375 [DEBUG] Setting SA records...
+2024-11-25 14:33:23,375 [DEBUG] Transform 9 
+2024-11-25 14:33:23,375 [DEBUG] DERIVING KEYS
+2024-11-25 14:33:23,376 [DEBUG] bytearray(b'\xcb\xa5\xe7\xcb)\xce\x8f\x8c\x9f\x9aX\xd7\xc3\x10\x87\xfe\x8b\x8f\xcb\xc1\x8b{\xe4\x15\xee\x1fR>\xd8\xbc\xcchp\xa1\xca\xbf\xac\xa4]\x10 \xb9D\xdd\xd6\xccKA\x8b\xb9\xabxE\xe1\x9c\x07\xfc=\xfb}!1X\xbf\xe9\xea\xaf\x13\x89b.\r\xef\x1a!0\x1a\xaa\xb1\xfb\x1a:U\x12\xc3&Z\x18\xefb\xc5n\xd1\x08\xa6\xbb\x03G\xda\xd3\xcf\x98\x01a\x0b\x1d\xd8\xf6\x82\xb1\xf2\x16\xf9/E\xd6-\xb9(\x16\x8a\xf9\xd1\xed\xa1FS\xd1\x8e\xc3\x82\x07\\_\x08P\xde\x8c\x9d\x1a\xdc\x12\x13\x060 "!\x1b\xee\xc8\xe0\xbd\xc2\'\xd5n\x85\xa7\xee>\x9d\x97\xb5\x8a\x83wg-\xb8:c3\x8f\xcc_.{\'\x9b\x9e\xcd\x032\xfeS\xe7\xe4\xf0haC}\xc1\xd86\xec%\nd3\x10\x8c\xa7MMH3i\xfe\xfb\xcc\n\xdb\'\xbe\x80\xeb\x0e\xc7\xfe\xb3\xf8\xe2\x98\xe9\xebn\x07\xb9\xed\xd9\xb7\x8b\x97\xab\xd2\xa6\x87\x94\x89MQZ\x84sy\x19Bc\xe6\x1e\x01\t\x1f\x15\xe2 \xc0>\xf3M\xf2\x0fL\xe1\x81JEr\xcd\xa6\xb6R3\xb0g\x8dn\x03\xbc\x02V\xf7L\xec\xc0\xf7\x8b\x98Ud\xfdr\xe6\xc4\xbe\xac\xb3!W\xa0\x0f\xafy\xd3f\xd6\xa5\x05\x86%e\x12r\xdc\xe5\x85\xdd\xd1k\xbd\xa8-\'&\x18\xec\x13\x1bk,\x98#\x98\xa1\xe3;cb%\xf2\xf9\x06p\xd7C\x17\xca\\\x80\x07\x86\x16]Ck\xd2\xa8]!\xad\xad\t\x05<c\x86vj\x1a\xba\x89\x8f\x9b2\xf4\xe9\xe7\xe4\xf9\xf7\xbf\xcf\\\xe6?\x8f\x96i\x8a\xe1\xc3\xe3K;[\x1bJB\x12\xa6Y\x95\xad\x99B\xcf\x07\x9f\x82+\xa21\xa8\x96\xcaX\xb4\xb5\xcc\x15\x11\xde\x1435\xc1\x11\xc0Rf\xe8q\x0e>F\x13\x9f#\x8d\x1bF\x81\xc4\xf9\xaf1\xfc\xa3\x8a\xad_\xa8|K\x10\x8f\x8a\xfe\xb3\xbf\x9f\xe9\t\xd3\xe5\xa7\xec\xe7s\xb4T%\x0b\xc7X\x9e}\xe0\x07\xb2\xd1\xc1\xb73\xfcg\x01.\xabJ>\xbc\x96%^v\x16I\xda\xb6\x9278Z\x02BM\x9fH\xb4<3\xad\x17\xa9\xd4\xd4Z\xa3U\xaa\xd2%\xacb[$\x89\xc2\xdb\x03\xf2\x92+t\xa9\x03\x19"\xe6Nb\xb2\x0bQV\xb5\x19\x08\r[\x9e_Qw\xa0>y\x1a-\'b\xf3\x88\xf1\xbey\x93\xdedZ\xd6\xb5\x15l\xed\x1f}\xa4\xad\x13s\xc7\xb7\x91\xf9MZe\xf2\xc6\x81\xd1d\xb69SN\xfbv\x02\xe80\xc29o\xc5\xb9L\x1b"\xect\x7f\x89(\xfdEQ\x12g\x05\xed\xac\xc9\xd9\xe5e\xa9\x13\xee:X\xfe\xb0\x1bG\xd2')
+2024-11-25 14:33:23,376 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:33:23,376 [DEBUG] b'98e9eb6e07b9edd9b78b97abd2a68794894d515a847379194263e61e01091f15'
+2024-11-25 14:33:23,377 [DEBUG] b'7dc1d836ec250a6433108ca74d4d483369fefbcc0adb27be80eb0ec7feb3f8e2'
+2024-11-25 14:33:23,377 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:23,377 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:33:23,377 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:23,378 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:33:23,413 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:33:23,413 [DEBUG] b'3e9d97b58a8377672db83a63338fcc5f2e7b279b9ecd0332fe53e7e4f0686143'
+2024-11-25 14:33:23,413 [DEBUG] b'8ec382075c5f0850de8c9d1adc121306302022211beec8e0bdc227d56e85a7ee'
+2024-11-25 14:33:23,413 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:23,413 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:23,414 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:33:23,424 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:33:23,426 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:23,493 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:33:23,493 [DEBUG] ESP info parameter
+2024-11-25 14:33:23,493 [DEBUG] R1 counter
+2024-11-25 14:33:23,493 [DEBUG] Puzzle solution parameter
+2024-11-25 14:33:23,494 [DEBUG] DH parameter
+2024-11-25 14:33:23,494 [DEBUG] Ciphers parameter
+2024-11-25 14:33:23,494 [DEBUG] ESP transform parameter
+2024-11-25 14:33:23,494 [DEBUG] Host ID
+2024-11-25 14:33:23,522 [DEBUG] OGA ID 1 
+2024-11-25 14:33:23,523 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:33:23,523 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:33:23,532 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:33:23,533 [DEBUG] Transport parameter
+2024-11-25 14:33:23,533 [DEBUG] MAC parameter
+2024-11-25 14:33:23,572 [DEBUG] Signature parameter
+2024-11-25 14:33:23,572 [DEBUG] Puzzle was solved
+2024-11-25 14:33:24,221 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:25,232 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:25,277 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:33:25,280 [DEBUG] Signature is correct
+2024-11-25 14:33:25,280 [DEBUG] Processing I2 packet 1.787102
+2024-11-25 14:33:25,332 [DEBUG] Current system state is 3
+2024-11-25 14:33:25,346 [DEBUG] Sending R2 packet to 192.168.3.2 0.065197
+2024-11-25 14:33:25,348 [DEBUG] Setting SA records...
+2024-11-25 14:33:25,355 [DEBUG] Transform 9 
+2024-11-25 14:33:25,356 [DEBUG] DERIVING KEYS
+2024-11-25 14:33:25,357 [DEBUG] bytearray(b'\xcb\xa5\xe7\xcb)\xce\x8f\x8c\x9f\x9aX\xd7\xc3\x10\x87\xfe\x8b\x8f\xcb\xc1\x8b{\xe4\x15\xee\x1fR>\xd8\xbc\xcchp\xa1\xca\xbf\xac\xa4]\x10 \xb9D\xdd\xd6\xccKA\x8b\xb9\xabxE\xe1\x9c\x07\xfc=\xfb}!1X\xbf\xe9\xea\xaf\x13\x89b.\r\xef\x1a!0\x1a\xaa\xb1\xfb\x1a:U\x12\xc3&Z\x18\xefb\xc5n\xd1\x08\xa6\xbb\x03G\xda\xd3\xcf\x98\x01a\x0b\x1d\xd8\xf6\x82\xb1\xf2\x16\xf9/E\xd6-\xb9(\x16\x8a\xf9\xd1\xed\xa1FS\xd1\x8e\xc3\x82\x07\\_\x08P\xde\x8c\x9d\x1a\xdc\x12\x13\x060 "!\x1b\xee\xc8\xe0\xbd\xc2\'\xd5n\x85\xa7\xee>\x9d\x97\xb5\x8a\x83wg-\xb8:c3\x8f\xcc_.{\'\x9b\x9e\xcd\x032\xfeS\xe7\xe4\xf0haC}\xc1\xd86\xec%\nd3\x10\x8c\xa7MMH3i\xfe\xfb\xcc\n\xdb\'\xbe\x80\xeb\x0e\xc7\xfe\xb3\xf8\xe2\x98\xe9\xebn\x07\xb9\xed\xd9\xb7\x8b\x97\xab\xd2\xa6\x87\x94\x89MQZ\x84sy\x19Bc\xe6\x1e\x01\t\x1f\x15\xe2 \xc0>\xf3M\xf2\x0fL\xe1\x81JEr\xcd\xa6\xb6R3\xb0g\x8dn\x03\xbc\x02V\xf7L\xec\xc0\xf7\x8b\x98Ud\xfdr\xe6\xc4\xbe\xac\xb3!W\xa0\x0f\xafy\xd3f\xd6\xa5\x05\x86%e\x12r\xdc\xe5\x85\xdd\xd1k\xbd\xa8-\'&\x18\xec\x13\x1bk,\x98#\x98\xa1\xe3;cb%\xf2\xf9\x06p\xd7C\x17\xca\\\x80\x07\x86\x16]Ck\xd2\xa8]!\xad\xad\t\x05<c\x86vj\x1a\xba\x89\x8f\x9b2\xf4\xe9\xe7\xe4\xf9\xf7\xbf\xcf\\\xe6?\x8f\x96i\x8a\xe1\xc3\xe3K;[\x1bJB\x12\xa6Y\x95\xad\x99B\xcf\x07\x9f\x82+\xa21\xa8\x96\xcaX\xb4\xb5\xcc\x15\x11\xde\x1435\xc1\x11\xc0Rf\xe8q\x0e>F\x13\x9f#\x8d\x1bF\x81\xc4\xf9\xaf1\xfc\xa3\x8a\xad_\xa8|K\x10\x8f\x8a\xfe\xb3\xbf\x9f\xe9\t\xd3\xe5\xa7\xec\xe7s\xb4T%\x0b\xc7X\x9e}\xe0\x07\xb2\xd1\xc1\xb73\xfcg\x01.\xabJ>\xbc\x96%^v\x16I\xda\xb6\x9278Z\x02BM\x9fH\xb4<3\xad\x17\xa9\xd4\xd4Z\xa3U\xaa\xd2%\xacb[$\x89\xc2\xdb\x03\xf2\x92+t\xa9\x03\x19"\xe6Nb\xb2\x0bQV\xb5\x19\x08\r[\x9e_Qw\xa0>y\x1a-\'b\xf3\x88\xf1\xbey\x93\xdedZ\xd6\xb5\x15l\xed\x1f}\xa4\xad\x13s\xc7\xb7\x91\xf9MZe\xf2\xc6\x81\xd1d\xb69SN\xfbv\x02\xe80\xc29o\xc5\xb9L\x1b"\xect\x7f\x89(\xfdEQ\x12g\x05\xed\xac\xc9\xd9\xe5e\xa9\x13\xee:X\xfe\xb0\x1bG\xd2')
+2024-11-25 14:33:25,357 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:33:25,357 [DEBUG] b'98e9eb6e07b9edd9b78b97abd2a68794894d515a847379194263e61e01091f15'
+2024-11-25 14:33:25,358 [DEBUG] b'7dc1d836ec250a6433108ca74d4d483369fefbcc0adb27be80eb0ec7feb3f8e2'
+2024-11-25 14:33:25,358 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:25,358 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:33:25,358 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:25,358 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:33:25,358 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:33:25,371 [DEBUG] b'3e9d97b58a8377672db83a63338fcc5f2e7b279b9ecd0332fe53e7e4f0686143'
+2024-11-25 14:33:25,372 [DEBUG] b'8ec382075c5f0850de8c9d1adc121306302022211beec8e0bdc227d56e85a7ee'
+2024-11-25 14:33:25,372 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:25,372 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:25,372 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:33:25,372 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:33:26,271 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:27,272 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:28,272 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:29,274 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:30,276 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:30,804 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:30,804 [INFO] UPDATE packet
+2024-11-25 14:33:30,805 [DEBUG] Reponder's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:33:30,805 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:30,805 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:33:30,809 [DEBUG] Sequence parameter
+2024-11-25 14:33:30,810 [DEBUG] MAC parameter
+2024-11-25 14:33:30,810 [DEBUG] Signature parameter
+2024-11-25 14:33:30,814 [DEBUG] Signature is correct
+2024-11-25 14:33:30,821 [DEBUG] Sending UPDATE ACK packet 192.168.3.2
+2024-11-25 14:33:31,300 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:31,303 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:33:31,304 [DEBUG] Responders's HMAC algorithm 1
+2024-11-25 14:33:31,304 [DEBUG] HMAC algorithm 1
+2024-11-25 14:33:31,304 [DEBUG] [112, 161, 202, 191, 172, 164, 93, 16, 32, 185, 68, 221, 214, 204, 75, 65, 139, 185, 171, 120, 69, 225, 156, 7, 252, 61, 251, 125, 33, 49, 88, 191]
+2024-11-25 14:33:31,305 [DEBUG] ------------------------------
+2024-11-25 14:33:31,305 [DEBUG] [59, 5, 18, 33, 0, 0, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158, 3, 129, 0, 4, 183, 181, 52, 47]
+2024-11-25 14:33:31,305 [DEBUG] ------------------------------
+2024-11-25 14:33:31,306 [DEBUG] Sending CLOSE PACKET packet 192.168.3.2
+2024-11-25 14:33:31,307 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:31,307 [DEBUG] Initiator's HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:33:31,307 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:33:31,307 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:31,307 [DEBUG] Destination HIT 200100216d6fe8ec7dcebd01a6d2239e 
+2024-11-25 14:33:31,309 [DEBUG] Sending UPDATE PACKET packet 192.168.3.2
+2024-11-25 14:33:31,315 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:31,338 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:32,317 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:32,317 [DEBUG] Destination HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:33:32,317 [DEBUG] Re-sending I1 packet to 192.168.3.1
+2024-11-25 14:33:32,317 [DEBUG] Re-sending I1 packet from 192.168.3.3
+2024-11-25 14:33:32,318 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:33:32,318 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:32,318 [DEBUG] I2 packet buffer------------
+2024-11-25 14:33:32,319 [DEBUG] bytearray(b'E\x00\x00\x00\x00\x00\x00\x00\x80\x8b\x00\x00\xc0\xa8\x03\x03\xc0\xa8\x03\x01;\x06\x01!@\x11\x00\x00 \x01\x00!\xb7\x00\xc8El_F\xbb\xbeX#\x88 \x01\x00!\xe1\xdd\xfcj\x83\xeeVH\x83\x0cV\x81\x01\xff\x00\x06\x04\t\x08\x03\x07\n\x00\x00\x00\x00\x00\x00')
+2024-11-25 14:33:32,319 [DEBUG] Transitioning to UNASSOCIATED state....
+2024-11-25 14:33:32,320 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:32,458 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:32,459 [INFO] ----------------------------- R1 packet ----------------------------- 
+2024-11-25 14:33:32,459 [DEBUG] <hiplib.crypto.digest.SHA256Digest object at 0x729a6634c0e0>
+2024-11-25 14:33:32,460 [DEBUG] [<hiplib.packets.HIP.R1CounterParameter object at 0x729a66bac740>, <hiplib.packets.HIP.PuzzleParameter object at 0x729a66e53170>, <hiplib.packets.HIP.DHParameter object at 0x729a66e52c60>, <hiplib.packets.HIP.CipherParameter object at 0x729a66e50770>, <hiplib.packets.HIP.ESPTransformParameter object at 0x729a66efe630>, <hiplib.packets.HIP.HostIdParameter object at 0x729a66323d70>, <hiplib.packets.HIP.HITSuitListParameter object at 0x729a66323a10>, <hiplib.packets.HIP.DHGroupListParameter object at 0x729a66323c20>, <hiplib.packets.HIP.TransportListParameter object at 0x729a663233b0>, <hiplib.packets.HIP.Signature2Parameter object at 0x729a66323fe0>]
+2024-11-25 14:33:32,460 [DEBUG] !!!!!!!!!!!!!!!!!!!!!!
+2024-11-25 14:33:32,460 [DEBUG] R1 counter
+2024-11-25 14:33:32,460 [DEBUG] Puzzle parameter
+2024-11-25 14:33:32,460 [DEBUG] DH parameter
+2024-11-25 14:33:32,467 [DEBUG] Ciphers
+2024-11-25 14:33:32,468 [DEBUG] ESP transform
+2024-11-25 14:33:32,468 [DEBUG] DI type: 2 
+2024-11-25 14:33:32,468 [DEBUG] DI value: bytearray(b'dmitriy.kuptsov@strangebit.com') 
+2024-11-25 14:33:32,468 [DEBUG] Host ID
+2024-11-25 14:33:32,468 [DEBUG] Responder's OGA ID 1
+2024-11-25 14:33:32,468 [DEBUG] bytearray(b'\x03\x01\x00\x01\xeaF\x99\x8b-n\xe8l\xd5j\xf8\xdb+\x9f\xf3=\x9fT\xaam:\xd2.\xd2\x10\xd1\xd7\xe4.\x97=[\x08\x16!\xa3"\xa8=\'\xcf\xc4\xad\x80@$\x03z\x02\x1f!\xeb.oc\x92=\xab\xad\x8a**\xceh+_jk\x10|\x08e\x90\xb9\x81%\xa2M\xf1\xde\x0f\xc6\r*@\x94j=\x8e\x03\x1b\xfeD\xfd\xe5\x96\x7f\x16\xa0\xfcT1\x94\x18\x8d\xe1\x88\xcdn<\xdd;).\xe4\xbeyDv\xe60\x07\xb0\xf2\x97\xa4\x1e9')
+2024-11-25 14:33:32,471 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:33:32,471 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:33:32,471 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:33:32,472 [DEBUG] HIT suit list
+2024-11-25 14:33:32,472 [DEBUG] DH groups parameter
+2024-11-25 14:33:32,472 [DEBUG] Transport parameter
+2024-11-25 14:33:32,472 [DEBUG] [4095]
+2024-11-25 14:33:32,498 [DEBUG] Signature parameter
+2024-11-25 14:33:32,600 [DEBUG] Puzzle was solved and verified....
+2024-11-25 14:33:32,603 [DEBUG] DH public key value: 5072895206279439752443122200431913191252125342708659024946831359966465799410117181695110545604987491612483891895543597761095199936671456589708911630867340775729168470035886145356580146721773222210622033321521178036510819500314922024039438720105701066440979531325305845832681467888228976487319426312838524406790255595302376052918100801232634622767775869460010213325551417910574077877850489823005461322743789526407957653387523496908390965713141215497556988897402447438512649639633330499617812819742698649341939244656949771181063598840071610334036798870381510184175462308796095962989465408578550848756379596469962359798431285244933417886821568612970674796906783406139679937608789506434768338610152617487656153316411218960785637861456731420768637574639213951039937521642649529766597523056603407110968993182349767694471983757188594587071853662590278217711402137470030261527878101183529144925507113035670098198233813180180301780524 
+2024-11-25 14:33:32,945 [DEBUG] Saving keying material in R1 192.168.3.3 192.168.3.1
+2024-11-25 14:33:32,945 [DEBUG] Processing R1 packet 0.485972
+2024-11-25 14:33:32,946 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:33:32,951 [DEBUG] [69, 0, 0, 0, 0, 0, 0, 0, 128, 139, 0, 0, 192, 168, 3, 3, 192, 168, 3, 1, 59, 113, 3, 33, 144, 146, 0, 0, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129, 0, 65, 0, 12, 0, 0, 0, 128, 0, 0, 0, 0, 119, 90, 174, 112, 0, 129, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 65, 0, 68, 16, 0, 67, 235, 201, 113, 21, 91, 191, 11, 51, 67, 242, 254, 117, 118, 234, 105, 251, 93, 194, 229, 103, 236, 89, 237, 61, 214, 206, 83, 239, 194, 62, 111, 254, 9, 49, 95, 16, 96, 140, 141, 144, 205, 71, 210, 77, 122, 134, 26, 9, 104, 74, 49, 77, 248, 196, 23, 42, 197, 118, 153, 64, 113, 172, 196, 83, 59, 2, 1, 1, 131, 4, 0, 48, 110, 49, 213, 59, 128, 22, 56, 21, 67, 172, 56, 215, 68, 169, 115, 86, 100, 65, 52, 210, 236, 18, 232, 38, 39, 160, 161, 34, 236, 241, 62, 127, 32, 159, 173, 7, 163, 213, 189, 174, 102, 171, 169, 145, 155, 112, 129, 43, 18, 40, 124, 144, 181, 139, 60, 213, 73, 16, 55, 75, 158, 185, 184, 38, 253, 24, 189, 167, 105, 54, 49, 147, 106, 238, 109, 105, 204, 73, 53, 51, 25, 160, 168, 208, 130, 155, 218, 105, 63, 198, 24, 90, 201, 27, 35, 183, 197, 80, 51, 57, 204, 79, 227, 30, 194, 174, 84, 52, 43, 175, 23, 28, 165, 161, 183, 182, 133, 220, 97, 230, 209, 3, 34, 33, 129, 40, 101, 4, 109, 186, 244, 156, 107, 76, 131, 53, 79, 154, 17, 39, 102, 120, 14, 179, 94, 57, 91, 54, 96, 174, 237, 8, 196, 115, 247, 73, 81, 82, 252, 61, 16, 197, 7, 184, 15, 87, 107, 57, 152, 119, 125, 67, 146, 143, 129, 15, 73, 124, 242, 138, 123, 35, 131, 19, 178, 87, 110, 250, 208, 59, 142, 234, 43, 201, 38, 77, 250, 44, 53, 241, 76, 194, 47, 196, 167, 243, 220, 74, 70, 61, 29, 178, 104, 40, 37, 153, 248, 198, 235, 95, 16, 215, 83, 187, 90, 120, 4, 79, 64, 102, 137, 34, 64, 160, 141, 128, 233, 236, 96, 132, 129, 83, 103, 247, 117, 118, 78, 113, 96, 144, 149, 71, 73, 15, 89, 151, 206, 176, 187, 201, 236, 39, 49, 194, 160, 129, 85, 232, 186, 140, 25, 0, 44, 61, 45, 70, 46, 155, 44, 74, 63, 149, 251, 44, 112, 91, 153, 113, 55, 197, 101, 28, 117, 96, 141, 42, 8, 135, 60, 62, 109, 176, 33, 131, 35, 234, 99, 110, 2, 117, 254, 213, 159, 41, 128, 178, 199, 24, 192, 115, 203, 10, 62, 28, 69, 7, 238, 102, 240, 229, 166, 200, 202, 129, 78, 53, 194, 97, 25, 167, 51, 14, 105, 39, 97, 88, 43, 196, 70, 232, 103, 60, 113, 218, 98, 239, 28, 136, 167, 227, 178, 83, 215, 147, 171, 6, 14, 176, 176, 77, 250, 157, 4, 254, 108, 64, 175, 125, 155, 98, 134, 140, 126, 115, 0, 2, 67, 0, 2, 0, 4, 0, 0, 15, 255, 0, 4, 0, 0, 0, 9, 2, 193, 0, 168, 0, 132, 32, 30, 0, 5, 3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91, 100, 109, 105, 116, 114, 105, 121, 46, 107, 117, 112, 116, 115, 111, 118, 64, 115, 116, 114, 97, 110, 103, 101, 98, 105, 116, 46, 99, 111, 109, 0, 0, 0, 0, 8, 1, 0, 2, 15, 255, 0, 0, 240, 65, 0, 32, 237, 11, 84, 97, 58, 91, 113, 180, 234, 144, 196, 144, 49, 112, 232, 80, 152, 54, 122, 171, 68, 116, 19, 121, 135, 37, 175, 61, 194, 19, 175, 75, 0, 0, 0, 0, 241, 1, 0, 130, 0, 5, 14, 173, 237, 131, 183, 209, 230, 222, 141, 14, 2, 83, 246, 24, 82, 201, 223, 121, 167, 57, 39, 111, 164, 76, 145, 236, 152, 122, 49, 192, 195, 151, 191, 126, 98, 67, 36, 154, 11, 21, 47, 157, 109, 183, 215, 89, 83, 204, 130, 22, 107, 56, 53, 73, 243, 220, 105, 38, 231, 87, 124, 180, 209, 44, 211, 222, 120, 58, 122, 56, 129, 220, 81, 246, 50, 9, 14, 61, 124, 200, 221, 25, 191, 156, 9, 127, 15, 161, 191, 234, 80, 177, 45, 199, 150, 150, 94, 172, 72, 242, 163, 242, 105, 252, 4, 106, 249, 198, 178, 221, 72, 60, 6, 225, 78, 183, 125, 187, 155, 48, 27, 230, 95, 144, 98, 49, 155, 238, 0, 0]
+2024-11-25 14:33:32,952 [DEBUG] Sending I2 packet to 192.168.3.1 932
+2024-11-25 14:33:32,952 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:32,953 [INFO] I1 packet
+2024-11-25 14:33:33,125 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:33:33,126 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:33:33,131 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:33,131 [INFO] I1 packet
+2024-11-25 14:33:33,312 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:33:33,312 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:33:33,321 [DEBUG] Re-sending I2 packet to 192.168.3.1
+2024-11-25 14:33:33,321 [DEBUG] Re-sending I2 packet from 192.168.3.3
+2024-11-25 14:33:33,321 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:33,322 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:33:33,322 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:33,371 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:33,371 [INFO] R2 packet
+2024-11-25 14:33:33,371 [DEBUG] ESP info parameter
+2024-11-25 14:33:33,377 [DEBUG] MAC2 parameter
+2024-11-25 14:33:33,378 [DEBUG] Signature2 parameter
+2024-11-25 14:33:33,378 [DEBUG] HMAC is ok. return with signature
+2024-11-25 14:33:33,382 [DEBUG] Signature is correct
+2024-11-25 14:33:33,382 [DEBUG] Processing R2 packet 0.011324
+2024-11-25 14:33:33,382 [DEBUG] Ending HIP BEX 1732541613.382869
+2024-11-25 14:33:33,383 [DEBUG] Setting SA records... 192.168.3.1 - 192.168.3.3
+2024-11-25 14:33:33,383 [DEBUG] Transform 9 
+2024-11-25 14:33:33,383 [DEBUG] 1
+2024-11-25 14:33:33,384 [DEBUG] 4
+2024-11-25 14:33:33,384 [DEBUG] DERIVING KEYS
+2024-11-25 14:33:33,384 [DEBUG] bytearray(b'\xf9v|]\\ \xa3\xe7\t\xd6\xdcP\xc3\xce4\xd3\xe2\xf7\x8f\xce\xb0\xbc\xab4\x8c\x11!\x11|\xb8\x8f\x90\tL@\x82(\xd3\t\xf4\xe9$\x02{~\xdc\xaa\xbe\xe4\xc1\xc1\x7fMD\xc0j\xb0\xc9\xf8\x14\xd23(G\x06Z\x18\xcb\xc5\xc4W\xd4\x1blfn\xf8\xf3[\xf3\xd2\xf8\x9c\xfc\xdb\xad\xfb\xecF\x10\xe1\xf1\xc1\xf3\xf6\x1d\x88\xd7\x80\xed\xeb\xd3\xd3\x9d\xa5m#\xb2B\x87\x16y\xe5\xfb\xce\xaa\xd1\x12\xb4\x9e\x8b,t@\xa9\xean \x88"\x9bW\x109f\xc5\x15`U:\xaa\n\xd5Gj\x8c\xd0\x9c\xf3\x83iV\xd5\xa2e\xeaHU\xf8\xeb\x86\xb7a\xd8\xfe\x13\xa7\xc4\x81\xa9\xfa\xc4D\xf8n\to\xe8\xad\xf5q^\x19\nv\xee}\xc6\xbcm\x0b\x1b\xc3\x9eW\xd9\x10\x8d\xfb\xd0\n\xe6\x1d\xab\xc7\xf4\xaf\xea\xb1\x87\xd7\x95\x87\xe6Q\x00\x84?\x0c\xdc\xc9\x0b\xff\x9c\xda\xe6\xafm\xd3!S\xde\x82$\xed"w\x82\xbd\xdd\x88n\xffi\x88\xebp\xd0\x08\x07\xe4uW\xfb\xc1\xfd\xf0\x92*\x8eqj\xd4\xe2\xfc\xa3\x9d//\\\xfcLo}\x99q\x8b\x02\xe3&\xd3\xd0p\x8e\xdfd\xd8\xd1@\xd9\x0c7\x08\xfb\x17\x10\x17\xed\xbdZ\xd22\x87b\xc1\xd9\x9cK\x07d\x93\x8a\x8c*N\xd4\xdc\x9buo?\xc5\x16\x82\xb9s1\x82O\xafb\xc3\x90s\xdf\x019\xe4\xa9_P\xe3O>\x13ly^\xdc\xce\xc0CJ\x1c^\xfc\xea\\z_]\xc1)\xf0\xaa\x93\xb4L\x99\xacVf\xe27\x02gU\xdbU\x12- \x85:\xfdi\x9a\xbb\xeclY\xf1*\xb8\xc3\x05\xfdn\xcc\xf2\xe3#\xed\xd2\xdb\x85Z\xd2\x08\xe2\x07bQ\xb6\x08\xa2v\xc4\xdc/6N\xd2\x1e\x93\xafA\x0e\x04\xba\xfdPq\x8b\xcc\x88C\x8f\xd1u0@\x8b\xad=\xac\xafd.\xb6\xe1}#S\xb3\xc5\xee\x82\xa5\xa8\xadI({wyKB$\xba\xfa\x16$\xe6\x9223\x1e\xec\xe39\xa8\xa8%Q\x85\xa5\xe5\x89\tvC/\x1c\x1c<;\xb7a\xde\x92\x1e\x02W\xe0\x97\xd4V@\x91\xe95^(\xed\x83\xa0\x0fp\xc4XY\xfdeay\x99J=\x13\xbf\x1a0Zl\xe4\x0e\x87\xcc\xdbW\xd7\xab\x92<-\xbb\x01\x03\x8a9\xf3~LtP\xeb\xec\x9c<@\xdaEk\x08K\x15\x06%f\xd7\xfe\x80B*\xed\xf0v\xfcS\xaa\xc6\xa0\x00}k\xd0\x0f\x8b&\xa5f\x07QW\x8b\xbd\xf7H\xe3k\xe9C:KRw\xac\xf8\x0e\xfeo\xd0\xe1\x9f\xa6\\\x04\xb25\xf2\x9f\xb3\xd6a6\x06\x0c\x14\xe5\x01\xd66\x89=<(\x9dC\x95')
+2024-11-25 14:33:33,388 [DEBUG]  DERVIVING KEYS OUT R2
+2024-11-25 14:33:33,388 [DEBUG] b'86b761d8fe13a7c481a9fac444f86e096fe8adf5715e190a76ee7dc6bc6d0b1b'
+2024-11-25 14:33:33,388 [DEBUG] b'88229b57103966c51560553aaa0ad5476a8cd09cf3836956d5a265ea4855f8eb'
+2024-11-25 14:33:33,388 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:33,388 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:33:33,389 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:33,389 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 20010021e1ddfc6a83ee5648830c5681
+2024-11-25 14:33:33,389 [DEBUG]  DERVIVING KEYS IN R2
+2024-11-25 14:33:33,390 [DEBUG] b'dae6af6dd32153de8224ed227782bddd886eff6988eb70d00807e47557fbc1fd'
+2024-11-25 14:33:33,390 [DEBUG] b'c39e57d9108dfbd00ae61dabc7f4afeab187d79587e65100843f0cdcc90bff9c'
+2024-11-25 14:33:33,390 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:33,390 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:33,393 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:33:33,393 [DEBUG] Adding record for 192.168.3.1 - 192.168.3.3
+2024-11-25 14:33:33,894 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:33,894 [DEBUG] Dropping the packet
+2024-11-25 14:33:34,324 [DEBUG] Reponder's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:33:34,324 [DEBUG] Initiator's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:34,324 [DEBUG] Using Responders's HMAC algorithm 1
+2024-11-25 14:33:34,324 [DEBUG] Source HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:34,325 [DEBUG] Destination HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:33:34,330 [DEBUG] Sending UPDATE PACKET packet 192.168.3.1
+2024-11-25 14:33:34,330 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:34,349 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:34,349 [INFO] UPDATE packet
+2024-11-25 14:33:34,350 [DEBUG] Reponder's HIT 20010021b700c8456c5f46bbbe582388 
+2024-11-25 14:33:34,350 [DEBUG] Initiator's HIT 20010021e1ddfc6a83ee5648830c5681 
+2024-11-25 14:33:34,350 [DEBUG] Reponder's HMAC algorithm 1
+2024-11-25 14:33:34,350 [DEBUG] Acknowledgement parameter
+2024-11-25 14:33:34,351 [DEBUG] MAC parameter
+2024-11-25 14:33:34,351 [DEBUG] Signature parameter
+2024-11-25 14:33:34,352 [DEBUG] Signature is correct
+2024-11-25 14:33:34,356 [DEBUG] This is a response to a UPDATE. Skipping pong...
+2024-11-25 14:33:34,631 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:34,633 [INFO] CLOSE packet
+2024-11-25 14:33:34,634 [DEBUG] Responder's HMAC algorithm 1
+2024-11-25 14:33:34,634 [DEBUG] Cipher algorithm 4 
+2024-11-25 14:33:34,642 [DEBUG] HMAC algorithm 1
+2024-11-25 14:33:34,642 [DEBUG] Echo request signed parameter
+2024-11-25 14:33:34,643 [DEBUG] [3, 129, 0, 4, 63, 148, 59, 195]
+2024-11-25 14:33:34,650 [DEBUG] MAC parameter
+2024-11-25 14:33:34,651 [DEBUG] Signature parameter
+2024-11-25 14:33:34,651 [DEBUG] Sender's HIT 20010021e1ddfc6a83ee5648830c5681
+2024-11-25 14:33:34,651 [DEBUG] Receiver's HIT 20010021b700c8456c5f46bbbe582388
+2024-11-25 14:33:34,651 [DEBUG] ------------------------------------
+2024-11-25 14:33:34,654 [DEBUG] [59, 5, 18, 33, 0, 0, 0, 0, 32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129, 32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136, 3, 129, 0, 4, 63, 148, 59, 195]
+2024-11-25 14:33:34,654 [DEBUG] ------------------------------------
+2024-11-25 14:33:34,654 [DEBUG] HMAC OK
+2024-11-25 14:33:34,655 [DEBUG] Signature is correct
+2024-11-25 14:33:34,667 [DEBUG] Sending CLOSE ACK packet 192.168.3.1
+2024-11-25 14:33:34,667 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:34,671 [INFO] UPDATE packet
+2024-11-25 14:33:34,671 [DEBUG] Dropping the packet
+2024-11-25 14:33:34,769 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:34,771 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:33:34,774 [DEBUG] ESP info parameter
+2024-11-25 14:33:34,774 [DEBUG] R1 counter
+2024-11-25 14:33:34,774 [DEBUG] Puzzle solution parameter
+2024-11-25 14:33:34,774 [DEBUG] DH parameter
+2024-11-25 14:33:34,775 [DEBUG] Ciphers parameter
+2024-11-25 14:33:34,775 [DEBUG] ESP transform parameter
+2024-11-25 14:33:34,775 [DEBUG] Host ID
+2024-11-25 14:33:34,775 [DEBUG] OGA ID 1 
+2024-11-25 14:33:34,777 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:33:34,781 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:33:34,781 [DEBUG] [32, 1, 0, 33, 109, 111, 232, 236, 125, 206, 189, 1, 166, 210, 35, 158]
+2024-11-25 14:33:34,781 [DEBUG] Transport parameter
+2024-11-25 14:33:34,781 [DEBUG] MAC parameter
+2024-11-25 14:33:34,781 [DEBUG] Signature parameter
+2024-11-25 14:33:34,782 [DEBUG] Puzzle was solved
+2024-11-25 14:33:35,277 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.2
+2024-11-25 14:33:35,280 [DEBUG] Signature is correct
+2024-11-25 14:33:35,280 [DEBUG] Processing I2 packet 0.506010
+2024-11-25 14:33:35,282 [DEBUG] Current system state is 0
+2024-11-25 14:33:35,283 [DEBUG] Sending R2 packet to 192.168.3.2 0.002427
+2024-11-25 14:33:35,283 [DEBUG] Setting SA records...
+2024-11-25 14:33:35,283 [DEBUG] Transform 9 
+2024-11-25 14:33:35,283 [DEBUG] DERIVING KEYS
+2024-11-25 14:33:35,283 [DEBUG] bytearray(b'\xf9\x85_\xc2\x02\xf3\x80\xb9K\xe2\xd0\xe7\xdb\x84\x87\xa1\xaf\x99\x8d\xc6;\x05\xcd=\x16\xde\xa8}9\x12\xcb\xc1\xc6\xe7\xdc\x8e\xcd8\xec*\x9e\x93\xb7g\xe0\xb2p\xfa\xc7p\xa4\xccV\x0c\xea~N\xf6M\x10f\xe9\x80H\xcd\x11i\x81T\xf2\xde\xb3q\x1c\x87q\xb7\x1e\x15[\x19*\xa4O\x0f\x93\xaf\x19\x86"Zl\xf9,\xe7|\xc1\x88vz\x03C\x86\xc1\xdd\x1a##\x02\x8c\\S\xd85\x9a\xd8\xc9\xc3\x11\xf4\r\x18k\xcb\xfb\xc6\xb4\xe5\x92\xfe<\xc0J0K\x98\xa2\x9dr\xcd\xa9\xa5m\x01\'\xab\x07g\x13\x7f\x0c\xea\'1d\xee@\xc5\xbax\xfd\xf8\xcf \xe3\xe3\xb7S,\x7f\x8a;\xb0\xd0=\xb0\xb4\x7f?e\x06\xa3[4W\x12\x16\xab\xef!"\xf6\xd9\xe7\x0e\x99#\xac\x93\x8e\x8a\xa6\xdd\xd7_\xa4\xf8-\x88\xfb\xa1\x11\xd9~H\x00\x1e\xce\xb9\x02|\x14Py\xeb\x83\xb5=b\xc9\\\xae\xb56I/(pt\xf9\x82\xb9\x16e2\xdb\x11D-}\xfbHZ[t\xd7y\xc6\x1eO/C2\xa1G\xaa>>{\x14/\xcaMT\xf8`\xe6\xbdL\x92\xb8\xf3\xa4\x89\xe2\x18\x10\xa7$*\x9b\xd70+\xa9\xd4;\xa7\x86\xf1\xed\xf2\xbc\x12\x86\t\xf6~AD\xd4\xefV(\xe1+k2aI\xa2"B\xe2\xcd\x8f\xacI0r\xf7\xca\x96\x967\xeb\xe1-\xc8\x9cr\xa9\xf6\x06\xc2\xb8\x18Q\x91\xa5 S\x83$P\x11\x9b\xbd\x99rm.BWG!\x1d&\xb2\xd8cj#\xb5\x15\x96Gs\x9bM\x84OU\xa2|"#\xf2\x12>\xc7N\xb7p\x1b?\x8eU\x03p]\xb5\xc1c\xb2\xd4\xc4g\xa8C\xcf-\x91\xdb\r\xfe\x10+\xc8T\xaa\xfd\xbeGI\x03{\xb6qb]I2tb\xe7\xbe>\x7f\x03Pe\xb7v\xc0\xc1$K\xf5\xado\x08"D\xc6\xbc\xc8\x9c3\xaf\xcaP\x83\x95\xfd:\xef\x83t"\x98\xb8E\xbc\x94\x86\x1e1\x10#\xfc\xe3\x95\xbe\xb3N\xa8\xaf\xff\x97\xad\xaa\x10\xc4\x85~\xc7\xf9\xc9O\x13\x91lQ\xa9o\x86\x8b\xbb*\x0c\x14G\xc9\x1eY*\xc9\x89\x90rO1\xe9\x95\xb9e\xfa\xde\xdf#\xe8\xfcutP\xb7\xd7\x00\xaee(<W}\x85[\xea\xf9>\xdb\xb3\xd1\r\xcc\xe0\x03\xf9\xf9\x08\xa4\xe6\xc2\xd9\xab\'D\xc9\xa7\x99\xf2"\xaeG\x9d\xdf(\xcb\xfa\xa5m_\x17\x916\xc6wq\x8fT\xf0\x96c\x1ai\xaa\x89\xaf\xaf\x84\x10 \xfd\xcc?\xd3\xb0\xb5\x1fIk\xce\xba:\xfd\xf0Ee\xecr\x8e\x93::\x9e\x07+\xb2 \x19\xb93\x9c\xf2\xf1\xd6\xb8\xe7\x92\xbb')
+2024-11-25 14:33:35,284 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:33:35,284 [DEBUG] b'eb83b53d62c95caeb536492f287074f982b9166532db11442d7dfb485a5b74d7'
+2024-11-25 14:33:35,285 [DEBUG] b'd9e70e9923ac938e8aa6ddd75fa4f82d88fba111d97e48001eceb9027c145079'
+2024-11-25 14:33:35,285 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:35,287 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:33:35,287 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:35,287 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 200100216d6fe8ec7dcebd01a6d2239e
+2024-11-25 14:33:35,293 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:33:35,294 [DEBUG] b'fdf8cf20e3e3b7532c7f8a3bb0d03db0b47f3f6506a35b34571216abef2122f6'
+2024-11-25 14:33:35,294 [DEBUG] b'92fe3cc04a304b98a29d72cda9a56d0127ab0767137f0cea273164ee40c5ba78'
+2024-11-25 14:33:35,294 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:35,294 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:35,294 [DEBUG] b'200100216d6fe8ec7dcebd01a6d2239e'
+2024-11-25 14:33:35,295 [DEBUG] Adding record for 192.168.3.2 - 192.168.3.3
+2024-11-25 14:33:35,295 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:35,295 [INFO] I1 packet
+2024-11-25 14:33:35,363 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:35,607 [DEBUG] [3, 1, 0, 1, 191, 139, 50, 71, 136, 124, 164, 108, 3, 147, 9, 118, 80, 211, 77, 16, 168, 73, 58, 236, 203, 187, 190, 5, 85, 108, 246, 226, 194, 116, 64, 36, 53, 20, 6, 38, 195, 146, 162, 116, 181, 139, 102, 238, 63, 44, 20, 200, 72, 222, 8, 152, 87, 43, 157, 8, 51, 56, 120, 28, 210, 111, 195, 26, 17, 44, 110, 191, 167, 202, 249, 146, 196, 255, 150, 63, 120, 190, 178, 110, 138, 86, 124, 129, 23, 248, 153, 209, 0, 5, 237, 112, 48, 164, 135, 188, 222, 205, 88, 176, 68, 248, 53, 42, 167, 191, 173, 127, 95, 227, 74, 117, 248, 93, 50, 136, 123, 16, 25, 141, 170, 136, 12, 238, 251, 148, 120, 91]
+2024-11-25 14:33:35,608 [DEBUG] Type: 2, Value: dmitriy.kuptsov@strangebit.com
+2024-11-25 14:33:36,366 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:37,367 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:38,161 [DEBUG] Got HIP packet on the interface
+2024-11-25 14:33:38,162 [INFO] ---------------------------- I2 packet ---------------------------- 
+2024-11-25 14:33:38,162 [DEBUG] ESP info parameter
+2024-11-25 14:33:38,162 [DEBUG] R1 counter
+2024-11-25 14:33:38,162 [DEBUG] Puzzle solution parameter
+2024-11-25 14:33:38,162 [DEBUG] DH parameter
+2024-11-25 14:33:38,162 [DEBUG] Ciphers parameter
+2024-11-25 14:33:38,162 [DEBUG] ESP transform parameter
+2024-11-25 14:33:38,163 [DEBUG] Host ID
+2024-11-25 14:33:38,163 [DEBUG] OGA ID 1 
+2024-11-25 14:33:38,163 [DEBUG] [32, 1, 0, 33, 183, 0, 200, 69, 108, 95, 70, 187, 190, 88, 35, 136]
+2024-11-25 14:33:38,164 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:33:38,164 [DEBUG] [32, 1, 0, 33, 225, 221, 252, 106, 131, 238, 86, 72, 131, 12, 86, 129]
+2024-11-25 14:33:38,164 [DEBUG] Transport parameter
+2024-11-25 14:33:38,165 [DEBUG] MAC parameter
+2024-11-25 14:33:38,165 [DEBUG] Signature parameter
+2024-11-25 14:33:38,165 [DEBUG] Puzzle was solved
+2024-11-25 14:33:38,314 [DEBUG] Saving keying material in I2 192.168.3.3 192.168.3.1
+2024-11-25 14:33:38,316 [DEBUG] Signature is correct
+2024-11-25 14:33:38,320 [DEBUG] Processing I2 packet 0.158028
+2024-11-25 14:33:38,324 [DEBUG] Current system state is 6
+2024-11-25 14:33:38,324 [DEBUG] Sending R2 packet to 192.168.3.1 0.003180
+2024-11-25 14:33:38,325 [DEBUG] Setting SA records...
+2024-11-25 14:33:38,325 [DEBUG] Transform 9 
+2024-11-25 14:33:38,325 [DEBUG] DERIVING KEYS
+2024-11-25 14:33:38,325 [DEBUG] bytearray(b' \x86\xa4\xben\xd0\xd3\xde\xb5\xa3\xaa\xac\x02\xa9\xef\xc7%\xb4\xa9\xa2B\x18\xde\xa4\xe3l+\xe1\x86L\xaa\xc7\x04\xd1\xf7\xbe\xa8\xcbv9\x1e\xe0\xf0h\x89\xf4fl\x0e\xb4\xfa*\xfb\x15\xbb\xa4J\xcc\xa5\x1aX\xda\x85;]2\x8e\x16\x95`\xc7.\x90\xcd6#.e\x13v\xe9\xadh\xcd?\x15\x80\xa8\xd8\xf0\x12\x1aV\xbe\xbft%\xcd\xdd\x89G\xfeP\x0f1Z\xbd0\xed\x10(\xb0\xad\xb6\x8a\xa0\x19\x04\xff\xa1\x86z\xe8\xd0\x19\xf1_\xbe\xbf\xfe7}\xd8\xb3\x8c\xc0\xf5\xc5\xa9X\xa1\xf4O+\x06\xc8\x07w\x0f\xb9\xa8\xff\xaaE\x98\x1e\x82\xf9\x8f\xfe\xbcy\xcc\xac\xc1\xea\xfd\xe5\xf3\xf6\xeb\x17M\xae\xb0\xe8~)\x8d\xacQ(\x93o-xY\x15C\xcd\x06"\xc4\x12\xe6\xf1::\xb8\x80tc\x1b\xe6c\xeb\x94\xe4\xb3\x0e\xa0\xda\x97\x81\xac\xe6\xf2*\xaa4N\x89\x9akLB\xd4\xc4\x0e\xaeY\x01O\x16\xb0p8\xbd(,z&\x91\xda\xd1\xb5\xcb\xd9\xe1\x97\n\xa1\x91\x12\x8c\xc0\xf3\x15\xea\x10\x9f#\x01\x0b\x08\xdf\x84G\xaeXj%\xe5<\xed\xa0\xb4@i\xee\xbb\xa4^\x01b\x13"\xee\xff\xb8\x9e\xe31\xd5R\x16\xbe\x18^O\xb3\x01\xb5Z\xbf\x0f(B\xec/N\xf5\xa9\xc7\x89BQL\t:\x14\xb9\x810\xf5\xa5\xc3\x18\x02\xd5\xda\xa7\x92@\xa2\x08pCA\x82\xad\x13\xa0\xe0d\xbb\x99\x1d\x9bl\xf2\xd8v\xd1\x05\xf5\xc3\x15f\x83\xf5\xd6\xa34\xe7\xf0Z\xcc\xc3\x83\x1d\xaa\x8e\x1d\xea\x07tN,\xef>\tA\xec\x1d\xc88\x06C\x00l\x96\x90\t\x1f\xf4\xe4a&\x17+>\xfb\xc9\x90\xa640\xc3y\xcaOH\xfa\t\xe7*)fsU\x10\xed\xdc\xcb\xfc1L>$+\xf8\xfd\x9f\xecN=bi\x00\x7fJ\xccU\xe1\x8dW\xe1X\xe4\xec=N\xe4\t\xf8\xfc\x8a\xe8\x0b<\xec|\xaaK?\xef\x11\xb0Y\xa8\xbd\xef\xa79"A\xad\x05k|\x95\x96}!\xa4\xec\xc7b\x1cV\xc9\xc6b\x87\x86W\xe3\r\xd6\xa6\x01)y\xd2b\xf2!\x8eGB0%\xf5S\x10+\x83\x8e\xad)\xd5\xf8GaQ\xc7\xba\xf2\xdbT\xfc\xeb\x85\xff\x16$\xb4nc!\xa7\x9e\xdd\xf8[c\xddP\xf9Tz?\xa5\x83\x12BB+\xb7\xf4b(\x8f\x13\x9a\x16Z\xdf\xbd?\xa5\xab\xcd\xa4\xfa\xad\x0b\n\xf99t\xb47:\x0f\x15\xb9\x0f\xa1\x17H\xaa\xd7\xae;e-U;k\xe0J%2\x99J\xa8\xe9\xd1U\x94\x02\xd9`{7\x85Q0\x92t\x9e\xc6O\xb2\xa969\xda\x92O2\xdf\x07j\xc7(\xc03')
+2024-11-25 14:33:38,325 [DEBUG]  DERVIVING KEYS OUT I2
+2024-11-25 14:33:38,325 [DEBUG] b'bc79ccacc1eafde5f3f6eb174daeb0e87e298dac5128936f2d78591543cd0622'
+2024-11-25 14:33:38,325 [DEBUG] b'bffe377dd8b38cc0f5c5a958a1f44f2b06c807770fb9a8ffaa45981e82f98ffe'
+2024-11-25 14:33:38,325 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:38,326 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:33:38,326 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:38,326 [DEBUG] Adding record for 20010021b700c8456c5f46bbbe582388 - 20010021e1ddfc6a83ee5648830c5681
+2024-11-25 14:33:38,326 [DEBUG]  DERVIVING KEYS IN I2
+2024-11-25 14:33:38,326 [DEBUG] b'4c42d4c40eae59014f16b07038bd282c7a2691dad1b5cbd9e1970aa191128cc0'
+2024-11-25 14:33:38,329 [DEBUG] b'c412e6f13a3ab88074631be663eb94e4b30ea0da9781ace6f22aaa344e899a6b'
+2024-11-25 14:33:38,329 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:38,330 [DEBUG] b'20010021b700c8456c5f46bbbe582388'
+2024-11-25 14:33:38,330 [DEBUG] b'20010021e1ddfc6a83ee5648830c5681'
+2024-11-25 14:33:38,330 [DEBUG] Adding record for 192.168.3.1 - 192.168.3.3
+2024-11-25 14:33:38,368 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:39,370 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:40,372 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:41,375 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:42,379 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:43,381 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:44,383 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:45,385 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:46,389 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:47,392 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:48,395 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:49,397 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:50,401 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:51,403 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:52,407 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:53,409 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:54,411 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:55,413 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:56,416 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:57,419 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:58,423 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:33:59,430 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:00,436 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:01,450 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:02,465 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:03,466 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:04,470 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:05,473 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:06,478 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:07,486 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:08,490 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:09,491 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:10,493 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:11,503 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:12,505 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:13,507 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:14,515 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:15,516 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:16,524 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:17,526 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:18,529 [DEBUG] ...Periodic cleaning task...
+2024-11-25 14:34:18,638 [DEBUG] Exception occured while processing L2 frame
+2024-11-25 14:34:18,643 [DEBUG] [Errno 100] Network is down
