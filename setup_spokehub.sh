@@ -1,5 +1,5 @@
 # Description: This script copies the necessary files from spoke 1 and hub 1 to spoke 2, 3 and hub 2, 3 respectively.
-project="./" # Path to project folder
+project="." # Path to project folder
 s1="/spoke1/hiplib"
 s2="/spoke2/hiplib"
 s3="/spoke3/hiplib"
@@ -33,7 +33,7 @@ do
 done
 
 # Copy relevant folders from spoke 1 to spoke 2 3
-for f in crypto packets databases
+for f in crypto packets databases utils
 do
 	for i in ${project}${s2}/${f} ${project}${s3}/${f}
 	do 
@@ -41,11 +41,15 @@ do
 	done 
 done
 
-for f in crypto packets databases
+for f in crypto packets databases utils
 do
 	for i in ${project}${h2}/${f} ${project}${h3}/${f}
 	do 
 		sudo cp -r -T ${project}${h1}/${f} $i
 	done 
 done
+
+#sudo cp -r ./spoke1/hiplib/crypto/ ./spoke2/hiplib/crypto/
+
+
 echo "Finished copying hubs & spokes."

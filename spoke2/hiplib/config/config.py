@@ -50,6 +50,7 @@ config = {
 	},
 	"firewall": {
 		"rules_file": "hiplib/config/rules"
-	}
+	},
+	"hub": "2001:0021:6d6f:e8ec:7dce:bd01:a6d2:239e"
 }
 

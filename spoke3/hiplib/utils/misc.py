@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#comment
+
 import sys
 import os
 sys.path.append(os.getcwd())
@@ -87,6 +89,41 @@ class Math():
 			byte_array.append((number >> (i*8)) & 0xFF);
 		#byte_array.reverse();
 		return bytearray(byte_array);
+
+	@staticmethod
+	def int_to_bytes_with_len(number, target_length):
+		byte_array = [];
+		length = 0
+		if number != 0:
+			length = int(ceil(Math.num_bits(number) / 8));
+
+		if target_length > length:
+			for _ in range(target_length - length):
+				byte_array.append(0x00);
+
+		for i in range(length - 1, -1, -1):
+			byte_array.append((number >> (i*8)) & 0xFF);
+		#byte_array.reverse();
+		return bytearray(byte_array);
+
+	@staticmethod
+	def bytes_to_int_list(bytes, len, nr_of_elements):
+		list = []
+		for id in range(nr_of_elements):
+			point = []
+			result = 0;
+			for i in range(len - 1, -1, -1):
+				result += bytes[id*len*2 + (len - 1) - i] << (8*i);
+			point.append(result)
+
+			result = 0;
+			for i in range(len - 1, -1, -1):
+				result += bytes[(id*2+1)*len + (len - 1) - i] << (8*i);
+			point.append(result)
+			
+			list.append(tuple(point))
+			
+		return list;
 
 	@staticmethod
 	def bytes_to_int(bytes):

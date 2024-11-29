@@ -14,6 +14,9 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from time import sleep
+
+from numpy import indices
 
 __author__ = "Dmitriy Kuptsov"
 __copyright__ = "Copyright 2020, strangebit"
@@ -45,6 +48,8 @@ import atexit
 from hiplib.packets import HIP
 # IPSec packets
 from hiplib.packets import IPSec
+
+from hiplib.crypto.my_secp256k1 import curve
 # IPv6 packets
 from hiplib.packets import IPv6
 # IPv4 packets 
@@ -74,10 +79,14 @@ from hiplib.databases import resolver
 from hiplib.databases import Firewall
 # Utilities
 from hiplib.utils.misc import Utils
+from hiplib.crypto.ecbd import ECBD
 
 class HIPLib():
     def __init__(self, config):
         self.config = config;
+        self.spokes = self.config["spokes"];
+        self.ip_addr = self.config["switch"]["source_ip"];
+        self.id = int(self.ip_addr.split(".")[-1])-1;
         self.MTU = self.config["network"]["mtu"];
 
         self.firewall = Firewall.BasicFirewall();
@@ -93,7 +102,7 @@ class HIPLib():
         # Domain identifier
         self.di = DIFactory.get(self.config["resolver"]["domain_identifier"]["type"], 
             bytearray(self.config["resolver"]["domain_identifier"]["value"], encoding="ascii"));
-        self.I1_rec = False
+
         #logging.debug(di);
         logging.info("Loading public key and constructing HIT")
         self.pubkey       = None;
@@ -146,6 +155,10 @@ class HIPLib():
         self.key_info_storage  = HIPState.Storage();
         self.esp_transform_storage = HIPState.Storage();
         self.hi_param_storage  = HIPState.Storage();
+        self.ecbd_storage = ECBD(self.id);
+        self.spokes_response = [];
+        self.hubs_response = [];
+        #self.ecbd_storage.set_index(self.id);
 
         if self.config["general"]["rekey_after_packets"] > ((2<<32)-1):
             self.config["general"]["rekey_after_packets"] = (2<<32)-1;
@@ -157,8 +170,8 @@ class HIPLib():
         self.firewall.load_rules(self.config["firewall"]["rules_file"])
         logging.info("Using hosts file to resolve HITS %s" % (self.config["resolver"]["hosts_file"]));
         self.hit_resolver.load_records(filename = self.config["resolver"]["hosts_file"]);
-        
-    def process_hip_packet(self, packet):
+    
+    def process_hip_packet(self, packet, ecbd_points):
         try:
             response = [];
             # IP reassmebly is done automatically so we can read large enough packets
@@ -222,12 +235,44 @@ class HIPLib():
                 return [];
 
             if hip_packet.get_packet_type() == HIP.HIP_I1_PACKET:
-                logging.info("I1 packet");
+                logging.info("---------------------------- I1 packet ---------------------------- ");
 
+                """
+                TODO This is most likely bad :)
+                """
+                logging.debug("I1 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
                 if hip_state.is_i1_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I1-SENT state");
                     return [];
 
+
+                hit = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
+                if not hit in self.spokes:
+                    logging.info("Is hub");
+                    for state in self.spokes.values():
+                        if state != "I1_RECEIVED":
+                            logging.info("Not ready");
+                            return [];
+
+
+                """
+                    Parse the received z values and add them to our list.
+                """
+                #logging.debug("I1 ECBD HERE HERE HERE HERE HERE HERE HERE HERE LOOK AT ME");
+                #logging.debug("from " + src_str);
+                if ecbd_points:
+                    z_list_raw, indicies = zip(*ecbd_points);
+                    z_list_decoded = []
+                    for point in z_list_raw:
+                        # We get a list back cause we used to store the entire list, this is fucked for us now
+                        # change it now.
+                        z_list_decoded.append(self.ecbd_storage.decode_public_list(point)[0]);
+
+                    for i, p in zip(indicies, z_list_decoded):
+                        self.ecbd_storage.z_list[i] = p;
+                    
+                    #logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
+                
                 sv = None
                 
                 if Utils.is_hit_smaller(rhit, ihit):
@@ -344,7 +389,7 @@ class HIPLib():
                 hi_param = HIP.HostIdParameter();
                 hi_param.set_host_id(self.hi);
                 # It is important to set domain ID after host ID was set
-                logging.debug(self.di);
+                #logging.debug(self.di);
                 hi_param.set_domain_id(self.di);
 
                 self.own_hi_param = hi_param;
@@ -421,6 +466,13 @@ class HIPLib():
                 ipv4_packet.set_protocol(HIP.HIP_PROTOCOL);
                 ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
 
+                # Add fragment param
+                frag_param = HIP.FragmentParameter();
+                frag_param.add_packet_id(self.id.to_bytes(64, "little"));
+                frag_param.add_fragment_id((0).to_bytes(64, "little"));
+                frag_param.add_fragment_mf(b"\x00")
+                hip_r1_packet.add_parameter(frag_param);
+
                 # Calculate the checksum
                 checksum = Utils.hip_ipv4_checksum(
                     src, 
@@ -432,15 +484,56 @@ class HIPLib():
                 ipv4_packet.set_payload(hip_r1_packet.get_buffer());
                 # Send the packet
                 dst_str = Utils.ipv4_bytes_to_string(dst);
+
+                fragments = self.fragment_ec_list(self.ecbd_storage.z_list, src, dst, ihit, rhit, self.id);
+
+                ihit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit); 
+                if ihit_str in self.spokes:
+                    self.spokes[ihit_str] = "I1_RECEIVED";
+                    self.spokes_response.append(((
+                        bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)),
+                        (src, dst, ihit, rhit)
+                    ));
+                    return [];
+
                 response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+
+                for frag in fragments:
+                    response.append((bytearray(frag.get_buffer()), (dst_str.strip(), 0)))
+
+                """
+                    Respond to all spokes if the list is complete
+                """
+                if self.ecbd_storage.is_z_list_complete():
+                    self.ecbd_storage.compute_x();
+                    for r1, frag_args in self.spokes_response:
+                        frags = self.fragment_ec_list(
+                            self.ecbd_storage.z_list,
+                            frag_args[0],
+                            frag_args[1],
+                            frag_args[2],
+                            frag_args[3],
+                            self.id
+                        );
+                        response.append(r1);
+
+                        for frag in frags:
+                            response.append((bytearray(frag.get_buffer()), r1[1]))
+                    self.spokes_response.clear();
+
+                logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
+                logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
+
                 # Stay in current state
-                logging.info('-----RECIVED HIP STATE---------------')
-                self.I1_rec = True
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
-                logging.info("----------------------------- R1 packet ----------------------------- ");
+                logging.info("---------------------------- R1 packet ---------------------------- ");
+                logging.debug("R1 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
                 
                 # 1 0 1
                 # 1 1 1
+                """
+                TODO this is bad :)
+                """
                 if (hip_state.is_unassociated() 
                     or hip_state.is_r2_sent() 
                     or hip_state.is_established()
@@ -484,6 +577,17 @@ class HIPLib():
                         sv.ihit = rhit;
                         sv.rhit = ihit;
                 oga = HIT.get_responders_oga_id(ihit);
+
+                # Add fragments
+                z_list_raw, indicies = zip(*ecbd_points);
+                z_list_decoded = []
+                for point in z_list_raw:
+                    # We get a list back cause we used to store the entire list, this is fucked for us now
+                    # change it now.
+                    z_list_decoded.append(self.ecbd_storage.decode_public_list(point)[0]);
+
+                for i, p in zip(indicies, z_list_decoded):
+                    self.ecbd_storage.z_list[i] = p;
                 
 
                 if (oga << 4) not in self.config["security"]["supported_hit_suits"]:
@@ -518,31 +622,31 @@ class HIPLib():
                 hip_r1_packet.set_version(HIP.HIP_VERSION);
 
                 r_hash = HIT.get_responders_hash_algorithm(ihit);
-                logging.debug(r_hash);
-                logging.debug(parameters)
-                logging.debug("!!!!!!!!!!!!!!!!!!!!!!")
+                #logging.debug(r_hash);
+                #logging.debug(parameters)
+                #logging.debug("!!!!!!!!!!!!!!!!!!!!!!")
 
                 for parameter in parameters:
                     if isinstance(parameter, HIP.DHGroupListParameter):
-                        logging.debug("DH groups parameter");
+                        #logging.debug("DH groups parameter");
                         dh_groups_param = parameter;
                     if isinstance(parameter, HIP.R1CounterParameter):
-                        logging.debug("R1 counter");
+                        #logging.debug("R1 counter");
                         r1_counter_param = parameter;
                     if isinstance(parameter, HIP.PuzzleParameter):
-                        logging.debug("Puzzle parameter");
+                        #logging.debug("Puzzle parameter");
                         puzzle_param = parameter;
                         irandom = puzzle_param.get_random(rhash_length = r_hash.LENGTH);
                         opaque = puzzle_param.get_opaque();
                         puzzle_param.set_random([0] * r_hash.LENGTH, r_hash.LENGTH);
                         puzzle_param.set_opaque(bytearray([0, 0]));
                     if isinstance(parameter, HIP.DHParameter):	
-                        logging.debug("DH parameter");
+                        #logging.debug("DH parameter");
                         dh_param = parameter;
                     if isinstance(parameter, HIP.HostIdParameter):
-                        logging.debug("DI type: %d " % parameter.get_di_type());
-                        logging.debug("DI value: %s " % parameter.get_domain_id());
-                        logging.debug("Host ID");
+                        #logging.debug("DI type: %d " % parameter.get_di_type());
+                        #logging.debug("DI value: %s " % parameter.get_domain_id());
+                        #logging.debug("Host ID");
                         hi_param = parameter;
                         # Check the algorithm and construct the HI based on the proposed algorithm
                         if hi_param.get_algorithm() == 0x5: #RSA
@@ -564,12 +668,12 @@ class HIPLib():
                             raise Exception("Invalid destination HIT")
                             
                         oga = HIT.get_responders_oga_id(ihit);
-                        logging.debug("Responder's OGA ID %d" % (oga));
-                        logging.debug(bytearray(responder_hi.to_byte_array()));
+                        #logging.debug("Responder's OGA ID %d" % (oga));
+                        #logging.debug(bytearray(responder_hi.to_byte_array()));
                         responders_hit = HIT.get(responder_hi.to_byte_array(), oga);
-                        logging.debug(list(responders_hit))
-                        logging.debug(list(ihit))
-                        logging.debug(list(self.own_hit))
+                        #logging.debug(list(responders_hit))
+                        #logging.debug(list(ihit))
+                        #logging.debug(list(self.own_hit))
                         if not Utils.hits_equal(ihit, responders_hit):
                             logging.critical("Invalid HIT");
                             raise Exception("Invalid HIT");
@@ -595,29 +699,29 @@ class HIPLib():
                             Utils.ipv6_bytes_to_hex_formatted(rhit), 
                             responders_public_key);
                     if isinstance(parameter, HIP.HITSuitListParameter):
-                        logging.debug("HIT suit list");
+                        #logging.debug("HIT suit list");
                         hit_suit_param = parameter;
                     if isinstance(parameter, HIP.TransportListParameter):
-                        logging.debug("Transport parameter");
-                        logging.debug(parameter.get_transport_formats());
+                        #logging.debug("Transport parameter");
+                        #logging.debug(parameter.get_transport_formats());
                         transport_param = parameter;
                     if isinstance(parameter, HIP.Signature2Parameter):
-                        logging.debug("Signature parameter");
+                        #logging.debug("Signature parameter");
                         signature_param = parameter;
                     if isinstance(parameter, HIP.EchoRequestSignedParameter):
-                        logging.debug("Echo request signed parameter");
+                        #logging.debug("Echo request signed parameter");
                         echo_signed = HIP.EchoResponseSignedParameter();
                         echo_signed.add_opaque_data(parameter.get_opaque_data());
                     if isinstance(parameter, HIP.EchoRequestUnsignedParameter):
-                        logging.debug("Echo request unsigned parameter");
+                        #logging.debug("Echo request unsigned parameter");
                         echo_unsigned_param = HIP.EchoResponseUnsignedParameter();
                         echo_unsigned_param.add_opaque_data(parameter.get_opaque_data());
                         echo_unsigned.append(echo_unsigned_param);
                     if isinstance(parameter, HIP.CipherParameter):
-                        logging.debug("Ciphers");
+                        #logging.debug("Ciphers");
                         cipher_param = parameter;
                     if isinstance(parameter, HIP.ESPTransformParameter):
-                        logging.debug("ESP transform");
+                        #logging.debug("ESP transform");
                         esp_tranform_param = parameter;
 
                 if not puzzle_param:
@@ -648,13 +752,13 @@ class HIPLib():
                     logging.critical("Missing signature parameter");
                     return [];
                 if not dh_param.get_group_id() in dh_groups_param.get_groups():
-                    logging.critical("Manipulation of DH group");
+                    #logging.critical("Manipulation of DH group");
                     # Change the state to unassociated... drop the BEX
                     return [];
                 
                 start_time = time.time();
                 jrandom = PuzzleSolver.solve_puzzle(irandom, hip_packet.get_receivers_hit(), hip_packet.get_senders_hit(), puzzle_param.get_k_value(), r_hash)
-                logging.debug("Puzzle was solved and verified....");
+                #logging.debug("Puzzle was solved and verified....");
                 end_time = time.time();
                 if (end_time - start_time) > (2 << (puzzle_param.get_lifetime() - 32)):
                     logging.critical("Maximum time to solve the puzzle exceeded. Dropping the packet...");
@@ -704,7 +808,7 @@ class HIPLib():
                     logging.critical("Invalid signature in R1 packet. Dropping the packet");
                     return [];
                 
-                logging.debug("DH public key value: %d ", Math.bytes_to_int(dh_param.get_public_value()));
+                #logging.debug("DH public key value: %d ", Math.bytes_to_int(dh_param.get_public_value()));
 
                 offered_dh_groups = dh_groups_param.get_groups();
                 supported_dh_groups = self.config["security"]["supported_DH_groups"];
@@ -788,7 +892,7 @@ class HIPLib():
                 keymat = Utils.kdf(hmac_alg, salt, Math.int_to_bytes(shared_secret), info, keymat_length_in_octets);
                 self.keymat_storage.save(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit), keymat);
-                logging.debug("Saving keying material in R1 %s %s" % (dst_str, src_str))
+                #logging.debug("Saving keying material in R1 %s %s" % (dst_str, src_str))
 
                 logging.debug("Processing R1 packet %f" % (time.time() - st));
 
@@ -930,6 +1034,12 @@ class HIPLib():
                 for unsigned_param in echo_unsigned:
                     hip_i2_packet.add_parameter(unsigned_param);
 
+                frag_param = HIP.FragmentParameter();
+                frag_param.add_packet_id(self.id.to_bytes(64, "little"));
+                frag_param.add_fragment_id((0).to_bytes(64, "little"));
+                frag_param.add_fragment_mf(b"\x00")
+                hip_i2_packet.add_parameter(frag_param);
+
                 # Swap the addresses
                 temp = src;
                 src = dst;
@@ -946,10 +1056,6 @@ class HIPLib():
 
                 buf = hip_i2_packet.get_buffer();
                 
-                total_length = len(buf);
-                fragment_len = HIP.HIP_FRAGMENT_LENGTH;
-                num_of_fragments = int(ceil(total_length / fragment_len))
-                offset = 0;
                 # Create IPv4 packet
                 ipv4_packet = IPv4.IPv4Packet();
                 ipv4_packet.set_version(IPv4.IPV4_VERSION);
@@ -962,10 +1068,25 @@ class HIPLib():
                 ipv4_packet.set_payload(buf);
                 dst_str = Utils.ipv4_bytes_to_string(dst);
                     
-                logging.debug(list(ipv4_packet.get_buffer()));
+                #logging.debug(list(ipv4_packet.get_buffer()));
 
                 logging.debug("Sending I2 packet to %s %d" % (dst_str, len(ipv4_packet.get_buffer())));
-                response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+
+#                response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+
+                #fragments = self.fragment_ec_list(self.ecbd_storage.x_list, src, dst, ihit, rhit, self.id);
+
+#                for frag in fragments:
+#                    response.append((bytearray(frag.get_buffer()), (dst_str.strip(), 0)))
+
+                ihit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit); 
+                rhit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit); 
+
+                if not ihit_str in self.spokes:
+                    self.hubs_response.append(((
+                        bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)),
+                        (src, dst, ihit, rhit)
+                    ));
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
@@ -977,14 +1098,42 @@ class HIPLib():
 
                 if hip_state.is_i1_sent() or hip_state.is_closing() or hip_state.is_closed():
                     hip_state.i2_sent();
+
+                """
+                    Respond to all spokes if the list is complete
+                """
+                if self.ecbd_storage.is_z_list_complete():
+                    self.ecbd_storage.compute_x();
+                    for r1, frag_args in self.spokes_response:
+                        frags = self.fragment_ec_list(
+                            self.ecbd_storage.z_list,
+                            frag_args[0],
+                            frag_args[1],
+                            frag_args[2],
+                            frag_args[3],
+                            self.id
+                        );
+                        response.append(r1);
+
+                        for frag in frags:
+                            response.append((bytearray(frag.get_buffer()), r1[1]))
+                    self.spokes_response.clear();
+
+
+                logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
+                logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
+
             elif hip_packet.get_packet_type() == HIP.HIP_I2_PACKET:
                 logging.info("---------------------------- I2 packet ---------------------------- ");
+                logging.debug("I2 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
                 st = time.time();
                 
+                #TODO this is probably bad :)
                 if hip_state.is_i2_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I2-SENT state. Dropping the packet...");
                     return [];
-            
+
+
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
                             Utils.ipv6_bytes_to_hex_formatted(ihit))
@@ -1041,22 +1190,22 @@ class HIPLib():
 
                 for parameter in parameters:
                     if isinstance(parameter, HIP.ESPInfoParameter):
-                        logging.debug("ESP info parameter")
+                        #logging.debug("ESP info parameter")
                         esp_info_param = parameter;
                     if isinstance(parameter, HIP.R1CounterParameter):
-                        logging.debug("R1 counter");
+                        #logging.debug("R1 counter");
                         r1_counter_param = parameter;
                     if isinstance(parameter, HIP.SolutionParameter):
-                        logging.debug("Puzzle solution parameter");
+                        #logging.debug("Puzzle solution parameter");
                         solution_param = parameter;
                     if isinstance(parameter, HIP.DHParameter):	
-                        logging.debug("DH parameter");
+                        #logging.debug("DH parameter");
                         dh_param = parameter;
                     if isinstance(parameter, HIP.EncryptedParameter):
-                        logging.debug("Encrypted parameter");
+                        #logging.debug("Encrypted parameter");
                         encrypted_param = parameter;
                     if isinstance(parameter, HIP.HostIdParameter):
-                        logging.debug("Host ID");
+                        #logging.debug("Host ID");
                         hi_param = parameter;
                         #responder_hi = RSAHostID.from_byte_buffer(hi_param.get_host_id());
                         #if hi_param.get_algorithm() != self.config["security"]["sig_alg"]:
@@ -1071,7 +1220,7 @@ class HIPLib():
                         else:
                             raise Exception("Invalid signature algorithm");
                         oga = HIT.get_responders_oga_id(ihit);
-                        logging.debug("OGA ID %d " % (oga));
+                        #logging.debug("OGA ID %d " % (oga));
                         responders_hit = HIT.get(responder_hi.to_byte_array(), oga);
 
                         if ihit != responders_hit:
@@ -1079,9 +1228,9 @@ class HIPLib():
                         if rhit != self.own_hit:
                             raise Exception("Invalid destination HIT")
                         
-                        logging.debug(list(rhit));
-                        logging.debug(list(ihit));
-                        logging.debug(list(responders_hit));
+                        #logging.debug(list(rhit));
+                        #logging.debug(list(ihit));
+                        #logging.debug(list(responders_hit));
                         if not Utils.hits_equal(ihit, responders_hit):
                             logging.critical("Invalid HIT");
                             raise Exception("Invalid HIT");
@@ -1107,22 +1256,22 @@ class HIPLib():
                             Utils.ipv6_bytes_to_hex_formatted(rhit), 
                             responders_public_key);
                     if isinstance(parameter, HIP.TransportListParameter):
-                        logging.debug("Transport parameter");
+                        #logging.debug("Transport parameter");
                         transport_param = parameter;
                     if isinstance(parameter, HIP.SignatureParameter):
-                        logging.debug("Signature parameter");
+                        #logging.debug("Signature parameter");
                         signature_param = parameter;
                     if isinstance(parameter, HIP.CipherParameter):
-                        logging.debug("Ciphers parameter");
+                        #logging.debug("Ciphers parameter");
                         cipher_param = parameter;
                     if isinstance(parameter, HIP.ESPTransformParameter):
-                        logging.debug("ESP transform parameter");
+                        #logging.debug("ESP transform parameter");
                         esp_tranform_param = parameter;
                     if isinstance(parameter, HIP.MACParameter):
-                        logging.debug("MAC parameter");	
+                        #logging.debug("MAC parameter");	
                         mac_param = parameter;
                     if isinstance(parameter, HIP.EchoResponseSignedParameter):
-                        logging.debug("Echo response signed");
+                        #logging.debug("Echo response signed");
                         echo_signed = parameter;
                 if not solution_param:
                     logging.critical("Missing solution parameter");
@@ -1157,6 +1306,9 @@ class HIPLib():
                     logging.critical(self.config["security"]["supported_hit_suits"]);
                     return [];
 
+                """
+                TODO
+                """
                 if hip_state.is_i2_sent():
                     if Utils.is_hit_smaller(rhit, ihit):
                         logging.debug("Dropping I2 packet...");
@@ -1173,7 +1325,7 @@ class HIPLib():
                     solution_param.get_k_value(), r_hash):
                     logging.debug("Puzzle was not solved....");
                     return [];
-                logging.debug("Puzzle was solved");
+                #logging.debug("Puzzle was solved");
 
                 dh = self.dh_storage[r1_counter_param.get_counter()].get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
@@ -1223,7 +1375,7 @@ class HIPLib():
                 self.keymat_storage.save(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                 	Utils.ipv6_bytes_to_hex_formatted(rhit), keymat);
                 
-                logging.debug("Saving keying material in I2 %s %s" % (dst_str, src_str))
+                #logging.debug("Saving keying material in I2 %s %s" % (dst_str, src_str))
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(rhit), 
@@ -1310,9 +1462,12 @@ class HIPLib():
                 (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, selected_cipher, ihit, rhit);
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
 
+                """
+                TODO this is very bad :)
                 if hmac.digest(buf) != mac_param.get_hmac():
                     logging.critical("Invalid HMAC (I2). Dropping the packet");
                     return [];
+                """
 
                 # Compute signature here
                 hip_i2_packet = HIP.I2Packet();
@@ -1355,9 +1510,10 @@ class HIPLib():
                 if not signature_alg.verify(signature_param.get_signature(), bytearray(buf)):
                     logging.critical("Invalid signature. Dropping the packet");
                 else:
-                    logging.debug("Signature is correct");
+                    pass
+                    #logging.debug("Signature is correct");
 
-                logging.debug("Processing I2 packet %f" % (time.time() - st));
+                #logging.debug("Processing I2 packet %f" % (time.time() - st));
                 
                 st = time.time();
 
@@ -1385,6 +1541,7 @@ class HIPLib():
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
 
                 hip_r2_packet.add_parameter(self.own_hi_param)
+
 
                 mac_param = HIP.MAC2Parameter();
                 mac_param.set_hmac(hmac.digest(bytearray(hip_r2_packet.get_buffer())));
@@ -1424,7 +1581,14 @@ class HIPLib():
                 hip_r2_packet.add_parameter(esp_info_param);
                 hip_r2_packet.add_parameter(mac_param);
                 hip_r2_packet.add_parameter(signature_param);
-                
+
+                # Add fragment parameter
+                frag_param = HIP.FragmentParameter();
+                frag_param.add_packet_id(self.id.to_bytes(64, "little"));
+                frag_param.add_fragment_id((0).to_bytes(64, "little"));
+                frag_param.add_fragment_mf(b"\x00")
+                hip_r2_packet.add_parameter(frag_param);
+
                 # Swap the addresses
                 temp = src;
                 src = dst;
@@ -1453,7 +1617,7 @@ class HIPLib():
                 src_str = Utils.ipv4_bytes_to_string(src);
                 
                 # Transition to an Established state
-                logging.debug("Current system state is %s" % (str(hip_state)));
+                #logging.debug("Current system state is %s" % (str(hip_state)));
                 
                 if (hip_state.is_established() 
                     or hip_state.is_unassociated() 
@@ -1463,15 +1627,67 @@ class HIPLib():
                     or hip_state.is_closing()
                     or hip_state.is_closed()):
                     hip_state.r2_sent();
-                    logging.debug("Sending R2 packet to %s %f" % (dst_str, time.time() - st));
-                    response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
 
-                logging.debug("Setting SA records...");
+                    x_list_raw, indicies = zip(*ecbd_points);
+                    x_list_decoded = []
+                    for point in x_list_raw:
+                        # We get a list back cause we used to store the entire list, this is fucked for us now
+                        # change it now.
+                        x_list_decoded.append(self.ecbd_storage.decode_public_list(point)[0]);
+
+                    for i, p in zip(indicies, x_list_decoded):
+                        self.ecbd_storage.x_list[i] = p;
+
+                    hit1 = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
+                    hit2 = Utils.ipv6_bytes_to_hex_formatted_resolver(rhit);
+                    if hit1 in self.spokes:
+                        self.spokes[hit1] = "I2_RECEIVED";
+                    elif hit2 in self.spokes:
+                        self.spokes[hit2] = "I2_RECEIVED";
+                    else:
+                        logging.debug("Sending R2 packet to %s %f" % (dst_str, time.time() - st));
+                        response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+                        self.ecbd_storage.x_list[self.id] = curve.g;
+                        fragments = self.fragment_ec_list(self.ecbd_storage.x_list, src, dst, ihit, rhit, self.id);
+                        for frag in fragments:
+                            response.append((bytearray(frag.get_buffer()), (dst_str.strip(), 0)));
+
+
+                    """
+                        Respond to all hubs if all spoke I2 received 
+                    """
+                    all_spoke_i2 = True;
+                    for state in self.spokes.values():
+                        if state != "I2_RECEIVED":
+                            all_spoke_i2 = False;
+                    if all_spoke_i2:
+                        for i2, frag_args in self.hubs_response:
+                            frags = self.fragment_ec_list(
+                                self.ecbd_storage.x_list,
+                                frag_args[0],
+                                frag_args[1],
+                                frag_args[2],
+                                frag_args[3],
+                                self.id
+                            );
+                            response.append(i2);
+
+                            for frag in frags:
+                                response.append((bytearray(frag.get_buffer()), i2[1]))
+                        self.hubs_response.clear();
+
+                    logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
+                    if self.ecbd_storage.is_x_list_complete():
+                        key = self.ecbd_storage.compute_k();
+                        logging.info("Shared Key computed: {}".format(key));
+
+
+                #logging.debug("Setting SA records...");
 
                 (cipher, hmac) = ESPTransformFactory.get(selected_esp_transform);
 
-                logging.debug("DERIVING KEYS")
-                logging.debug(keymat)
+                #logging.debug("DERIVING KEYS")
+                #logging.debug(keymat)
                 # I2 PACKET
                 # Responder
                 # OUT DIRECTION (IHIT - sender, RHIT - OWN)
@@ -1487,13 +1703,13 @@ class HIPLib():
                         rhit, ihit);
                 
                 
-                logging.debug(" DERVIVING KEYS OUT I2")
-                logging.debug(hexlify(hmac_key))
-                logging.debug(hexlify(cipher_key))
-                logging.debug(hexlify(self.own_hit))
+                #logging.debug(" DERVIVING KEYS OUT I2")
+                #logging.debug(hexlify(hmac_key))
+                #logging.debug(hexlify(cipher_key))
+                #logging.debug(hexlify(self.own_hit))
                 
-                logging.debug(hexlify(ihit))
-                logging.debug(hexlify(rhit))
+                #logging.debug(hexlify(ihit))
+                #logging.debug(hexlify(rhit))
                 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, src, dst);
                 sa_record.set_spi(responders_spi);
@@ -1521,13 +1737,13 @@ class HIPLib():
                     ihit, rhit);
                 
 
-                logging.debug(" DERVIVING KEYS IN I2")
-                logging.debug(hexlify(hmac_key))
-                logging.debug(hexlify(cipher_key))
+                #logging.debug(" DERVIVING KEYS IN I2")
+                #logging.debug(hexlify(hmac_key))
+                #logging.debug(hexlify(cipher_key))
 
-                logging.debug(hexlify(self.own_hit))
-                logging.debug(hexlify(rhit))
-                logging.debug(hexlify(ihit))
+                #logging.debug(hexlify(self.own_hit))
+                #logging.debug(hexlify(rhit))
+                #logging.debug(hexlify(ihit))
 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
                 sa_record.set_spi(initiators_spi);
@@ -1542,7 +1758,32 @@ class HIPLib():
                 
                 sv.ec_complete_timeout = time.time() + self.config["general"]["EC"];
             elif hip_packet.get_packet_type() == HIP.HIP_R2_PACKET:
+
+                logging.info("---------------------------- R2 packet ---------------------------- ");
+                logging.debug("R1 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
+
+                x_list_raw, indicies = zip(*ecbd_points);
+                x_list_decoded = []
+                for point in x_list_raw:
+                    # We get a list back cause we used to store the entire list, this is fucked for us now
+                    # change it now.
+                    x_list_decoded.append(self.ecbd_storage.decode_public_list(point)[0]);
+
+                for i, p in zip(indicies, x_list_decoded):
+                    self.ecbd_storage.x_list[i] = p;
+                self.ecbd_storage.x_list[self.id] = curve.g;
+
+                logging.info("X_list: {}".format(self.ecbd_storage.x_list));
+                if self.ecbd_storage.is_x_list_complete():
+                    key = self.ecbd_storage.compute_k();
+                    logging.info("Shared Key computed: {}".format(key));
+                return []
                 
+                
+                
+                """
+                TODO like really this is not good just a bandaid for now lmao :)
+                """
                 if (hip_state.is_unassociated() 
                     or hip_state.is_i1_sent() 
                     or hip_state.is_r2_sent() 
@@ -1615,16 +1856,19 @@ class HIPLib():
                 responders_spi          = None;
                 keymat_index            = None;
 
-                for parameter in parameters:
+                # HEREHERE
+
+                for parameter in hip_packet.get_parameters():
                     if isinstance(parameter, HIP.ESPInfoParameter):
-                        logging.debug("ESP info parameter");
+                        #logging.debug("ESP info parameter");
                         esp_info_param = parameter;
                     if isinstance(parameter, HIP.Signature2Parameter):
-                        logging.debug("Signature2 parameter");
+                        #logging.debug("Signature2 parameter");
                         signature_param = parameter;
                     if isinstance(parameter, HIP.MAC2Parameter):
-                        logging.debug("MAC2 parameter");	
+                        #logging.debug("MAC2 parameter");	
                         hmac_param = parameter;
+                return []
                 
                 if not esp_info_param:
                     logging.critical("Missing ESP info parameter");
@@ -1656,11 +1900,14 @@ class HIPLib():
                 
                 hip_r2_packet.add_parameter(hi_param)
 
+                """
+                TODO this is not good:)
                 if hmac.digest(hip_r2_packet.get_buffer()) != hmac_param.get_hmac():
                     logging.critical("Invalid HMAC (R2). Dropping the packet");
                     return [];
                 else:
                     logging.debug("HMAC is ok. return with signature");
+                """
 
                 buf = bytearray([]);
                 hip_r2_packet = HIP.R2Packet();
@@ -1671,6 +1918,7 @@ class HIPLib():
                 hip_r2_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
                 #hip_r2_packet.add_parameter(hmac_param);
+
                 buf = esp_info_param.get_byte_buffer();
 
                 buf += hmac_param.get_byte_buffer();
@@ -1692,7 +1940,8 @@ class HIPLib():
                 if not signature_alg.verify(signature_param.get_signature(), bytearray(buf)):
                     logging.critical("Invalid signature. Dropping the packet");
                 else:
-                    logging.debug("Signature is correct");
+                    pass
+                    #logging.debug("Signature is correct");
 
                 responders_spi = esp_info_param.get_new_spi();
                 keymat_index = esp_info_param.get_keymat_index();
@@ -1703,7 +1952,7 @@ class HIPLib():
                 dst_str = Utils.ipv4_bytes_to_string(dst);
                 src_str = Utils.ipv4_bytes_to_string(src);
 
-                logging.debug("Setting SA records... %s - %s" % (src_str, dst_str));
+                #logging.debug("Setting SA records... %s - %s" % (src_str, dst_str));
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     selected_esp_transform = self.esp_transform_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
@@ -1714,11 +1963,11 @@ class HIPLib():
 
                 (cipher, hmac) = ESPTransformFactory.get(selected_esp_transform);
 
-                logging.debug(hmac.ALG_ID);
-                logging.debug(cipher.ALG_ID);
+                #logging.debug(hmac.ALG_ID);
+                #logging.debug(cipher.ALG_ID);
                 
-                logging.debug("DERIVING KEYS")
-                logging.debug(keymat)
+                #logging.debug("DERIVING KEYS")
+                #logging.debug(keymat)
 
                 # Incomming SA (IPa, IPb)
                 # R2 PACKET
@@ -1741,13 +1990,13 @@ class HIPLib():
                         cipher.ALG_ID, 
                         rhit, ihit);
                 """
-                logging.debug(" DERVIVING KEYS OUT R2")
-                logging.debug(hexlify(hmac_key))
-                logging.debug(hexlify(cipher_key))
+                #logging.debug(" DERVIVING KEYS OUT R2")
+                #logging.debug(hexlify(hmac_key))
+                #logging.debug(hexlify(cipher_key))
 
-                logging.debug(hexlify(self.own_hit))
-                logging.debug(hexlify(ihit))
-                logging.debug(hexlify(rhit))
+                #logging.debug(hexlify(self.own_hit))
+                #logging.debug(hexlify(ihit))
+                #logging.debug(hexlify(rhit))
                 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, dst, src);
                 sa_record.set_spi(responders_spi);
@@ -1784,13 +2033,13 @@ class HIPLib():
                         cipher.ALG_ID, 
                         ihit, rhit);
                 """
-                logging.debug(" DERVIVING KEYS IN R2")
-                logging.debug(hexlify(hmac_key))
-                logging.debug(hexlify(cipher_key))
+                #logging.debug(" DERVIVING KEYS IN R2")
+                #logging.debug(hexlify(hmac_key))
+                #logging.debug(hexlify(cipher_key))
 
-                logging.debug(hexlify(self.own_hit))
-                logging.debug(hexlify(rhit))
-                logging.debug(hexlify(ihit))
+                #logging.debug(hexlify(self.own_hit))
+                #logging.debug(hexlify(rhit))
+                #logging.debug(hexlify(ihit))
                 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
                 sa_record.set_spi(responders_spi);
@@ -1949,7 +2198,8 @@ class HIPLib():
                     logging.critical("Invalid signature. Dropping the packet");
                     return [];
                 else:
-                    logging.debug("Signature is correct");
+                    pass
+                    #logging.debug("Signature is correct");
 
                 if ack_param:
                     logging.debug("This is a response to a UPDATE. Skipping pong...");
@@ -2156,7 +2406,8 @@ class HIPLib():
                     logging.critical("Invalid signature. Dropping the packet");
                     return [];
                 else:
-                    logging.debug("Signature is correct");
+                    pass
+                    #logging.debug("Signature is correct");
 
                 #(aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, rhit, ihit);
                 if sv.is_responder:
@@ -2356,7 +2607,8 @@ class HIPLib():
                     logging.critical("Invalid signature. Dropping the packet");
                     return [];
                 else:
-                    logging.debug("Signature is correct");
+                    pass
+                    #logging.debug("Signature is correct");
 
                 if hip_state.is_closing() or hip_state.is_closed():
                     logging.debug("Moving to unassociated state...");
@@ -2488,7 +2740,25 @@ class HIPLib():
             else:
                 hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(rhit));
-            if self.I1_rec and (hip_state.is_unassociated() or hip_state.is_closing() or hip_state.is_closed()):
+            if hip_state.is_unassociated() or hip_state.is_closing() or hip_state.is_closed():
+
+                rhit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(rhit);
+                ihit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
+                own_hit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(self.get_own_hit());
+
+                if own_hit_str == ihit_str:
+                    if rhit_str in self.spokes:
+                        return [];
+                else:
+                    if ihit_str in self.spokes:
+                        return [];
+
+                #logging.info(self.hit_resolver.resolve(Utils.ipv6_bytes_to_hex_formatted_resolver(ihit)))
+                
+                for state in self.spokes.values():
+                    if state != "I1_RECEIVED":
+                        return [];
+
                 #logging.debug("Unassociate state reached");
                 #logging.debug("Starting HIP BEX %f" % (time.time()));
                 #logging.info("Resolving %s to IPv4 address" % Utils.ipv6_bytes_to_hex_formatted(rhit));
@@ -2505,6 +2775,8 @@ class HIPLib():
                     Utils.ipv4_to_int(dst_str));
                 src = Math.int_to_bytes(
                     Utils.ipv4_to_int(src_str));
+                
+                #logging.info("src: {}, dst: {}".format(src_str, dst_str))
 
                 st = time.time();
                 # Construct the DH groups parameter
@@ -2518,6 +2790,15 @@ class HIPLib():
                 hip_i1_packet.set_next_header(HIP.HIP_IPPROTO_NONE);
                 hip_i1_packet.set_version(HIP.HIP_VERSION);
                 hip_i1_packet.add_parameter(dh_groups_param);
+
+                # Add fragment param to I1 packet
+                hip_i1_packet.add_parameter(dh_groups_param);
+                frag_param = HIP.FragmentParameter();
+                frag_param.add_packet_id(self.id.to_bytes(64, "little"));
+                frag_param.add_fragment_id((0).to_bytes(64, "little"));
+                frag_param.add_fragment_mf(b"\x00")
+                hip_i1_packet.add_parameter(frag_param);
+
 
                 # Compute the checksum of HIP packet
                 checksum = Utils.hip_ipv4_checksum(
@@ -2539,9 +2820,20 @@ class HIPLib():
                 ipv4_packet.set_payload(hip_i1_packet.get_buffer());
 
                 # Send HIP I1 packet to destination
-                logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
+                #logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
                 #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0));
                 response.append((True, bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
+
+                z_list = self.ecbd_storage.z_list;
+                fragments = self.fragment_ec_list(
+                    z_list, 
+                    src, dst, 
+                    ihit, rhit, 
+                    self.id
+                );
+
+                for frag in fragments:
+                    response.append((True, bytearray(frag.get_buffer()), (dst_str.strip(), 0)))
                 # Transition to an I1-Sent state
                 hip_state.i1_sent();
 
@@ -2671,6 +2963,54 @@ class HIPLib():
             logging.critical(e, exc_info=True);
             traceback.print_exc()
         return [];
+    
+    def fragment_ec_list(self, points, src, dst, ihit, rhit, id):
+        """
+            Returns a collection of HIP fragments containing a list of points
+            on an eliptic curve which must be reassembled by the receiver.
+        """
+        indices, points = zip(*[p for p in enumerate(points) if p[1] != (0, 0)]);
+        encoded_points = self.ecbd_storage._encode_public_list(points);
+
+        fragments = [];
+        for i in range(len(points)):
+            # Create HIP packet
+            hip_frag = HIP.I1Packet()
+            hip_frag.set_senders_hit(ihit);
+            hip_frag.set_receivers_hit(rhit);
+            hip_frag.set_next_header(HIP.HIP_IPPROTO_NONE);
+            hip_frag.set_version(HIP.HIP_VERSION);
+
+            # Add fragmentation parameter
+            frag_param = HIP.FragmentParameter();
+            frag_param.add_packet_id(id.to_bytes(64, "little"))
+            frag_param.add_fragment_id((i+1).to_bytes(64, "little"))
+            if i < (len(points)-1):
+                frag_param.add_fragment_mf(b"\x00");
+            else:
+                frag_param.add_fragment_mf(b"\x01");
+            hip_frag.add_parameter(frag_param);
+            
+            # Add ECBD parameter
+            ecbd_param = HIP.ECBDParameter();
+            ecbd_param.set_group_id(indices[i]);
+            encoded_point = encoded_points[i]
+            ecbd_param.add_public_value(encoded_point);
+            hip_frag.add_parameter(ecbd_param);
+
+            # Create IPv4 packet
+            ip_frag = IPv4.IPv4Packet();
+            ip_frag.set_version(IPv4.IPV4_VERSION);
+            ip_frag.set_destination_address(dst);
+            ip_frag.set_source_address(src);
+            ip_frag.set_ttl(IPv4.IPV4_DEFAULT_TTL);
+            ip_frag.set_protocol(HIP.HIP_PROTOCOL);
+            ip_frag.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
+
+            ip_frag.set_payload(hip_frag.get_buffer());
+            fragments.append(ip_frag);
+
+        return fragments;
 
     def exit_handler(self):
         response = []

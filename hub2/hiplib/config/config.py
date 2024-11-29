@@ -50,6 +50,9 @@ config = {
 	},
 	"firewall": {
 		"rules_file": "hiplib/config/rules"
+	},
+	"spokes": {
+		"2001:0021:394b:5c1b:a114:0f3f:d0b8:74b2": "INITIAL_STATE"
 	}
 }
 

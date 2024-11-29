@@ -28,6 +28,8 @@ import copy
 #import utils
 #from utils.misc import Math
 
+#comment
+
 HIP_TLV_TYPE_OFFSET              = 0x0;
 HIP_TLV_CRITICAL_BIT_OFFSET      = 0x0;
 HIP_TLV_LENGTH_OFFSET            = 0x2;
@@ -46,7 +48,6 @@ HIP_TLV_LENGTH                   = 0x4;
 
 HIP_DEFAULT_PACKET_LENGTH        = 0x4;
 
-HIP_FRAGMENT_LENGTH              = 0x578;
 
 class HIPParameter():
 	def __init__(self, buffer = None):
@@ -312,6 +313,44 @@ class DHParameter(HIPParameter):
 		public_value_length = self.get_public_value_length() * 8;
 		return self.buffer[HIP_PUBLIC_VALUE_OFFSET:HIP_PUBLIC_VALUE_OFFSET + public_value_length]
 
+HIP_ECBD_TYPE = 0x202;
+class ECBDParameter(HIPParameter):
+	def __init__(self, buffer = None):
+		self.buffer = buffer;
+		if not self.buffer:
+			self.buffer = bytearray([0] * (
+				HIP_TLV_LENGTH_LENGTH + 
+				HIP_TLV_TYPE_LENGTH +
+				HIP_GROUP_ID_LENGTH +
+				HIP_PUBLIC_VALUE_LENGTH_LENGTH
+				));
+			self.set_type(HIP_ECBD_TYPE);
+			self.set_length(HIP_GROUP_ID_LENGTH + HIP_PUBLIC_VALUE_LENGTH_LENGTH);
+	def get_group_id(self):
+		return self.buffer[HIP_DH_GROUP_ID_OFFSET];
+	def set_group_id(self, group_id):
+		self.buffer[HIP_DH_GROUP_ID_OFFSET] = group_id;
+	def get_public_value_length(self):
+		return (self.buffer[HIP_PUBLIC_VALUE_LENGTH_OFFSET] << 8 | self.buffer[HIP_PUBLIC_VALUE_LENGTH_OFFSET + 1])
+	def set_public_value_length(self, public_value_length):
+		self.buffer[HIP_PUBLIC_VALUE_LENGTH_OFFSET] = ((public_value_length << 8) & 0xFF)
+		self.buffer[HIP_PUBLIC_VALUE_LENGTH_OFFSET + 1] = (public_value_length & 0xFF)
+	def add_public_value(self, public_value):
+		dh_public_value_length = self.get_public_value_length();
+		if dh_public_value_length != 0x0:
+			raise Exception("DH public key was already set");
+		length = self.get_length();
+		self.buffer += public_value;
+		padding = (8 - len(self.buffer) % 8) % 8;
+		self.buffer += bytearray([0] * padding);
+		length = len(public_value) + HIP_GROUP_ID_LENGTH + HIP_PUBLIC_VALUE_LENGTH_LENGTH;
+		self.set_length(length);
+		self.set_public_value_length(int(len(public_value) / 8));
+		
+	def get_public_value(self):
+		public_value_length = self.get_public_value_length() * 8;
+		return self.buffer[HIP_PUBLIC_VALUE_OFFSET:HIP_PUBLIC_VALUE_OFFSET + public_value_length]
+
 HIP_CIPHER_TYPE                     = 0x243;
 HIP_CIPHER_LIST_OFFSET              = 0x4;
 
@@ -414,7 +453,7 @@ class HostIdParameter(HIPParameter):
 		hi_length = self.get_hi_length();
 		if hi_length > 0:
 			raise Exception("HI was already set");
-		logging.debug(list(hi.to_byte_array()));
+		#logging.debug(list(hi.to_byte_array()));
 		self.buffer[HIP_HI_OFFSET:HIP_HI_OFFSET + hi.get_length()] = hi.to_byte_array();
 		self.set_hi_length(hi.get_length());
 		self.set_algorithm(hi.get_algorithm());
@@ -1122,6 +1161,8 @@ class HIPPacket():
 				parameters.append(DHGroupListParameter(param_data));
 			elif param_type == HIP_DH_TYPE:
 				parameters.append(DHParameter(param_data));
+			elif param_type == HIP_ECBD_TYPE:
+				parameters.append(ECBDParameter(param_data));
 			elif param_type == HIP_CIPHER_TYPE:
 				parameters.append(CipherParameter(param_data));
 			elif param_type == HIP_ESP_TRANSFORM_TYPE:
@@ -1158,6 +1199,8 @@ class HIPPacket():
 				parameters.append(EchoResponseSignedParameter(param_data));
 			elif param_type == HIP_ECHO_RESPONSE_UNSIGNED_TYPE:
 				parameters.append(EchoResponseUnsignedParameter(param_data));
+			elif param_type == HIP_FRAGMENT_TYPE:
+				parameters.append(FragmentParameter(param_data));
 			offset += total_param_length;
 			if offset >= length:
 				has_more_parameters = False;
@@ -1165,6 +1208,42 @@ class HIPPacket():
 
 	def get_buffer(self):
 		return self.buffer;
+
+HIP_FRAGMENT_TYPE = 0x203;
+HIP_FRAGMENT_PACKET_ID_OFFSET = 0x4;
+HIP_FRAGMENT_FRAGMENT_ID_OFFSET = 0x100;
+HIP_FRAGMENT_MF_OFFSET = 0x200;
+class FragmentParameter(HIPParameter):
+	def __init__(self, buffer = None):
+		self.buffer = buffer;
+		if not self.buffer:
+			self.buffer = bytearray([0] * (
+				HIP_TLV_LENGTH_LENGTH + 
+				HIP_TLV_TYPE_LENGTH
+				));
+			self.set_type(HIP_FRAGMENT_TYPE);
+			self.set_length(0);
+	def add_packet_id(self, id):
+		self.set_length(HIP_FRAGMENT_FRAGMENT_ID_OFFSET);
+		self.buffer += id;
+		padding = HIP_FRAGMENT_FRAGMENT_ID_OFFSET - len(self.buffer);
+		self.buffer += bytearray([0] * padding);
+	def get_packet_id(self):
+		return int.from_bytes(self.buffer[HIP_FRAGMENT_PACKET_ID_OFFSET:HIP_FRAGMENT_FRAGMENT_ID_OFFSET], "little");
+	def add_fragment_id(self, id):
+		self.set_length(HIP_FRAGMENT_MF_OFFSET);
+		self.buffer += id;
+		padding = HIP_FRAGMENT_MF_OFFSET - len(self.buffer);
+		self.buffer += bytearray([0] * padding);
+	def get_fragment_id(self):
+		return int.from_bytes(self.buffer[HIP_FRAGMENT_FRAGMENT_ID_OFFSET:HIP_FRAGMENT_MF_OFFSET], "little");
+	def add_fragment_mf(self, val):
+		self.set_length(HIP_FRAGMENT_MF_OFFSET+1);
+		self.buffer += val;
+		padding = (8 - len(self.buffer) % 8) % 8;
+		self.buffer += bytearray([0] * padding);
+	def get_fragment_mf(self):
+		return int.from_bytes(self.buffer[HIP_FRAGMENT_MF_OFFSET:], "little");
 
 class I1Packet(HIPPacket):
 	def __init__(self, buffer = None):
