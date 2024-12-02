@@ -126,6 +126,7 @@ def onclose():
         hip_socket.sendto(packet, dest)
 
 def hip_loop():
+    sleep(4);
     hip_packets = {}
     while True:
         try:

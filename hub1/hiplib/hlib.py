@@ -85,6 +85,7 @@ class HIPLib():
     def __init__(self, config):
         self.config = config;
         self.spokes = self.config["spokes"];
+        self.hubs = self.config["hubs"];
         self.ip_addr = self.config["switch"]["source_ip"];
         self.id = int(self.ip_addr.split(".")[-1])-1;
         self.MTU = self.config["network"]["mtu"];
@@ -237,18 +238,15 @@ class HIPLib():
             if hip_packet.get_packet_type() == HIP.HIP_I1_PACKET:
                 logging.info("---------------------------- I1 packet ---------------------------- ");
 
-                """
-                TODO This is most likely bad :)
-                """
                 logging.debug("I1 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
                 if hip_state.is_i1_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I1-SENT state");
                     return [];
 
-
                 hit = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
                 if not hit in self.spokes:
                     logging.info("Is hub");
+                    self.hubs[hit] = "I1_RECEIVED";
                     for state in self.spokes.values():
                         if state != "I1_RECEIVED":
                             logging.info("Not ready");
@@ -502,9 +500,14 @@ class HIPLib():
                     response.append((bytearray(frag.get_buffer()), (dst_str.strip(), 0)))
 
                 """
-                    Respond to all spokes if the list is complete
+                    Respond to all spokes if first round of hub messages are done
                 """
-                if self.ecbd_storage.is_z_list_complete():
+                hubs_done = True;
+                for hub_state in self.hubs.values():
+                    if hub_state != "R1_RECEIVED" and hub_state != "I1_RECEIVED":
+                        hubs_done = False;
+
+                if hubs_done:
                     self.ecbd_storage.compute_x();
                     for r1, frag_args in self.spokes_response:
                         frags = self.fragment_ec_list(
@@ -521,8 +524,10 @@ class HIPLib():
                             response.append((bytearray(frag.get_buffer()), r1[1]))
                     self.spokes_response.clear();
 
-                logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
-                logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
+                #logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
+                #logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
+
+                hip_state.i1_sent();
 
                 # Stay in current state
             elif hip_packet.get_packet_type() == HIP.HIP_R1_PACKET:
@@ -531,15 +536,13 @@ class HIPLib():
                 
                 # 1 0 1
                 # 1 1 1
-                """
-                TODO this is bad :)
-                """
                 if (hip_state.is_unassociated() 
                     or hip_state.is_r2_sent() 
                     or hip_state.is_established()
                     or hip_state.is_failed()):
                     logging.debug("Dropping packet... Invalid state");
                     return [];
+                
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
@@ -1082,11 +1085,14 @@ class HIPLib():
                 ihit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit); 
                 rhit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit); 
 
-                if not ihit_str in self.spokes:
-                    self.hubs_response.append(((
-                        bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)),
-                        (src, dst, ihit, rhit)
-                    ));
+                self.hubs[ihit_str] = "R1_RECEIVED";
+
+                # Note to self spokes never send R1 so this has to be a hub
+                self.hubs_response.append(((
+                    bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)),
+                    (src, dst, ihit, rhit)
+                ));
+
 
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
@@ -1100,9 +1106,14 @@ class HIPLib():
                     hip_state.i2_sent();
 
                 """
-                    Respond to all spokes if the list is complete
+                    Respond to all spokes if first round of hub messages are done
                 """
-                if self.ecbd_storage.is_z_list_complete():
+                hubs_done = True;
+                for hub_state in self.hubs.values():
+                    if hub_state != "R1_RECEIVED" and hub_state != "I1_RECEIVED":
+                        hubs_done = False;
+
+                if hubs_done:
                     self.ecbd_storage.compute_x();
                     for r1, frag_args in self.spokes_response:
                         frags = self.fragment_ec_list(
@@ -1120,15 +1131,16 @@ class HIPLib():
                     self.spokes_response.clear();
 
 
-                logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
-                logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
+                #logging.debug("Z-LIST: {}".format(self.ecbd_storage.z_list));
+                #logging.debug("X-LIST: {}".format(self.ecbd_storage.x_list));
 
             elif hip_packet.get_packet_type() == HIP.HIP_I2_PACKET:
                 logging.info("---------------------------- I2 packet ---------------------------- ");
                 logging.debug("I2 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
                 st = time.time();
                 
-                #TODO this is probably bad :)
+                ihit_str = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
+                #TODO this is a bandaid fix and very bad :)
                 if hip_state.is_i2_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I2-SENT state. Dropping the packet...");
                     return [];
@@ -1306,13 +1318,13 @@ class HIPLib():
                     logging.critical(self.config["security"]["supported_hit_suits"]);
                     return [];
 
-                """
-                TODO
+                #This check is already performed ????
                 """
                 if hip_state.is_i2_sent():
                     if Utils.is_hit_smaller(rhit, ihit):
                         logging.debug("Dropping I2 packet...");
                         return [];
+                """
 
                 r_hash = HIT.get_responders_hash_algorithm(rhit);
                 jrandom = solution_param.get_solution(r_hash.LENGTH);
@@ -1639,18 +1651,43 @@ class HIPLib():
                         self.ecbd_storage.x_list[i] = p;
 
                     hit1 = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
-                    hit2 = Utils.ipv6_bytes_to_hex_formatted_resolver(rhit);
                     if hit1 in self.spokes:
                         self.spokes[hit1] = "I2_RECEIVED";
-                    elif hit2 in self.spokes:
-                        self.spokes[hit2] = "I2_RECEIVED";
+                        self.spokes_response.append(((
+                            bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)),
+                            (src, dst, ihit, rhit)
+                        ));
                     else:
+                        self.hubs[hit1] = "I2_RECEIVED"
                         logging.debug("Sending R2 packet to %s %f" % (dst_str, time.time() - st));
-                        response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
-                        self.ecbd_storage.x_list[self.id] = curve.g;
-                        fragments = self.fragment_ec_list(self.ecbd_storage.x_list, src, dst, ihit, rhit, self.id);
-                        for frag in fragments:
-                            response.append((bytearray(frag.get_buffer()), (dst_str.strip(), 0)));
+                        self.hubs_response.append(((
+                            bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)),
+                            (src, dst, ihit, rhit)
+                        ));
+                    
+                    """
+                        Respond to all spokes if first round of hub messages are done
+                    """
+                    hubs_done = True;
+                    for hub_state in self.hubs.values():
+                        if hub_state != "I2_RECEIVED" and hub_state != "R2_RECEIVED":
+                            hubs_done = False;
+
+                    if hubs_done:
+                        for r2, frag_args in self.spokes_response:
+                            frags = self.fragment_ec_list(
+                                self.ecbd_storage.x_list,
+                                frag_args[0],
+                                frag_args[1],
+                                frag_args[2],
+                                frag_args[3],
+                                self.id
+                            );
+                            response.append(r2);
+
+                            for frag in frags:
+                                response.append((bytearray(frag.get_buffer()), r2[1]))
+                        self.spokes_response.clear();
 
 
                     """
@@ -1762,6 +1799,11 @@ class HIPLib():
                 logging.info("---------------------------- R2 packet ---------------------------- ");
                 logging.debug("R1 packet from {} with HIT: {}".format(src_str, Utils.ipv6_bytes_to_hex_formatted(ihit)));
 
+                hit1 = Utils.ipv6_bytes_to_hex_formatted_resolver(ihit);
+                logging.info(hit1)
+                if hit1 in self.hubs:
+                    self.hubs[hit1] = "R2_RECEIVED";
+
                 x_list_raw, indicies = zip(*ecbd_points);
                 x_list_decoded = []
                 for point in x_list_raw:
@@ -1771,19 +1813,37 @@ class HIPLib():
 
                 for i, p in zip(indicies, x_list_decoded):
                     self.ecbd_storage.x_list[i] = p;
-                self.ecbd_storage.x_list[self.id] = curve.g;
 
                 logging.info("X_list: {}".format(self.ecbd_storage.x_list));
                 if self.ecbd_storage.is_x_list_complete():
                     key = self.ecbd_storage.compute_k();
                     logging.info("Shared Key computed: {}".format(key));
-                return []
-                
-                
-                
+
                 """
-                TODO like really this is not good just a bandaid for now lmao :)
+                    Respond to all spokes if first round of hub messages are done
                 """
+                hubs_done = True;
+                for hub_state in self.hubs.values():
+                    if hub_state != "I2_RECEIVED" and hub_state != "R2_RECEIVED":
+                        hubs_done = False;
+
+                logging.info(self.hubs)
+                if hubs_done:
+                    for r2, frag_args in self.spokes_response:
+                        frags = self.fragment_ec_list(
+                            self.ecbd_storage.z_list,
+                            frag_args[0],
+                            frag_args[1],
+                            frag_args[2],
+                            frag_args[3],
+                            self.id
+                        );
+                        response.append(r2);
+
+                        for frag in frags:
+                            response.append((bytearray(frag.get_buffer()), r2[1]))
+                    self.spokes_response.clear();
+
                 if (hip_state.is_unassociated() 
                     or hip_state.is_i1_sent() 
                     or hip_state.is_r2_sent() 
@@ -1868,7 +1928,6 @@ class HIPLib():
                     if isinstance(parameter, HIP.MAC2Parameter):
                         #logging.debug("MAC2 parameter");	
                         hmac_param = parameter;
-                return []
                 
                 if not esp_info_param:
                     logging.critical("Missing ESP info parameter");
@@ -2820,6 +2879,7 @@ class HIPLib():
                 ipv4_packet.set_payload(hip_i1_packet.get_buffer());
 
                 # Send HIP I1 packet to destination
+                #logging.info("---------------------------- Sending I1 packet ---------------------------- ");
                 #logging.debug("Sending I1 packet to %s %f" % (dst_str, time.time() - st));
                 #hip_socket.sendto(bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0));
                 response.append((True, bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
@@ -2837,7 +2897,6 @@ class HIPLib():
                 # Transition to an I1-Sent state
                 hip_state.i1_sent();
 
-                
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
                         Utils.ipv6_bytes_to_hex_formatted(ihit))

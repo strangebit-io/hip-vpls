@@ -53,6 +53,10 @@ config = {
 	},
 	"spokes": {
 		"2001:0021:394b:5c1b:a114:0f3f:d0b8:74b2": "INITIAL_STATE"
+	},
+	"hubs": {
+		"2001:0021:e1dd:fc6a:83ee:5648:830c:5681": "INITIAL_STATE",
+		"2001:0021:b700:c845:6c5f:46bb:be58:2388": "INITIAL_STATE"
 	}
 }
 

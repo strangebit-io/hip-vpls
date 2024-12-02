@@ -1564,7 +1564,6 @@ class HIPLib():
 
                     logging.debug("Sending R2 packet to %s %f" % (dst_str, time.time() - st));
                     response.append((bytearray(ipv4_packet.get_buffer()), (dst_str.strip(), 0)))
-                    self.ecbd_storage.x_list[self.id] = curve.g;
                     fragments = self.fragment_ec_list(self.ecbd_storage.x_list, src, dst, ihit, rhit, self.id);
                     for frag in fragments:
                         response.append((bytearray(frag.get_buffer()), (dst_str.strip(), 0)));
@@ -1657,9 +1656,10 @@ class HIPLib():
 
                 for i, p in zip(indicies, x_list_decoded):
                     self.ecbd_storage.x_list[i] = p;
-                self.ecbd_storage.x_list[self.id] = curve.g;
 
                 logging.info("X_list: {}".format(self.ecbd_storage.x_list));
+                key = self.ecbd_storage.compute_k();
+                logging.info("Shared Key computed: {}".format(key));
                 
                 return []
                 
