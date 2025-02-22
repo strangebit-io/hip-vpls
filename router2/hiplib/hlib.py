@@ -361,15 +361,26 @@ class HIPLib():
                 signature_param = HIP.Signature2Parameter();
 
                 # Compute signature here
+                # R1 8
+                #Puzzle 257
+				#DH groups 511
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#HIT suit 715
+				#Transport 2049
+				#ESP transform 4095
+				#Signature2 61633
+				# Compute signature here
                 buf = r1counter_param.get_byte_buffer() + \
                         puzzle_param.get_byte_buffer() + \
+                        dh_groups_param.get_byte_buffer() + \
                         dh_param.get_byte_buffer() + \
                         cipher_param.get_byte_buffer() + \
-                        esp_transform_param.get_byte_buffer() + \
                         hi_param.get_byte_buffer() + \
                         hit_suit_param.get_byte_buffer() + \
-                        dh_groups_param.get_byte_buffer() + \
-                        transport_param.get_byte_buffer();
+                        transport_param.get_byte_buffer() + \
+                        esp_transform_param.get_byte_buffer();
                 original_length = hip_r1_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
                 hip_r1_packet.set_length(int(packet_length / 8));
@@ -391,17 +402,27 @@ class HIPLib():
                 hip_r1_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
                 # List of mandatory parameters in R1 packet...
                 
+                # R1 8
+                #Puzzle 257
+				#DH groups 511
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#HIT suit 715
+				#Transport 2049
+				#ESP transform 4095
+				#Signature2 61633
                 puzzle_param.set_random(irandom, r_hash.LENGTH);
                 puzzle_param.set_opaque(bytearray(Utils.generate_random(2)));
                 hip_r1_packet.add_parameter(r1counter_param);
                 hip_r1_packet.add_parameter(puzzle_param);
+                hip_r1_packet.add_parameter(dh_groups_param);
                 hip_r1_packet.add_parameter(dh_param);
                 hip_r1_packet.add_parameter(cipher_param);
-                hip_r1_packet.add_parameter(esp_transform_param);
                 hip_r1_packet.add_parameter(hi_param);
                 hip_r1_packet.add_parameter(hit_suit_param);
-                hip_r1_packet.add_parameter(dh_groups_param);
                 hip_r1_packet.add_parameter(transport_param);
+                hip_r1_packet.add_parameter(esp_transform_param);
                 hip_r1_packet.add_parameter(signature_param);
 
                 # Swap the addresses
@@ -503,6 +524,7 @@ class HIPLib():
                 dh_groups_param    = None;
                 transport_param    = None;
                 echo_signed        = None;
+                echo_signed_resp   = None
                 signature_param    = None;
                 public_key         = None;
                 echo_unsigned      = [];
@@ -604,8 +626,11 @@ class HIPLib():
                         signature_param = parameter;
                     if isinstance(parameter, HIP.EchoRequestSignedParameter):
                         logging.debug("Echo request signed parameter");
-                        echo_signed = HIP.EchoResponseSignedParameter();
-                        echo_signed.add_opaque_data(parameter.get_opaque_data());
+                        #echo_signed = HIP.EchoResponseSignedParameter();
+                        #echo_signed.add_opaque_data(parameter.get_opaque_data());
+                        echo_signed = parameter;
+                        echo_signed_resp = HIP.EchoResponseSignedParameter();
+                        echo_signed_resp.add_opaque_data(parameter.get_opaque_data());
                     if isinstance(parameter, HIP.EchoRequestUnsignedParameter):
                         logging.debug("Echo request unsigned parameter");
                         echo_unsigned_param = HIP.EchoResponseUnsignedParameter();
@@ -662,28 +687,40 @@ class HIPLib():
 
                 buf = bytearray([]);
 
+                #R1 counter 8
+				#Puzzle 257
+				#DH groups 511
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#HIT suit 715
+				#Echo signed 897
+				#Transport 2049
+				#ESP transform 4095
+				#Signature2 61633
+
                 if r1_counter_param:
                     buf += r1_counter_param.get_byte_buffer();
 
                 if not echo_signed:
                     buf += puzzle_param.get_byte_buffer() + \
+                        dh_groups_param.get_byte_buffer() + \
                         dh_param.get_byte_buffer() + \
                         cipher_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer() + \
                         hi_param.get_byte_buffer() + \
                         hit_suit_param.get_byte_buffer() + \
-                        dh_groups_param.get_byte_buffer() + \
-                        transport_param.get_byte_buffer();
+                        transport_param.get_byte_buffer() + \
+                        esp_tranform_param.get_byte_buffer();
                 else:
                     buf += puzzle_param.get_byte_buffer() + \
+                        dh_groups_param.get_byte_buffer() + \
                         dh_param.get_byte_buffer() + \
                         cipher_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer() + \
                         hi_param.get_byte_buffer() + \
                         hit_suit_param.get_byte_buffer() + \
-                        dh_groups_param.get_byte_buffer() + \
                         echo_signed.get_byte_buffer() + \
-                        transport_param.get_byte_buffer();
+                        transport_param.get_byte_buffer() + \
+                        esp_tranform_param.get_byte_buffer();
                 original_length = hip_r1_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
                 hip_r1_packet.set_length(int(packet_length / 8));
@@ -834,20 +871,47 @@ class HIPLib():
                 mac_param = HIP.MACParameter();
 
                 # Compute HMAC here
-                buf = esp_info_param.get_byte_buffer();
-                if r1_counter_param:
-                    buf += r1_counter_param.get_byte_buffer();
+                #R1 Counter 8
+				#ESP info 65
+				#Solution 321
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#Echo 961
+				#Transport 2049
+				#Esp transform 4095
+				#MAC 61505
+                #buf = esp_info_param.get_byte_buffer();
+                #if r1_counter_param:
+                #    buf += r1_counter_param.get_byte_buffer();
 
+                #buf += solution_param.get_byte_buffer() + \
+                #        dh_param.get_byte_buffer() + \
+                #        cipher_param.get_byte_buffer() + \
+                #        esp_tranform_param.get_byte_buffer() + \
+                #        hi_param.get_byte_buffer();
+
+                #if echo_signed:
+                #    buf += echo_signed.get_byte_buffer();
+
+                #buf += transport_param.get_byte_buffer();
+
+                if r1_counter_param:
+                    buf = r1_counter_param.get_byte_buffer();
+                    buf += esp_info_param.get_byte_buffer();
+                else:
+                    buf = esp_info_param.get_byte_buffer();
+				
                 buf += solution_param.get_byte_buffer() + \
                         dh_param.get_byte_buffer() + \
                         cipher_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer() + \
                         hi_param.get_byte_buffer();
 
                 if echo_signed:
                     buf += echo_signed.get_byte_buffer();
 
                 buf += transport_param.get_byte_buffer();
+                buf += esp_transform_param.get_byte_buffer()
 
                 original_length = hip_i2_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
@@ -868,22 +932,52 @@ class HIPLib():
                 hip_i2_packet.set_version(HIP.HIP_VERSION);
                 hip_i2_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
-                buf = esp_info_param.get_byte_buffer();
+                #buf = esp_info_param.get_byte_buffer();
 
+                #if r1_counter_param:
+                #    buf += r1_counter_param.get_byte_buffer();
+
+                #buf += solution_param.get_byte_buffer() + \
+                #        dh_param.get_byte_buffer() + \
+                #        cipher_param.get_byte_buffer() + \
+                #        esp_tranform_param.get_byte_buffer() + \
+                #        hi_param.get_byte_buffer();
+
+                #if echo_signed:
+                #    buf += echo_signed.get_byte_buffer();
+
+                #buf += transport_param.get_byte_buffer() + \
+                #        mac_param.get_byte_buffer();
+
+                #R1 Counter 8
+				#ESP info 65
+				#Solution 321
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#Echo 961
+				#Transport 2049
+				#Esp transform 4095
+				#MAC 61505
+
+				# Compute HMAC here
                 if r1_counter_param:
-                    buf += r1_counter_param.get_byte_buffer();
-
+                    buf = r1_counter_param.get_byte_buffer();
+                    buf += esp_info_param.get_byte_buffer();
+                else:
+                    buf = esp_info_param.get_byte_buffer();
+				
                 buf += solution_param.get_byte_buffer() + \
                         dh_param.get_byte_buffer() + \
                         cipher_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer() + \
                         hi_param.get_byte_buffer();
 
-                if echo_signed:
-                    buf += echo_signed.get_byte_buffer();
+                if echo_signed_resp:
+                    buf += echo_signed_resp.get_byte_buffer();
 
-                buf += transport_param.get_byte_buffer() + \
-                        mac_param.get_byte_buffer();
+                buf += transport_param.get_byte_buffer();
+                buf += esp_transform_param.get_byte_buffer() + \
+                    mac_param.get_byte_buffer()
                 
                 original_length = hip_i2_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
@@ -912,17 +1006,29 @@ class HIPLib():
                 hip_i2_packet.set_version(HIP.HIP_VERSION);
                 hip_i2_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
-                hip_i2_packet.add_parameter(esp_info_param);
+                #R1 Counter 8
+				#ESP info 65
+				#Solution 321
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#Echo 961
+				#Transport 2049
+				#Esp transform 4095
+				#MAC 61505
+
+                
                 if r1_counter_param:
                     hip_i2_packet.add_parameter(r1_counter_param);
+                hip_i2_packet.add_parameter(esp_info_param);
                 hip_i2_packet.add_parameter(solution_param);
                 hip_i2_packet.add_parameter(dh_param);
                 hip_i2_packet.add_parameter(cipher_param);
-                hip_i2_packet.add_parameter(esp_tranform_param)
                 hip_i2_packet.add_parameter(hi_param);
                 if echo_signed:
                     hip_i2_packet.add_parameter(echo_signed);
                 hip_i2_packet.add_parameter(transport_param);
+                hip_i2_packet.add_parameter(esp_tranform_param);
                 hip_i2_packet.add_parameter(mac_param);
                 hip_i2_packet.add_parameter(signature_param);
                 for unsigned_param in echo_unsigned:
@@ -1283,21 +1389,34 @@ class HIPLib():
                 hip_i2_packet.set_version(HIP.HIP_VERSION);
                 hip_i2_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
+                #R1 Counter 8
+				#ESP info 65
+				#Solution 321
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#Echo 961
+				#Transport 2049
+				#Esp transform 4095
+				#MAC 61505
+
                 # Compute HMAC here
-                buf = esp_info_param.get_byte_buffer();
                 if r1_counter_param:
-                    buf += r1_counter_param.get_byte_buffer();
+                    buf = r1_counter_param.get_byte_buffer();
+                    buf += esp_info_param.get_byte_buffer();
+                else:
+                    buf = esp_info_param.get_byte_buffer();
 
                 buf += solution_param.get_byte_buffer() + \
-                        dh_param.get_byte_buffer() + \
-                        cipher_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer() + \
-                        hi_param.get_byte_buffer();
+                    dh_param.get_byte_buffer() + \
+                    cipher_param.get_byte_buffer() + \
+                    hi_param.get_byte_buffer();
 
                 if echo_signed:
                     buf += echo_signed.get_byte_buffer();
 
                 buf += transport_param.get_byte_buffer();
+                buf += esp_transform_param.get_byte_buffer();
 
                 original_length = hip_i2_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
@@ -1320,21 +1439,34 @@ class HIPLib():
                 hip_i2_packet.set_version(HIP.HIP_VERSION);
                 hip_i2_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
-                buf = esp_info_param.get_byte_buffer();
-                if r1_counter_param:
-                    buf += r1_counter_param.get_byte_buffer();
+                #R1 Counter 8
+				#ESP info 65
+				#Solution 321
+				#DH 513
+				#Cipher 579
+				#HI 705
+				#Echo 961
+				#Transport 2049
+				#Esp transform 4095
+				#MAC 61505
 
+                if r1_counter_param:
+                    buf = r1_counter_param.get_byte_buffer();
+                    buf += esp_info_param.get_byte_buffer();
+                else:
+                    buf = esp_info_param.get_byte_buffer();
+				
                 buf += solution_param.get_byte_buffer() + \
-                        dh_param.get_byte_buffer() + \
-                        cipher_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer() + \
-                        hi_param.get_byte_buffer();
+                    dh_param.get_byte_buffer() + \
+                    cipher_param.get_byte_buffer() + \
+                    hi_param.get_byte_buffer();
 
                 if echo_signed:
                     buf += echo_signed.get_byte_buffer();
 
                 buf += transport_param.get_byte_buffer() + \
-                        mac_param.get_byte_buffer();
+                    esp_transform_param.get_byte_buffer() + \
+                    mac_param.get_byte_buffer();
                 
                 original_length = hip_i2_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
@@ -1894,12 +2026,16 @@ class HIPLib():
 
                 # Compute HMAC here
                 buf = bytearray([]);
+                # ACK 449
+				# SEQ 385
+				# HMAC 61505
+				# Sign 61697
+
+                if ack_param:
+                    buf += ack_param.get_byte_buffer();
                 
                 if seq_param:
                     buf += seq_param.get_byte_buffer();
-                
-                if ack_param:
-                    buf += ack_param.get_byte_buffer();
 
                 original_length = hip_update_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
@@ -1931,11 +2067,16 @@ class HIPLib():
                 hip_update_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
                 buf = bytearray([]);
-                if seq_param:
-                    buf += seq_param.get_byte_buffer();
+                # ACK 449
+				# SEQ 385
+				# HMAC 61505
+				# Sign 61697
                 
                 if ack_param:
                     buf += ack_param.get_byte_buffer();
+                
+                if seq_param:
+                    buf += seq_param.get_byte_buffer();
                 
                 buf += mac_param.get_byte_buffer();
 
