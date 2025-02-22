@@ -1125,20 +1125,20 @@ class HIPLib():
                         sv.ihit = ihit;
                         sv.rhit = rhit;
 
-                solution_param     = None;
-                r1_counter_param   = None;
-                dh_param           = None;
-                cipher_param       = None;
-                esp_tranform_param = None;
-                esp_info_param     = None;
-                hi_param           = None;
-                transport_param    = None;
-                mac_param          = None;
-                signature_param    = None;
-                echo_signed        = None;
-                parameters         = hip_packet.get_parameters();
-                iv_length          = None;
-                encrypted_param    = None;
+                solution_param      = None;
+                r1_counter_param    = None;
+                dh_param            = None;
+                cipher_param        = None;
+                esp_transform_param = None;
+                esp_info_param      = None;
+                hi_param            = None;
+                transport_param     = None;
+                mac_param           = None;
+                signature_param     = None;
+                echo_signed         = None;
+                parameters          = hip_packet.get_parameters();
+                iv_length           = None;
+                encrypted_param     = None;
 
                 initiators_spi     = None;
                 initiators_keymat_index = None;
@@ -1221,7 +1221,7 @@ class HIPLib():
                         cipher_param = parameter;
                     if isinstance(parameter, HIP.ESPTransformParameter):
                         logging.debug("ESP transform parameter");
-                        esp_tranform_param = parameter;
+                        esp_transform_param = parameter;
                     if isinstance(parameter, HIP.MACParameter):
                         logging.debug("MAC parameter");	
                         mac_param = parameter;
