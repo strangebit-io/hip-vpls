@@ -1312,11 +1312,11 @@ class HIPLib():
                     # Transition to unassociated state
                     raise Exception("Unsupported cipher");
 
-                if len(esp_tranform_param.get_suits()) == 0:
+                if len(esp_transform_param.get_suits()) == 0:
                     logging.critical("ESP transform suit was not negotiated.")
                     raise Exception("ESP transform suit was not negotiated.");
 
-                selected_esp_transform = esp_tranform_param.get_suits()[0];
+                selected_esp_transform = esp_transform_param.get_suits()[0];
 
                 initiators_spi = esp_info_param.get_new_spi();
                 initiators_keymat_index = esp_info_param.get_keymat_index();
