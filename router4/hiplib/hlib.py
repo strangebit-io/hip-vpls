@@ -849,8 +849,8 @@ class HIPLib():
                 cipher_param = HIP.CipherParameter();
                 cipher_param.add_ciphers([selected_cipher]);
 
-                esp_tranform_param = HIP.ESPTransformParameter();
-                esp_tranform_param.add_suits([selected_esp_transform]);
+                esp_transform_param = HIP.ESPTransformParameter();
+                esp_transform_param.add_suits([selected_esp_transform]);
 
                 keymat_index = Utils.compute_hip_keymat_length(hmac_alg, selected_cipher);
 
