@@ -516,7 +516,7 @@ class HIPLib():
                 r1_counter_param   = None;
                 irandom            = None;
                 opaque             = None;
-                esp_tranform_param = None;
+                esp_transform_param = None;
                 dh_param           = None;
                 cipher_param       = None;
                 hi_param           = None;
@@ -641,7 +641,7 @@ class HIPLib():
                         cipher_param = parameter;
                     if isinstance(parameter, HIP.ESPTransformParameter):
                         logging.debug("ESP transform");
-                        esp_tranform_param = parameter;
+                        esp_transform_param = parameter;
 
                 if not puzzle_param:
                     logging.critical("Missing puzzle parameter");
@@ -652,7 +652,7 @@ class HIPLib():
                 if not cipher_param:
                     logging.critical("Missing cipher parameter");
                     return [];
-                if not esp_tranform_param:
+                if not esp_transform_param:
                     logging.critical("Missing ESP transform parameter");
                     return [];
                 if not hi_param:
@@ -710,7 +710,7 @@ class HIPLib():
                         hi_param.get_byte_buffer() + \
                         hit_suit_param.get_byte_buffer() + \
                         transport_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer();
+                        esp_transform_param.get_byte_buffer();
                 else:
                     buf += puzzle_param.get_byte_buffer() + \
                         dh_groups_param.get_byte_buffer() + \
@@ -720,7 +720,7 @@ class HIPLib():
                         hit_suit_param.get_byte_buffer() + \
                         echo_signed.get_byte_buffer() + \
                         transport_param.get_byte_buffer() + \
-                        esp_tranform_param.get_byte_buffer();
+                        esp_transform_param.get_byte_buffer();
                 original_length = hip_r1_packet.get_length();
                 packet_length = original_length * 8 + len(buf);
                 hip_r1_packet.set_length(int(packet_length / 8));
@@ -794,7 +794,7 @@ class HIPLib():
                     # Transition to unassociated state
                     raise Exception("Unsupported cipher");
 
-                offered_esp_transforms = esp_tranform_param.get_suits();
+                offered_esp_transforms = esp_transform_param.get_suits();
                 supported_esp_transform_suits = self.config["security"]["supported_esp_transform_suits"];
                 selected_esp_transform = None;
                 for suit in offered_esp_transforms:
@@ -1028,7 +1028,7 @@ class HIPLib():
                 if echo_signed:
                     hip_i2_packet.add_parameter(echo_signed);
                 hip_i2_packet.add_parameter(transport_param);
-                hip_i2_packet.add_parameter(esp_tranform_param);
+                hip_i2_packet.add_parameter(esp_transform_param);
                 hip_i2_packet.add_parameter(mac_param);
                 hip_i2_packet.add_parameter(signature_param);
                 for unsigned_param in echo_unsigned:
