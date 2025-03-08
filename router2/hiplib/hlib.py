@@ -2757,7 +2757,7 @@ class HIPLib():
                 logging.debug("IV");
                 logging.debug(hexlify(iv));
                 """
-                padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 0x0);
+                padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 97);
                 #logging.debug("Length of the padded data %d" % (len(padded_data)));
 
                 encrypted_data = cipher.encrypt(cipher_key, iv, padded_data);
