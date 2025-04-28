@@ -16,6 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from Crypto.Hash import HMAC, SHA256, SHA224, SHA384, SHA1
+from cryptography.hazmat.primitives import hashes, hmac
 
 class HMACDigest():
 	LENGTH = 0x0;
@@ -35,9 +36,12 @@ class SHA256HMAC(HMACDigest):
 	def digest(self, data, key = None):
 		if key:
 			self.key = key;
-		self.hmac = HMAC.new(self.key, digestmod=SHA256)
-		self.hmac.update(data);
-		return self.hmac.digest();
+		h = hmac.HMAC(self.key, hashes.SHA256())
+		#self.hmac = HMAC.new(self.key, digestmod=SHA256)
+		#self.hmac.update(data);
+		#return self.hmac.digest();
+		h.update(data)
+		return h.finalize()
 
 class SHA384HMAC(HMACDigest):
 	LENGTH = 0x30;
@@ -46,11 +50,17 @@ class SHA384HMAC(HMACDigest):
 	def __init__(self, key = None):
 		self.key = key;
 	def digest(self, data, key = None):
-		if key:
-			self.key = key;
-		self.hmac = HMAC.new(self.key, digestmod=SHA384)
-		self.hmac.update(data);
-		return self.hmac.digest();
+		#if key:
+		#	self.key = key;
+		#self.hmac = HMAC.new(self.key, digestmod=SHA384)
+		#self.hmac.update(data);
+		#return self.hmac.digest();
+		h = hmac.HMAC(self.key, hashes.SHA384())
+		#self.hmac = HMAC.new(self.key, digestmod=SHA256)
+		#self.hmac.update(data);
+		#return self.hmac.digest();
+		h.update(data)
+		return h.finalize()
 
 class SHA1HMAC(HMACDigest):
 	LENGTH = 0x14;
