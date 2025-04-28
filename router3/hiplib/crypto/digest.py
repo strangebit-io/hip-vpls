@@ -50,8 +50,8 @@ class SHA384HMAC(HMACDigest):
 	def __init__(self, key = None):
 		self.key = key;
 	def digest(self, data, key = None):
-		#if key:
-		#	self.key = key;
+		if key:
+			self.key = key;
 		#self.hmac = HMAC.new(self.key, digestmod=SHA384)
 		#self.hmac.update(data);
 		#return self.hmac.digest();
