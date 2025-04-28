@@ -6,6 +6,7 @@ sudo apt-get install python3-pip
 
 # Install libraries
 sudo pip3 install pycryptodome
+sudo pip3 install cryptography
 sudo pip3 install interfaces
 sudo pip3 install numpy
 

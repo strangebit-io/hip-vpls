@@ -15,7 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from Crypto.Cipher import AES
+#from Crypto.Cipher import AES
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
 class SymmetricCrypto():
 	BLOCK_SIZE = 0x0;
@@ -48,8 +49,9 @@ class NullCipher(SymmetricCrypto):
 class AESCipher(SymmetricCrypto):
 
 	KEY_SIZE_BITS = 0x10;
-	MODE_CBC = AES.MODE_CBC;
-	BLOCK_SIZE = AES.block_size;
+	#MODE_CBC = AES.MODE_CBC;
+	#BLOCK_SIZE = AES.block_size;
+	BLOCK_SIZE = 16; # 128 bits block size
 	ALG_ID = 0x2;
 
 	"""
@@ -62,23 +64,30 @@ class AESCipher(SymmetricCrypto):
 		"""
 		Encryptes the plaintext using
 		"""
-		cipher = AES.new(key, AESCipher.MODE_CBC, iv);
-		return cipher.encrypt(self.pad(data, AESCipher.BLOCK_SIZE));
+		#cipher = AES.new(key, AESCipher.MODE_CBC, iv);
+		#return cipher.encrypt(self.pad(data, AESCipher.BLOCK_SIZE));
+		cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+		encryptor = cipher.encryptor()
+		return encryptor.update(self.pad(data, AESCipher.BLOCK_SIZE)) + encryptor.finalize()
 
 	def decrypt(self, key, iv, data):
 		"""
 		This method decryptes the ciphertext
 		"""
-		cipher = AES.new(key, AESCipher.MODE_CBC, iv);
-		return self.unpad(cipher.decrypt(data));
+		#cipher = AES.new(key, AESCipher.MODE_CBC, iv);
+		#return self.unpad(cipher.decrypt(data));
+		cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+		decryptor = cipher.decryptor()
+		return self.unpad(decryptor.update(data) + decryptor.finalize())
 
 class AES128CBCCipher(SymmetricCrypto):
 
 	KEY_SIZE_BITS = 0x10;
-	MODE_CBC = AES.MODE_CBC;
-	BLOCK_SIZE = AES.block_size;
+	#MODE_CBC = AES.MODE_CBC;
+	#BLOCK_SIZE = AES.block_size;
+	BLOCK_SIZE = 16; # 128 bits block size
 	ALG_ID = 0x2;
-	
+
 	"""
 	Advanced Encryption Standard
 	"""
@@ -89,23 +98,32 @@ class AES128CBCCipher(SymmetricCrypto):
 		"""
 		Encryptes the plaintext using
 		"""
-		cipher = AES.new(key, AES128CBCCipher.MODE_CBC, iv);
-		return cipher.encrypt(self.pad(data, AES128CBCCipher.BLOCK_SIZE));
+		#cipher = AES.new(key, AESCipher.MODE_CBC, iv);
+		#return cipher.encrypt(self.pad(data, AESCipher.BLOCK_SIZE));
+		cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+		encryptor = cipher.encryptor()
+		return encryptor.update(self.pad(data, AESCipher.BLOCK_SIZE)) + encryptor.finalize()
 
 	def decrypt(self, key, iv, data):
 		"""
 		This method decryptes the ciphertext
 		"""
-		cipher = AES.new(key, AES128CBCCipher.MODE_CBC, iv);
-		return self.unpad(cipher.decrypt(data));
+		#cipher = AES.new(key, AESCipher.MODE_CBC, iv);
+		#return self.unpad(cipher.decrypt(data));
+		cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+		decryptor = cipher.decryptor()
+		return self.unpad(decryptor.update(data) + decryptor.finalize())
 
 class AES256CBCCipher(SymmetricCrypto):
 
 	KEY_SIZE_BITS = 0x20;
-	MODE_CBC = AES.MODE_CBC;
-	BLOCK_SIZE = AES.block_size;
+	#MODE_CBC = AES.MODE_CBC;
+	#BLOCK_SIZE = AES.block_size;
 	ALG_ID = 0x4;
-	
+
+	BLOCK_SIZE = 16; # 128 bits block size
+	ALG_ID = 0x2;
+
 	"""
 	Advanced Encryption Standard
 	"""
@@ -116,12 +134,19 @@ class AES256CBCCipher(SymmetricCrypto):
 		"""
 		Encryptes the plaintext using
 		"""
-		cipher = AES.new(key, AES256CBCCipher.MODE_CBC, iv);
-		return cipher.encrypt(self.pad(data, AES256CBCCipher.BLOCK_SIZE));
+		#cipher = AES.new(key, AESCipher.MODE_CBC, iv);
+		#return cipher.encrypt(self.pad(data, AESCipher.BLOCK_SIZE));
+		cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+		encryptor = cipher.encryptor()
+		return encryptor.update(self.pad(data, AESCipher.BLOCK_SIZE)) + encryptor.finalize()
 
 	def decrypt(self, key, iv, data):
 		"""
 		This method decryptes the ciphertext
 		"""
-		cipher = AES.new(key, AES256CBCCipher.MODE_CBC, iv);
-		return self.unpad(cipher.decrypt(data));
+		#cipher = AES.new(key, AESCipher.MODE_CBC, iv);
+		#return self.unpad(cipher.decrypt(data));
+		cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+		decryptor = cipher.decryptor()
+		return self.unpad(decryptor.update(data) + decryptor.finalize())
+
