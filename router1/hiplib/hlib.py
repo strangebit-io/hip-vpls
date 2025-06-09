@@ -49,6 +49,8 @@ from hiplib.packets import IPSec
 from hiplib.packets import IPv6
 # IPv4 packets 
 from hiplib.packets import IPv4
+# EtherIP packet
+from hiplib.packets import EtherIP
 # Configuration
 from hiplib.config import config
 # HIT
@@ -2593,7 +2595,7 @@ class HIPLib():
 
             decrypted_data = cipher.decrypt(cipher_key, bytearray(iv), bytearray(padded_data));
             # Remove EtherIP header 
-            decrypted_data = decrypted_data[2:]
+            decrypted_data = decrypted_data[EtherIP.HEADER_LENGTH:]
 
             #logging.debug("Decrypted padded data");
             #logging.debug(decrypted_data);
@@ -2763,8 +2765,8 @@ class HIPLib():
                 logging.debug(hexlify(iv));
                 """
 
-                data = bytearray([0, 1]) + data
-                padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 97);
+                data = EtherIP.EtherIP().buffer + data
+                padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, EtherIP.ETHER_IP_PROTO);
                 #logging.debug("Length of the padded data %d" % (len(padded_data)));
 
                 encrypted_data = cipher.encrypt(cipher_key, iv, padded_data);
