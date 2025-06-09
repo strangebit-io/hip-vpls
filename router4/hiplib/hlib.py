@@ -2748,7 +2748,7 @@ class HIPLib():
                 cipher_key = sa_record.get_aes_key();
                 src        = sa_record.get_src();
                 dst        = sa_record.get_dst();
-                iv         = Utils.generate_random(cipher.BLOCK_SIZE) if not isinstance(cipher, NullCipher) else bytearray([]);
+                iv         = Utils.generate_random(cipher.BLOCK_SIZE);
                 sa_record.increment_sequence();
                 """
                 logging.debug("HMAC key L2 frame");
@@ -2775,7 +2775,10 @@ class HIPLib():
                 ip_sec_packet = IPSec.IPSecPacket();
                 ip_sec_packet.set_spi(spi);
                 ip_sec_packet.set_sequence(seq);
-                ip_sec_packet.add_payload(iv + encrypted_data);
+                if isinstance(cipher, NullCipher):
+                    ip_sec_packet.add_payload(encrypted_data);
+                else:
+                    ip_sec_packet.add_payload(iv + encrypted_data);
 
                 #logging.debug("Calculating ICV over IPSec packet");
                 #logging.debug(list(ip_sec_packet.get_byte_buffer()));
