@@ -18,7 +18,7 @@ import logging
 
 import copy
 
-ETHER_IP_VERSION     = 0x3
+ETHER_IP_VERSION     = 0x3 << 4;
 VERSION_OFFSET       = 0x0;
 VERSION_LENGTH       = 0x1;
 HEADER_LENGTH        = 0x2;
