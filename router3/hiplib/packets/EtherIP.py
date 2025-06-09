@@ -18,6 +18,7 @@ import logging
 
 import copy
 
+ETHER_IP_VERSION     = 0x3
 VERSION_OFFSET       = 0x0;
 VERSION_LENGTH       = 0x1;
 HEADER_LENGTH        = 0x2;
@@ -25,7 +26,7 @@ ETHER_IP_PROTO       = 97;
 
 class EtherIP():
     def __init__(self, buffer = None):
-        self.buffer = bytearray([0, 1]);
+        self.buffer = bytearray([ETHER_IP_VERSION, 0]);
     
     def get_buffer(self):
         return self.buffer;
