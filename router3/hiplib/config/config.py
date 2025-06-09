@@ -1,8 +1,8 @@
 config = {
 	"switch": {
-		"l2interface": "r3-eth0",
+		"l2interface": "r1-eth0",
 		"mesh": "hiplib/config/mesh",
-                "source_ip": "192.168.3.3"
+                "source_ip": "192.168.3.1"
 	},
 	"network": {
 		"tun_name": "hip0",                                    # Interface name
@@ -26,7 +26,7 @@ config = {
 		"supported_hit_suits": [0x10, 0x20, 0x30],             # SHA256 (0x1), SHA384 (0x2), SHA1 (0x3)
 		"supported_transports": [0x0FFF],                      # IPSec
 		"supported_signatures": [0x5, 0x7, 0x9],               # DSA (0x3), RSA (0x5), ECDSA (0x7), ECDSA_LOW (0x9)
-		"supported_esp_transform_suits": [0x9, 0x8, 0x7]       # NULL with HMAC-SHA-256 (0x7), AES-128-CBC with HMAC-SHA-256 (0x8), AES-256-CBC with HMAC-SHA-256 (0x9)
+		"supported_esp_transform_suits": [0x7, 0x9, 0x8]       # NULL with HMAC-SHA-256 (0x7), AES-128-CBC with HMAC-SHA-256 (0x8), AES-256-CBC with HMAC-SHA-256 (0x9)
 	},
 	"resolver": {
 		"hosts_file": "hiplib/config/hosts",

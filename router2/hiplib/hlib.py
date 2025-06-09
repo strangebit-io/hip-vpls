@@ -63,6 +63,7 @@ from hiplib.utils.puzzles import PuzzleSolver
 from hiplib.crypto import factory
 from hiplib.crypto.asymmetric import RSAPublicKey, RSAPrivateKey, ECDSAPublicKey, ECDSAPrivateKey, RSASHA256Signature, ECDSALowPublicKey, ECDSALowPrivateKey, ECDSASHA384Signature, ECDSASHA1Signature
 from hiplib.crypto.factory import HMACFactory, SymmetricCiphersFactory, ESPTransformFactory
+from hiplib.crypto.symmetric import NullCipher
 # Tun interface
 from hiplib.network import tun
 # Routing
@@ -2747,7 +2748,7 @@ class HIPLib():
                 cipher_key = sa_record.get_aes_key();
                 src        = sa_record.get_src();
                 dst        = sa_record.get_dst();
-                iv         = Utils.generate_random(cipher.BLOCK_SIZE);
+                iv         = Utils.generate_random(cipher.BLOCK_SIZE) if not isinstance(cipher, NullCipher) else bytearray([]);
                 sa_record.increment_sequence();
                 """
                 logging.debug("HMAC key L2 frame");
