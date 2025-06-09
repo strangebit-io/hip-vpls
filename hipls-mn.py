@@ -38,7 +38,7 @@ class NetworkTopo( Topo ):
                 params2={ 'ip' : '192.168.3.3/29' } )
         self.addLink( s5, router4,
                 intfName2='r4-eth1',
-                params2={ 'ip' : '192.168.3.3/29' } )
+                params2={ 'ip' : '192.168.3.4/29' } )
         self.addLink( s1, router1, intfName2='r1-eth0',
                       params2={ 'ip' : '192.168.1.1/24' } )
         self.addLink( s2, router2, intfName2='r2-eth0',
