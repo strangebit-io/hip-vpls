@@ -2579,12 +2579,14 @@ class HIPLib():
             #logging.debug("Encrypted padded data");
             #logging.debug(padded_data);
 
-            iv          = padded_data[:cipher.BLOCK_SIZE];
-            
+            if isinstance(cipher, NullCipher):
+                iv          = bytearray([]);
+            else:
+                iv          = padded_data[:cipher.BLOCK_SIZE];
+                padded_data = padded_data[cipher.BLOCK_SIZE:];
+        
             #logging.debug("IV");
-            #logging.debug(iv);
-
-            padded_data = padded_data[cipher.BLOCK_SIZE:];
+            #logging.debug(iv);            
 
             #logging.debug("Padded data");
             #logging.debug(padded_data);
