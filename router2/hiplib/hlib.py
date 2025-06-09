@@ -2592,6 +2592,8 @@ class HIPLib():
             #logging.debug(padded_data);
 
             decrypted_data = cipher.decrypt(cipher_key, bytearray(iv), bytearray(padded_data));
+            # Remove EtherIP header 
+            decrypted_data = decrypted_data[2:]
 
             #logging.debug("Decrypted padded data");
             #logging.debug(decrypted_data);
@@ -2778,9 +2780,9 @@ class HIPLib():
                 ip_sec_packet.set_spi(spi);
                 ip_sec_packet.set_sequence(seq);
                 if isinstance(cipher, NullCipher):
-                    ip_sec_packet.add_payload(encrypted_data);
+                    ip_sec_packet.add_payload(bytearray([1, 0]) + encrypted_data);
                 else:
-                    ip_sec_packet.add_payload(iv + encrypted_data);
+                    ip_sec_packet.add_payload(bytearray([1, 0]) + iv + encrypted_data);
 
                 #logging.debug("Calculating ICV over IPSec packet");
                 #logging.debug(list(ip_sec_packet.get_byte_buffer()));
