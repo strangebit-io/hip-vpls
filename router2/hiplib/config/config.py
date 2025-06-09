@@ -2,7 +2,7 @@ config = {
 	"switch": {
 		"l2interface": "r2-eth0",
 		"mesh": "hiplib/config/mesh",
-                "source_ip": "192.168.2.1"
+        "source_ip": "192.168.3.2"
 	},
 	"network": {
 		"tun_name": "hip0",                                    # Interface name
