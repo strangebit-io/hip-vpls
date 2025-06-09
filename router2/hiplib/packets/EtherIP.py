@@ -26,7 +26,7 @@ ETHER_IP_PROTO       = 97;
 
 class EtherIP():
     def __init__(self, buffer = None):
-        self.buffer = bytearray([0, ETHER_IP_VERSION]);
+        self.buffer = bytearray([ETHER_IP_VERSION, 0]);
     
     def get_buffer(self):
         return self.buffer;
