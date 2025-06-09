@@ -2762,6 +2762,8 @@ class HIPLib():
                 logging.debug("IV");
                 logging.debug(hexlify(iv));
                 """
+
+                data = bytearray([0, 1]) + data
                 padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, 97);
                 #logging.debug("Length of the padded data %d" % (len(padded_data)));
 
@@ -2780,9 +2782,9 @@ class HIPLib():
                 ip_sec_packet.set_spi(spi);
                 ip_sec_packet.set_sequence(seq);
                 if isinstance(cipher, NullCipher):
-                    ip_sec_packet.add_payload(bytearray([0, 1]) + encrypted_data);
+                    ip_sec_packet.add_payload(encrypted_data);
                 else:
-                    ip_sec_packet.add_payload(bytearray([0, 1]) + iv + encrypted_data);
+                    ip_sec_packet.add_payload(iv + encrypted_data);
 
                 #logging.debug("Calculating ICV over IPSec packet");
                 #logging.debug(list(ip_sec_packet.get_byte_buffer()));
