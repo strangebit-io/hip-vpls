@@ -71,9 +71,9 @@ class HITGenerator():
             self.hi = ECDSAHostID(self.pubkey.get_curve_id(), self.pubkey.get_x(), self.pubkey.get_y());
             self.ipv6_address = HIT.get_hex_formated(self.hi.to_byte_array(), HIT.SHA384_OGA);
             own_hit = HIT.get(self.hi.to_byte_array(), HIT.SHA384_OGA);
-            logging.debug("Responder's OGA ID %d" % (HIT.SHA384_OGA));
-            logging.debug(list(self.hi.to_byte_array()));
-            logging.debug(list(own_hit))
+            #logging.debug("Responder's OGA ID %d" % (HIT.SHA384_OGA));
+            #logging.debug(list(self.hi.to_byte_array()));
+            #logging.debug(list(own_hit))
         elif self.config["security"]["sig_alg"] == 0x9: # ECDSA LOW
             if self.config["security"]["hash_alg"] != 0x3: # SHA 1
                 raise Exception("Invalid hash algorithm. Must be 0x3")
