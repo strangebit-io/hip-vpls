@@ -26,6 +26,7 @@ class ControllerPacket():
         self.buffer[CONTROLLER_PACKET_TYPE_OFFSSET + 1] = (type >> 16) & 0xFF;
         self.buffer[CONTROLLER_PACKET_TYPE_OFFSSET + 2] = (type >> 8) & 0xFF;
         self.buffer[CONTROLLER_PACKET_TYPE_OFFSSET + 3] = type & 0xFF;
+    
     def get_packet_type(self):
         type = 0
         type = self.buffer[CONTROLLER_PACKET_TYPE_OFFSSET]
@@ -39,6 +40,7 @@ class ControllerPacket():
         self.buffer[CONTROLLER_LENGTH_OFFSET + 1] = (length >> 16) & 0xFF;
         self.buffer[CONTROLLER_LENGTH_OFFSET + 2] = (length >> 8) & 0xFF;
         self.buffer[CONTROLLER_LENGTH_OFFSET + 3] = length & 0xFF;
+
     def get_packet_length(self):
         length = 0
         length = self.buffer[CONTROLLER_LENGTH_OFFSET]
@@ -369,8 +371,6 @@ class HostsConfigurationPacket(ControllerPacket):
     
     def set_hosts(self, hosts, num):
         self.buffer += bytearray([0] * (HOSTS_CONFIGURATION_NUM_LENGTH + num * (HOSTS_CONFIGURATION_HIT_LENGTH + HOSTS_CONFIGURATION_IP_LENGTH)))
-        logging.debug("----------------------------------------********** -------------------------------------------")
-        logging.debug(len(self.buffer))
         self.buffer[HOSTS_CONFIGURATION_NUM_OFFSET] = (num >> 24) & 0xFF
         self.buffer[HOSTS_CONFIGURATION_NUM_OFFSET + 1] = (num >> 16) & 0xFF
         self.buffer[HOSTS_CONFIGURATION_NUM_OFFSET + 2] = (num >> 8) & 0xFF
@@ -392,8 +392,6 @@ class HostsConfigurationPacket(ControllerPacket):
                                HOSTS_CONFIGURATION_NUM_LENGTH + 
                                 HOSTS_CONFIGURATION_IP_LENGTH * (i + 1) +
                                HOSTS_CONFIGURATION_HIT_LENGTH * (i + 1)] = bytearray(hosts[i]["ip"]) 
-        logging.debug("----------------------------------------********** -------------------------------------------")
-        logging.debug(len(self.buffer))   
     def get_buffer(self):
         return self.buffer;
 

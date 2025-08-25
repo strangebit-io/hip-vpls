@@ -129,11 +129,9 @@ class ECDSAHostID(HostID):
 		self.x = Math.int_to_bytes(x);
 		self.y = Math.int_to_bytes(y);
 		if curve_id == ECDSAHostID.NIST_P_256_CURVE_ID:
-			#if self.NIST_P_256_LENGTH - len(self.x) > 0:
 			self.x = bytearray(([0] * (ECDSAHostID.NIST_P_256_LENGTH - len(self.x)))) + self.x;
 			self.y = bytearray(([0] * (ECDSAHostID.NIST_P_256_LENGTH - len(self.y)))) + self.y;
 		elif curve_id == ECDSAHostID.NIST_P_384_CURVE_ID:
-			#if self.NIST_P_384_LENGTH - len(self.x) > 0:
 			self.x = bytearray(([0] * (ECDSAHostID.NIST_P_384_LENGTH - len(self.x)))) + self.x;
 			self.y = bytearray(([0] * (ECDSAHostID.NIST_P_384_LENGTH - len(self.y)))) + self.y;
 		else:
