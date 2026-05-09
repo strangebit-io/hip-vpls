@@ -54,7 +54,7 @@ class HITGenerator():
         self.ipv6_address = None;
         self.own_hit      = None;
 
-    def generateHIT(self):
+    def generate_hit(self):
         if self.config["security"]["sig_alg"] == 0x5: # RSA
             if self.config["security"]["hash_alg"] != 0x1: # SHA 256
                 raise Exception("Invalid hash algorithm. Must be 0x1")
@@ -88,4 +88,4 @@ class HITGenerator():
         print(self.ipv6_address)
 
 gen = HITGenerator(config.config)
-gen.generateHIT()
+gen.generate_hit()
