@@ -21,6 +21,7 @@ CONTROLLER_LENGTH_OFFSET = 4
 class ControllerPacket():
     def __init__(self, buffer):
         self.buffer = buffer
+        
     def set_packet_type(self, type):
         self.buffer[CONTROLLER_PACKET_TYPE_OFFSSET] = (type >> 24) & 0xFF;
         self.buffer[CONTROLLER_PACKET_TYPE_OFFSSET + 1] = (type >> 16) & 0xFF;
