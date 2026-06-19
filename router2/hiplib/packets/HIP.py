@@ -306,10 +306,10 @@ class DHParameter(HIPParameter):
 		self.buffer += bytearray([0] * padding);
 		length = len(public_value) + HIP_GROUP_ID_LENGTH + HIP_PUBLIC_VALUE_LENGTH_LENGTH;
 		self.set_length(length);
-		self.set_public_value_length(int(len(public_value) / 8));
+		self.set_public_value_length(int(len(public_value)));
 		
 	def get_public_value(self):
-		public_value_length = self.get_public_value_length() * 8;
+		public_value_length = self.get_public_value_length();
 		return self.buffer[HIP_PUBLIC_VALUE_OFFSET:HIP_PUBLIC_VALUE_OFFSET + public_value_length]
 
 HIP_CIPHER_TYPE                     = 0x243;
@@ -414,7 +414,6 @@ class HostIdParameter(HIPParameter):
 		hi_length = self.get_hi_length();
 		if hi_length > 0:
 			raise Exception("HI was already set");
-		logging.debug(list(hi.to_byte_array()));
 		self.buffer[HIP_HI_OFFSET:HIP_HI_OFFSET + hi.get_length()] = hi.to_byte_array();
 		self.set_hi_length(hi.get_length());
 		self.set_algorithm(hi.get_algorithm());
