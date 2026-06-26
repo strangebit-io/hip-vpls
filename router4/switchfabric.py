@@ -16,13 +16,18 @@
 import logging
 from binascii import hexlify
 
+# Dedicated sanity logger: set to INFO so its lines reach hipls.log even though
+# the root logger is configured at ERROR level.
+_slog = logging.getLogger("hipvpls")
+_slog.setLevel(logging.INFO)
+
 class FIB():
     def __init__(self, file):
         self.fib_broadcast = [];
         self.mac_firewall = {};
         self.fib_unicast = {};
         self.load_mesh(file);
-    
+
     def load_mesh(self, file):
         self.fib_broadcast = [];
         fd = open(file, "r")
@@ -34,6 +39,12 @@ class FIB():
             ihit = bytes.fromhex(ihit)
             rhit = bytes.fromhex(rhit)
             self.fib_broadcast.append((ihit, rhit));
+        # Sanity log: the broadcast/flood next-hops (one per VPLS tunnel/mesh peer).
+        _slog.info("---------------- FIB loaded from %s ----------------", file);
+        for (ihit, rhit) in self.fib_broadcast:
+            _slog.info("  FIB mesh next-hop (flood): ihit=%s rhit=%s",
+                hexlify(ihit).decode("ascii"), hexlify(rhit).decode("ascii"));
+        _slog.info("  FIB broadcast next-hops: %d", len(self.fib_broadcast));
     
     def load_rules(self, file):
         self.mac_firewall = {}
@@ -81,7 +92,7 @@ class FIB():
             return self.fib_broadcast;
         #logging.debug("Message found in the FIB database")
         return [hop];
-            
+
     def set_next_hop(self, dmac, shit, rhit):
         # Broadcast address
         if dmac[5] == 0xFF and dmac[4] == 0xFF and dmac[3] == 0xFF \
@@ -90,7 +101,11 @@ class FIB():
         # Multicast address
         if dmac[5] & 0x1:
             return;
-        #dmac = hexlify(dmac).decode("ascii");
+        mac_str = hexlify(dmac).decode("ascii");
         dmac = int.from_bytes(dmac, byteorder="little")
+        # Log only newly-learned MAC->tunnel bindings to avoid log spam.
+        if dmac not in self.fib_unicast:
+            _slog.info("  FIB learned: mac=%s -> next-hop ihit=%s rhit=%s",
+                mac_str, hexlify(shit).decode("ascii"), hexlify(rhit).decode("ascii"));
         self.fib_unicast[dmac] = (shit, rhit);
 

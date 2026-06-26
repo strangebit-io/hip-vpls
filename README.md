@@ -69,5 +69,37 @@ Capture the packets between HIP switches:
 minenet > r2 tcpdump -n -i r2-eth1 -w ipsec.pcap
 ```
 
+# Kernel data plane
 
+The original data plane handled every customer packet in Python (raw socket +
+Python AES/HMAC), which capped throughput at ~170 Mbit/s. This branch adds a
+kernel data plane that keeps the HIP control plane (BEX) in Python but moves
+forwarding into the kernel: customer L2 frames are switched by a Linux bridge,
+carried to the remote PE over a `gretap` (L2-over-GRE) tunnel, and protected by
+kernel XFRM ESP using the keys HIP derived. The result is near line rate. See
+[kernel.md](kernel.md) for the full design.
+
+It is selected per router by a single switch in `hiplib/config/config.py`:
+
+```
+"dataplane_mode": "kernel"
+```
+
+The old `threads` / `processes` Python modes are untouched and remain as a
+fallback. Both routers must run the same mode.
+
+Test it after starting the topology:
+
+```
+mininet> h1 ping -c 30 h2
+```
+
+The first replies are delayed: nothing forwards until the HIP base exchange
+completes and the XFRM states are installed. Once you see ping replies, the
+control plane has finished and the kernel ESP data plane is up. Confirm the
+installed SAs on r1 (byte/packet counters climb under load):
+
+```
+mininet> r1 ip -s xfrm state
+```
 

@@ -29,11 +29,15 @@ class PuzzleSolver():
 		partial_bits = length % BITS_IN_BYTE;
 		full_bytes = bitstring[len(bitstring) - full_bytes_length: len(bitstring)];
 		if partial_bits > 0:
-			mask = (2 << partial_bits) - 1;
+			mask = (1 << partial_bits) - 1;
 			return bytearray([bitstring[len(bitstring) - full_bytes_length - 1] & mask]) + full_bytes;
 		else:
 			return full_bytes;
-			
+		
+		# 17
+		# full_bytes_length 2
+		# partial_bits 1
+		# mask (2<<1) - 1
 	@staticmethod
 	def solve_puzzle(irandom, responers_hit, senders_hit, difficulty, rhash):
 		if not isinstance(rhash, digest.Digest):

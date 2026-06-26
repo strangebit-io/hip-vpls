@@ -55,7 +55,7 @@ class EthernetFrame():
     def set_payload(self, payload):
         pass
     def get_checksum(self):
-        return self.buffer[ETH_TYPE_OFFSET:-ETH_CHECKSUM_LENGTH];
+        pass
     def set_checksum(self, checksum):
         pass
     def get_buffer(self):
