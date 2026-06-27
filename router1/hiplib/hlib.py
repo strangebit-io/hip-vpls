@@ -148,6 +148,7 @@ class HIPLib():
         self.state_variables   = HIPState.Storage();
         self.key_info_storage  = HIPState.Storage();
         self.esp_transform_storage = HIPState.Storage();
+        self.spi_storage       = HIPState.Storage();
         self.hi_param_storage  = HIPState.Storage();
 
         if self.config["general"]["rekey_after_packets"] > ((2<<32)-1):
@@ -859,7 +860,10 @@ class HIPLib():
 
                 esp_info_param = HIP.ESPInfoParameter();
                 esp_info_param.set_keymat_index(keymat_index);
-                esp_info_param.set_new_spi(Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH)));
+                initiators_spi = Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH));
+                self.spi_storage.save(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                    Utils.ipv6_bytes_to_hex_formatted(ihit), initiators_spi);
+                esp_info_param.set_new_spi(initiators_spi);
 
                 # Keying material generation
                 # https://tools.ietf.org/html/rfc7402#section-7
@@ -1503,8 +1507,13 @@ class HIPLib():
                 hip_r2_packet.set_length(HIP.HIP_DEFAULT_PACKET_LENGTH);
 
                 keymat_index = Utils.compute_hip_keymat_length(hmac_alg, selected_cipher);
-                responders_spi = Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH));
 
+                responders_spi = self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                    Utils.ipv6_bytes_to_hex_formatted(ihit));
+                if not responders_spi:
+                    responders_spi = Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH));
+                    self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(ihit));
                 if initiators_keymat_index != keymat_index:
                     raise Exception("Keymat index should match....")
 
@@ -1630,10 +1639,11 @@ class HIPLib():
                 logging.debug(hexlify(rhit))
                 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, src, dst);
-                sa_record.set_spi(responders_spi);
+                sa_record.set_spi(initiators_spi);
                 self.ip_sec_sa.add_record(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit), sa_record);
-
+                
+                logging.debug("I2 Initiators SPI: %s %s %s", hex(initiators_spi), src_str, dst_str);
                 
                 # IN DIRECTION (IHIT - sender, RHIT - OWN)
                 """
@@ -1664,8 +1674,10 @@ class HIPLib():
                 logging.debug(hexlify(ihit))
 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
-                sa_record.set_spi(initiators_spi);
+                sa_record.set_spi(responders_spi);
                 self.ip_sec_sa.add_record(dst_str, src_str, sa_record);
+
+                logging.debug("I2 Responders SPI: %s %s %s", hex(responders_spi), Utils.ipv6_bytes_to_hex_formatted(rhit), Utils.ipv6_bytes_to_hex_formatted(ihit));
                 
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
@@ -1736,6 +1748,7 @@ class HIPLib():
                         Utils.ipv6_bytes_to_hex_formatted(rhit));
                 keymat = self.keymat_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                 	Utils.ipv6_bytes_to_hex_formatted(ihit));
+                
                 # R2 packet incomming, IHIT - sender (Responder), RHIT - own HIT (Initiator)
                 (aes_key, hmac_key) = Utils.get_keys(keymat, hmac_alg, cipher_alg, ihit, rhit);
                 hmac = HMACFactory.get(hmac_alg, hmac_key);
@@ -1744,8 +1757,9 @@ class HIPLib():
                 esp_info_param  = None;
                 hmac_param      = None;
                 signature_param = None;
-
-                initiators_spi          = None;
+                
+                initiators_spi          = self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                    Utils.ipv6_bytes_to_hex_formatted(ihit));
                 responders_spi          = None;
                 keymat_index            = None;
 
@@ -1829,6 +1843,7 @@ class HIPLib():
                     logging.debug("Signature is correct");
 
                 responders_spi = esp_info_param.get_new_spi();
+                
                 keymat_index = esp_info_param.get_keymat_index();
 
                 logging.debug("Processing R2 packet %f" % (time.time() - st));
@@ -1885,6 +1900,8 @@ class HIPLib():
                 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, dst, src);
                 sa_record.set_spi(responders_spi);
+
+                logging.debug("R2 Responders SPI: %s %s %s", hex(responders_spi), dst_str, src_str);
                 
                 self.ip_sec_sa.add_record(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit), sa_record);
@@ -1927,8 +1944,10 @@ class HIPLib():
                 logging.debug(hexlify(ihit))
                 
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
-                sa_record.set_spi(responders_spi);
+                sa_record.set_spi(initiators_spi);
                 self.ip_sec_sa.add_record(src_str, dst_str, sa_record);
+
+                logging.debug("R2 Initiators SPI: %s %s %s", hex(initiators_spi), Utils.ipv6_bytes_to_hex_formatted(rhit), Utils.ipv6_bytes_to_hex_formatted(ihit));
 
                 # Transition to an Established state
                 hip_state.established();
@@ -2756,14 +2775,13 @@ class HIPLib():
                 dst        = sa_record.get_dst();
                 iv         = Utils.generate_random(cipher.BLOCK_SIZE);
                 sa_record.increment_sequence();
-                """
+
                 logging.debug("HMAC key L2 frame");
                 logging.debug(hexlify(hmac_key));
                 logging.debug("Cipher key L2 frame");
                 logging.debug(hexlify(cipher_key));
                 logging.debug("IV");
                 logging.debug(hexlify(iv));
-                """
 
                 data = EtherIP.EtherIP().buffer + data
                 padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, EtherIP.ETHER_IP_PROTO);
