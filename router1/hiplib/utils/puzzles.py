@@ -37,7 +37,7 @@ class PuzzleSolver():
 		# 17
 		# full_bytes_length 2
 		# partial_bits 1
-		# mask (2<<1) - 1
+		# mask (1<<1) - 1
 	@staticmethod
 	def solve_puzzle(irandom, responers_hit, senders_hit, difficulty, rhash):
 		if not isinstance(rhash, digest.Digest):
