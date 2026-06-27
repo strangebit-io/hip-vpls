@@ -1712,8 +1712,8 @@ class HIPLib():
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
                 if not responders_spi:
                     responders_spi = Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH));
-                    self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
-                        Utils.ipv6_bytes_to_hex_formatted(ihit));
+                    self.spi_storage.set(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(ihit), responders_spi);
                 if initiators_keymat_index != keymat_index:
                     raise Exception("Keymat index should match....")
 

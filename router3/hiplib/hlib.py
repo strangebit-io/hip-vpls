@@ -1708,14 +1708,12 @@ class HIPLib():
 
                 keymat_index = Utils.compute_hip_keymat_length(hmac_alg, selected_cipher);
 
-                
-
                 responders_spi = self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
                 if not responders_spi:
                     responders_spi = Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH));
-                    self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
-                        Utils.ipv6_bytes_to_hex_formatted(ihit));
+                    self.spi_storage.set(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(ihit), responders_spi);
                 if initiators_keymat_index != keymat_index:
                     raise Exception("Keymat index should match....")
 
@@ -1878,7 +1876,7 @@ class HIPLib():
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
                 sa_record.set_spi(responders_spi);
                 self.ip_sec_sa.add_record(dst_str, src_str, sa_record);
-
+                
                 # Kernel data-plane: push the freshly negotiated keys into XFRM.
                 self.install_kernel_dataplane_sa(ihit, rhit, keymat, keymat_index, selected_esp_transform);
 
