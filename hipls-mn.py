@@ -75,7 +75,6 @@ class NetworkTopo( Topo ):
         h4 = self.addHost( 'h4', ip='192.168.1.103/24', defaultRoute='via 192.168.1.4' )
         self.addLink( h4, s4 )
 
-
 def run():
     topo = NetworkTopo()
     net = Mininet( topo=topo, switch=OVSKernelSwitch, controller=OVSController )
@@ -92,8 +91,6 @@ def run():
     info( net[ 's2' ].cmd( 'ovs-vsctl set bridge s2 stp_enable=true' ) )
     info( net[ 's3' ].cmd( 'ovs-vsctl set bridge s3 stp_enable=true' ) )
     info( net[ 's4' ].cmd( 'ovs-vsctl set bridge s4 stp_enable=true' ) )
-
-
 
     # Per-PE NIC offload tuning, selected by each router's dataplane_mode:
     #
