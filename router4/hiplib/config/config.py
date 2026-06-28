@@ -2,7 +2,21 @@ config = {
 	"switch": {
 		"l2interface": "r4-eth0",
 		"mesh": "hiplib/config/mesh",
-        "source_ip": "192.168.3.4"
+		"source_ip": "192.168.3.4",
+		# Data-plane execution model:
+		#   "threads"   - original single-process Python data plane
+		#   "processes" - Python data plane, RX decrypt in a separate process
+		#   "kernel"    - HIP control plane in Python; data plane in the Linux
+		#                 kernel (gretap bridge + XFRM ESP). Highest throughput.
+		"dataplane_mode": "kernel",
+		# Kernel data-plane interfaces (used only when dataplane_mode == "kernel").
+		# One bridge per PE; one isolated gretap pseudowire per remote peer is
+		# created automatically from the mesh + hosts files. Each pseudowire is
+		# named <gretap_prefix><last-octet-of-remote-provider-IP> (e.g. hvpls2,
+		# hvpls3). NOTE: the prefix must NOT yield "gretap0"/"gre0" -- those
+		# collide with the ip_gre module's auto-created fallback devices.
+		"bridge": "br0",
+		"gretap_prefix": "hvpls"
 	},
 	"network": {
 		"tun_name": "hip0",                                    # Interface name
@@ -26,7 +40,11 @@ config = {
 		"supported_hit_suits": [0x10, 0x20, 0x30],             # SHA256 (0x1), SHA384 (0x2), SHA1 (0x3)
 		"supported_transports": [0x0FFF],                      # IPSec
 		"supported_signatures": [0x5, 0x7, 0x9],               # DSA (0x3), RSA (0x5), ECDSA (0x7), ECDSA_LOW (0x9)
-		"supported_esp_transform_suits": [0x7, 0x9, 0x8]       # NULL with HMAC-SHA-256 (0x7), AES-128-CBC with HMAC-SHA-256 (0x8), AES-256-CBC with HMAC-SHA-256 (0x9)
+		# RFC 7402 ESP suites this node offers. 0x8 (AES-128-CBC + HMAC-SHA-256)
+		# is the RFC-mandatory suite and must stay in the list. In kernel mode
+		# the data plane picks the largest suite it can install (see
+		# xfrm.TRANSFORMS); GCM (0xc) is kernel-only.
+		"supported_esp_transform_suits": [0x9, 0x7, 0x8, 0xc] # NULL+SHA256 (0x7), AES-128-CBC+SHA256 (0x8), AES-256-CBC+SHA256 (0x9), AES-GCM-8 (0xc)- (ONLY WITH KERNEL DATA PLANE)
 	},
 	"resolver": {
 		"hosts_file": "hiplib/config/hosts",

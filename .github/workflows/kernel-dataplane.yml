@@ -1,0 +1,46 @@
+name: kernel-dataplane
+
+# Spin up the Mininet topology, let HIP complete the base exchange, then prove
+# the kernel data plane works: h1 must ping h2 and r1 must hold the XFRM ESP
+# states that HIP installed.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Mininet, Open vSwitch and a controller
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            mininet openvswitch-switch openvswitch-testcontroller \
+            python3-pip iproute2 iputils-ping
+
+      - name: Install Python runtime dependencies
+        run: sudo pip3 install pycryptodome netifaces tinyec
+
+      - name: Bring up Open vSwitch and the reference controller
+        run: |
+          sudo ln -sf /usr/bin/ovs-testcontroller /usr/bin/controller
+          sudo service openvswitch-switch start
+          sudo killall ovs-testcontroller 2>/dev/null || true
+          sudo mn -c || true
+
+      - name: Run kernel data-plane smoke test
+        run: sudo python3 ci/test_kernel_dataplane.py
+
+      - name: Upload daemon logs on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hipls-logs
+          path: |
+            router*/hipls.log
+            /tmp/switchd-r*.log
+          if-no-files-found: ignore

@@ -39,6 +39,12 @@ class SecurityAssociationRecord():
 		self.hmac_alg = factory.HMACFactory.get(hmac_alg, self.hmac_key);
 		self.src      = src;
 		self.dst      = dst;
+		# Lazily-built, constant-per-association data-plane artifacts.
+		# For the outgoing (TX) association src/dst are IPv4 addresses, so the
+		# 20-byte IPv4/ESP header and the sendto() destination tuple never
+		# change between packets and can be cached on first use.
+		self.tx_ipv4_template = None;
+		self.tx_dest          = None;
 
 	def get_spi(self):
 		return self.spi;
@@ -65,7 +71,11 @@ class SecurityAssociationDatabase():
 	def __init__(self):
 		self.db = dict();
 	def key(self, source, destination):
-		return hash(source + destination);
+		# Stable string key (not hash()): hash() is randomized per process,
+		# which would break sharing the SA table with a separate data-plane
+		# process. source/destination are hex HITs or dotted IPv4 strings, so
+		# "+" is an unambiguous separator.
+		return source + "+" + destination;
 	def add_record(self, source, destination, record):
 		logging.debug("Adding record for %s - %s" % (source, destination));
 		self.db[self.key(source, destination)] = record;

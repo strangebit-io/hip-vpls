@@ -24,6 +24,11 @@ VERSION_LENGTH       = 0x1;
 HEADER_LENGTH        = 0x2;
 ETHER_IP_PROTO       = 97;
 
+# Reusable constant EtherIP header (version byte + reserved byte).
+# The header is identical for every data-plane packet, so we keep one
+# immutable copy instead of constructing an EtherIP object per packet.
+ETHERIP_HEADER       = bytes([ETHER_IP_VERSION, 0]);
+
 class EtherIP():
     def __init__(self, buffer = None):
         self.buffer = bytearray([ETHER_IP_VERSION, 0]);

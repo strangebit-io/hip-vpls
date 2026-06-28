@@ -35,6 +35,9 @@ import threading
 import logging
 # Timing
 import time
+from time import perf_counter
+# Data-plane performance counters
+from hiplib.utils import perfstats
 # Math functions
 from math import ceil, floor
 # System
@@ -70,6 +73,8 @@ from hiplib.crypto.symmetric import NullCipher
 from hiplib.network import tun
 # Routing
 from hiplib.network import routing
+# Kernel data-plane (XFRM ESP + gretap bridge) helpers
+from hiplib.network import xfrm
 # States
 from hiplib.databases import HIPState
 from hiplib.databases import SA
@@ -82,6 +87,8 @@ class HIPLib():
     def __init__(self, config):
         self.config = config;
         self.MTU = self.config["network"]["mtu"];
+        # Hoisted out of the per-packet data path (config is static).
+        self.ual = self.config["general"]["UAL"];
 
         self.firewall = Firewall.BasicFirewall();
         self.firewall.load_rules(self.config["firewall"]["rules_file"])
@@ -161,7 +168,216 @@ class HIPLib():
         self.firewall.load_rules(self.config["firewall"]["rules_file"])
         logging.info("Using hosts file to resolve HITS %s" % (self.config["resolver"]["hosts_file"]));
         self.hit_resolver.load_records(filename = self.config["resolver"]["hosts_file"]);
-        
+
+    def install_kernel_dataplane_sa(self, ihit, rhit, keymat, keymat_index, selected_esp_transform):
+        """
+        Kernel data-plane only: when an association reaches ESTABLISHED, install
+        the kernel XFRM ESP states for it. Keys and SPIs are derived
+        deterministically from the shared keymat and the global HIT ordering, so
+        both PEs install matching states without relying on HIP's (inconsistent)
+        ESP_INFO SPI values. The Python ESP loop is not used in this mode.
+
+        The ESP suite is chosen the same deterministic way: we take the strongest
+        suite the config offers that the kernel can install (the largest ID in
+        xfrm.TRANSFORMS). Both PEs share the same config, so they pick the same
+        suite on their own. `selected_esp_transform` is what the HIP base
+        exchange negotiated; we log it for reference but do not depend on it.
+        """
+        if self.config["switch"].get("dataplane_mode") != "kernel":
+            return
+        try:
+            supported = self.config["security"]["supported_esp_transform_suits"];
+            transform = xfrm.select_transform(supported);
+            if transform is None:
+                logging.error("None of the configured ESP suites %s can be "
+                    "installed by the kernel data plane", supported);
+                return;
+            spec = xfrm.TRANSFORMS[transform];
+
+            # Canonical ordering shared by both PEs.
+            if Utils.is_hit_smaller(ihit, rhit):
+                smaller, larger = ihit, rhit;
+            else:
+                smaller, larger = rhit, ihit;
+
+            # Per-direction key material. The block is chosen purely by the
+            # sender/receiver HIT order, so "smaller->larger" derives the same
+            # bytes on both ends. CBC suites need a cipher key + an HMAC key;
+            # AEAD suites (GCM) need a cipher key + a salt instead.
+            if spec["kind"] == "cbc":
+                (cipher, hmac) = ESPTransformFactory.get(transform);
+                (enc_s2l, auth_s2l) = Utils.get_keys_esp(keymat, keymat_index,
+                    hmac.ALG_ID, cipher.ALG_ID, smaller, larger);
+                (enc_l2s, auth_l2s) = Utils.get_keys_esp(keymat, keymat_index,
+                    hmac.ALG_ID, cipher.ALG_ID, larger, smaller);
+                keys_s2l = {"enc": enc_s2l, "auth": auth_s2l};
+                keys_l2s = {"enc": enc_l2s, "auth": auth_l2s};
+            else:
+                (key_s2l, salt_s2l) = Utils.get_keys_esp_aead(keymat, keymat_index,
+                    spec["enc_key_len"], spec["salt_len"], smaller, larger);
+                (key_l2s, salt_l2s) = Utils.get_keys_esp_aead(keymat, keymat_index,
+                    spec["enc_key_len"], spec["salt_len"], larger, smaller);
+                keys_s2l = {"key": key_s2l, "salt": salt_s2l};
+                keys_l2s = {"key": key_l2s, "salt": salt_l2s};
+
+            (spi_s2l, spi_l2s) = xfrm.derive_spis(keymat);
+
+            local_ip = self.config["switch"]["source_ip"];
+            if Utils.hits_equal(ihit, self.own_hit):
+                remote_hit = rhit;
+            else:
+                remote_hit = ihit;
+            remote_ip = self.hit_resolver.resolve(
+                Utils.ipv6_bytes_to_hex_formatted_resolver(remote_hit));
+            if not remote_ip:
+                logging.error("Cannot resolve peer HIT to provider IP; kernel SA not installed");
+                return;
+            remote_ip = remote_ip.strip();
+
+            # Decide which direction is "out" (local->remote) for this PE.
+            if Utils.hits_equal(self.own_hit, smaller):
+                out_keys, out_spi = keys_s2l, spi_s2l;
+                in_keys,  in_spi  = keys_l2s, spi_l2s;
+            else:
+                out_keys, out_spi = keys_l2s, spi_l2s;
+                in_keys,  in_spi  = keys_s2l, spi_s2l;
+
+            # ---- Sanity log: what we picked and are about to inject into the
+            # ---- kernel XFRM data plane. The per-SA key details are logged by
+            # ---- xfrm.install_state().
+            slog = logging.getLogger("hipvpls");
+            slog.setLevel(logging.INFO);
+            slog.info("================ HIP BEX -> kernel XFRM ================");
+            slog.info("  local provider IP  : %s", local_ip);
+            slog.info("  remote provider IP : %s", remote_ip);
+            slog.info("  own HIT            : %s", Utils.ipv6_bytes_to_hex_formatted(self.own_hit));
+            slog.info("  this PE role       : %s", "smaller-HIT" if Utils.hits_equal(self.own_hit, smaller) else "larger-HIT");
+            slog.info("  ESP suite (kernel) : 0x%x (%s); HIP BEX negotiated 0x%x",
+                transform, spec["kind"], selected_esp_transform);
+            slog.info("  keymat_index       : %d", keymat_index);
+            slog.info("  OUT SA  %s -> %s   spi 0x%08x", local_ip, remote_ip, out_spi);
+            slog.info("  IN  SA  %s -> %s   spi 0x%08x", remote_ip, local_ip, in_spi);
+            slog.info("=======================================================");
+
+            xfrm.install_state(local_ip, remote_ip, out_spi, transform, out_keys);   # OUT: local -> remote
+            xfrm.install_state(remote_ip, local_ip, in_spi, transform, in_keys);     # IN:  remote -> local
+            logging.info("Installed kernel XFRM SAs %s<->%s suite 0x%x (out spi 0x%08x, in spi 0x%08x)",
+                local_ip, remote_ip, transform, out_spi, in_spi);
+        except Exception as e:
+            logging.critical("Failed to install kernel data-plane SA: %s", e);
+            logging.critical(traceback.format_exc());
+
+    def initiate_bex(self, ihit, rhit):
+        """
+        Kernel data-plane only: proactively (re)start the HIP base exchange
+        towards peer `rhit`. There is no Python L2 loop to trigger BEX on the
+        first data frame, so the switch calls this for each configured mesh
+        peer. Returns a list of (packet_bytes, dest) to send on the HIP socket,
+        or [] if the association is already establishing/established.
+        """
+        response = [];
+        try:
+            # Deterministic single initiator: only the numerically smaller HIT
+            # starts the exchange; the larger-HIT peer simply responds. This
+            # avoids simultaneous-BEX races now that both PEs run this loop.
+            if not Utils.is_hit_smaller(ihit, rhit):
+                return [];
+
+            if Utils.is_hit_smaller(rhit, ihit):
+                hip_state = self.hip_state_machine.get(
+                    Utils.ipv6_bytes_to_hex_formatted(rhit),
+                    Utils.ipv6_bytes_to_hex_formatted(ihit));
+            else:
+                hip_state = self.hip_state_machine.get(
+                    Utils.ipv6_bytes_to_hex_formatted(ihit),
+                    Utils.ipv6_bytes_to_hex_formatted(rhit));
+            # Only (re)start BEX from a quiescent state; process_hip_packet and
+            # maintenance() drive the in-flight handshake and its retransmits.
+            if not (hip_state.is_unassociated() or hip_state.is_failed()
+                    or hip_state.is_closed()):
+                return [];
+
+            src_str = self.config["switch"]["source_ip"];
+            dst_str = self.hit_resolver.resolve(
+                Utils.ipv6_bytes_to_hex_formatted_resolver(rhit));
+            if not dst_str:
+                return [];
+            dst_str = dst_str.strip();
+            dst = Math.int_to_bytes(Utils.ipv4_to_int(dst_str));
+            src = Math.int_to_bytes(Utils.ipv4_to_int(src_str));
+
+            dh_groups_param = HIP.DHGroupListParameter();
+            dh_groups_param.add_groups(self.config["security"]["supported_DH_groups"]);
+
+            hip_i1_packet = HIP.I1Packet();
+            hip_i1_packet.set_senders_hit(ihit);
+            hip_i1_packet.set_receivers_hit(rhit);
+            hip_i1_packet.set_next_header(HIP.HIP_IPPROTO_NONE);
+            hip_i1_packet.set_version(HIP.HIP_VERSION);
+            hip_i1_packet.add_parameter(dh_groups_param);
+
+            checksum = Utils.hip_ipv4_checksum(src, dst, HIP.HIP_PROTOCOL,
+                hip_i1_packet.get_length() * 8 + 8, hip_i1_packet.get_buffer());
+            hip_i1_packet.set_checksum(checksum);
+
+            ipv4_packet = IPv4.IPv4Packet();
+            ipv4_packet.set_version(IPv4.IPV4_VERSION);
+            ipv4_packet.set_destination_address(dst);
+            ipv4_packet.set_source_address(src);
+            ipv4_packet.set_ttl(IPv4.IPV4_DEFAULT_TTL);
+            ipv4_packet.set_protocol(HIP.HIP_PROTOCOL);
+            ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
+            ipv4_packet.set_payload(hip_i1_packet.get_buffer());
+
+            hip_state.i1_sent();
+            if Utils.is_hit_smaller(rhit, ihit):
+                key1 = Utils.ipv6_bytes_to_hex_formatted(rhit);
+                key2 = Utils.ipv6_bytes_to_hex_formatted(ihit);
+            else:
+                key1 = Utils.ipv6_bytes_to_hex_formatted(ihit);
+                key2 = Utils.ipv6_bytes_to_hex_formatted(rhit);
+            sv = self.state_variables.get(key1, key2);
+            if not sv:
+                sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, src, dst);
+                self.state_variables.save(key1, key2, sv);
+            sv.state = hip_state.get_state();
+            sv.ihit = ihit;
+            sv.rhit = rhit;
+            sv.src = src;
+            sv.dst = dst;
+            sv.is_responder = False;
+            sv.i1_timeout = time.time() + self.config["general"]["i1_timeout_s"];
+            sv.i1_retries = 1;
+            response.append((bytearray(ipv4_packet.get_buffer()), (dst_str, 0)));
+            logging.info("Kernel mode: initiated HIP BEX towards %s", dst_str);
+        except Exception as e:
+            logging.critical("Failed to initiate BEX: %s", e);
+            logging.critical(traceback.format_exc());
+        return response;
+
+    def refresh_kernel_timers(self):
+        """
+        Kernel data-plane only: the Python process never sees data packets, so
+        keep ESTABLISHED associations from idle-closing or rekeying (either
+        would desync the kernel SAs). Pin the data/update timers forward.
+        """
+        if self.config["switch"].get("dataplane_mode") != "kernel":
+            return;
+        now = time.time();
+        for key in self.state_variables.keys():
+            sv = self.state_variables.get_by_key(key);
+            if Utils.is_hit_smaller(sv.rhit, sv.ihit):
+                hip_state = self.hip_state_machine.get(
+                    Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                    Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            else:
+                hip_state = self.hip_state_machine.get(
+                    Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                    Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            if hip_state.is_established():
+                sv.data_timeout = now + self.ual;
+                sv.update_timeout = now + self.config["general"]["update_timeout_s"];
+
     def process_hip_packet(self, packet):
         try:
             response = [];
@@ -1512,8 +1728,8 @@ class HIPLib():
                     Utils.ipv6_bytes_to_hex_formatted(ihit));
                 if not responders_spi:
                     responders_spi = Math.bytes_to_int(Utils.generate_random(HIP.HIP_ESP_INFO_NEW_SPI_LENGTH));
-                    self.spi_storage.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
-                        Utils.ipv6_bytes_to_hex_formatted(ihit));
+                    self.spi_storage.save(Utils.ipv6_bytes_to_hex_formatted(rhit), 
+                        Utils.ipv6_bytes_to_hex_formatted(ihit), responders_spi);
                 if initiators_keymat_index != keymat_index:
                     raise Exception("Keymat index should match....")
 
@@ -1676,16 +1892,17 @@ class HIPLib():
                 sa_record = SA.SecurityAssociationRecord(cipher.ALG_ID, hmac.ALG_ID, cipher_key, hmac_key, rhit, ihit);
                 sa_record.set_spi(responders_spi);
                 self.ip_sec_sa.add_record(dst_str, src_str, sa_record);
-
-                logging.debug("I2 Responders SPI: %s %s %s", hex(responders_spi), Utils.ipv6_bytes_to_hex_formatted(rhit), Utils.ipv6_bytes_to_hex_formatted(ihit));
                 
+                # Kernel data-plane: push the freshly negotiated keys into XFRM.
+                self.install_kernel_dataplane_sa(ihit, rhit, keymat, keymat_index, selected_esp_transform);
+
                 if Utils.is_hit_smaller(rhit, ihit):
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
                         Utils.ipv6_bytes_to_hex_formatted(ihit));
                 else:
                     sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
                         Utils.ipv6_bytes_to_hex_formatted(rhit));
-                
+
                 sv.ec_complete_timeout = time.time() + self.config["general"]["EC"];
             elif hip_packet.get_packet_type() == HIP.HIP_R2_PACKET:
                 
@@ -1947,7 +2164,8 @@ class HIPLib():
                 sa_record.set_spi(initiators_spi);
                 self.ip_sec_sa.add_record(src_str, dst_str, sa_record);
 
-                logging.debug("R2 Initiators SPI: %s %s %s", hex(initiators_spi), Utils.ipv6_bytes_to_hex_formatted(rhit), Utils.ipv6_bytes_to_hex_formatted(ihit));
+                # Kernel data-plane: push the freshly negotiated keys into XFRM.
+                self.install_kernel_dataplane_sa(ihit, rhit, keymat, keymat_index, selected_esp_transform);
 
                 # Transition to an Established state
                 hip_state.established();
@@ -2564,14 +2782,17 @@ class HIPLib():
             ihit        = sa_record.get_src();
             rhit        = sa_record.get_dst();
 
+            # Compute the hex HITs and their ordering once; the same key pair
+            # is reused below for the hip_state lookup.
+            ihit_hex = Utils.ipv6_bytes_to_hex_formatted(ihit);
+            rhit_hex = Utils.ipv6_bytes_to_hex_formatted(rhit);
             if Utils.is_hit_smaller(rhit, ihit):
-                sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                    Utils.ipv6_bytes_to_hex_formatted(ihit));
+                sa_key_first, sa_key_second = rhit_hex, ihit_hex;
             else:
-                sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                    Utils.ipv6_bytes_to_hex_formatted(rhit));
+                sa_key_first, sa_key_second = ihit_hex, rhit_hex;
+            sv = self.state_variables.get(sa_key_first, sa_key_second);
 
-            sv.data_timeout = time.time() + self.config["general"]["UAL"];
+            sv.data_timeout = time.time() + self.ual;
             """
             logging.debug(hexlify(ihit))
             logging.debug(hexlify(rhit))
@@ -2592,7 +2813,10 @@ class HIPLib():
             logging.debug("--------------------------------------------")
             """
 
-            if icv != hmac_alg.digest(ip_sec_packet.get_byte_buffer()[:-hmac_alg.LENGTH]):
+            _t = perf_counter()
+            _computed_icv = hmac_alg.digest(ip_sec_packet.get_byte_buffer()[:-hmac_alg.LENGTH])
+            perfstats.record("rx_hmac", perf_counter() - _t)
+            if icv != _computed_icv:
                 logging.critical("Invalid ICV in IPSec packet");
                 return  (None, None, None);
 
@@ -2612,8 +2836,10 @@ class HIPLib():
             #logging.debug("Padded data");
             #logging.debug(padded_data);
 
+            _t = perf_counter()
             decrypted_data = cipher.decrypt(cipher_key, bytearray(iv), bytearray(padded_data));
-            # Remove EtherIP header 
+            perfstats.record("rx_decrypt", perf_counter() - _t)
+            # Remove EtherIP header
             decrypted_data = decrypted_data[EtherIP.HEADER_LENGTH:]
 
             #logging.debug("Decrypted padded data");
@@ -2623,12 +2849,7 @@ class HIPLib():
             #next_header    = IPSec.IPSecUtils.get_next_header(decrypted_data);
             
 
-            if Utils.is_hit_smaller(rhit, ihit):
-                hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(rhit), 
-                    Utils.ipv6_bytes_to_hex_formatted(ihit));
-            else:
-                hip_state = self.hip_state_machine.get(Utils.ipv6_bytes_to_hex_formatted(ihit), 
-                    Utils.ipv6_bytes_to_hex_formatted(rhit));
+            hip_state = self.hip_state_machine.get(sa_key_first, sa_key_second);
             if not hip_state:
                 return (None, None, None);
             hip_state.established();
@@ -2758,7 +2979,7 @@ class HIPLib():
                 else:
                     sv = self.state_variables.get(ihit_str,
                         rhit_str);
-                sv.data_timeout = time.time() + self.config["general"]["UAL"];
+                sv.data_timeout = time.time() + self.ual;
 
                 # Get SA record and construct the ESP payload
                 try:
@@ -2775,19 +2996,22 @@ class HIPLib():
                 dst        = sa_record.get_dst();
                 iv         = Utils.generate_random(cipher.BLOCK_SIZE);
                 sa_record.increment_sequence();
-
+                """
                 logging.debug("HMAC key L2 frame");
                 logging.debug(hexlify(hmac_key));
                 logging.debug("Cipher key L2 frame");
                 logging.debug(hexlify(cipher_key));
                 logging.debug("IV");
                 logging.debug(hexlify(iv));
+                """
 
-                data = EtherIP.EtherIP().buffer + data
+                data = EtherIP.ETHERIP_HEADER + data
                 padded_data = IPSec.IPSecUtils.pad(cipher.BLOCK_SIZE, data, EtherIP.ETHER_IP_PROTO);
                 #logging.debug("Length of the padded data %d" % (len(padded_data)));
 
+                _t = perf_counter()
                 encrypted_data = cipher.encrypt(cipher_key, iv, padded_data);
+                perfstats.record("tx_encrypt", perf_counter() - _t)
                 
                 """
                 logging.debug("Padded data");
@@ -2809,29 +3033,37 @@ class HIPLib():
                 #logging.debug("Calculating ICV over IPSec packet");
                 #logging.debug(list(ip_sec_packet.get_byte_buffer()));
 
+                _t = perf_counter()
                 icv = hmac_alg.digest(bytearray(ip_sec_packet.get_byte_buffer()));
+                perfstats.record("tx_hmac", perf_counter() - _t)
                 #logging.debug("---------------------ICV--------------------")
                 #logging.debug(bytearray(icv))
                 #logging.debug("--------------------------------------------")
 
                 ip_sec_packet.add_payload(icv);
 
-                # Send ESP packet to destination
-                ipv4_packet = IPv4.IPv4Packet();
-                ipv4_packet.set_version(IPv4.IPV4_VERSION);
-                ipv4_packet.set_destination_address(dst);
-                ipv4_packet.set_source_address(src);
-                ipv4_packet.set_ttl(IPv4.IPV4_DEFAULT_TTL);
-                ipv4_packet.set_protocol(IPSec.IPSEC_PROTOCOL);
-                ipv4_packet.set_ihl(IPv4.IPV4_IHL_NO_OPTIONS);
-                ipv4_packet.set_payload(ip_sec_packet.get_byte_buffer());
+                # Send ESP packet to destination.
+                # The IPv4/ESP header is constant for this association (fixed
+                # src, dst, proto, ttl; total length and checksum are filled in
+                # by the kernel because IP_HDRINCL is set with length 0), so we
+                # build it once per SA and only prepend it to the ESP payload.
+                ipv4_template = sa_record.tx_ipv4_template;
+                if ipv4_template is None:
+                    ipv4_template = bytearray([0] * IPv4.IPV4_MIN_HEADER_LENGTH);
+                    ipv4_template[IPv4.IPV4_VERSION_OFFSET] = (IPv4.IPV4_VERSION << 4) | IPv4.IPV4_IHL_NO_OPTIONS;
+                    ipv4_template[IPv4.IPV4_TTL_OFFSET] = IPv4.IPV4_DEFAULT_TTL;
+                    ipv4_template[IPv4.IPV4_PROTOCOL_OFFSET] = IPSec.IPSEC_PROTOCOL;
+                    ipv4_template[IPv4.IPV4_SOURCE_ADDRESS_OFFSET:IPv4.IPV4_SOURCE_ADDRESS_OFFSET + IPv4.IPV4_SOURCE_ADDRESS_LENGTH] = src;
+                    ipv4_template[IPv4.IPV4_DESTINATION_ADDRESS_OFFSET:IPv4.IPV4_DESTINATION_ADDRESS_OFFSET + IPv4.IPV4_DESTINATION_ADDRESS_LENGTH] = dst;
+                    sa_record.tx_ipv4_template = ipv4_template;
+                    sa_record.tx_dest = (Utils.ipv4_bytes_to_string(dst), 0);
 
                 #logging.debug("Sending IPSEC packet to %s %d bytes" % (Utils.ipv4_bytes_to_string(dst), len(ipv4_packet.get_buffer())));
 
                 #ip_sec_socket.sendto(
-                #    bytearray(ipv4_packet.get_buffer()), 
+                #    bytearray(ipv4_packet.get_buffer()),
                 #    (Utils.ipv4_bytes_to_string(dst), 0));
-                response.append((False, bytearray(ipv4_packet.get_buffer()), (Utils.ipv4_bytes_to_string(dst), 0)))
+                response.append((False, ipv4_template + ip_sec_packet.get_byte_buffer(), sa_record.tx_dest))
             else:
                 pass
                 #logging.debug("Unknown state reached.... %s " % (hip_state));

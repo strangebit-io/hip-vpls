@@ -43,9 +43,13 @@ from math import ceil, floor
 import sys
 # Exit handler
 import atexit
-# Timing 
+# Timing
 from time import sleep
 from time import time
+from time import perf_counter
+
+# Data-plane performance counters
+from hiplib.utils import perfstats
 
 # Hex
 from binascii import hexlify
@@ -91,7 +95,7 @@ import copy
 
 # Configure logging to console and file
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.ERROR,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
         logging.FileHandler("hipls.log")#,
@@ -99,7 +103,108 @@ logging.basicConfig(
     ]
 );
 
-# HIP configuration 
+# If configured, run the data plane as separate processes (to escape the GIL)
+# and never set up the in-process threaded data plane below. Default is
+# "threads" which keeps the original behaviour unchanged.
+if hip_config.config["switch"].get("dataplane_mode", "threads") == "processes":
+    from hiplib import dataplane_mp
+    dataplane_mp.run();
+    sys.exit(0);
+
+# Kernel data-plane mode: the HIP control plane (BEX) stays in Python but the
+# data plane (encryption, L2 encapsulation, forwarding) is handed to the Linux
+# kernel via a gretap bridge protected by XFRM ESP. No Python L2/IPSec loops.
+if hip_config.config["switch"].get("dataplane_mode", "threads") == "kernel":
+    from hiplib.network import xfrm
+    from hiplib.utils.misc import Utils
+
+    hiplib = HIPLib(hip_config.config);
+
+    hip_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, HIP.HIP_PROTOCOL);
+    hip_socket.bind(("0.0.0.0", HIP.HIP_PROTOCOL));
+    hip_socket.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1);
+
+    # Resolve mesh peers and the provider endpoints from config + hosts file.
+    fib = FIB(hip_config.config["switch"]["mesh"]);
+    own_hit     = hiplib.get_own_hit();
+    local_ip    = hip_config.config["switch"]["source_ip"];
+    l2interface = hip_config.config["switch"]["l2interface"];
+    bridge      = hip_config.config["switch"].get("bridge", "br0");
+    gretap_prefix = hip_config.config["switch"].get("gretap_prefix", "hvpls");
+
+    _slog = logging.getLogger("hipvpls");
+    _slog.setLevel(logging.ERROR);
+    _slog.info("---------------- Kernel data-plane next-hops ----------------");
+    _slog.info("  own HIT=%s local provider IP=%s l2if=%s bridge=%s",
+        Utils.ipv6_bytes_to_hex_formatted(own_hit), local_ip, l2interface, bridge);
+
+    # Build, from the mesh + hosts config files: the BEX peer list (one HIP
+    # association per peer) and the set of remote provider IPs (one isolated
+    # pseudowire per peer). Adding a router => add lines to mesh + hosts; the
+    # data plane scales itself, nothing here is hardcoded to a peer count.
+    peers = [];
+    peer_ips = [];
+    seen_ips = set();
+    for (ihit, rhit) in fib.fib_broadcast:
+        peer = rhit if bytes(ihit) == bytes(own_hit) else ihit;
+        peers.append((own_hit, peer));
+        rip = hiplib.hit_resolver.resolve(Utils.ipv6_bytes_to_hex_formatted_resolver(peer));
+        rip = rip.strip() if rip else None;
+        _slog.info("  next-hop tunnel: peer HIT=%s -> provider IP=%s",
+            Utils.ipv6_bytes_to_hex_formatted(peer), (rip if rip else "UNRESOLVED"));
+        if rip and rip not in seen_ips:
+            seen_ips.add(rip);
+            peer_ips.append(rip);
+
+    if peer_ips:
+        xfrm.setup_l2_transport(l2interface, bridge, local_ip, peer_ips, gretap_prefix);
+    else:
+        logging.critical("Could not resolve any remote provider IP; L2 transport not set up");
+
+    def onclose_kernel():
+        try:
+            packets = hiplib.exit_handler();
+            for (packet, dest) in packets:
+                hip_socket.sendto(packet, dest);
+        except Exception:
+            pass;
+        xfrm.teardown(bridge, peer_ips, gretap_prefix, local_ip);
+    atexit.register(onclose_kernel);
+
+    def hip_loop_kernel():
+        while True:
+            try:
+                packet = bytearray(hip_socket.recv(1518));
+                packets = hiplib.process_hip_packet(packet);
+                for (packet, dest) in packets:
+                    hip_socket.sendto(packet, dest);
+            except Exception as e:
+                logging.debug("Exception while processing HIP packet: %s", e);
+
+    th = threading.Thread(target = hip_loop_kernel, args = (), daemon = True);
+    th.start();
+    logging.info("Starting switchd in KERNEL data-plane mode");
+
+    while True:
+        try:
+            packets = hiplib.maintenance();
+            for (packet, dest) in packets:
+                hip_socket.sendto(packet, dest);
+            # Proactively (re)establish each mesh tunnel; the kernel handles the
+            # data path once an association is ESTABLISHED (SAs installed in BEX).
+            for (ihit, rhit) in peers:
+                for (packet, dest) in hiplib.initiate_bex(ihit, rhit):
+                    hip_socket.sendto(packet, dest);
+            # Keep established associations pinned (avoid idle-close / rekey,
+            # which would desync the kernel SAs).
+            hiplib.refresh_kernel_timers();
+            sleep(1);
+        except Exception as e:
+            logging.critical("Exception in kernel maintenance loop: %s", e);
+            sleep(1);
+    sys.exit(0);
+
+# HIP configuration
 hiplib = HIPLib(hip_config.config);
 
 hip_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, HIP.HIP_PROTOCOL);
@@ -144,26 +249,22 @@ def hip_loop():
 def ip_sec_loop():
     while True:
         try:
-            es = time()
-            s = time()
+            t0 = perf_counter()
             packet = bytearray(ip_sec_socket.recv(1518));
-            e = time()
-            #logging.info("IPSEC recv time %f " % (e-s))
-            s = time()
+            t1 = perf_counter()
+            perfstats.record("ipsec_recv", t1 - t0)
             (frame, src, dst) = hiplib.process_ip_sec_packet(packet)
-            e = time()
-            #logging.info("IPSEC process time %f " % (e-s))
+            t2 = perf_counter()
+            perfstats.record("ipsec_process", t2 - t1)
             if not frame:
                 continue;
-            s = time()
             ether_socket.send(frame);
-            e = time()
-            #logging.info("L2 send time %f " % (e-s))
+            t3 = perf_counter()
+            perfstats.record("eth_send", t3 - t2)
+            perfstats.incr_bytes("rx_bytes", len(frame))
             frame = Ethernet.EthernetFrame(frame);
             fib.set_next_hop(frame.get_source(), src, dst);
             #logging.debug("Got frame in IPSec loop sending to L2 %s %s....", hexlify(frame.get_source()), hexlify(frame.get_destination()))
-            ee = time()
-            #logging.info("Total time to process the IPSEC packet %f" % (ee - es))
         except Exception as e:
             logging.debug("Exception occured while processing IPSEC packet")
             logging.critical(e)
@@ -171,39 +272,30 @@ def ip_sec_loop():
 def ether_loop():
     while True:
         try:
-            s = time()
+            t0 = perf_counter()
             buf = bytearray(ether_socket.recv(1518));
-            e = time()
-            #logging.info("Ethernet recv time %f " % (e-s))
+            t1 = perf_counter()
+            perfstats.record("eth_recv", t1 - t0)
             frame = Ethernet.EthernetFrame(buf);
             dst_mac = frame.get_destination();
             src_mac = frame.get_source();
 
-            #logging.debug("Got data on Ethernet link L2 %s %s..." % (hexlify(src_mac), hexlify(dst_mac)))
-
-            #logging.debug(hexlify(src_mac))
-            #logging.debug(hexlify(dst_mac))
-
-            #logging.debug("----------------------------------")
-            es = time()
-            
             mesh = fib.get_next_hop(dst_mac);
             for (ihit, rhit) in mesh:
-                s = time()
+                t2 = perf_counter()
                 packets = hiplib.process_l2_frame(frame, ihit, rhit, hip_config.config["switch"]["source_ip"]);
-                e = time()
-                #logging.info("L2 process time %f " % (e-s))
+                t3 = perf_counter()
+                perfstats.record("l2_process", t3 - t2)
                 for (hip, packet, dest) in packets:
                     #logging.debug("Sending L2 frame to: %s %s" % (hexlify(ihit), hexlify(rhit)))
                     if not hip:
-                        s = time()
+                        t4 = perf_counter()
                         ip_sec_socket.sendto(packet, dest)
-                        e = time()
-                        #logging.info("IPSEC send time %f " % (e-s))
+                        t5 = perf_counter()
+                        perfstats.record("ipsec_send", t5 - t4)
+                        perfstats.incr_bytes("tx_bytes", len(packet))
                     else:
                         hip_socket.sendto(packet, dest)
-            ee = time()
-            #logging.info("Total time to process Ethernet frame %f" % (ee-es))
         except Exception as e:
            logging.debug("Exception occured while processing L2 frame")
            logging.debug(e)
@@ -223,12 +315,17 @@ ip_sec_th_loop.start();
 ether_if_th_loop.start();
 
 def run_switch():
+    counter = 0
     while True:
         try:
             packets = hiplib.maintenance();
             for (packet, dest) in packets:
                 hip_socket.sendto(packet, dest)
             logging.debug("...Periodic cleaning task...")
+            counter += 1
+            # Flush the data-plane perf table every 5 seconds.
+            if counter % 200 == 0:
+                perfstats.report()
             sleep(1);
         except Exception as e:
             logging.critical("Exception occured while processing HIP packets in maintenance loop")
