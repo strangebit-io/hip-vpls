@@ -5,6 +5,7 @@
 import os
 import subprocess
 import importlib.util
+from time import sleep
 
 from mininet.topo import Topo
 from mininet.net import Mininet
@@ -87,10 +88,13 @@ def run():
     info( net[ 'h2' ].cmd( 'ifconfig h2-eth0 mtu 1400' ) )
     info( net[ 'h3' ].cmd( 'ifconfig h3-eth0 mtu 1400' ) )
     info( net[ 'h4' ].cmd( 'ifconfig h4-eth0 mtu 1400' ) )
-    info( net[ 's1' ].cmd( 'ovs-vsctl set bridge s1 stp_enable=true' ) )
-    info( net[ 's2' ].cmd( 'ovs-vsctl set bridge s2 stp_enable=true' ) )
-    info( net[ 's3' ].cmd( 'ovs-vsctl set bridge s3 stp_enable=true' ) )
-    info( net[ 's4' ].cmd( 'ovs-vsctl set bridge s4 stp_enable=true' ) )
+    # STP is intentionally left OFF on the customer switches (OVS default).
+    # s1..s4 each connect exactly one host to one PE, and the core s1000 is a
+    # routed star, so there is no L2 loop for STP to break. VPLS loop prevention
+    # is done in the data plane by gretap split-horizon (the isolated
+    # pseudowires), not by STP. Enabling 802.1D STP here only added its
+    # forward-delay (~15-30 s of listening/learning) before the switch would
+    # forward the customer ARP -- which is what made the first ping take ~20 s.
 
     # Per-PE NIC offload tuning, selected by each router's dataplane_mode:
     #
@@ -136,6 +140,15 @@ def run():
     # popen() defaults stdout/stderr to pipes that nobody drains; a long-running
     # daemon would block once the ~64K buffer fills, so each PE's output is sent
     # to router<N>/switchd.console.log instead.
+    # Start the PEs one at a time, not all at once. Launching all four together
+    # makes them fight for the CPU during their heavy start-up (key load + HIT
+    # compute + building the kernel data plane + the BEX puzzle), and a router
+    # may begin a base exchange before its peer is ready to answer -- which then
+    # waits ~20 s for a retransmit. A short gap lets each PE come up cleanly
+    # before the next starts, so the mesh establishes in a couple of seconds
+    # instead of ~25. (This is the same reason starting them by hand in separate
+    # xterms is much quicker.) Tune the gap if a slower machine needs more time.
+    STARTUP_STAGGER_S = 0.3
     switchd_procs = []
     for r, rdir in routers.items():
         info( '*** Running HIPLS on %s (%s mode)\n' % ( r, dataplane_mode( rdir ) ) )
@@ -143,6 +156,7 @@ def run():
         proc = net[ r ].popen( 'cd %s && exec python3 switchd.py' % rdir,
                                shell=True, stdout=logf, stderr=subprocess.STDOUT )
         switchd_procs.append( ( proc, logf ) )
+        sleep( STARTUP_STAGGER_S )
 
     CLI( net )
 
