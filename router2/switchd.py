@@ -133,7 +133,7 @@ if hip_config.config["switch"].get("dataplane_mode", "threads") == "kernel":
     gretap_prefix = hip_config.config["switch"].get("gretap_prefix", "hvpls");
 
     _slog = logging.getLogger("hipvpls");
-    _slog.setLevel(logging.INFO);
+    _slog.setLevel(logging.ERROR);
     _slog.info("---------------- Kernel data-plane next-hops ----------------");
     _slog.info("  own HIT=%s local provider IP=%s l2if=%s bridge=%s",
         Utils.ipv6_bytes_to_hex_formatted(own_hit), local_ip, l2interface, bridge);

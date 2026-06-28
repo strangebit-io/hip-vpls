@@ -19,7 +19,7 @@ from binascii import hexlify
 # Dedicated sanity logger: set to INFO so its lines reach hipls.log even though
 # the root logger is configured at ERROR level.
 _slog = logging.getLogger("hipvpls")
-_slog.setLevel(logging.INFO)
+_slog.setLevel(logging.ERROR)
 
 class FIB():
     def __init__(self, file):
