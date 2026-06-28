@@ -176,15 +176,23 @@ class HIPLib():
         deterministically from the shared keymat and the global HIT ordering, so
         both PEs install matching states without relying on HIP's (inconsistent)
         ESP_INFO SPI values. The Python ESP loop is not used in this mode.
+
+        The ESP suite is chosen the same deterministic way: we take the strongest
+        suite the config offers that the kernel can install (the largest ID in
+        xfrm.TRANSFORMS). Both PEs share the same config, so they pick the same
+        suite on their own. `selected_esp_transform` is what the HIP base
+        exchange negotiated; we log it for reference but do not depend on it.
         """
         if self.config["switch"].get("dataplane_mode") != "kernel":
             return
         try:
-            (cipher, hmac) = ESPTransformFactory.get(selected_esp_transform);
-            if cipher.ALG_ID not in (0x2, 0x4):
-                logging.error("Kernel data plane supports only AES-CBC ESP "
-                    "(transform 0x8/0x9); got cipher ALG_ID 0x%x" % cipher.ALG_ID);
+            supported = self.config["security"]["supported_esp_transform_suits"];
+            transform = xfrm.select_transform(supported);
+            if transform is None:
+                logging.error("None of the configured ESP suites %s can be "
+                    "installed by the kernel data plane", supported);
                 return;
+            spec = xfrm.TRANSFORMS[transform];
 
             # Canonical ordering shared by both PEs.
             if Utils.is_hit_smaller(ihit, rhit):
@@ -192,13 +200,26 @@ class HIPLib():
             else:
                 smaller, larger = rhit, ihit;
 
-            # Per-direction keys; the key block is selected purely by
-            # sender/receiver HIT ordering, so "smaller->larger" derives the
-            # same key on both ends.
-            (enc_s2l, auth_s2l) = Utils.get_keys_esp(keymat, keymat_index,
-                hmac.ALG_ID, cipher.ALG_ID, smaller, larger);
-            (enc_l2s, auth_l2s) = Utils.get_keys_esp(keymat, keymat_index,
-                hmac.ALG_ID, cipher.ALG_ID, larger, smaller);
+            # Per-direction key material. The block is chosen purely by the
+            # sender/receiver HIT order, so "smaller->larger" derives the same
+            # bytes on both ends. CBC suites need a cipher key + an HMAC key;
+            # AEAD suites (GCM) need a cipher key + a salt instead.
+            if spec["kind"] == "cbc":
+                (cipher, hmac) = ESPTransformFactory.get(transform);
+                (enc_s2l, auth_s2l) = Utils.get_keys_esp(keymat, keymat_index,
+                    hmac.ALG_ID, cipher.ALG_ID, smaller, larger);
+                (enc_l2s, auth_l2s) = Utils.get_keys_esp(keymat, keymat_index,
+                    hmac.ALG_ID, cipher.ALG_ID, larger, smaller);
+                keys_s2l = {"enc": enc_s2l, "auth": auth_s2l};
+                keys_l2s = {"enc": enc_l2s, "auth": auth_l2s};
+            else:
+                (key_s2l, salt_s2l) = Utils.get_keys_esp_aead(keymat, keymat_index,
+                    spec["enc_key_len"], spec["salt_len"], smaller, larger);
+                (key_l2s, salt_l2s) = Utils.get_keys_esp_aead(keymat, keymat_index,
+                    spec["enc_key_len"], spec["salt_len"], larger, smaller);
+                keys_s2l = {"key": key_s2l, "salt": salt_s2l};
+                keys_l2s = {"key": key_l2s, "salt": salt_l2s};
+
             (spi_s2l, spi_l2s) = xfrm.derive_spis(keymat);
 
             local_ip = self.config["switch"]["source_ip"];
@@ -215,38 +236,33 @@ class HIPLib():
 
             # Decide which direction is "out" (local->remote) for this PE.
             if Utils.hits_equal(self.own_hit, smaller):
-                out_enc, out_auth, out_spi = enc_s2l, auth_s2l, spi_s2l;
-                in_enc,  in_auth,  in_spi  = enc_l2s, auth_l2s, spi_l2s;
+                out_keys, out_spi = keys_s2l, spi_s2l;
+                in_keys,  in_spi  = keys_l2s, spi_l2s;
             else:
-                out_enc, out_auth, out_spi = enc_l2s, auth_l2s, spi_l2s;
-                in_enc,  in_auth,  in_spi  = enc_s2l, auth_s2l, spi_s2l;
+                out_keys, out_spi = keys_l2s, spi_l2s;
+                in_keys,  in_spi  = keys_s2l, spi_s2l;
 
-            # ---- Sanity log: everything we extracted from the HIP BEX and
-            # ---- are about to inject into the kernel XFRM data plane.
+            # ---- Sanity log: what we picked and are about to inject into the
+            # ---- kernel XFRM data plane. The per-SA key details are logged by
+            # ---- xfrm.install_state().
             slog = logging.getLogger("hipvpls");
             slog.setLevel(logging.INFO);
             slog.info("================ HIP BEX -> kernel XFRM ================");
             slog.info("  local provider IP  : %s", local_ip);
             slog.info("  remote provider IP : %s", remote_ip);
             slog.info("  own HIT            : %s", Utils.ipv6_bytes_to_hex_formatted(self.own_hit));
-            slog.info("  initiator HIT (i)  : %s", Utils.ipv6_bytes_to_hex_formatted(ihit));
-            slog.info("  responder HIT (r)  : %s", Utils.ipv6_bytes_to_hex_formatted(rhit));
             slog.info("  this PE role       : %s", "smaller-HIT" if Utils.hits_equal(self.own_hit, smaller) else "larger-HIT");
-            slog.info("  ESP transform      : 0x%x (cipher ALG_ID 0x%x, hmac ALG_ID 0x%x)",
-                selected_esp_transform, cipher.ALG_ID, hmac.ALG_ID);
+            slog.info("  ESP suite (kernel) : 0x%x (%s); HIP BEX negotiated 0x%x",
+                transform, spec["kind"], selected_esp_transform);
             slog.info("  keymat_index       : %d", keymat_index);
             slog.info("  OUT SA  %s -> %s   spi 0x%08x", local_ip, remote_ip, out_spi);
-            slog.info("          enc  cbc(aes)     key : %s", hexlify(bytes(out_enc)).decode("ascii"));
-            slog.info("          auth hmac(sha256) key : %s", hexlify(bytes(out_auth)).decode("ascii"));
             slog.info("  IN  SA  %s -> %s   spi 0x%08x", remote_ip, local_ip, in_spi);
-            slog.info("          enc  cbc(aes)     key : %s", hexlify(bytes(in_enc)).decode("ascii"));
-            slog.info("          auth hmac(sha256) key : %s", hexlify(bytes(in_auth)).decode("ascii"));
             slog.info("=======================================================");
 
-            xfrm.install_state(local_ip, remote_ip, out_spi, out_enc, out_auth);   # OUT: local -> remote
-            xfrm.install_state(remote_ip, local_ip, in_spi, in_enc, in_auth);      # IN:  remote -> local
-            logging.info("Installed kernel XFRM SAs %s<->%s (out spi 0x%08x, in spi 0x%08x)",
-                local_ip, remote_ip, out_spi, in_spi);
+            xfrm.install_state(local_ip, remote_ip, out_spi, transform, out_keys);   # OUT: local -> remote
+            xfrm.install_state(remote_ip, local_ip, in_spi, transform, in_keys);     # IN:  remote -> local
+            logging.info("Installed kernel XFRM SAs %s<->%s suite 0x%x (out spi 0x%08x, in spi 0x%08x)",
+                local_ip, remote_ip, transform, out_spi, in_spi);
         except Exception as e:
             logging.critical("Failed to install kernel data-plane SA: %s", e);
             logging.critical(traceback.format_exc());

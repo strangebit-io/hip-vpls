@@ -140,7 +140,7 @@ def run():
     for r, rdir in routers.items():
         info( '*** Running HIPLS on %s (%s mode)\n' % ( r, dataplane_mode( rdir ) ) )
         logf = open( os.path.join( rdir, 'switchd.console.log' ), 'ab' )
-        proc = net[ r ].popen( 'cd %s && exec python3 switchd.py' % rdir,
+        proc = net[ r ].popen( 'cd %s && exec pwd' % rdir,
                                shell=True, stdout=logf, stderr=subprocess.STDOUT )
         switchd_procs.append( ( proc, logf ) )
 

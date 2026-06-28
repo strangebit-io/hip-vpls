@@ -364,6 +364,23 @@ class Utils():
 			keymat[offset + cipher.KEY_SIZE_BITS: offset + cipher.KEY_SIZE_BITS + hmac.LENGTH]);
 
 	@staticmethod
+	def get_keys_esp_aead(keymat, keymat_index, enc_key_len, salt_len, ihit_bytes, rhit_bytes):
+		# AEAD suites (e.g. AES-GCM) have no separate HMAC key: each direction
+		# needs one cipher key plus a short salt. We read them from KEYMAT the
+		# same way get_keys_esp does, so both peers derive the same bytes -- the
+		# two directions sit in consecutive (key + salt) blocks, and the HIT
+		# order decides which block belongs to which direction.
+		ihit = Math.bytes_to_int(ihit_bytes);
+		rhit = Math.bytes_to_int(rhit_bytes);
+		block = enc_key_len + salt_len;
+		offset = keymat_index;
+		if ihit > rhit:
+			offset += block;
+		key  = keymat[offset: offset + enc_key_len];
+		salt = keymat[offset + enc_key_len: offset + enc_key_len + salt_len];
+		return (key, salt);
+
+	@staticmethod
 	def sort_hits(ihit_bytes, rhit_bytes):
 		ihit = Math.bytes_to_int(ihit_bytes);
 		rhit = Math.bytes_to_int(rhit_bytes);

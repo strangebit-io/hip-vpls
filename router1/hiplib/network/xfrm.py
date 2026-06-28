@@ -44,14 +44,48 @@ import subprocess
 import hashlib
 from binascii import hexlify
 
-# Standard HMAC truncation length (bits) for hmac(sha256). Both ends run the
-# kernel so this only has to be self-consistent.
-AUTH_TRUNC_BITS = 128
+# ESP suites we can install in the kernel, keyed by their RFC 7402 ESP_TRANSFORM
+# suite ID. The table is small and explicit on purpose.
+#
+# There are two shapes:
+#   "cbc"  -- a block cipher plus a separate HMAC for authentication
+#             (ip xfrm ... enc <cipher> <key> auth-trunc <hmac> <key> <bits>)
+#   "aead" -- one combined algorithm that encrypts and authenticates at once
+#             (ip xfrm ... aead <alg> <key+salt> <icv_bits>)
+#
+# Key and salt lengths are in bytes; trunc/ICV lengths are in bits.
+TRANSFORMS = {
+    # AES-128-CBC with HMAC-SHA-256 -- RFC 7402 suite 8 (0x08).
+    0x8: {
+        "kind": "cbc",
+        "enc": "cbc(aes)",      "enc_key_len": 16,
+        "auth": "hmac(sha256)", "auth_key_len": 32, "trunc_bits": 128,
+    },
+    # AES-256-CBC with HMAC-SHA-256 -- RFC 7402 suite 9 (0x09).
+    0x9: {
+        "kind": "cbc",
+        "enc": "cbc(aes)",      "enc_key_len": 32,
+        "auth": "hmac(sha256)", "auth_key_len": 32, "trunc_bits": 128,
+    },
+    # AES-GCM with an 8-octet ICV -- RFC 7402 suite 12 (0x0c), see RFC 4106.
+    # AEAD: one AES-128 key plus a 4-byte salt, and a 64-bit (8-octet) tag.
+    0xc: {
+        "kind": "aead",
+        "aead": "rfc4106(gcm(aes))", "enc_key_len": 16,
+        "salt_len": 4, "icv_bits": 64,
+    },
+}
 
-# cbc(aes) is the only ESP cipher we support in kernel mode (HIP transform
-# 0x8 = AES-128-CBC, 0x9 = AES-256-CBC, both HMAC-SHA-256).
-ENC_ALG_NAME  = "cbc(aes)"
-AUTH_ALG_NAME = "hmac(sha256)"
+
+def select_transform(supported_suits):
+    """
+    Pick the ESP suite the kernel data plane will use: the largest suite ID in
+    the configured list that we actually know how to install (see TRANSFORMS).
+    Both PEs share the same config, so each one picks the same suite on its own.
+    Returns the suite ID, or None if nothing in the list is supported.
+    """
+    usable = [s for s in supported_suits if s in TRANSFORMS]
+    return max(usable) if usable else None
 
 
 def _run(cmd, check=False):
@@ -113,21 +147,35 @@ def derive_spis(keymat):
     return (spi_s2l, spi_l2s)
 
 
-def install_state(src_ip, dst_ip, spi, enc_key, auth_key):
+def install_state(src_ip, dst_ip, spi, transform_id, keys):
     """
-    Install (replace) a single transport-mode ESP XFRM state for traffic
-    src_ip -> dst_ip with the given SPI and keys. enc_key/auth_key are bytes.
+    Install (replace) one transport-mode ESP XFRM state for traffic
+    src_ip -> dst_ip with the given SPI, using the algorithm of transform_id
+    (see TRANSFORMS). `keys` holds the raw key bytes for that algorithm:
+      * cbc  -> {"enc": <bytes>, "auth": <bytes>}
+      * aead -> {"key": <bytes>, "salt": <bytes>}
     """
-    enc_hex  = "0x" + hexlify(bytes(enc_key)).decode("ascii")
-    auth_hex = "0x" + hexlify(bytes(auth_key)).decode("ascii")
-    spi_hex  = "0x%08x" % spi
+    spec = TRANSFORMS[transform_id]
+    spi_hex = "0x%08x" % spi
+
+    # Build the algorithm part of the command, and a short line for the log.
+    if spec["kind"] == "cbc":
+        enc_hex  = "0x" + hexlify(bytes(keys["enc"])).decode("ascii")
+        auth_hex = "0x" + hexlify(bytes(keys["auth"])).decode("ascii")
+        algo = ["enc", spec["enc"], enc_hex,
+                "auth-trunc", spec["auth"], auth_hex, str(spec["trunc_bits"])]
+        descr = "enc=%s auth=%s" % (spec["enc"], spec["auth"])
+    else:
+        # AEAD (e.g. GCM): the kernel wants the key and salt as one blob,
+        # and the ICV (tag) length in bits.
+        blob = "0x" + hexlify(bytes(keys["key"]) + bytes(keys["salt"])).decode("ascii")
+        algo = ["aead", spec["aead"], blob, str(spec["icv_bits"])]
+        descr = "aead=%s icv=%d" % (spec["aead"], spec["icv_bits"])
 
     # Sanity log: exactly what is being pushed into the kernel.
-    _slog = logging.getLogger("hipvpls")
-    _slog.setLevel(logging.INFO)
-    _slog.info("xfrm state -> src=%s dst=%s spi=%s mode=transport enc=cbc(aes) "
-               "enc_key=%s auth=hmac(sha256) auth_key=%s",
-               src_ip, dst_ip, spi_hex, enc_hex, auth_hex)
+    logging.getLogger("hipvpls").info(
+        "xfrm state -> src=%s dst=%s spi=%s mode=transport suite=0x%x %s",
+        src_ip, dst_ip, spi_hex, transform_id, descr)
 
     # Remove any stale state with the same selector first (re-keying / re-BEX).
     _run(["ip", "xfrm", "state", "deleteall",
@@ -139,8 +187,7 @@ def install_state(src_ip, dst_ip, spi, enc_key, auth_key):
         "proto", "esp", "spi", spi_hex,
         "mode", "transport",
         "reqid", "0",
-        "enc", ENC_ALG_NAME, enc_hex,
-        "auth-trunc", AUTH_ALG_NAME, auth_hex, str(AUTH_TRUNC_BITS),
+    ] + algo + [
         "sel", "src", src_ip, "dst", dst_ip,
     ], check=True)
 
