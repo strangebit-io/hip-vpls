@@ -44,7 +44,7 @@ config = {
 		# is the RFC-mandatory suite and must stay in the list. In kernel mode
 		# the data plane picks the largest suite it can install (see
 		# xfrm.TRANSFORMS); GCM (0xc) is kernel-only.
-		"supported_esp_transform_suits": [0x9, 0x7, 0x8, 0xc]  # NULL+SHA256 (0x7), AES-128-CBC+SHA256 (0x8), AES-256-CBC+SHA256 (0x9), AES-GCM-8 / suite 12 (0xc)
+		"supported_esp_transform_suits": [0x9, 0x7, 0x8, 0xc] # NULL+SHA256 (0x7), AES-128-CBC+SHA256 (0x8), AES-256-CBC+SHA256 (0x9), AES-GCM-8 (0xc)- (ONLY WITH KERNEL DATA PLANE)
 	},
 	"resolver": {
 		"hosts_file": "hiplib/config/hosts",

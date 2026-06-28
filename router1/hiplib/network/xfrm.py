@@ -55,6 +55,15 @@ from binascii import hexlify
 #
 # Key and salt lengths are in bytes; trunc/ICV lengths are in bits.
 TRANSFORMS = {
+    # NULL encryption with HMAC-SHA-256 -- RFC 7402 suite 7 (0x07).
+    # ESP here only authenticates the traffic; it does NOT encrypt it
+    # (cipher_null takes a zero-length key). Keep it for RFC parity / debugging;
+    # use 0x8, 0x9 or 0xc when you actually want confidentiality.
+    0x7: {
+        "kind": "cbc",
+        "enc": "ecb(cipher_null)", "enc_key_len": 0,
+        "auth": "hmac(sha256)", "auth_key_len": 32, "trunc_bits": 128,
+    },
     # AES-128-CBC with HMAC-SHA-256 -- RFC 7402 suite 8 (0x08).
     0x8: {
         "kind": "cbc",
@@ -160,7 +169,11 @@ def install_state(src_ip, dst_ip, spi, transform_id, keys):
 
     # Build the algorithm part of the command, and a short line for the log.
     if spec["kind"] == "cbc":
-        enc_hex  = "0x" + hexlify(bytes(keys["enc"])).decode("ascii")
+        enc_key  = bytes(keys["enc"])
+        # NULL encryption (cipher_null, suite 0x7) uses a zero-length key. The
+        # kernel wants that key as an empty string; passing "0x" makes it reject
+        # the SA with EINVAL. Real ciphers always have a non-empty key.
+        enc_hex  = ("0x" + hexlify(enc_key).decode("ascii")) if enc_key else ""
         auth_hex = "0x" + hexlify(bytes(keys["auth"])).decode("ascii")
         algo = ["enc", spec["enc"], enc_hex,
                 "auth-trunc", spec["auth"], auth_hex, str(spec["trunc_bits"])]
