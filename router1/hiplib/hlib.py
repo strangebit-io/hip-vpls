@@ -3574,6 +3574,9 @@ class HIPLib():
         return response
 
     def _clear_state(self, sv):
+        """
+        Clears HIP-VPLS state variables 
+        """
         try:
             self.spi_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
                 Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
@@ -3604,9 +3607,13 @@ class HIPLib():
                 Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
             self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
                 Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
-            self.hi_param_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+            self.key_info_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
                 Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
-            self.hi_param_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+            self.key_info_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            self.pubkey_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.pubkey_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
                 Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
         except Exception as e:
             logging.critical(f"Exception occured while cleaning the state: {str(e)}")
