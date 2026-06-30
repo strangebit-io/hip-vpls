@@ -903,6 +903,7 @@ class HIPLib():
                     logging.critical("Maximum time to solve the puzzle exceeded. Dropping the packet...");
                     # Abandon the BEX
                     hip_state.unassociated();
+                    self.self._clear_state(sv)
                     return [];
 
                 buf = bytearray([]);
@@ -2741,6 +2742,7 @@ class HIPLib():
                 if hip_state.is_closing() or hip_state.is_closed():
                     logging.debug("Moving to unassociated state...");
                     hip_state.unassociated();
+                    self._clear_state(sv)
             return response;
         except Exception as e:
             # We need more inteligent handling of exceptions here
@@ -3558,14 +3560,61 @@ class HIPLib():
                 else:
                     logging.debug("Transitioning to UNASSOCIATED state....")
                     hip_state.unassociated();
+                    self._clear_state(sv)
             elif hip_state.is_closed():
                 if sv.closed_timeout <= time.time():
                     logging.debug("Transitioning to UNASSOCIATED state....")
                     hip_state.unassociated();
+                    self._clear_state(sv)
             elif hip_state.is_failed():
                 if sv.failed_timeout <= time.time():
                     logging.debug("Transitioning to UNASSOCIATED state...");
                     hip_state.unassociated();
+                    self._clear_state(sv)
         return response
 
+    def _clear_state(self, sv):
+        """
+        Clears HIP-VPLS state variables 
+        """
+        try:
+            self.spi_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
+            self.spi_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
+            self.keymat_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
+            self.keymat_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
+            self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            for key in self.dh_storage.keys():
+                self.dh_storage[key].save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
+                    Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
+                self.dh_storage[key].save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
+                    Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
+            self.hi_param_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.hi_param_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            self.esp_transform_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.esp_transform_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            self.key_info_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.key_info_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+            self.pubkey_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+            self.pubkey_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+        except Exception as e:
+            logging.critical(f"Exception occured while cleaning the state: {str(e)}")
 
