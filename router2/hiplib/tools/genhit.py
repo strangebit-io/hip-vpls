@@ -70,7 +70,7 @@ class HITGenerator():
             self.privkey = ECDSAPrivateKey.load_pem(self.config["security"]["private_key"]);
             self.hi = ECDSAHostID(self.pubkey.get_curve_id(), self.pubkey.get_x(), self.pubkey.get_y());
             self.ipv6_address = HIT.get_hex_formated(self.hi.to_byte_array(), HIT.SHA384_OGA);
-            own_hit = HIT.get(self.hi.to_byte_array(), HIT.SHA384_OGA);
+            self.own_hit = HIT.get(self.hi.to_byte_array(), HIT.SHA384_OGA);
             #logging.debug("Responder's OGA ID %d" % (HIT.SHA384_OGA));
             #logging.debug(list(self.hi.to_byte_array()));
             #logging.debug(list(own_hit))
