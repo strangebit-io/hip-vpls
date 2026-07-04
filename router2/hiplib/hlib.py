@@ -3587,34 +3587,34 @@ class HIPLib():
             self.keymat_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
                 Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
             for key in self.dh_storage.keys():
                 self.dh_storage[key].save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit), 
                     Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
                 self.dh_storage[key].save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit), 
                     Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.hi_param_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.hi_param_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
             self.esp_transform_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.esp_transform_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
             self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.cipher_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
             self.key_info_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.key_info_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
             self.pubkey_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.rhit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.ihit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.ihit), None);
             self.pubkey_storage.save(Utils.ipv6_bytes_to_hex_formatted(sv.ihit),
-                Utils.ipv6_bytes_to_hex_formatted(sv.rhit));
+                Utils.ipv6_bytes_to_hex_formatted(sv.rhit), None);
         except Exception as e:
             logging.critical(f"Exception occured while cleaning the state: {str(e)}")
 
