@@ -450,41 +450,31 @@ class HIPLib():
 
                 sv = None
                 
+
                 if Utils.is_hit_smaller(rhit, ihit):
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit))
-                    
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
-                     
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            sv)
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(ihit)
                 else:
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit))
-                            
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            sv)
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(ihit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+
+                # Retrieve or create the state variables
+                sv = self.state_variables.get(key1, key2)
+
+                if sv is None:
+                    sv = HIPState.StateVariables(
+                        hip_state.get_state(),
+                        ihit,
+                        rhit,
+                        dst,
+                        src
+                    )
+                    self.state_variables.save(key1, key2, sv)
+
+                sv.state = hip_state.get_state()
+                sv.is_responder = True
+                sv.ihit = ihit
+                sv.rhit = rhit
 
                 # Check the state of the HIP protocol
                 # R1 packet should be constructed only 
@@ -688,40 +678,30 @@ class HIPLib():
                     return [];
 
                 if Utils.is_hit_smaller(rhit, ihit):
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit))
-                    
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), rhit, ihit, dst, src)
-                     
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            sv)
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(ihit)
                 else:
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit))
-                            
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), rhit, ihit, dst, src)
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            sv)
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(ihit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+
+                # Retrieve or create the state variables
+                sv = self.state_variables.get(key1, key2)
+
+                if sv is None:
+                    sv = HIPState.StateVariables(
+                        hip_state.get_state(),
+                        rhit,
+                        ihit,
+                        dst,
+                        src
+                    )
+                    self.state_variables.save(key1, key2, sv)
+
+                sv.state = hip_state.get_state()
+                sv.is_responder = False
+                sv.ihit = rhit
+                sv.rhit = ihit
+                
                 oga = HIT.get_responders_oga_id(ihit);
                 
 
@@ -1312,42 +1292,30 @@ class HIPLib():
                 if hip_state.is_i2_sent() and Utils.is_hit_smaller(rhit, ihit):
                     logging.debug("Staying in I2-SENT state. Dropping the packet...");
                     return [];
-            
+
                 if Utils.is_hit_smaller(rhit, ihit):
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit))
-                    
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
-                     
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            sv)
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(ihit)
                 else:
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit))
-                            
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), ihit, rhit, dst, src)
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            sv)
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = True;
-                        sv.ihit = ihit;
-                        sv.rhit = rhit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(ihit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+
+                sv = self.state_variables.get(key1, key2)
+
+                if sv is None:
+                    sv = HIPState.StateVariables(
+                        hip_state.get_state(),
+                        rhit,
+                        ihit,
+                        dst,
+                        src
+                    )
+                    self.state_variables.save(key1, key2, sv)
+
+                sv.state = hip_state.get_state()
+                sv.is_responder = True
+                sv.ihit = ihit
+                sv.rhit = rhit
 
                 solution_param      = None;
                 r1_counter_param    = None;
@@ -1917,40 +1885,28 @@ class HIPLib():
                     return [];
 
                 if Utils.is_hit_smaller(rhit, ihit):
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit))
-                    
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), rhit, ihit, dst, src)
-                     
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            sv)
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(ihit)
                 else:
-                    sv = self.state_variables.get(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit))
-                            
-                    if not sv:
-                        sv = HIPState.StateVariables(hip_state.get_state(), rhit, ihit, dst, src)
-                        self.state_variables.save(Utils.ipv6_bytes_to_hex_formatted(ihit),
-                            Utils.ipv6_bytes_to_hex_formatted(rhit),
-                            sv)
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
-                    else:
-                        sv.state = hip_state.get_state()
-                        sv.is_responder = False;
-                        sv.ihit = rhit;
-                        sv.rhit = ihit;
+                    key1 = Utils.ipv6_bytes_to_hex_formatted(ihit)
+                    key2 = Utils.ipv6_bytes_to_hex_formatted(rhit)
+
+                sv = self.state_variables.get(key1, key2)
+
+                if sv is None:
+                    sv = HIPState.StateVariables(
+                        hip_state.get_state(),
+                        rhit,
+                        ihit,
+                        dst,
+                        src
+                    )
+                    self.state_variables.save(key1, key2, sv)
+
+                sv.state = hip_state.get_state()
+                sv.is_responder = False
+                sv.ihit = rhit
+                sv.rhit = ihit
                 
                 st = time.time();
 
@@ -2087,27 +2043,13 @@ class HIPLib():
                 logging.debug("DERIVING KEYS")
                 logging.debug(keymat)
 
-                # Incomming SA (IPa, IPb)
-                # R2 PACKET
-                # Initiator
-                # OUT DIRECTION (IHIT - sender, RHIT - OWN)
-                # If OWN HIT is larger then we SHOULD use the first key 
-                #if Utils.is_hit_smaller(ihit, rhit):
                 (cipher_key, hmac_key) = Utils.get_keys_esp(
                     keymat,
                     keymat_index, 
                     hmac.ALG_ID, 
                     cipher.ALG_ID,
                     rhit, ihit);
-                # If OWN HIT is smaller we should use the second key
-                """else:
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat, 
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID, 
-                        rhit, ihit);
-                """
+                
                 logging.debug(" DERVIVING KEYS OUT R2")
                 logging.debug(hexlify(hmac_key))
                 logging.debug(hexlify(cipher_key))
@@ -2134,25 +2076,6 @@ class HIPLib():
                     cipher.ALG_ID, 
                     ihit, rhit);
                 
-                # If OWN HIT is smaller then we SHOULD use the first key 
-                # THen we should pass the larger (or own) HIT first
-                """if Utils.is_hit_smaller(rhit, ihit):
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat,
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID,
-                        ihit, rhit);
-                # If OWN HIT is larger we should use the second key
-                # THen we should pass the larger (or own) HIT also first
-                else:
-                    (cipher_key, hmac_key) = Utils.get_keys_esp(
-                        keymat, 
-                        keymat_index, 
-                        hmac.ALG_ID, 
-                        cipher.ALG_ID, 
-                        ihit, rhit);
-                """
                 logging.debug(" DERVIVING KEYS IN R2")
                 logging.debug(hexlify(hmac_key))
                 logging.debug(hexlify(cipher_key))
